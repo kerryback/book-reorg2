@@ -62,7 +62,9 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(source:*)",
-      "Bash(git init:*)"
+      "Bash(git init:*)",
+      "WebSearch",
+      "WebFetch(domain:quarto.org)"
     ],
     "deny": []
   }
