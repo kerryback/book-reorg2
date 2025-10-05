@@ -42,3 +42,17 @@ figure > figcaption,
 .code-caption {
   text-align: left !important;
 }
+
+/* Hide the book title on the index/home page */
+#quarto-document-content > header > h1.title {
+  display: none !important;
+}
+
+/* Alternative selectors for hiding title */
+.quarto-title-block .title {
+  display: none !important;
+}
+
+header#title-block-header h1.title {
+  display: none !important;
+}

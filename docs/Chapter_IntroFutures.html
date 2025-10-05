@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Futures Markets – Pricing and Hedging Derivative Securities</title>
+<title>4&nbsp; Futures Markets – Pricing and Hedging Derivative Securities</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -135,6 +135,18 @@ require(['plotly'], function(Plotly) {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
+div.callout-Rule.callout {
+  border-left-color: #12801f;
+}
+div.callout-Rule.callout-style-default > .callout-header {
+  background-color: rgba(18, 128, 31, 0.13);
+}
+div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f164';
+  background-image: none;
+}
 div.callout-Example.callout {
   border-left-color: #a1bced;
 }
@@ -169,18 +181,6 @@ div.callout-Extra .callout-toggle::before {  background-image: url('data:image/s
 div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f48b';
-  background-image: none;
-}
-div.callout-Rule.callout {
-  border-left-color: #12801f;
-}
-div.callout-Rule.callout-style-default > .callout-header {
-  background-color: rgba(18, 128, 31, 0.13);
-}
-div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f164';
   background-image: none;
 }
 </style>
@@ -388,7 +388,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_IntroDerivatives.html">Part 1: Introduction</a></li><li class="breadcrumb-item"><a href="./Chapter_IntroFutures.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Futures Markets</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_IntroDerivatives.html">Part 1: Introduction</a></li><li class="breadcrumb-item"><a href="./Chapter_IntroFutures.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Futures Markets</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -426,7 +426,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -441,25 +441,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_IntroDerivatives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Derivative Securities</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Derivative Securities</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_IntroOptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Options Markets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Options Markets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_IntroFutures.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Futures Markets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Futures Markets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_Trees.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Binomial Trees</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Binomial Trees</span></span></a>
   </div>
 </li>
       </ul>
@@ -476,19 +476,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_BrownianMotion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Brownian Motion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Brownian Motion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_Ito.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Ito Processes and Ito’s Formula</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ito Processes and Ito’s Formula</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_GeometricBrownianMotion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Geometric Brownian Motion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Geometric Brownian Motion</span></span></a>
   </div>
 </li>
       </ul>
@@ -505,31 +505,31 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_ArbitragePricing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_BlackScholes_updated.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The Black-Scholes Formula</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Black-Scholes Formula</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_MertonMargrabeBlack.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merton, Black, and Margrabe</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Merton, Black, and Margrabe</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_Asians.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Asians, Baskets, and Spreads</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Asians, Baskets, and Spreads</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_OtherExotics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Other Exotics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Other Exotics</span></span></a>
   </div>
 </li>
       </ul>
@@ -546,13 +546,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_MonteCarlo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Monte Carlo Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Monte Carlo Methods</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_BinomialModel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Binomial and Trinomial Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Binomial and Trinomial Models</span></span></a>
   </div>
 </li>
       </ul>
@@ -564,7 +564,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_IntroDerivatives.html">Part 1: Introduction</a></li><li class="breadcrumb-item"><a href="./Chapter_IntroFutures.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Futures Markets</span></a></li></ol></nav><h1 class="title display-7"><span id="sec-c:futures" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Futures Markets</span></span></h1></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_IntroDerivatives.html">Part 1: Introduction</a></li><li class="breadcrumb-item"><a href="./Chapter_IntroFutures.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Futures Markets</span></a></li></ol></nav><h1 class="title display-7"><span id="sec-c:futures" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Futures Markets</span></span></h1></header>
 
 
 <header id="title-block-header">
@@ -586,8 +586,8 @@ window.Quarto = {
 <p>The delivery terms on futures contracts are standardized and specified by the exchange. The exchange designates a delivery location and a delivery date. The exchange also specifies the quantity and quality of the underlying asset that must be delivered. For some contracts, different qualities can be delivered, and there are specifications for price adjustments based on the quality. The specification of the <a href="https://www.cmegroup.com/markets/agriculture/grains/corn.contractSpecs.html">corn futures contract on the CME</a> gives a good sense for how this works.</p>
 <p>Some futures contracts are <strong>cash settled</strong>. For such contracts, there are no provisions for physical delivery. Instead, contracts that are held to expiration are settled based a formula tied to an underlying asset at the time of expiration. For example, the <a href="https://www.cmegroup.com/markets/equities/sp/e-mini-sandp500.contractSpecs.html">e-mini S&amp;P 500 futures contract at the CME</a> is cash settled. The contract is settled based on the value of the S&amp;P 500 index at the time of expiration. This eliminates the need to deliver or receive delivery of the 500 stocks that make up the index. The “quantity” specification for cash settled contracts is a <strong>multiplier</strong> that determines the dollar value of a contract. The e-mini S&amp;P 500 contract has a multiplier of 50 dollars per unit of the index.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> If someone buys a contract at a futures price of 6000 and holds to expiration and the index is at 6500 on the expiration date, then that trader makes 50 <span class="math inline">\(\,\times\,\)</span> (6500 - 6000) <span class="math inline">\(\,=\,\)</span> 250,000 dollars profit on the trade.</p>
 <p>Futures contracts in the modern sense began trading in the United States in 1851, but cash-settled contracts did not begin trading until 1981.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Part of the complication with introducing cash-settled contracts is that they blur the line between trading and gambling. The buyer and seller of an S&amp;P 500 futures contract are clearly betting on how the S&amp;P 500 index will perform. The buyer wins if the index finishes above the futures price, and the seller wins otherwise. There are other cash settled contracts that do not even involve an underlying asset. For example, there are weather contracts that are cash settled based on the number of heating degree days in a particular time frame. The distinction that has been drawn between legal trading of cash-settled futures contracts and possibly illegal gambling is that futures contracts must satisfy legitimate risk-management needs for some market participants. For example, an equity fund manager who wants to reduce her stock market exposure at a minimal trading cost can sell S&amp;P 500 futures contracts to hedge the fund’s stock portfolio.</p>
-<section id="margin-and-marking-to-market" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="margin-and-marking-to-market"><span class="header-section-number">3.1</span> Margin and Marking to Market</h2>
+<section id="margin-and-marking-to-market" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="margin-and-marking-to-market"><span class="header-section-number">4.1</span> Margin and Marking to Market</h2>
 <p>One of the most distinctive features of futures trading is the <strong>daily settlement</strong> or <strong>marking to market</strong> process. This mechanism virtually eliminates counterparty risk and enables leverage while maintaining market integrity.</p>
 <section id="the-daily-settlement-process" class="level4">
 <h4 class="anchored" data-anchor-id="the-daily-settlement-process">The Daily Settlement Process</h4>
@@ -606,16 +606,16 @@ window.Quarto = {
 <p>Trading a futures contract with 10% margin means being levered 10 to 1. If the futures price moves 1% against the trader, the trader will lose 10% of the margin deposit. If the futures price moves 1% in favor of the trader, the trader will gain 10% of the margin deposit. These high leverage ratios are feasible because of the marking to market process.</p>
 </section>
 </section>
-<section id="the-expectations-hypothesis" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="the-expectations-hypothesis"><span class="header-section-number">3.2</span> The Expectations Hypothesis</h2>
+<section id="the-expectations-hypothesis" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="the-expectations-hypothesis"><span class="header-section-number">4.2</span> The Expectations Hypothesis</h2>
 <p>The expectations hypothesis states that futures prices represent the market’s unbiased expectation of future spot prices. This is a simple theory of the determination of futures prices and provides a convenient way to infer investors’ beliefs about the future from currently observable prices.</p>
 <p>The motivation for the hypothesis is the idea that, if the futures price were lower than the expected spot price, then traders “should” buy the futures contract and plan to sell the spot asset when delivered on the futures at maturity. This strategy has a positive expected profit when the futures price is lower than the expected spot price. This buying activity should drive up the price of the futures contract, until it converges to the expected spot price. Symmetrically, investors “should” sell the futures if its price is above the expected spot price, planning to buy the spot asset at the futures maturity to cover the delivery obligation on the futures, and this selling activity should cause the futures price to fall, until it converges to the expected spot price. Thus, in equilibrium, futures prices “should” equal the expected spot price.</p>
 <p>All of the quotation marks around “should” in the previous paragraph reflect the fact that the theory presumes risk neutrality on the part of a large enough group of investors to move the futures price to the expected spot price. If investors are risk averse, then they may buy a limited quantity of the futures when its price is low relative to the expected spot price and sell a limited quantity of the futures when its price is high relative to the expected spot price, generating an expected profit as described in the previous paragraph. However, risk averse investors will weigh the expected profit against the risk, considering their other investments as well, and only allocate a limited amount of capital to the bet. This amount of capital may not be enough to move the futures price fully to the expected spot price. Empirically, futures prices seem to frequently deviate from expected spot prices in significant ways.</p>
 <p>From the general theory of asset pricing, which is developed in this book, the difference between the futures price and the expected spot price depends on the covariance of the spot price with market risk factors. For example, the Capital Asset Pricing Model asserts that it depends on the covariance of the spot price with the aggregate market return.</p>
 <p>Despite the presence of a risk premium, the expectations of traders regarding future spot prices are undoubtedly a prime determinant of futures prices. They are also a prime determinant of today’s spot prices. The linkage between today’s spot price and today’s futures prices is known as <strong>spot-futures parity</strong>.</p>
 </section>
-<section id="spot-futures-parity" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="spot-futures-parity"><span class="header-section-number">3.3</span> Spot-Futures Parity</h2>
+<section id="spot-futures-parity" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="spot-futures-parity"><span class="header-section-number">4.3</span> Spot-Futures Parity</h2>
 <p>In contrast to the expectations hypothesis, which predicts a relationship between today’s futures price and the expected future spot price, spot-futures parity is a relationship between today’s futures price and today’s spot price. The foundation for spot-futures parity is arbitrage activity (making riskless profits) rather than making positive expected return but risky investments (as for the expectations hypothesis). The arbitrage involves either (i) buying the spot asset and simultaneously selling a futures contract, or (ii) borrowing and selling the spot asset and simultaneously buying a futures contract. The exact relationship between the spot and futures price depends on the differences between holding the underlying asset and being long a futures contract. There are four potential differences, which are normally grouped into two categories.</p>
 <ul>
 <li><em>Cost of carry</em>: The cost of carry is the cost of holding the underlying asset over a period of time. There are no costs of owning a futures contract (ignoring the margin account).
@@ -654,10 +654,10 @@ window.Quarto = {
 <section id="forward-curves" class="level4">
 <h4 class="anchored" data-anchor-id="forward-curves">Forward Curves</h4>
 <p>The relationship between the contract maturity and the futures price is known as the <strong>forward curve</strong>. The spot-futures parity formula tells us that the futures price should depend on the contract maturity <span class="math inline">\(T\)</span> based on the factor <span class="math inline">\(\mathrm{e}^{(c-y)T}\)</span>.</p>
-<p>Gold is an asset that has negligible storage costs, does not pay dividends, and has no other forms of convenience yield. Thus, <span class="math inline">\(c-y\)</span> for gold is just the risk-free interest rate <span class="math inline">\(r\)</span>. Consequently, spot-futures parity for gold states that gold futures prices are higher than spot prices and increase with maturity. <a href="#fig-forward1" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> presents the gold forward curve at a single point in time. The upward slope reflects the fact that the future value factor <span class="math inline">\(\mathrm{e}^{rT}\)</span> is larger for larger <span class="math inline">\(T\)</span>.</p>
+<p>Gold is an asset that has negligible storage costs, does not pay dividends, and has no other forms of convenience yield. Thus, <span class="math inline">\(c-y\)</span> for gold is just the risk-free interest rate <span class="math inline">\(r\)</span>. Consequently, spot-futures parity for gold states that gold futures prices are higher than spot prices and increase with maturity. <a href="#fig-forward1" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> presents the gold forward curve at a single point in time. The upward slope reflects the fact that the future value factor <span class="math inline">\(\mathrm{e}^{rT}\)</span> is larger for larger <span class="math inline">\(T\)</span>.</p>
 <p>For financial assets, such as stock portfolios, the only cost of carry is the interest rate, and the only convenience yield is the dividend yield. Consequently, in the spot-futures parity formula for financial assets, <span class="math inline">\(c=r\)</span> and <span class="math inline">\(r-y\)</span> is the difference between the interest rate and the dividend yield.<br>
 Whether <span class="math inline">\(r-y\)</span> is positive or negative determines whether futures prices are higher than spot prices (and increase with maturity) or whether the opposite is true.</p>
-<p>For currency futures, the dividend yield (by which we mean in general the cash flow earned from holding the underlying asset) is the interest rate that can be earned by investing the currency. Thus, for currency futures, <span class="math inline">\(c-y=r-r_f\)</span>, where <span class="math inline">\(r_f\)</span> is the foreign interest rate. <a href="#fig-forward1" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> presents the forward curves for the Japanese yen and Mexican peso at a single date. On that date, the dollar interest rate was higher than the yen interest rate - so <span class="math inline">\(c-y&gt;0\)</span> and the forward curve was upward sloping - and lower than the peso interest rate - so <span class="math inline">\(c-y&lt;0\)</span> and the forward curve was downward sloping. <a href="#fig-forward1" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> also presents the forward curve for S&amp;P 500 futures at a time when interest rates were lower than the dividend yields on stock, so <span class="math inline">\(c-y&lt;0\)</span> and the forward curve was downward sloping. When interest rates are higher, the S&amp;P 500 forward curve is upward sloping.</p>
+<p>For currency futures, the dividend yield (by which we mean in general the cash flow earned from holding the underlying asset) is the interest rate that can be earned by investing the currency. Thus, for currency futures, <span class="math inline">\(c-y=r-r_f\)</span>, where <span class="math inline">\(r_f\)</span> is the foreign interest rate. <a href="#fig-forward1" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> presents the forward curves for the Japanese yen and Mexican peso at a single date. On that date, the dollar interest rate was higher than the yen interest rate - so <span class="math inline">\(c-y&gt;0\)</span> and the forward curve was upward sloping - and lower than the peso interest rate - so <span class="math inline">\(c-y&lt;0\)</span> and the forward curve was downward sloping. <a href="#fig-forward1" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> also presents the forward curve for S&amp;P 500 futures at a time when interest rates were lower than the dividend yields on stock, so <span class="math inline">\(c-y&lt;0\)</span> and the forward curve was downward sloping. When interest rates are higher, the S&amp;P 500 forward curve is upward sloping.</p>
 <div id="cell-fig-forward1" class="cell" data-fig-height="600" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
@@ -784,7 +784,7 @@ if (outputEl) {{
                         })                };                });            </script>        </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forward1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.1: Forward curves for CME futures contracts on the dates specified.
+Figure&nbsp;4.1: Forward curves for CME futures contracts on the dates specified.
 </figcaption>
 </figure>
 </div>
@@ -793,10 +793,10 @@ Figure&nbsp;3.1: Forward curves for CME futures contracts on the dates specified
 <section id="commodities" class="level4">
 <h4 class="anchored" data-anchor-id="commodities">Commodities</h4>
 <p>Spot-futures parity for commodities is more complex than for financial assets, because of storage costs and convenience yields. Because the convenience yield by definition is never negative, the spot-futures parity formula gives us <span class="math inline">\(F \leq  \mathrm{e}^{rT}S\)</span>, where, for commodities, <span class="math inline">\(c\)</span> is the interest rate plus the storage cost rate. The difference between the futures price <span class="math inline">\(F\)</span> and <span class="math inline">\(\mathrm{e}^{rT}S\)</span> depends on the convenience yield <span class="math inline">\(y\)</span> and the contract maturity <span class="math inline">\(T\)</span>. We generally have no direct measure of the convenience yield except for this difference, so the spot-futures parity formula for commodities, while true and a useful concept, may have little predictive power. An additional complication is that storage costs are very high for some commodities, such as electricity and natural gas, which can make the upper bound <span class="math inline">\(F \leq \mathrm{e}^{rT}S\)</span> nearly meaningless.</p>
-<p>As a result of these factors, forward curves for commodities are in general more complex than forward curves for financial assets. <a href="#fig-forward2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> presents forward curves for crude oil, natural gas, and corn at various dates. April 20, 2020 is the day that crude famously “went negative.” This was at the onset of the coronavirus crisis, when demand had plummeted, and storage facilities at Cushing, Oklahoma (the delivery point for the CME WTI contract) were full. Some traders were willing to pay others to get out of their obligations to accept delivery in Cushing – they sold their oil at a negative price!. To connect to our discussion, note that the extremely large positive slope of the forward curve means that <span class="math inline">\(c-y\)</span> must be extremely large. This was true because storage costs were extremely high and the convenience yield was zero.</p>
-<p>The crude oil forward curve was steeply downward sloping in March 2022 following the Russian invasion of Ukraine, as seen in <a href="#fig-forward2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. This means that <span class="math inline">\(c-y&lt;0\)</span> and large in absolute value. We can attribute this to a high convenience yield of being in possession of oil at a time when future supplies were very uncertain.</p>
-<p>The forward curve for natural gas is always cyclical as seen in <a href="#fig-forward2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. The initial upward sloping section in that figure reflects the high storage cost of natural gas (that is, a high <span class="math inline">\(c\)</span>) The “buy spot, sell futures” arbitrage strategy described above is not an arbitrage here, because of the high storage cost of holding natural gas from summer to winter. The downward sloping segment from winter to summer reflects the high convenience yield of owning natural gas in the winter when demand and spot market prices are high. The overall slope of the natural gas forward curve in <a href="#fig-forward2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> is downward, but that varies over time, depending on the convenience yield of owning natural gas at the time of the futures trading; that is, it depends on supply and demand conditions in the spot market.</p>
-<p>The corn forward curve also has a cyclical pattern, as seen in <a href="#fig-forward2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. The cyclical pattern is a consequence of cyclicality in the convenience yield and storage costs of corn. The convenience yield is highest in the summer before harvest, when corn is relatively scarce, and storage costs are highest after harvest, when silos are relatively full. As is the case with natural gas, the overall slope of the forward curve for corn depends on demand and supply conditions in the spot market at the time of the futures trading.</p>
+<p>As a result of these factors, forward curves for commodities are in general more complex than forward curves for financial assets. <a href="#fig-forward2" class="quarto-xref">Figure&nbsp;<span>4.2</span></a> presents forward curves for crude oil, natural gas, and corn at various dates. April 20, 2020 is the day that crude famously “went negative.” This was at the onset of the coronavirus crisis, when demand had plummeted, and storage facilities at Cushing, Oklahoma (the delivery point for the CME WTI contract) were full. Some traders were willing to pay others to get out of their obligations to accept delivery in Cushing – they sold their oil at a negative price!. To connect to our discussion, note that the extremely large positive slope of the forward curve means that <span class="math inline">\(c-y\)</span> must be extremely large. This was true because storage costs were extremely high and the convenience yield was zero.</p>
+<p>The crude oil forward curve was steeply downward sloping in March 2022 following the Russian invasion of Ukraine, as seen in <a href="#fig-forward2" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>. This means that <span class="math inline">\(c-y&lt;0\)</span> and large in absolute value. We can attribute this to a high convenience yield of being in possession of oil at a time when future supplies were very uncertain.</p>
+<p>The forward curve for natural gas is always cyclical as seen in <a href="#fig-forward2" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>. The initial upward sloping section in that figure reflects the high storage cost of natural gas (that is, a high <span class="math inline">\(c\)</span>) The “buy spot, sell futures” arbitrage strategy described above is not an arbitrage here, because of the high storage cost of holding natural gas from summer to winter. The downward sloping segment from winter to summer reflects the high convenience yield of owning natural gas in the winter when demand and spot market prices are high. The overall slope of the natural gas forward curve in <a href="#fig-forward2" class="quarto-xref">Figure&nbsp;<span>4.2</span></a> is downward, but that varies over time, depending on the convenience yield of owning natural gas at the time of the futures trading; that is, it depends on supply and demand conditions in the spot market.</p>
+<p>The corn forward curve also has a cyclical pattern, as seen in <a href="#fig-forward2" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>. The cyclical pattern is a consequence of cyclicality in the convenience yield and storage costs of corn. The convenience yield is highest in the summer before harvest, when corn is relatively scarce, and storage costs are highest after harvest, when silos are relatively full. As is the case with natural gas, the overall slope of the forward curve for corn depends on demand and supply conditions in the spot market at the time of the futures trading.</p>
 <div id="cell-fig-forward2" class="cell" data-fig-height="600" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
@@ -902,15 +902,15 @@ if (outputEl) {{
                         })                };                });            </script>        </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forward2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.2: Forward curves for CME futures contracts on the dates specified.
+Figure&nbsp;4.2: Forward curves for CME futures contracts on the dates specified.
 </figcaption>
 </figure>
 </div>
 </div>
 </section>
 </section>
-<section id="options-on-futures" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="options-on-futures"><span class="header-section-number">3.4</span> Options on Futures</h2>
+<section id="options-on-futures" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="options-on-futures"><span class="header-section-number">4.4</span> Options on Futures</h2>
 <p>Many exchanges trade options on futures contracts, creating a derivative on a derivative. A call option on a futures contract is the right to buy the futures contract at the strike. A put option is the right to sell the futures contract at the strike. Compared to trading options on the underlying asset, options on futures benefit from the liquidity of the futures market and the leverage present in futures. Moreover, they allow traders to avoid the issues of physical delivery and storage that are associated with options on the underlying asset.</p>
 <p>Exercise of an option of a futures contract creates a long (for a call) or short (for a put) position in the futures contract for the party that exercises. When an option is exercised, the clearinghouse randomly selects someone who has sold the option and assigns to them the opposite contract: a short (for the seller of a call) or long (for the seller of a put) position in the futures contract. Both parties are immediately marked to market, and there are corresponding cash transfers based on the strike of the futures option and the current market futures price.</p>
 <p>An example should make this clearer. Suppose a trader buys a call option on corn futures with a strike of $5.00 (per bushel). The trader later exercises the option when the corn futures price is $5.50. The trader will be assigned a long futures contract, marked to market at $5.50 and will receive in cash the $0.50 difference between the futures price and the strike price. The option writer who is selected by the clearinghouse will have $0.50 deducted from her margin account and will be assigned a short futures contract at $5.50. If they desire to do so, both the party who exercised and the option writer can trade out of their futures contracts at the market price and walk away with the $0.50 gain or loss and no further obligations.</p>
@@ -1341,12 +1341,12 @@ Figure&nbsp;3.2: Forward curves for CME futures contracts on the dates specified
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Chapter_IntroOptions.html" class="pagination-link" aria-label="Options Markets">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Options Markets</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Options Markets</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Chapter_Trees.html" class="pagination-link" aria-label="Binomial Trees">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Binomial Trees</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Binomial Trees</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
