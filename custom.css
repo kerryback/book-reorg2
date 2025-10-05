@@ -42,3 +42,8 @@ figure > figcaption,
 .code-caption {
   text-align: left !important;
 }
+
+/* Hide the book title text on home page (cover image is shown instead) */
+.quarto-title .title {
+  display: none;
+}
