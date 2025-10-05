@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Arbitrage Pricing – Pricing and Hedging Derivative Securities</title>
+<title>8&nbsp; Arbitrage Pricing – Pricing and Hedging Derivative Securities</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -43,9 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-49f7eefadc7c4beabe8368f9d0ad3bdb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-6e401f40acbf99a0cade6b9465f29ced.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-49f7eefadc7c4beabe8368f9d0ad3bdb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-45de5ea787cff190a632d730191a5db6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8deca16a749a126e590a598812fafdf7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-45de5ea787cff190a632d730191a5db6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -100,18 +100,6 @@ require(['plotly'], function(Plotly) {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
-div.callout-Principle.callout {
-  border-left-color: #eb4034;
-}
-div.callout-Principle.callout-style-default > .callout-header {
-  background-color: rgba(235, 64, 52, 0.13);
-}
-div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f06a';
-  background-image: none;
-}
 div.callout-Extra.callout {
   border-left-color: #a1bced;
 }
@@ -134,6 +122,18 @@ div.callout-Example .callout-toggle::before {  background-image: url('data:image
 div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f185';
+  background-image: none;
+}
+div.callout-Principle.callout {
+  border-left-color: #eb4034;
+}
+div.callout-Principle.callout-style-default > .callout-header {
+  background-color: rgba(235, 64, 52, 0.13);
+}
+div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f06a';
   background-image: none;
 }
 div.callout-Rule.callout {
@@ -180,6 +180,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="custom.css">
 </head>
 
 <body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -353,7 +354,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_ArbitragePricing.html">Part 3: Option Pricing</a></li><li class="breadcrumb-item"><a href="./Chapter_ArbitragePricing.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_ArbitragePricing.html">Part 3: Option Pricing</a></li><li class="breadcrumb-item"><a href="./Chapter_ArbitragePricing.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -391,7 +392,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -406,25 +407,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_IntroDerivatives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Derivative Securities</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Derivative Securities</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_IntroOptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Options Markets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Options Markets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_IntroFutures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Futures Markets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Futures Markets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_Trees.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Binomial Trees</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Binomial Trees</span></span></a>
   </div>
 </li>
       </ul>
@@ -441,19 +442,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_BrownianMotion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Brownian Motion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Brownian Motion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_Ito.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ito Processes and Ito’s Formula</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Ito Processes and Ito’s Formula</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_GeometricBrownianMotion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Geometric Brownian Motion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Geometric Brownian Motion</span></span></a>
   </div>
 </li>
       </ul>
@@ -470,31 +471,31 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_ArbitragePricing.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_BlackScholes_updated.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Black-Scholes Formula</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The Black-Scholes Formula</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_MertonMargrabeBlack.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Merton, Black, and Margrabe</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merton, Black, and Margrabe</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_Asians.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Asians, Baskets, and Spreads</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Asians, Baskets, and Spreads</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_OtherExotics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Other Exotics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Other Exotics</span></span></a>
   </div>
 </li>
       </ul>
@@ -511,13 +512,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_MonteCarlo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Monte Carlo Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Monte Carlo Methods</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_BinomialModel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Binomial and Trinomial Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Binomial and Trinomial Models</span></span></a>
   </div>
 </li>
       </ul>
@@ -529,10 +530,23 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_ArbitragePricing.html">Part 3: Option Pricing</a></li><li class="breadcrumb-item"><a href="./Chapter_ArbitragePricing.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></a></li></ol></nav><h1 class="title display-7"><span id="sec-c:arbitrage_pricing" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></span></h1></header>
+<main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_ArbitragePricing.html">Part 3: Option Pricing</a></li><li class="breadcrumb-item"><a href="./Chapter_ArbitragePricing.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-c:arbitrage_pricing" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
 </header>
@@ -544,8 +558,8 @@ window.Quarto = {
 </div>
 </div>
 <p>This chapter develops the fundamental principles of arbitrage pricing, starting from the concept of linear pricing and building up to continuous-time models with change of numeraire.</p>
-<section id="linear-pricing" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="linear-pricing"><span class="header-section-number">9.1</span> Linear Pricing</h2>
+<section id="linear-pricing" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="linear-pricing"><span class="header-section-number">8.1</span> Linear Pricing</h2>
 <p>The fundamental concept underlying most finance theory, from Miller-Modigliani to the Black-Scholes model, is linear pricing. The concept of linear pricing is essentially the same as asking for the price of five apples and six oranges. Of course, this is the price of one apple times five plus the price of one orange times six. However, instead of pricing bundles of commodities today, we will find prices of dollars in different contingencies at times in the future.</p>
 <p>An arbitrage opportunity is a trading strategy that produces nonnegative cash flows at all times in all contingencies with a strictly positive cash flow at some time in some contingency. If such an opportunity were to exist, traders would exploit it until prices adjust to eliminate the possibility. Although simple, this has powerful implications.</p>
 <p>Consider a world where there are <span class="math inline">\(J\)</span> possible states of the world at time <span class="math inline">\(t\)</span>. No arbitrage then implies the following properties:</p>
@@ -570,8 +584,8 @@ Important Principle
 </div>
 <p>This conclusion generalizes to other models, including models in which the stock price takes a continuum of possible values, interpreting the sum in that case as an integral.</p>
 </section>
-<section id="state-prices-in-the-binomial-model" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="state-prices-in-the-binomial-model"><span class="header-section-number">9.2</span> State Prices in the Binomial Model</h2>
+<section id="state-prices-in-the-binomial-model" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="state-prices-in-the-binomial-model"><span class="header-section-number">8.2</span> State Prices in the Binomial Model</h2>
 <p>In the single-period binomial model with up and down states, we have two equations for the state prices <span class="math inline">\(\pi_u\)</span> and <span class="math inline">\(\pi_d\)</span>:</p>
 <p><span class="math display">\[ 1 = \pi_u e^{rt} + \pi_d e^{rt} \]</span> <span class="math display">\[ S = \pi_u S_u + \pi_d S_d \]</span></p>
 <p>The first equation prices the risk-free asset (invest $1 today, receive <span class="math inline">\(e^{rt}\)</span> in both states). The second prices the stock.</p>
@@ -590,8 +604,8 @@ Important Principle
 <p><span class="math display">\[p_u = \frac{e^{rt} - S_d/S}{S_u/S - S_d/S}\]</span></p>
 </section>
 </section>
-<section id="multiple-states" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="multiple-states"><span class="header-section-number">9.3</span> Multiple States</h2>
+<section id="multiple-states" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="multiple-states"><span class="header-section-number">8.3</span> Multiple States</h2>
 <p>Now consider a market with <span class="math inline">\(J &gt; 2\)</span> possible states at time <span class="math inline">\(t\)</span>. We need to find <span class="math inline">\(J\)</span> state prices <span class="math inline">\(\pi_1, \ldots, \pi_J\)</span>. If we have <span class="math inline">\(J\)</span> traded assets (including the risk-free asset) with linearly independent payoffs, we can solve:</p>
 <p><span class="math display">\[\begin{bmatrix}
 e^{rt} &amp; e^{rt} &amp; \cdots &amp; e^{rt} \\
@@ -611,15 +625,15 @@ S_1^{(J-1)} &amp; S_2^{(J-1)} &amp; \cdots &amp; S_J^{(J-1)}
 <p>The risk-neutral probabilities are <span class="math inline">\(p_j = \pi_j e^{rt}\)</span>, giving:</p>
 <p><span class="math display">\[V = e^{-rt} \sum_{j=1}^J p_j V_j = e^{-rt} \mathbb{E}^p[V_t]\]</span></p>
 </section>
-<section id="martingale-pricing" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="martingale-pricing"><span class="header-section-number">9.4</span> Martingale Pricing</h2>
+<section id="martingale-pricing" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="martingale-pricing"><span class="header-section-number">8.4</span> Martingale Pricing</h2>
 <p>A martingale is a stochastic process for which the expected value of tomorrow’s value is today’s value. In our framework, discounted values of non-dividend paying trading strategies are martingales under the risk-neutral measure.</p>
 <p>If <span class="math inline">\(X(0)\)</span> is today’s value of a portfolio with random payoff <span class="math inline">\(X\)</span> at time <span class="math inline">\(t\)</span>:</p>
 <p><span class="math display">\[\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{e^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]\]</span></p>
 <p>where <span class="math inline">\(R(0) = 1\)</span> and <span class="math inline">\(R_t = e^{rt}\)</span>. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.</p>
 </section>
-<section id="continuous-time" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="continuous-time"><span class="header-section-number">9.5</span> Continuous Time</h2>
+<section id="continuous-time" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="continuous-time"><span class="header-section-number">8.5</span> Continuous Time</h2>
 <p>We now extend to continuous-time models where the stock price can take a continuum of values. The principle becomes:</p>
 <div class="callout callout-style-simple callout-Principle callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -646,8 +660,8 @@ Important Principle
 <p><span class="math display">\[P_0 = e^{-rt} \mathbb{E}^R[P_t]\]</span></p>
 </section>
 </section>
-<section id="change-of-numeraire" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="change-of-numeraire"><span class="header-section-number">9.6</span> Change of Numeraire</h2>
+<section id="change-of-numeraire" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="change-of-numeraire"><span class="header-section-number">8.6</span> Change of Numeraire</h2>
 <p>Our choice of the risk-free asset as numeraire was arbitrary. Any strictly positive non-dividend paying trading strategy can serve as a numeraire.</p>
 <p>For a dividend-reinvested asset <span class="math inline">\(Y\)</span> with strictly positive value:</p>
 <p><span class="math display">\[Y(0) = \mathbb{E}[m_t Y_t]\]</span></p>
@@ -685,8 +699,8 @@ Important Principle
 <p>Different numeraires lead to different probability measures but the same derivative prices.</p>
 </section>
 </section>
-<section id="stock-as-numeraire" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="stock-as-numeraire"><span class="header-section-number">9.7</span> Stock as Numeraire</h2>
+<section id="stock-as-numeraire" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="stock-as-numeraire"><span class="header-section-number">8.7</span> Stock as Numeraire</h2>
 <p>Using the stock as numeraire is particularly useful for certain derivatives. In the binomial model, define:</p>
 <p><span class="math display">\[\text{prob}^S_u = \frac{\pi_u S_u}{S}, \quad \text{prob}^S_d = \frac{\pi_d S_d}{S}\]</span></p>
 <p>These sum to 1 and are positive. For a call option:</p>
@@ -696,8 +710,8 @@ Important Principle
 <p><span class="math display">\[V_0 = S_0 \mathbb{E}^S\left[\frac{V_T}{S_T}\right]\]</span></p>
 <p>This formulation is often convenient for options that depend on the stock price relative to some level.</p>
 </section>
-<section id="changes-of-probability-and-girsanovs-theorem" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="changes-of-probability-and-girsanovs-theorem"><span class="header-section-number">9.8</span> Changes of Probability and Girsanov’s Theorem</h2>
+<section id="changes-of-probability-and-girsanovs-theorem" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="changes-of-probability-and-girsanovs-theorem"><span class="header-section-number">8.8</span> Changes of Probability and Girsanov’s Theorem</h2>
 <p>When we change probability measures, we cannot expect a process <span class="math inline">\(B\)</span> that was a Brownian motion to remain a Brownian motion. The expected change in a Brownian motion must always be zero, but when we change probabilities, the expected change of <span class="math inline">\(B\)</span> is likely to become nonzero. However, the Brownian motion <span class="math inline">\(B\)</span> will still be an Ito process under the new probability measure.</p>
 <p>Changing probabilities only changes the drift of an Ito process—the diffusion coefficient remains unchanged. This is because the diffusion coefficient determines how much each path “jiggles,” which is unaffected by changing the probability measure.</p>
 <section id="example-risk-neutral-probability" class="level4">
@@ -710,12 +724,12 @@ Important Principle
 <p>The details of how to construct these new probability measures using Girsanov’s Theorem are covered in the next chapter, where we apply them to derive the Black-Scholes formula.</p>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="9.9">
-<h2 data-number="9.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">9.9</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.9</span> Exercises</h2>
 <section id="linear-pricing-and-state-prices" class="level4">
 <h4 class="anchored" data-anchor-id="linear-pricing-and-state-prices">Linear Pricing and State Prices</h4>
 <div id="exr-linear-pricing" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.1</strong></span> Consider a market with 3 possible states at time <span class="math inline">\(T = 1\)</span>. There are two traded assets: - Risk-free bond: pays <span class="math inline">\(e^{0.05}\)</span> in all states<br>
+<p><span class="theorem-title"><strong>Exercise 8.1</strong></span> Consider a market with 3 possible states at time <span class="math inline">\(T = 1\)</span>. There are two traded assets: - Risk-free bond: pays <span class="math inline">\(e^{0.05}\)</span> in all states<br>
 - Risky asset: pays <span class="math inline">\((10, 15, 5)\)</span> in states <span class="math inline">\((1, 2, 3)\)</span> respectively, currently priced at <span class="math inline">\(S_0 = 9\)</span></p>
 <ol type="a">
 <li>Set up the system of equations to find state prices <span class="math inline">\((\pi_1, \pi_2, \pi_3)\)</span></li>
@@ -726,10 +740,10 @@ Important Principle
 </ol>
 </div>
 <div id="exr-arrow-securities" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.2</strong></span> In the three-state model from the previous exercise: a) What is the price of an Arrow security that pays $1 in state 2 and $0 in states 1 and 3? b) Show that any derivative payoff can be written as a portfolio of Arrow securities c) Price a “digital option” that pays $100 if the risky asset’s payoff exceeds $12, and $0 otherwise d) Compare this to pricing the same payoff using risk-neutral probabilities</p>
+<p><span class="theorem-title"><strong>Exercise 8.2</strong></span> In the three-state model from the previous exercise: a) What is the price of an Arrow security that pays $1 in state 2 and $0 in states 1 and 3? b) Show that any derivative payoff can be written as a portfolio of Arrow securities c) Price a “digital option” that pays $100 if the risky asset’s payoff exceeds $12, and $0 otherwise d) Compare this to pricing the same payoff using risk-neutral probabilities</p>
 </div>
 <div id="exr-no-arbitrage-conditions" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.3</strong></span> Consider a two-period binomial model where the stock can go from <span class="math inline">\(S_0 = 100\)</span> to either <span class="math inline">\(S_u = 120\)</span> or <span class="math inline">\(S_d = 80\)</span> in the first period, with risk-free rate <span class="math inline">\(r = 5\%\)</span> per period.</p>
+<p><span class="theorem-title"><strong>Exercise 8.3</strong></span> Consider a two-period binomial model where the stock can go from <span class="math inline">\(S_0 = 100\)</span> to either <span class="math inline">\(S_u = 120\)</span> or <span class="math inline">\(S_d = 80\)</span> in the first period, with risk-free rate <span class="math inline">\(r = 5\%\)</span> per period.</p>
 <ol type="a">
 <li>Find the no-arbitrage bounds: show that <span class="math inline">\(S_d &lt; S_0 e^r &lt; S_u\)</span> must hold</li>
 <li>Calculate the risk-neutral probability <span class="math inline">\(p\)</span> for the up move</li>
@@ -741,10 +755,10 @@ Important Principle
 <section id="risk-neutral-measures-and-martingales" class="level4">
 <h4 class="anchored" data-anchor-id="risk-neutral-measures-and-martingales">Risk-Neutral Measures and Martingales</h4>
 <div id="exr-martingale-property" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.4</strong></span> In the Black-Scholes model with constant dividend yield <span class="math inline">\(q\)</span>, show that: a) <span class="math inline">\(e^{-qt}S_t\)</span> is a martingale under the risk-neutral measure b) <span class="math inline">\(S_t/R_t\)</span> is a martingale under the risk-neutral measure, where <span class="math inline">\(R_t = e^{rt}\)</span> c) If <span class="math inline">\(V_t\)</span> is the value of any derivative, then <span class="math inline">\(e^{-rt}V_t\)</span> is a martingale under the risk-neutral measure</p>
+<p><span class="theorem-title"><strong>Exercise 8.4</strong></span> In the Black-Scholes model with constant dividend yield <span class="math inline">\(q\)</span>, show that: a) <span class="math inline">\(e^{-qt}S_t\)</span> is a martingale under the risk-neutral measure b) <span class="math inline">\(S_t/R_t\)</span> is a martingale under the risk-neutral measure, where <span class="math inline">\(R_t = e^{rt}\)</span> c) If <span class="math inline">\(V_t\)</span> is the value of any derivative, then <span class="math inline">\(e^{-rt}V_t\)</span> is a martingale under the risk-neutral measure</p>
 </div>
 <div id="exr-risk-neutral-simulation" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.5</strong></span> Use simulation to verify the martingale property in a simple setting. Generate 10,000 paths of geometric Brownian motion under the risk-neutral measure: <span class="math display">\[\frac{dS}{S} = (r-q) dt + \sigma dB^R\]</span></p>
+<p><span class="theorem-title"><strong>Exercise 8.5</strong></span> Use simulation to verify the martingale property in a simple setting. Generate 10,000 paths of geometric Brownian motion under the risk-neutral measure: <span class="math display">\[\frac{dS}{S} = (r-q) dt + \sigma dB^R\]</span></p>
 <p>With parameters <span class="math inline">\(S_0 = 100\)</span>, <span class="math inline">\(r = 5\%\)</span>, <span class="math inline">\(q = 2\%\)</span>, <span class="math inline">\(\sigma = 20\%\)</span>, and <span class="math inline">\(T = 1\)</span>:</p>
 <ol type="a">
 <li>Verify that <span class="math inline">\(\mathbb{E}^R[S_T e^{-qT}] \approx S_0\)</span> (martingale property)</li>
@@ -756,13 +770,13 @@ Important Principle
 <section id="change-of-numeraire-1" class="level4">
 <h4 class="anchored" data-anchor-id="change-of-numeraire-1">Change of Numeraire</h4>
 <div id="exr-numeraire-digital" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.6</strong></span> Use simulation to verify the change of numeraire for digital options. Consider a digital option that pays <span class="math inline">\(1\)</span> if <span class="math inline">\(S_T \geq K\)</span> with <span class="math inline">\(S_0 = 100\)</span>, <span class="math inline">\(K = 105\)</span>, <span class="math inline">\(r = 5\%\)</span>, <span class="math inline">\(q = 2\%\)</span>, <span class="math inline">\(\sigma = 20\%\)</span>, <span class="math inline">\(T = 0.5\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 8.6</strong></span> Use simulation to verify the change of numeraire for digital options. Consider a digital option that pays <span class="math inline">\(1\)</span> if <span class="math inline">\(S_T \geq K\)</span> with <span class="math inline">\(S_0 = 100\)</span>, <span class="math inline">\(K = 105\)</span>, <span class="math inline">\(r = 5\%\)</span>, <span class="math inline">\(q = 2\%\)</span>, <span class="math inline">\(\sigma = 20\%\)</span>, <span class="math inline">\(T = 0.5\)</span>.</p>
 <p>Price this option using two methods: a) Risk-neutral measure: <span class="math inline">\(\mathbb{E}^R[e^{-rT} \mathbf{1}_{\{S_T \geq K\}}]\)</span> b) Stock numeraire: <span class="math inline">\(S_0 \mathbb{E}^S[\frac{1}{S_T} \mathbf{1}_{\{S_T \geq K\}}]\)</span></p>
 <p>Under the stock numeraire, the stock follows: <span class="math display">\[\frac{dS}{S} = (r-q+\sigma^2) dt + \sigma dB^S\]</span></p>
 <p>Verify that both methods give the same price up to simulation error.</p>
 </div>
 <div id="exr-share-digital" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.7</strong></span> Calculate the price of a “share digital” option that pays <span class="math inline">\(S_T\)</span> if <span class="math inline">\(S_T \leq K\)</span> and <span class="math inline">\(0\)</span> otherwise, using the Black-Scholes model assumptions.</p>
+<p><span class="theorem-title"><strong>Exercise 8.7</strong></span> Calculate the price of a “share digital” option that pays <span class="math inline">\(S_T\)</span> if <span class="math inline">\(S_T \leq K\)</span> and <span class="math inline">\(0\)</span> otherwise, using the Black-Scholes model assumptions.</p>
 <ol type="a">
 <li>Use the stock as numeraire to show the price is <span class="math inline">\(S_0 \mathbb{E}^S[\mathbf{1}_{\{S_T \leq K\}}]\)</span></li>
 <li>Under the stock numeraire measure, show that <span class="math inline">\(\log S_T\)</span> is normally distributed</li>
@@ -771,7 +785,7 @@ Important Principle
 </ol>
 </div>
 <div id="exr-cross-asset-option" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.8</strong></span> Suppose two assets <span class="math inline">\(S\)</span> and <span class="math inline">\(V\)</span> follow geometric Brownian motions under the risk-neutral measure: <span class="math display">\[\frac{dS}{S} = r dt + \sigma_S dB_S^R\]</span> <span class="math display">\[\frac{dV}{V} = r dt + \sigma_V dB_V^R\]</span></p>
+<p><span class="theorem-title"><strong>Exercise 8.8</strong></span> Suppose two assets <span class="math inline">\(S\)</span> and <span class="math inline">\(V\)</span> follow geometric Brownian motions under the risk-neutral measure: <span class="math display">\[\frac{dS}{S} = r dt + \sigma_S dB_S^R\]</span> <span class="math display">\[\frac{dV}{V} = r dt + \sigma_V dB_V^R\]</span></p>
 <p>with correlation <span class="math inline">\(\rho\)</span> between the Brownian motions.</p>
 <p>Find the value of an option that pays <span class="math inline">\(V_T \mathbf{1}_{\{V_T \geq S_T\}}\)</span> using <span class="math inline">\(V\)</span> as the numeraire.</p>
 <p><em>Hint: Under the <span class="math inline">\(V\)</span>-numeraire measure, determine the dynamics of <span class="math inline">\(S/V\)</span> and use the fact that <span class="math inline">\(S_T/V_T \leq 1\)</span> when <span class="math inline">\(V_T \geq S_T\)</span>.</em></p>
@@ -780,7 +794,7 @@ Important Principle
 <section id="fundamental-pricing-formula-1" class="level4">
 <h4 class="anchored" data-anchor-id="fundamental-pricing-formula-1">Fundamental Pricing Formula</h4>
 <div id="exr-fundamental-formula" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.9</strong></span> The fundamental pricing formula states that for any two assets <span class="math inline">\(P\)</span> and <span class="math inline">\(Y\)</span>: <span class="math display">\[Y_s = P_s \mathbb{E}^P_s\left[\frac{Y_t}{P_t}\right]\]</span></p>
+<p><span class="theorem-title"><strong>Exercise 8.9</strong></span> The fundamental pricing formula states that for any two assets <span class="math inline">\(P\)</span> and <span class="math inline">\(Y\)</span>: <span class="math display">\[Y_s = P_s \mathbb{E}^P_s\left[\frac{Y_t}{P_t}\right]\]</span></p>
 <ol type="a">
 <li>Verify this formula when <span class="math inline">\(P\)</span> is the risk-free asset and <span class="math inline">\(Y\)</span> is a stock</li>
 <li>Verify this formula when <span class="math inline">\(P\)</span> is a stock and <span class="math inline">\(Y\)</span> is the risk-free asset<br>
@@ -790,13 +804,13 @@ Important Principle
 </ol>
 </div>
 <div id="exr-stochastic-discount-factor" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.10</strong></span> In a single-period model with stochastic discount factor <span class="math inline">\(m\)</span>: a) Show that if there are no arbitrage opportunities, then <span class="math inline">\(\mathbb{E}[m] &gt; 0\)</span> and the law of one price holds b) Prove that <span class="math inline">\(\mathbb{E}[mR] = 1\)</span> where <span class="math inline">\(R = e^{rT}\)</span> is the gross risk-free return c) Show that the risk-neutral probabilities are given by <span class="math inline">\(p_j = \frac{m_j \cdot \text{prob}_j}{\mathbb{E}[m]}\)</span> where <span class="math inline">\(\text{prob}_j\)</span> is the actual probability of state <span class="math inline">\(j\)</span> d) Verify that under the risk-neutral measure, all assets have expected return equal to the risk-free rate</p>
+<p><span class="theorem-title"><strong>Exercise 8.10</strong></span> In a single-period model with stochastic discount factor <span class="math inline">\(m\)</span>: a) Show that if there are no arbitrage opportunities, then <span class="math inline">\(\mathbb{E}[m] &gt; 0\)</span> and the law of one price holds b) Prove that <span class="math inline">\(\mathbb{E}[mR] = 1\)</span> where <span class="math inline">\(R = e^{rT}\)</span> is the gross risk-free return c) Show that the risk-neutral probabilities are given by <span class="math inline">\(p_j = \frac{m_j \cdot \text{prob}_j}{\mathbb{E}[m]}\)</span> where <span class="math inline">\(\text{prob}_j\)</span> is the actual probability of state <span class="math inline">\(j\)</span> d) Verify that under the risk-neutral measure, all assets have expected return equal to the risk-free rate</p>
 </div>
 </section>
 <section id="advanced-applications" class="level4">
 <h4 class="anchored" data-anchor-id="advanced-applications">Advanced Applications</h4>
 <div id="exr-quanto-option" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.11</strong></span> A quanto option pays in domestic currency but depends on a foreign asset price. Consider a call option that pays <span class="math inline">\((S_T^f - K)^+\)</span> dollars, where <span class="math inline">\(S^f\)</span> is a foreign stock price.</p>
+<p><span class="theorem-title"><strong>Exercise 8.11</strong></span> A quanto option pays in domestic currency but depends on a foreign asset price. Consider a call option that pays <span class="math inline">\((S_T^f - K)^+\)</span> dollars, where <span class="math inline">\(S^f\)</span> is a foreign stock price.</p>
 <p>If the exchange rate is <span class="math inline">\(X_t\)</span> (domestic per foreign currency), the foreign stock in domestic currency is <span class="math inline">\(S_t = X_t S_t^f\)</span>.</p>
 <ol type="a">
 <li>Show that under the domestic risk-neutral measure, if <span class="math inline">\(S^f\)</span> and <span class="math inline">\(X\)</span> are correlated with correlation <span class="math inline">\(\rho\)</span>, then <span class="math inline">\(S^f\)</span> has drift <span class="math inline">\(r^d - r^f - \rho \sigma_X \sigma_S\)</span></li>
@@ -806,7 +820,7 @@ Important Principle
 <p><em>Note: <span class="math inline">\(r^d\)</span> and <span class="math inline">\(r^f\)</span> are domestic and foreign risk-free rates respectively.</em></p>
 </div>
 <div id="exr-multi-asset-rainbow" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.12</strong></span> Consider a “rainbow option” that pays <span class="math inline">\(\max(S_T^{(1)}, S_T^{(2)}, K)\)</span> where <span class="math inline">\(S^{(1)}\)</span> and <span class="math inline">\(S^{(2)}\)</span> are two correlated stocks.</p>
+<p><span class="theorem-title"><strong>Exercise 8.12</strong></span> Consider a “rainbow option” that pays <span class="math inline">\(\max(S_T^{(1)}, S_T^{(2)}, K)\)</span> where <span class="math inline">\(S^{(1)}\)</span> and <span class="math inline">\(S^{(2)}\)</span> are two correlated stocks.</p>
 <ol type="a">
 <li>Using the fundamental pricing formula, show that this can be priced as <span class="math inline">\(\mathbb{E}^R[e^{-rT}\max(S_T^{(1)}, S_T^{(2)}, K)]\)</span></li>
 <li>Explain why you cannot easily use a single asset as numeraire for this payoff</li>
@@ -816,8 +830,8 @@ Important Principle
 </div>
 </section>
 </section>
-<section id="summary" class="level2" data-number="9.10">
-<h2 data-number="9.10" class="anchored" data-anchor-id="summary"><span class="header-section-number">9.10</span> Summary</h2>
+<section id="summary" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="summary"><span class="header-section-number">8.10</span> Summary</h2>
 <p>We have developed a unified framework for derivative pricing based on the absence of arbitrage:</p>
 <ol type="1">
 <li><strong>Linear pricing</strong> implies the existence of state prices</li>
@@ -1249,12 +1263,12 @@ Important Principle
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Chapter_GeometricBrownianMotion.html" class="pagination-link" aria-label="Geometric Brownian Motion">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Geometric Brownian Motion</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Geometric Brownian Motion</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Chapter_BlackScholes_updated.html" class="pagination-link" aria-label="The Black-Scholes Formula">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Black-Scholes Formula</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The Black-Scholes Formula</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

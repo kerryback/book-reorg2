@@ -1,7 +1,3 @@
----
-title: ""
----
-
 ::: {style="text-align: center;"}
 ![](cover.png){width="50%"}
 

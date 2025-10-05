@@ -101,13 +101,13 @@ format:
     theme: 
       light: flatly
       dark: superhero
+    css: custom.css
     toc: false
     toc-depth: 2
     toc-title: Chapter contents
     code-fold: true
     code-block-bg: true
     code-block-border-left: "#31BAE9"
-    title-block-style: none
     include-in-header:
       text: |
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Binomial Trees – Pricing and Hedging Derivative Securities</title>
+<title>4&nbsp; Binomial Trees – Pricing and Hedging Derivative Securities</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,9 +98,9 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-49f7eefadc7c4beabe8368f9d0ad3bdb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-6e401f40acbf99a0cade6b9465f29ced.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-49f7eefadc7c4beabe8368f9d0ad3bdb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-45de5ea787cff190a632d730191a5db6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8deca16a749a126e590a598812fafdf7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-45de5ea787cff190a632d730191a5db6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -155,6 +155,18 @@ require(['plotly'], function(Plotly) {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
+div.callout-Extra.callout {
+  border-left-color: #a1bced;
+}
+div.callout-Extra.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
+}
+div.callout-Extra .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f48b';
+  background-image: none;
+}
 div.callout-Principle.callout {
   border-left-color: #eb4034;
 }
@@ -191,18 +203,6 @@ div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.c
   content: '\f164';
   background-image: none;
 }
-div.callout-Extra.callout {
-  border-left-color: #a1bced;
-}
-div.callout-Extra.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
-}
-div.callout-Extra .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f48b';
-  background-image: none;
-}
 </style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -235,6 +235,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="custom.css">
 </head>
 
 <body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -408,7 +409,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_IntroDerivatives.html">Part 1: Introduction</a></li><li class="breadcrumb-item"><a href="./Chapter_Trees.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Binomial Trees</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_IntroDerivatives.html">Part 1: Introduction</a></li><li class="breadcrumb-item"><a href="./Chapter_Trees.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Binomial Trees</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -446,7 +447,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -461,25 +462,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_IntroDerivatives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Derivative Securities</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Derivative Securities</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_IntroOptions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Options Markets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Options Markets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_IntroFutures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Futures Markets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Futures Markets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_Trees.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Binomial Trees</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Binomial Trees</span></span></a>
   </div>
 </li>
       </ul>
@@ -496,19 +497,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_BrownianMotion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Brownian Motion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Brownian Motion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_Ito.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ito Processes and Ito’s Formula</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Ito Processes and Ito’s Formula</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_GeometricBrownianMotion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Geometric Brownian Motion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Geometric Brownian Motion</span></span></a>
   </div>
 </li>
       </ul>
@@ -525,31 +526,31 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_ArbitragePricing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Arbitrage Pricing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_BlackScholes_updated.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Black-Scholes Formula</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The Black-Scholes Formula</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_MertonMargrabeBlack.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Merton, Black, and Margrabe</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merton, Black, and Margrabe</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_Asians.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Asians, Baskets, and Spreads</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Asians, Baskets, and Spreads</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_OtherExotics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Other Exotics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Other Exotics</span></span></a>
   </div>
 </li>
       </ul>
@@ -566,13 +567,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_MonteCarlo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Monte Carlo Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Monte Carlo Methods</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_BinomialModel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Binomial and Trinomial Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Binomial and Trinomial Models</span></span></a>
   </div>
 </li>
       </ul>
@@ -584,10 +585,23 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_IntroDerivatives.html">Part 1: Introduction</a></li><li class="breadcrumb-item"><a href="./Chapter_Trees.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Binomial Trees</span></a></li></ol></nav><h1 class="title display-7"><span id="sec-c:trees" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Binomial Trees</span></span></h1></header>
+<main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_IntroDerivatives.html">Part 1: Introduction</a></li><li class="breadcrumb-item"><a href="./Chapter_Trees.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Binomial Trees</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-c:trees" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Binomial Trees</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
 </header>
@@ -599,8 +613,8 @@ window.Quarto = {
 </div>
 </div>
 <p>This chapter introduces binomial tree models for valuing derivative securities. We begin with the fundamental concepts of arbitrage pricing in a one-period model, extend to multi-period trees, and then discuss practical implementation and parameter calibration.</p>
-<section id="one-period-binomial-model" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="one-period-binomial-model"><span class="header-section-number">5.1</span> One-Period Binomial Model</h2>
+<section id="one-period-binomial-model" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="one-period-binomial-model"><span class="header-section-number">4.1</span> One-Period Binomial Model</h2>
 <p>We start with the simplest possible model. A stock has price <span class="math inline">\(S\)</span> today (date 0) and will have one of two possible values at date <span class="math inline">\(t\)</span>: either <span class="math inline">\(S_u\)</span> (up state) or <span class="math inline">\(S_d\)</span> (down state), where <span class="math inline">\(S_u &gt; S_d\)</span>. There is also a risk-free asset earning a continuously compounded rate <span class="math inline">\(r\)</span>.</p>
 <section id="delta-hedging-and-replication" class="level4">
 <h4 class="anchored" data-anchor-id="delta-hedging-and-replication">Delta Hedging and Replication</h4>
@@ -647,8 +661,8 @@ Example
 <p><span class="math display">\[p_u = \frac{\mathrm{e}^{rt} - S_d/S}{S_u/S - S_d/S}\]</span></p>
 </section>
 </section>
-<section id="two-period-model" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="two-period-model"><span class="header-section-number">5.2</span> Two-Period Model</h2>
+<section id="two-period-model" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="two-period-model"><span class="header-section-number">4.2</span> Two-Period Model</h2>
 <p>Now consider a two-period model where the stock price evolves over two time steps of length <span class="math inline">\(\Delta t = t/2\)</span>. To simplify notation and ensure the tree recombines, we parameterize the price movements using multiplicative factors <span class="math inline">\(u &gt; 1\)</span> and <span class="math inline">\(d = 1/u &lt; 1\)</span>.</p>
 <p>Starting from <span class="math inline">\(S\)</span>, after one period the stock price is either <span class="math inline">\(uS\)</span> or <span class="math inline">\(dS\)</span>. After two periods, the possible prices are: - <span class="math inline">\(u^2S\)</span> (two up moves) - <span class="math inline">\(udS = S\)</span> (one up, one down)<br>
 - <span class="math inline">\(d^2S\)</span> (two down moves)</p>
@@ -864,7 +878,7 @@ Final American put value: 9.0883</code></pre>
 <img src="Chapter_Trees_files/figure-html/fig-two-step-tree-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-two-step-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.1: Two-step binomial tree showing the same numerical example with backward induction
+Figure&nbsp;4.1: Two-step binomial tree showing the same numerical example with backward induction
 </figcaption>
 </figure>
 </div>
@@ -880,8 +894,8 @@ This tree shows the exact same values computed in the numerical output above.</c
 <p>The tree visualization above corresponds exactly to the numerical backward induction process shown in the previous output. You can verify that the option values at each node match the calculations displayed in the step-by-step algorithm.</p>
 </section>
 </section>
-<section id="n-period-model" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="n-period-model"><span class="header-section-number">5.3</span> N-Period Model</h2>
+<section id="n-period-model" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="n-period-model"><span class="header-section-number">4.3</span> N-Period Model</h2>
 <p>The extension to N periods is straightforward. With parameters <span class="math inline">\(u\)</span> and <span class="math inline">\(d = 1/u\)</span>, after <span class="math inline">\(n\)</span> periods we have <span class="math inline">\(n+1\)</span> nodes with stock prices:</p>
 <p><span class="math display">\[S_j = u^j d^{n-j} S = u^{2j-n} S, \quad j = 0, 1, \ldots, n\]</span></p>
 <p>The critical insight for efficient implementation is backward induction rather than computing all possible paths.</p>
@@ -895,7 +909,7 @@ This tree shows the exact same values computed in the numerical output above.</c
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binomial-trees-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.2: <strong>Interactive Binomial Trees Explorer.</strong> This tool allows you to experiment with N-period binomial trees. Key features: (i) <strong>Interest rate</strong>: Enter the rate per period (for annual rate with N periods, use r/N), (ii) <strong>Up move</strong>: This corresponds to <span class="math inline">\((u-1)\)</span> where <span class="math inline">\(u\)</span> is our up factor, (iii) <strong>Down move</strong>: The model automatically sets <span class="math inline">\(d = 1/u\)</span> to ensure recombination, (iv) <strong>Number of periods</strong>: See how increasing N affects option values and convergence, (v) <strong>Option types</strong>: Compare European and American option pricing, (vi) <strong>Parameters</strong>: Observe how volatility, strike price, and time to maturity affect values
+Figure&nbsp;4.2: <strong>Interactive Binomial Trees Explorer.</strong> This tool allows you to experiment with N-period binomial trees. Key features: (i) <strong>Interest rate</strong>: Enter the rate per period (for annual rate with N periods, use r/N), (ii) <strong>Up move</strong>: This corresponds to <span class="math inline">\((u-1)\)</span> where <span class="math inline">\(u\)</span> is our up factor, (iii) <strong>Down move</strong>: The model automatically sets <span class="math inline">\(d = 1/u\)</span> to ensure recombination, (iv) <strong>Number of periods</strong>: See how increasing N affects option values and convergence, (v) <strong>Option types</strong>: Compare European and American option pricing, (vi) <strong>Parameters</strong>: Observe how volatility, strike price, and time to maturity affect values
 </figcaption>
 </figure>
 </div>
@@ -978,14 +992,14 @@ American call (K=105): 8.0262</code></pre>
 </ol>
 </section>
 </section>
-<section id="parameter-calibration" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="parameter-calibration"><span class="header-section-number">5.4</span> Parameter Calibration</h2>
+<section id="parameter-calibration" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="parameter-calibration"><span class="header-section-number">4.4</span> Parameter Calibration</h2>
 <p>We need <span class="math inline">\(\Delta t\)</span> to be small for it to be reasonable to assume that the underlying asset can only do two possible things over the next time period. If we’re going to take it be very small, we might as well ask what happens if we take it to be infinitesimal, meaning that we take <span class="math inline">\(\Delta t \rightarrow 0\)</span>. This is the <strong>continuous-time limit.</strong></p>
 <p>We should choose the parameters of the model to match the properties of the underlying asset. If we’re going to take the limit, then the important feature is that the limiting parameters match the properties of the underlying asset. Several choices are possible, but the most popular set of parameters is that proposed by <span class="citation" data-cites="CRR">(<a href="#ref-CRR" role="doc-biblioref">Cox, Ross, and Rubinstein 1979</a>)</span>.</p>
 <p>They set</p>
 <p><span class="math display">\[u = \mathrm{e}^{\sigma\sqrt{\Delta t}}, \quad d = \frac{1}{u}, \quad p = \frac{\mathrm{e}^{(r-q)\Delta t} - d}{u - d}\]</span></p>
 <p>where <span class="math inline">\(\sigma\)</span> is the standard deviation of the underlying asset return, <span class="math inline">\(r\)</span> is the risk-free rate, and <span class="math inline">\(q\)</span> is the dividend yield. This choice ensures: - The tree recombines (<span class="math inline">\(ud = 1\)</span>) - The discrete model converges to geometric Brownian motion (see <span class="quarto-unresolved-ref">?sec-c:gbm</span>). - The risk-neutral probability is well-defined when <span class="math inline">\(d &lt; \mathrm{e}^{(r-q)\Delta t} &lt; u\)</span></p>
-<p>The following interactive figure shows how the option prices derived from the binomial model settle down around fixed values as the number of periods in a given time period increases (that is, as <span class="math inline">\(\Delta t = T/N \rightarrow 0\)</span>). We will later see that this limit is the celebrated Black-Scholes formula (see <a href="Chapter_BlackScholes_updated.html" class="quarto-xref"><span>Chapter 10</span></a>).</p>
+<p>The following interactive figure shows how the option prices derived from the binomial model settle down around fixed values as the number of periods in a given time period increases (that is, as <span class="math inline">\(\Delta t = T/N \rightarrow 0\)</span>). We will later see that this limit is the celebrated Black-Scholes formula (see <a href="Chapter_BlackScholes_updated.html" class="quarto-xref"><span>Chapter 9</span></a>).</p>
 <div id="fig-binomial-convergence" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-binomial-convergence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -993,13 +1007,13 @@ American call (K=105): 8.0262</code></pre>
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binomial-convergence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.3: <strong>Binomial Convergence to Continuous-Time Limit</strong> The binomial model (blue dots) converges to the continuous-time limit (red dotted line) for European options as the number of time steps is increased. The deviations from the continuous-time values are the same for both calls and puts, reflecting put-call parity in both the discrete and continuous-time models.
+Figure&nbsp;4.3: <strong>Binomial Convergence to Continuous-Time Limit</strong> The binomial model (blue dots) converges to the continuous-time limit (red dotted line) for European options as the number of time steps is increased. The deviations from the continuous-time values are the same for both calls and puts, reflecting put-call parity in both the discrete and continuous-time models.
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="summary" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.5</span> Summary</h2>
+<section id="summary" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="summary"><span class="header-section-number">4.5</span> Summary</h2>
 <p>The binomial tree model provides an intuitive and flexible framework for option pricing:</p>
 <ol type="1">
 <li><strong>One-period model</strong>: Introduces replication and risk-neutral valuation</li>
@@ -1007,15 +1021,15 @@ Figure&nbsp;5.3: <strong>Binomial Convergence to Continuous-Time Limit</strong> 
 <li><strong>Parameter choice</strong>: Cox-Ross-Rubinstein parameters with <span class="math inline">\(u = \mathrm{e}^{\sigma\sqrt{\Delta t}}\)</span> and <span class="math inline">\(d = 1/u\)</span> ensure convergence</li>
 </ol>
 </section>
-<section id="exercises" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">5.6</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.6</span> Exercises</h2>
 <section id="one-period-model-exercises" class="level4">
 <h4 class="anchored" data-anchor-id="one-period-model-exercises">One-Period Model Exercises</h4>
 <div id="exr-trees1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> In a one-period binomial model with <span class="math inline">\(S = 50\)</span>, <span class="math inline">\(S_u = 60\)</span>, <span class="math inline">\(S_d = 40\)</span>, and <span class="math inline">\(r = 0.05\)</span>: a) Calculate the risk-neutral probabilities b) Price a call option with strike <span class="math inline">\(K = 55\)</span> c) Verify your answer using delta hedging</p>
+<p><span class="theorem-title"><strong>Exercise 4.1</strong></span> In a one-period binomial model with <span class="math inline">\(S = 50\)</span>, <span class="math inline">\(S_u = 60\)</span>, <span class="math inline">\(S_d = 40\)</span>, and <span class="math inline">\(r = 0.05\)</span>: a) Calculate the risk-neutral probabilities b) Price a call option with strike <span class="math inline">\(K = 55\)</span> c) Verify your answer using delta hedging</p>
 </div>
 <div id="exr-binomialcall" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Create a Python function in which the user inputs <span class="math inline">\(S\)</span>, <span class="math inline">\(S_d\)</span>, <span class="math inline">\(S_u\)</span>, <span class="math inline">\(K\)</span>, <span class="math inline">\(r\)</span> and <span class="math inline">\(t\)</span>. Check that the no-arbitrage condition is satisfied (<span class="math inline">\(S_d &lt; Se^{rt} &lt; S_u\)</span>). Compute the value of a call option in each of the following ways:</p>
+<p><span class="theorem-title"><strong>Exercise 4.2</strong></span> Create a Python function in which the user inputs <span class="math inline">\(S\)</span>, <span class="math inline">\(S_d\)</span>, <span class="math inline">\(S_u\)</span>, <span class="math inline">\(K\)</span>, <span class="math inline">\(r\)</span> and <span class="math inline">\(t\)</span>. Check that the no-arbitrage condition is satisfied (<span class="math inline">\(S_d &lt; Se^{rt} &lt; S_u\)</span>). Compute the value of a call option in each of the following ways:</p>
 <ol type="1">
 <li>Compute the delta and use the replication formula</li>
 <li>Compute the state prices and use linear pricing</li>
@@ -1025,58 +1039,58 @@ Figure&nbsp;5.3: <strong>Binomial Convergence to Continuous-Time Limit</strong> 
 <p>Verify that all of these methods produce the same answer.</p>
 </div>
 <div id="exr-arbitrage2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.3</strong></span> In a two-state model, a put option is equivalent to <span class="math inline">\(\delta_p\)</span> shares of the stock, where <span class="math inline">\(\delta_p = (P_u-P_d)/(S_u-S_d)\)</span> (this will be negative, meaning a short position) and some money invested in the risk-free asset. Derive the amount of money <span class="math inline">\(x\)</span> that should be invested in the risk-free asset to replicate the put option. The value of the put at date <span class="math inline">\(0\)</span> must be <span class="math inline">\(x+\delta_pS\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 4.3</strong></span> In a two-state model, a put option is equivalent to <span class="math inline">\(\delta_p\)</span> shares of the stock, where <span class="math inline">\(\delta_p = (P_u-P_d)/(S_u-S_d)\)</span> (this will be negative, meaning a short position) and some money invested in the risk-free asset. Derive the amount of money <span class="math inline">\(x\)</span> that should be invested in the risk-free asset to replicate the put option. The value of the put at date <span class="math inline">\(0\)</span> must be <span class="math inline">\(x+\delta_pS\)</span>.</p>
 </div>
 <div id="exr-arbitrage3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Using the result of the previous exercise, repeat <a href="#exr-binomialcall" class="quarto-xref">Exercise&nbsp;<span>5.2</span></a> for a put option using all four pricing methods.</p>
+<p><span class="theorem-title"><strong>Exercise 4.4</strong></span> Using the result of the previous exercise, repeat <a href="#exr-binomialcall" class="quarto-xref">Exercise&nbsp;<span>4.2</span></a> for a put option using all four pricing methods.</p>
 </div>
 </section>
 <section id="two-period-and-multi-period-exercises" class="level4">
 <h4 class="anchored" data-anchor-id="two-period-and-multi-period-exercises">Two-Period and Multi-Period Exercises</h4>
 <div id="exr-trees-visual" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.5</strong></span> Modify the visual tree code to create a two-period tree for an American put option with <span class="math inline">\(S_0 = 100\)</span>, <span class="math inline">\(K = 105\)</span>, <span class="math inline">\(r = 0.05\)</span>, <span class="math inline">\(\sigma = 0.3\)</span>, and <span class="math inline">\(T = 0.5\)</span>. At each intermediate node, show both the continuation value and the immediate exercise value, highlighting when early exercise is optimal.</p>
+<p><span class="theorem-title"><strong>Exercise 4.5</strong></span> Modify the visual tree code to create a two-period tree for an American put option with <span class="math inline">\(S_0 = 100\)</span>, <span class="math inline">\(K = 105\)</span>, <span class="math inline">\(r = 0.05\)</span>, <span class="math inline">\(\sigma = 0.3\)</span>, and <span class="math inline">\(T = 0.5\)</span>. At each intermediate node, show both the continuation value and the immediate exercise value, highlighting when early exercise is optimal.</p>
 </div>
 <div id="exr-trees-algorithm" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.6</strong></span> Compare the detailed backward induction algorithm with the fast vectorized version for pricing American options. Time both implementations for <span class="math inline">\(N = 50, 100, 200, 500\)</span> time steps. At what point does the speed difference become significant? Verify that both give identical results.</p>
+<p><span class="theorem-title"><strong>Exercise 4.6</strong></span> Compare the detailed backward induction algorithm with the fast vectorized version for pricing American options. Time both implementations for <span class="math inline">\(N = 50, 100, 200, 500\)</span> time steps. At what point does the speed difference become significant? Verify that both give identical results.</p>
 </div>
 <div id="exr-trees2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.7</strong></span> Show that in the Cox-Ross-Rubinstein model, the expected return on the stock under the risk-neutral measure equals the risk-free rate: <span class="math inline">\(\mathbb{E}^p[S_{t+\Delta t}/S_t] = \mathrm{e}^{r\Delta t}\)</span></p>
+<p><span class="theorem-title"><strong>Exercise 4.7</strong></span> Show that in the Cox-Ross-Rubinstein model, the expected return on the stock under the risk-neutral measure equals the risk-free rate: <span class="math inline">\(\mathbb{E}^p[S_{t+\Delta t}/S_t] = \mathrm{e}^{r\Delta t}\)</span></p>
 </div>
 </section>
 <section id="parameter-calibration-and-convergence" class="level4">
 <h4 class="anchored" data-anchor-id="parameter-calibration-and-convergence">Parameter Calibration and Convergence</h4>
 <div id="exr-binomial1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.8</strong></span> Consider an at-the-money European call option on a dividend-reinvested stock with six months to maturity. Take the initial stock price to be $50, the interest rate to be 5% and <span class="math inline">\(\sigma = 30\%\)</span>. Compute the value in a binomial model with <span class="math inline">\(N = 10, 11, \ldots, 30\)</span> and plot the values against <span class="math inline">\(N\)</span>. Is convergence monotone? Comment on the oscillations you observe.</p>
+<p><span class="theorem-title"><strong>Exercise 4.8</strong></span> Consider an at-the-money European call option on a dividend-reinvested stock with six months to maturity. Take the initial stock price to be $50, the interest rate to be 5% and <span class="math inline">\(\sigma = 30\%\)</span>. Compute the value in a binomial model with <span class="math inline">\(N = 10, 11, \ldots, 30\)</span> and plot the values against <span class="math inline">\(N\)</span>. Is convergence monotone? Comment on the oscillations you observe.</p>
 </div>
 <div id="exr-binomial2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.9</strong></span> Consider the same option as in the previous problem. Roughly what value of <span class="math inline">\(N\)</span> is needed to get penny accuracy? (To evaluate the accuracy, compare the price to the price given by the Black-Scholes formula.)</p>
+<p><span class="theorem-title"><strong>Exercise 4.9</strong></span> Consider the same option as in the previous problem. Roughly what value of <span class="math inline">\(N\)</span> is needed to get penny accuracy? (To evaluate the accuracy, compare the price to the price given by the Black-Scholes formula.)</p>
 </div>
 <div id="exr-trees4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.10</strong></span> Compare the convergence of European option prices using: a) Cox-Ross-Rubinstein parameters: <span class="math inline">\(u = e^{\sigma\sqrt{\Delta t}}\)</span>, <span class="math inline">\(d = 1/u\)</span> b) Jarrow-Rudd parameters: <span class="math inline">\(p = 1/2\)</span>, adjust <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span> to match moments</p>
+<p><span class="theorem-title"><strong>Exercise 4.10</strong></span> Compare the convergence of European option prices using: a) Cox-Ross-Rubinstein parameters: <span class="math inline">\(u = e^{\sigma\sqrt{\Delta t}}\)</span>, <span class="math inline">\(d = 1/u\)</span> b) Jarrow-Rudd parameters: <span class="math inline">\(p = 1/2\)</span>, adjust <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span> to match moments</p>
 <p>Plot the option values against the number of time steps <span class="math inline">\(N\)</span> for both methods. Which converges faster? Which is more stable?</p>
 </div>
 <div id="exr-moment-matching" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.11</strong></span> Verify that the Cox-Ross-Rubinstein parameters satisfy the moment-matching conditions: a) Show that <span class="math inline">\(\frac{\mathbb{E}[\Delta \log S]}{\Delta t} \to r - q - \frac{\sigma^2}{2}\)</span> as <span class="math inline">\(\Delta t \to 0\)</span> b) Show that <span class="math inline">\(\frac{\mathrm{Var}[\Delta \log S]}{\Delta t} \to \sigma^2\)</span> as <span class="math inline">\(\Delta t \to 0\)</span></p>
+<p><span class="theorem-title"><strong>Exercise 4.11</strong></span> Verify that the Cox-Ross-Rubinstein parameters satisfy the moment-matching conditions: a) Show that <span class="math inline">\(\frac{\mathbb{E}[\Delta \log S]}{\Delta t} \to r - q - \frac{\sigma^2}{2}\)</span> as <span class="math inline">\(\Delta t \to 0\)</span> b) Show that <span class="math inline">\(\frac{\mathrm{Var}[\Delta \log S]}{\Delta t} \to \sigma^2\)</span> as <span class="math inline">\(\Delta t \to 0\)</span></p>
 <p>where the expectation and variance are under the risk-neutral measure.</p>
 </div>
 </section>
 <section id="american-options-and-early-exercise" class="level4">
 <h4 class="anchored" data-anchor-id="american-options-and-early-exercise">American Options and Early Exercise</h4>
 <div id="exr-binomial4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.12</strong></span> The early exercise premium is the difference between the value of an American option and the value of a European option with the same parameters. Compute the early exercise premium for an American put with varying: a) Interest rates (<span class="math inline">\(r = 0\%, 2\%, 5\%, 10\%\)</span>) b) Exercise prices (<span class="math inline">\(K = 80, 90, 100, 110, 120\)</span> with <span class="math inline">\(S_0 = 100\)</span>) c) Time to maturity (<span class="math inline">\(T = 0.25, 0.5, 1, 2\)</span> years)</p>
+<p><span class="theorem-title"><strong>Exercise 4.12</strong></span> The early exercise premium is the difference between the value of an American option and the value of a European option with the same parameters. Compute the early exercise premium for an American put with varying: a) Interest rates (<span class="math inline">\(r = 0\%, 2\%, 5\%, 10\%\)</span>) b) Exercise prices (<span class="math inline">\(K = 80, 90, 100, 110, 120\)</span> with <span class="math inline">\(S_0 = 100\)</span>) c) Time to maturity (<span class="math inline">\(T = 0.25, 0.5, 1, 2\)</span> years)</p>
 <p>Under what circumstances is the early exercise premium relatively large?</p>
 </div>
 <div id="exr-trees3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.13</strong></span> Implement a function to compute the early exercise boundary for an American put option. Plot the boundary as a function of time to maturity for different parameter values. Explain intuitively why the boundary has the shape it does.</p>
+<p><span class="theorem-title"><strong>Exercise 4.13</strong></span> Implement a function to compute the early exercise boundary for an American put option. Plot the boundary as a function of time to maturity for different parameter values. Explain intuitively why the boundary has the shape it does.</p>
 </div>
 <div id="exr-optimal-exercise" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.14</strong></span> For an American call option on a dividend-paying stock, show analytically that it may be optimal to exercise just before an ex-dividend date. Implement this in your binomial tree by adding discrete dividend payments and compare American and European call values.</p>
+<p><span class="theorem-title"><strong>Exercise 4.14</strong></span> For an American call option on a dividend-paying stock, show analytically that it may be optimal to exercise just before an ex-dividend date. Implement this in your binomial tree by adding discrete dividend payments and compare American and European call values.</p>
 </div>
 </section>
 <section id="advanced-applications" class="level4">
 <h4 class="anchored" data-anchor-id="advanced-applications">Advanced Applications</h4>
 <div id="exr-shout-option" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.15</strong></span> A shout option is an option where the holder is entitled to “shout” at any time before expiration. Upon shouting, the holder receives the immediate exercise value paid at expiration, plus an at-the-money option with the same expiration. The payoff if the holder shouts at time <span class="math inline">\(\tau\)</span> is <span class="math inline">\(\max(0, S(\tau)-K, S_T-S(\tau))\)</span> where <span class="math inline">\(K\)</span> is the original strike.</p>
+<p><span class="theorem-title"><strong>Exercise 4.15</strong></span> A shout option is an option where the holder is entitled to “shout” at any time before expiration. Upon shouting, the holder receives the immediate exercise value paid at expiration, plus an at-the-money option with the same expiration. The payoff if the holder shouts at time <span class="math inline">\(\tau\)</span> is <span class="math inline">\(\max(0, S(\tau)-K, S_T-S(\tau))\)</span> where <span class="math inline">\(K\)</span> is the original strike.</p>
 <ol type="a">
 <li>Show that it is better to shout at some time where <span class="math inline">\(S(\tau) &gt; K\)</span> than to never shout at all</li>
 <li>Modify the backward induction algorithm to find the optimal shouting strategy</li>
@@ -1084,10 +1098,10 @@ Figure&nbsp;5.3: <strong>Binomial Convergence to Continuous-Time Limit</strong> 
 </ol>
 </div>
 <div id="exr-barrier-option" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.16</strong></span> A down-and-out barrier option is a call option that becomes worthless if the stock price ever falls below a barrier <span class="math inline">\(B &lt; S_0\)</span>. Modify the binomial tree algorithm to price such options by setting the option value to zero at any node where <span class="math inline">\(S \leq B\)</span>. Compare the barrier option price to a standard call for different barrier levels.</p>
+<p><span class="theorem-title"><strong>Exercise 4.16</strong></span> A down-and-out barrier option is a call option that becomes worthless if the stock price ever falls below a barrier <span class="math inline">\(B &lt; S_0\)</span>. Modify the binomial tree algorithm to price such options by setting the option value to zero at any node where <span class="math inline">\(S \leq B\)</span>. Compare the barrier option price to a standard call for different barrier levels.</p>
 </div>
 <div id="exr-trinomial" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.17</strong></span> Extend the binomial model to a trinomial model with three possible moves at each step: up by factor <span class="math inline">\(u\)</span>, stay the same, or down by factor <span class="math inline">\(d\)</span>. a) Derive the risk-neutral probabilities <span class="math inline">\(p_u\)</span>, <span class="math inline">\(p_m\)</span>, <span class="math inline">\(p_d\)</span> for the three states b) Implement trinomial backward induction c) Compare trinomial and binomial convergence for the same <span class="math inline">\(\Delta t\)</span></p>
+<p><span class="theorem-title"><strong>Exercise 4.17</strong></span> Extend the binomial model to a trinomial model with three possible moves at each step: up by factor <span class="math inline">\(u\)</span>, stay the same, or down by factor <span class="math inline">\(d\)</span>. a) Derive the risk-neutral probabilities <span class="math inline">\(p_u\)</span>, <span class="math inline">\(p_m\)</span>, <span class="math inline">\(p_d\)</span> for the three states b) Implement trinomial backward induction c) Compare trinomial and binomial convergence for the same <span class="math inline">\(\Delta t\)</span></p>
 </div>
 
 
@@ -1515,12 +1529,12 @@ Cox, J., S. Ross, and M. Rubinstein. 1979. <span>“Option Pricing: A Simplified
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Chapter_IntroFutures.html" class="pagination-link" aria-label="Futures Markets">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Futures Markets</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Futures Markets</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Chapter_BrownianMotion.html" class="pagination-link" aria-label="Brownian Motion">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Brownian Motion</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Brownian Motion</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
