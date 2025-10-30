@@ -191,9 +191,9 @@ $$e^{-r(T-t)} K + C(t, S_t) = e^{-q(T-t)} S_t + P(t, S_t)$$
 The following interactive tool allows you to explore how the Black-Scholes formula behaves as you vary the input parameters. You can see how option prices change with stock price, volatility, time to expiration, interest rates, and dividend yields.
 
 ::: {#fig-bs-call-put} 
-<iframe height="800" width="100%" src="https://black-scholes.koyeb.app/"></iframe>
+<iframe height="800" width="100%" src="https://delicious-britteny-kerrybackapps-c6c2cf93.koyeb.app/"></iframe>
 
-**Black-Scholes Explorer.** This interactive calculator shows how call and put option prices vary with the underlying parameters. Notice how the option prices change smoothly with the stock price, and observe the effects of time decay and volatility on option values.
+**Black-Scholes Explorer.** This interactive calculator shows how call and put option prices vary with the underlying parameters. Notice how the option prices change smoothly with the stock price, and observe the effects of time-to-maturity and volatility on option values.
 :::
 
 ## Replication and Delta Hedging
