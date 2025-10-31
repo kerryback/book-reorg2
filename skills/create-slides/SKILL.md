@@ -1,498 +1,573 @@
 # Create Slides Skill
 
-This skill is for building PowerPoint presentations (PPTX) from chapter QMD files with **fully automated high-quality LaTeX equation rendering**.
+This skill creates professional presentation slides from chapter QMD files using a **two-stage pedagogical approach** for high-quality teaching materials.
 
 ## Overview
 
-This skill converts chapter QMD files (e.g., `Chapter_Intro_Options.qmd`) into professional PowerPoint presentations (PPTX) with zero manual intervention. The process extracts content, figures, and embedded resources, and **automatically renders all LaTeX equations to high-quality PNG images** using the native LaTeX engine (via tex2img), then inserts them directly into the PowerPoint slides.
+The skill converts chapter QMD files (e.g., `Chapter_ArbitragePricing.qmd`) into professional presentations suitable for teaching Masters of Finance students. The process prioritizes **pedagogical quality** over automation, creating slides with proper flow, motivation, and conceptual clarity.
 
-## Workflow Steps
+## Two-Stage Workflow
 
-### Step 1: Analyze Chapter Structure
-- Read the source `Chapter_*.qmd` file
-- Identify major sections (headers starting with `##`)
-- Catalog all figures and their labels (e.g., `#fig-long-call`)
-- Identify all iframe embeds and their source URLs
-- Note all LaTeX math expressions (inline `$...$` and display `$$...$$`)
-- Extract callout boxes and special formatting
+### Stage 1: Create High-Quality Beamer Slides (Primary Output)
 
-### Step 2: Create Slides QMD File
-Generate a new `Slides_*.qmd` file with the following structure:
+The first stage creates a pedagogically sound Beamer presentation that:
 
-**YAML Header:**
+1. **Manual creation** of `Slides_[ChapterName].qmd` with Beamer format
+2. **Pedagogical structure** designed for teaching:
+   - Clear learning objectives
+   - Motivation before concepts
+   - Progressive builds and reveals
+   - Examples and applications
+   - Discussion questions
+   - Key takeaways
+
+3. **Render to PDF** using Quarto → Beamer → PDF pipeline
+
+**Why Beamer First?**
+
+- LaTeX math renders perfectly (native quality)
+- Professional academic appearance
+- Standard format for conference talks
+- Excellent for projection and printing
+- Full control over layout and typography
+
+### Stage 2: Convert to PowerPoint (Optional, for Compatibility)
+
+If PowerPoint format is needed:
+
+1. **Export Beamer slides** to individual PNG images (one per slide)
+2. **Extract LaTeX equations** from the QMD source
+3. **Render equations to PNG** using matplotlib or similar
+4. **Build PPTX** using python-pptx:
+   - Import slide images as backgrounds
+   - Overlay equation PNGs at appropriate positions
+   - Add text boxes for editable content
+
+## Detailed Workflow
+
+### Step 1: Analyze Chapter Content
+
+Read the chapter QMD file and identify:
+
+- **Core concepts** that need explanation
+- **Key equations** and their context
+- **Examples** and applications
+- **Difficult concepts** that need extra attention
+- **Prerequisites** students need to know
+- **Learning objectives** for the chapter
+
+### Step 2: Design Pedagogical Structure
+
+Create outline with proper teaching flow:
+
+**Introduction (3-5 slides)**
+- Learning objectives
+- Motivation: Why does this matter?
+- Connection to previous material
+- Overview of what's coming
+
+**Core Content (20-30 slides)**
+- One concept per slide
+- Intuition before formulas
+- Build complexity gradually
+- Examples after theory
+- Visual aids and diagrams
+
+**Applications (5-10 slides)**
+- Practical uses
+- Real-world examples
+- Different solution methods
+- When to use each approach
+
+**Conclusion (3-5 slides)**
+- Key takeaways
+- Big picture summary
+- Connection to next topic
+- Discussion questions
+- Additional resources
+
+### Step 3: Write Beamer QMD File
+
+Create `Slides_[ChapterName].qmd` with this structure:
+
 ```yaml
 ---
 title: "Chapter Title"
+subtitle: "Descriptive Subtitle"
+author: "Finance 987"  # or course name
 format:
-  pptx:
-    reference-doc: custom-reference.pptx  # Optional: custom theme
+  beamer:
+    theme: Madrid
+    colortheme: dolphin
+    fonttheme: professionalfonts
+    aspectratio: 169
+    navigation: horizontal
+    section-titles: true
+    incremental: false
+    toc: false
 ---
+
+# Introduction
+
+## Learning Objectives
+
+By the end of this lecture, you will be able to:
+
+- First objective
+- Second objective
+- Third objective
+
+## Why Study This Topic?
+
+**Key Insight:** Main motivation
+
+. . .
+
+This leads to:
+
+- Important result 1
+- Important result 2
+- Important result 3
+
+# Main Section 1
+
+## First Concept
+
+Explanation of concept...
+
+. . .
+
+**Key Formula:**
+$$\text{important equation}$$
+
+. . .
+
+**Interpretation:** What does this mean?
+
+## Example
+
+Work through a concrete example...
+
+# Key Takeaways
+
+## Summary
+
+Main points:
+
+1. First takeaway
+2. Second takeaway
+3. Third takeaway
+
+# Questions?
+
+## Discussion
+
+Think about:
+
+1. Question 1
+2. Question 2
 ```
 
-**Content Organization:**
-- Each major section (`##`) becomes a slide with a header
-- Subsections (`###`) become new slides or bullet points depending on content depth
-- Keep slides focused: 3-5 bullet points per slide maximum
-- Math-heavy content: one key equation per slide with explanation
+### Step 4: Content Guidelines
 
-**Figure Handling:**
-- Include figure code blocks in slides QMD
-- Ensure figures are regenerated when rendering
-- Add figure captions as slide notes or subtitle text
-- For Python plots: ensure all required imports are included
+**Slide Content Principles:**
 
-**Iframe/External Resource Handling:**
-- Extract iframe URLs from chapter
-- Create slides with:
-  - Link to the interactive resource
-  - Screenshot or description of what the resource shows
-  - Note: "Interactive version available at [URL]"
+- **One idea per slide**: Don't cram multiple concepts
+- **Progressive disclosure**: Use `. . .` to build slides incrementally
+- **Clear hierarchy**: Use headers, bold, and structure
+- **Visual breathing room**: Don't fill every slide
+- **Equations stand alone**: Give important equations their own slide
+- **Examples after theory**: Don't mix derivations with applications
 
-**LaTeX Handling:**
-- Extract all `$...$` and `$$...$$` LaTeX code
-- Render each equation to high-quality PNG using tex2img
-- Replace LaTeX code with image placeholders in the slides
-- Store rendered equation images with proper naming (equation_001.png, etc.)
+**Mathematical Content:**
 
-### Step 3: Render LaTeX Equations to Images
-Using **tex2img** (which uses native LaTeX → PDF → PNG pipeline):
+- Introduce notation before using it
+- Motivate equations before deriving them
+- Explain economic/financial meaning
+- Provide intuition, not just algebra
+- Use concrete numbers in examples
+- Show multiple solution methods when relevant
+
+**Engagement Elements:**
+
+- Discussion questions
+- "Think about..." prompts
+- Connections to current markets
+- Historical context when relevant
+- Common mistakes to avoid
+- Practical tips for practitioners
+
+### Step 5: Render Beamer PDF
+
+```bash
+quarto render Slides_[ChapterName].qmd
+```
+
+This creates `Slides_[ChapterName].pdf` with perfect LaTeX rendering.
+
+**Quality checks:**
+
+- [ ] All equations render correctly
+- [ ] No slides too crowded (max 5-7 bullets)
+- [ ] Progressive builds work properly
+- [ ] Section transitions are clear
+- [ ] Math notation is consistent
+- [ ] Timing: 1.5-2 minutes per slide typical
+
+### Step 6: (Optional) Convert to PowerPoint
+
+If PowerPoint format is required, use this process:
+
+#### 6a. Extract Slides as Images
+
+Using pdf2image or similar:
+
 ```python
-from tex2img import Latex2PNG
+from pdf2image import convert_from_path
 
-# For display equations
-converter = Latex2PNG(r'\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2')
-converter.save('equation_001.png', dpi=300)
-
-# For inline equations
-converter = Latex2PNG(r'C \geq \max(S - K, 0)', mode='inline')
-converter.save('equation_002.png', dpi=300)
+images = convert_from_path('Slides_[ChapterName].pdf', dpi=200)
+for i, image in enumerate(images):
+    image.save(f'slide_{i:03d}.png', 'PNG')
 ```
 
-**Rendering Quality:**
-- DPI: 300 (publication quality)
-- Font: Computer Modern (native LaTeX font, same as Beamer)
-- Transparent background for seamless integration
-- Proper bounding boxes (tight crop)
+#### 6b. Extract and Render Equations
 
-### Step 4: Build PowerPoint with python-pptx
-Using python-pptx to construct the final presentation:
+Parse the QMD source to extract equations:
+
+```python
+import re
+
+with open('Slides_[ChapterName].qmd') as f:
+    content = f.read()
+
+# Extract display equations
+equations = re.findall(r'\$\$(.*?)\$\$', content, re.DOTALL)
+
+# Render using matplotlib
+import matplotlib.pyplot as plt
+
+for i, eq in enumerate(equations):
+    fig, ax = plt.subplots(figsize=(8, 2))
+    ax.text(0.5, 0.5, f'${eq}$', fontsize=24, ha='center', va='center')
+    ax.axis('off')
+    plt.savefig(f'equation_{i:03d}.png', dpi=300, bbox_inches='tight',
+                transparent=True)
+    plt.close()
+```
+
+#### 6c. Build PowerPoint
+
 ```python
 from pptx import Presentation
 from pptx.util import Inches
 
 prs = Presentation()
-slide = prs.slides.add_slide(prs.slide_layouts[1])  # Title and content
-slide.shapes.title.text = "Put-Call Parity"
+prs.slide_width = Inches(13.33)  # 16:9 widescreen
+prs.slide_height = Inches(7.5)
 
-# Add equation image
-left = Inches(2)
-top = Inches(3)
-pic = slide.shapes.add_picture('equation_005.png', left, top, height=Inches(1))
+for i, slide_image in enumerate(slide_images):
+    slide = prs.slides.add_slide(prs.slide_layouts[6])  # Blank
 
-prs.save('Slides_Intro_Options.pptx')
+    # Add slide image as background
+    left = Inches(0)
+    top = Inches(0)
+    pic = slide.shapes.add_picture(slide_image, left, top,
+                                   width=prs.slide_width,
+                                   height=prs.slide_height)
+
+    # Move to back
+    slide.shapes._spTree.remove(pic._element)
+    slide.shapes._spTree.insert(2, pic._element)
+
+prs.save('Slides_[ChapterName].pptx')
 ```
 
-### Step 5: Custom Python Script
-Build a custom script (`chapter_to_slides.py`) that:
-1. Parses Chapter QMD file (sections, figures, math, iframes)
-2. Extracts all LaTeX equations and renders them to PNG using tex2img
-3. Generates slide structure with content organized by sections
-4. Uses python-pptx to build PPTX directly (bypassing Quarto's poor math rendering)
-5. Inserts equation images at appropriate positions
-6. Adds Python-generated figures to slides
-7. Creates link slides for iframe resources
+**Note:** This PowerPoint version is for compatibility only. The Beamer PDF is the primary high-quality output.
 
-## Design Considerations
+## Pedagogical Design Patterns
 
-### Slide Content Principles
-- **One Idea Per Slide**: Each slide should convey a single concept
-- **Visual Hierarchy**: Use headers, bullet points, and spacing
-- **Math Presentation**: Display equations prominently, one per slide when complex
-- **Code Examples**: Include only essential code, with simplified syntax
-- **Figures**: Full-size plots with clear labels and legends
+### Pattern 1: Concept Introduction
 
-### PowerPoint Theme for Finance/Math
-**Recommended Theme Settings:**
-- **Background**: White or light gray gradient (subtle)
-- **Header Color**: Navy blue (#003366) or dark teal (#006666)
-- **Accent Colors**:
-  - Orange (#FF6B35) for emphasis
-  - Gold (#FFB700) for highlights
-- **Fonts**:
-  - Headers: Sans-serif (Arial, Calibri, or Helvetica)
-  - Body: Sans-serif for readability
-  - Math: Rendered by tex2img in Computer Modern (native LaTeX font)
-- **Plot Colors**: Use colorblind-friendly palettes (viridis, colorbrewer)
-
-### Automated LaTeX Rendering Strategy
-**Fully Automated Pipeline:**
-1. Script extracts all LaTeX equations from chapter QMD
-2. tex2img renders each equation to PNG (300 DPI, transparent background)
-3. python-pptx builds PowerPoint slides with equation images positioned automatically
-4. **No manual steps required** - equations are publication-quality from the start
-
-**Advantages over Manual IguanaTex:**
-- **Zero manual intervention**: Batch process all chapters
-- **Consistent quality**: Same rendering for all equations
-- **Version control friendly**: PNG files can be committed to repo
-- **Reproducible**: Re-run script to update all slides
-- **Native LaTeX quality**: Same fonts as Beamer PDFs
-
-## File Structure
-
-For each chapter conversion, create:
 ```
-Chapter_Topic.qmd              # Original chapter (input)
-Slides_Topic.pptx              # Generated PowerPoint presentation
-Slides_Topic_equations/        # Rendered equation images (PNG)
-  equation_001.png
-  equation_002.png
-  ...
-Slides_Topic_figures/          # Python-generated figures from chapter
-  fig_long_call.png
-  fig_put_call_parity.png
-  ...
-Slides_Topic_links.txt         # List of external resources (iframes)
-Slides_Topic_structure.json    # Slide structure metadata (for debugging)
+## [Concept Name]
+
+**Definition:** Clear, concise definition
+
+. . .
+
+**Intuition:** Plain English explanation
+
+. . .
+
+**Key Properties:**
+- Property 1
+- Property 2
+- Property 3
 ```
 
-**Note:** No intermediate QMD file needed - we build PPTX directly from Chapter QMD using python-pptx.
+### Pattern 2: Equation Presentation
 
-## Implementation Scripts
+```
+## [Equation Name]
 
-### Script 1: `chapter_to_slides.py`
-Main conversion script that:
-- **Parses Chapter QMD**: Uses regex to identify sections, figures, LaTeX equations, iframes
-- **Extracts LaTeX equations**: Finds all `$...$` and `$$...$$` blocks
-- **Renders equations to PNG**: Uses tex2img with 300 DPI, transparent background
-- **Extracts Python figures**: Executes figure code blocks and saves as PNG
-- **Builds PowerPoint**: Uses python-pptx to create presentation structure
-- **Inserts content**: Adds titles, bullets, equation images, figure images
-- **Handles iframes**: Creates link slides with URLs to interactive resources
+**The Formula:**
+$$\text{beautiful equation}$$
 
-**Key Functions:**
-```python
-def parse_chapter(qmd_file):
-    """Parse chapter QMD and extract structure."""
-    return sections, equations, figures, iframes
+. . .
 
-def render_equations(equations, output_dir):
-    """Render all LaTeX equations to PNG using tex2img."""
-    for i, eq in enumerate(equations):
-        converter = Latex2PNG(eq['latex'])
-        converter.save(f'{output_dir}/equation_{i:03d}.png', dpi=300)
+**Where:**
+- $x$ = first variable
+- $y$ = second variable
 
-def build_presentation(structure, equation_images, figure_images):
-    """Build PowerPoint using python-pptx."""
-    prs = Presentation()
-    # ... add slides with content ...
-    return prs
+. . .
+
+**Economic Meaning:** What does this tell us?
 ```
 
-### Script 2: `batch_convert.py`
-Batch processing for multiple chapters:
-- Takes list of chapter files or pattern (e.g., `Chapter_*.qmd`)
-- Runs conversion for each chapter
-- Generates summary report with statistics
-- Creates index of all generated presentations
+### Pattern 3: Example Structure
 
-### Script 3: `preview_equations.py` (Optional)
-Quick equation preview tool:
-- Extract all equations from a chapter
-- Render them in a grid layout for review
-- Useful for checking equation quality before full conversion
+```
+## Example: [Scenario]
 
-## Usage Examples
+**Given:**
+- Parameter 1 = value
+- Parameter 2 = value
 
-### Single Chapter Conversion
-```bash
-python chapter_to_slides.py Chapter_Intro_Options.qmd
-# Creates: Slides_Intro_Options.pptx (ready to present!)
-# Also creates: Slides_Intro_Options_equations/ (PNG images)
-#              Slides_Intro_Options_figures/ (Python plots)
+. . .
+
+**Find:** What we're looking for
+
+. . .
+
+**Solution:**
+1. Step 1
+2. Step 2
+3. Answer
 ```
 
-### Batch Conversion
-```bash
-python batch_convert.py Chapter_*.qmd
-# Processes all chapters, generates summary report
+### Pattern 4: Comparison Slides
+
+```
+## Three Methods to Price
+
+**Method 1: [Name]**
+- When to use: ...
+- Advantage: ...
+
+. . .
+
+**Method 2: [Name]**
+- When to use: ...
+- Advantage: ...
+
+. . .
+
+**Method 3: [Name]**
+- When to use: ...
+- Advantage: ...
 ```
 
-### Custom Theme
-```bash
-python chapter_to_slides.py Chapter_Intro_Options.qmd --theme finance-theme.pptx
-# Uses custom PowerPoint template for consistent branding
+### Pattern 5: Takeaway Slides
+
 ```
+## Key Takeaways
 
-### Preview Equations Only
-```bash
-python preview_equations.py Chapter_BlackScholes.qmd
-# Renders all equations to a single PDF for quality check
-```
+::: {.block}
+### Main Result
 
-## LaTeX Equation Handling Details
-
-### Automated Rendering Pipeline
-
-**Step 1: Extraction**
-Script uses regex to find all LaTeX equations:
-```python
-import re
-
-# Display equations
-display_pattern = r'\$\$(.*?)\$\$'
-display_equations = re.findall(display_pattern, content, re.DOTALL)
-
-# Inline equations
-inline_pattern = r'\$(.*?)\$'
-inline_equations = re.findall(inline_pattern, content)
-```
-
-**Step 2: Rendering with tex2img**
-```python
-from tex2img import Latex2PNG
-
-# Include custom LaTeX preamble from macros.qmd
-preamble = r'''
-\usepackage{amsmath}
-\usepackage{amssymb}
-\newcommand{\d}{\,\mathrm{d}}
-\newcommand{\e}{\mathrm{e}}
-\newcommand{\E}{\mathbb{E}}
-'''
-
-# Render display equation
-latex_code = r'\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2'
-converter = Latex2PNG(latex_code, preamble=preamble)
-converter.save('equation_001.png', dpi=300, transparent=True)
-```
-
-**Step 3: Insertion into PowerPoint**
-```python
-from pptx.util import Inches
-
-# Add equation image to slide
-left = Inches(2)
-top = Inches(3)
-height = Inches(0.8)  # Auto-scale width to maintain aspect ratio
-slide.shapes.add_picture('equation_001.png', left, top, height=height)
-```
-
-### Quality Settings
-- **DPI**: 300 (publication quality, crisp on projection screens)
-- **Font**: Computer Modern (native LaTeX, matches Beamer PDFs)
-- **Background**: Transparent (blends with slide background)
-- **Format**: PNG with alpha channel
-- **Bounding Box**: Tight crop (no extra whitespace)
-
-## Common Patterns
-
-### Section to Slide Mapping
-```
-## Major Section          → Title slide
-### Subsection           → Content slide with header
-#### Sub-subsection      → Bullet point on parent slide
-
-Callout boxes           → Highlighted box on slide
-Code blocks             → Code slide with syntax highlighting
-Figures                 → Full slide with figure + caption
-Tables                  → Table slide with header
-```
-
-### Figure Code Handling
-**In Chapter:**
-```python
-::: {#fig-long-call}
-```{python}
-#| label: fig-long-call
-#| fig-cap: Caption text
-import plotly.graph_objects as go
-# ... plot code ...
-fig.show()
-```
+Clear statement of the most important point
 :::
+
+. . .
+
+**Practical Implications:**
+- Implication 1
+- Implication 2
 ```
 
-**Script Execution:**
-```python
-# Extract and execute figure code
-fig_code = extract_figure_code(chapter, 'fig-long-call')
-exec(fig_code)  # Generates the plot
+## Example: Creating Slides for Arbitrage Pricing Chapter
 
-# Modify for slide dimensions and save
-fig.update_layout(width=800, height=500)
-fig.write_image('Slides_Topic_figures/fig_long_call.png', scale=2)
-```
+### Step 1: Analysis
 
-**In Generated Slides:**
-```python
-# Script creates PowerPoint slide
-slide = prs.slides.add_slide(prs.slide_layouts[5])  # Blank layout
-slide.shapes.title.text = "Long Call Option"
+The chapter covers:
+- Linear pricing foundations
+- State prices and Arrow securities
+- Risk-neutral probabilities
+- Change of numeraire
+- Fundamental pricing formula
 
-# Add figure image
-pic = slide.shapes.add_picture(
-    'Slides_Topic_figures/fig_long_call.png',
-    left=Inches(1),
-    top=Inches(1.5),
-    width=Inches(8)
-)
+**Key teaching challenges:**
+- Why risk-neutral probabilities work (they're not "real")
+- Change of numeraire seems arbitrary
+- Connection between discrete and continuous time
 
-# Add bullet points as text box
-textbox = slide.shapes.add_textbox(...)
-textbox.text = "• Maximum profit: unlimited\n• Maximum loss: premium paid"
-```
+### Step 2: Pedagogical Structure
 
-### Iframe Handling
-**In Chapter:**
-```html
-::: {#fig-options-market-data}
-<iframe height="750" width="720" src="https://options-market-data.koyeb.app/"></iframe>
-Options Market Data
-:::
-```
+**Introduction:**
+1. Learning objectives
+2. Why study arbitrage pricing? (connects everything)
+3. Intuition: "no free lunch"
 
-**Script Extraction:**
-```python
-# Extract iframe URL
-iframe_pattern = r'<iframe[^>]*src="([^"]*)"'
-url = re.search(iframe_pattern, content).group(1)
-```
+**Core Content:**
+1. Linear pricing (start with fruit example)
+2. State prices (concrete binomial model first)
+3. Arrow securities (building block concept)
+4. Risk-neutral probabilities (why they work)
+5. Multiple states (generalization)
+6. Continuous time (SDFs)
+7. Change of numeraire (motivation first!)
+8. Stock as numeraire (applications)
+9. Girsanov's theorem (intuition only)
 
-**In Generated Slides:**
-```python
-# Create link slide
-slide = prs.slides.add_slide(prs.slide_layouts[1])  # Title and content
-slide.shapes.title.text = "Options Market Data"
+**Applications:**
+1. Three methods to price same option
+2. When to use each method
 
-# Add hyperlink as text
-textbox = slide.shapes.add_textbox(Inches(1), Inches(2), Inches(8), Inches(1))
-text_frame = textbox.text_frame
-p = text_frame.paragraphs[0]
-run = p.add_run()
-run.text = "Interactive tool: options-market-data.koyeb.app"
-run.hyperlink.address = "https://options-market-data.koyeb.app/"
+**Conclusion:**
+1. Big picture summary
+2. Practical implications
+3. Connection to Black-Scholes
 
-# Add description bullets
-text_frame.text += "\n\nKey features:\n• Real-time bid/ask prices\n• Volume and open interest"
-```
+### Step 3: Implementation
 
-## Edge Cases and Special Handling
+See `Slides_ArbitragePricing.qmd` for complete example with:
+- 40+ slides with proper pacing
+- Progressive reveals for complex concepts
+- Clear mathematical notation
+- Conceptual explanations before formulas
+- Multiple examples
+- Discussion questions
 
-### Multi-Figure Layouts
-- Chapter may have side-by-side figures
-- Slides: separate these into individual slides or simplify layout
+## Quality Standards
 
-### Long Code Blocks
-- Chapter may include complete implementations
-- Slides: show only key lines, reference full code elsewhere
+### Content Quality
 
-### Mathematical Derivations
-- Chapter may show multi-step proofs
-- Slides: show starting point, key steps, and result; details in notes
+- [ ] Clear learning objectives stated upfront
+- [ ] Motivation provided before diving into math
+- [ ] One main idea per slide
+- [ ] Progressive builds for complex concepts
+- [ ] Examples follow theory
+- [ ] Economic/financial intuition provided
+- [ ] Common mistakes addressed
+- [ ] Practical applications shown
 
-### Tables
-- Large tables: summarize key rows/columns only
-- Reference full table in appendix or supplementary materials
+### Visual Quality
 
-## Quality Checklist
+- [ ] Consistent fonts and colors
+- [ ] Adequate white space
+- [ ] Readable from back of room (min 18pt font)
+- [ ] Equations clearly visible
+- [ ] No slide too crowded (max 5-7 bullets)
+- [ ] Section transitions clear
 
-Before finalizing slides:
-- [ ] All major sections from chapter are represented
-- [ ] No slide has more than 5-7 bullet points
-- [ ] All figures render correctly and are readable
-- [ ] LaTeX equations are preserved in source
-- [ ] Equations file matches slides
-- [ ] Links to external resources are included
-- [ ] Slide titles are clear and descriptive
-- [ ] Color scheme is consistent and professional
-- [ ] Text is large enough for presentation (min 18pt)
+### Teaching Quality
 
-## Future Enhancements
+- [ ] Appropriate pace (1.5-2 min per slide)
+- [ ] Engagement elements included
+- [ ] Discussion questions provided
+- [ ] Builds on prior knowledge
+- [ ] Previews what's coming next
+- [ ] Suitable for target audience (Masters students)
 
-### Potential Improvements
-1. **Automatic IguanaTex Integration**: PowerPoint VBA macro for batch equation rendering
-2. **AI-Powered Summarization**: Use LLM to automatically generate slide bullet points from chapter prose
-3. **Speaker Notes**: Extract relevant chapter text into PowerPoint speaker notes
-4. **Slide Transitions**: Add appropriate animations for builds and reveals
-5. **Theme Gallery**: Create multiple pre-designed themes for different presentation contexts
-6. **Interactive Plots**: Embed interactive Plotly figures that work in PowerPoint
-7. **Quiz Slides**: Generate assessment questions from chapter content
-8. **Translation Support**: Multi-language slide generation
+## Tools and Dependencies
 
-## Dependencies
+**Required:**
+- Quarto (for rendering Beamer)
+- LaTeX distribution (TeX Live, MiKTeX, or MacTeX)
+- Python 3.8+ (for optional PPTX conversion)
 
-### Required Software
-- **Python 3.8+**
-- **LaTeX distribution** (TeX Live, MiKTeX, or MacTeX) - already installed for Quarto
-- **PowerPoint** (for viewing/editing final presentations)
+**Optional (for PPTX conversion):**
+- python-pptx: `pip install python-pptx`
+- matplotlib: `pip install matplotlib`
+- pdf2image: `pip install pdf2image`
+- Pillow: `pip install Pillow`
 
-### Python Packages
+## Usage
+
+### Creating Beamer Slides (Primary Workflow)
+
+1. Read the chapter QMD file thoroughly
+2. Identify key concepts and teaching challenges
+3. Design pedagogical structure with proper flow
+4. Create `Slides_[ChapterName].qmd` by hand with care
+5. Render with `quarto render Slides_[ChapterName].qmd`
+6. Review PDF and iterate on content
+
+**Time estimate:** 2-4 hours for a comprehensive chapter
+
+### Converting to PowerPoint (Optional)
+
+Only do this if PowerPoint format is specifically required:
+
 ```bash
-pip install tex2img python-pptx pyyaml plotly kaleido numpy
+python beamer_to_pptx.py Slides_[ChapterName].pdf
 ```
 
-**Package purposes:**
-- `tex2img`: LaTeX → PNG rendering (native LaTeX quality)
-- `python-pptx`: PowerPoint file creation and manipulation
-- `pyyaml`: YAML header parsing from QMD files
-- `plotly`: Figure regeneration from chapter code
-- `kaleido`: Plotly static image export
-- `numpy`: Required for figure code execution
+This creates `Slides_[ChapterName].pptx` with:
+- Each slide as an image background
+- Equations as overlaid PNGs
+- Editable text boxes where appropriate
 
-### LaTeX Configuration
-The script will use your existing LaTeX installation. Ensure these are accessible:
-- `pdflatex` (or `xelatex`)
-- `dvipng` or `pdftoppm` (for PNG conversion)
-- Standard packages: `amsmath`, `amssymb`, `amsfonts`
+## Best Practices
 
-## Troubleshooting
+### Do's
 
-### tex2img Rendering Fails
-**Symptom:** Error when rendering equations
-**Solutions:**
-- Verify LaTeX is installed and in PATH: `pdflatex --version`
-- Check custom macros from macros.qmd are included in preamble
-- Test individual equation: `python -c "from tex2img import Latex2PNG; Latex2PNG('x^2').save('test.png')"`
-- Ensure dvipng is installed: `dvipng --version`
+✅ Start with motivation and learning objectives
+✅ Use progressive builds (`. . .`) for complex ideas
+✅ Provide intuition before formulas
+✅ Include concrete examples with numbers
+✅ Show multiple solution methods when relevant
+✅ End with key takeaways and discussion
+✅ Keep slides focused and uncluttered
+✅ Test timing (1.5-2 min per slide)
 
-### Equations Have Wrong Fonts
-**Symptom:** Equations don't match expected Computer Modern font
-**Solutions:**
-- tex2img uses system LaTeX, which should default to Computer Modern
-- Verify LaTeX packages: `\usepackage{lmodern}` in preamble if needed
-- Check DPI setting (300 recommended for crispness)
+### Don'ts
 
-### Figures Don't Execute
-**Symptom:** Python figure code fails during extraction
-**Solutions:**
-- Ensure all imports from chapter are included in extracted code
-- Check for dependencies on earlier code blocks
-- Verify plotly and kaleido are installed for static export
-- Run figure code independently to debug
+❌ Don't cram multiple concepts per slide
+❌ Don't show derivations without motivation
+❌ Don't use tiny fonts (min 18pt)
+❌ Don't skip examples
+❌ Don't forget to explain notation
+❌ Don't use jargon without definition
+❌ Don't rush through key equations
+❌ Don't forget to connect to big picture
 
-### PowerPoint Layout Issues
-**Symptom:** Content overlaps or doesn't fit on slides
-**Solutions:**
-- Adjust positioning in `build_presentation()` function
-- Use custom reference template with `--theme` flag
-- Modify slide layouts in python-pptx code
-- Test with different content amounts per slide
+## Common Patterns for Finance Topics
 
-### LaTeX Macros Not Recognized
-**Symptom:** Custom commands like `\E`, `\d` cause rendering errors
-**Solutions:**
-- Script should automatically include macros.qmd content
-- Verify preamble includes all `\newcommand` definitions
-- Check that macros are valid LaTeX syntax
+### Pricing Formula Introduction
 
-## Notes
+1. Motivation: Why do we need this formula?
+2. Setup: What are the assumptions?
+3. Intuition: What's the economic idea?
+4. Formula: Show the math
+5. Interpretation: What does each term mean?
+6. Example: Calculate with real numbers
+7. Application: When do we use this?
 
-This skill provides **fully automated** conversion from chapter QMD to presentation-ready PowerPoint with professional-quality LaTeX equations. No manual intervention required - the entire pipeline from source to slides is reproducible and scriptable.
+### Proof or Derivation
 
-**Key Advantages:**
-- Production-quality LaTeX rendering (same as Beamer PDFs)
-- Batch process all 16 chapters with one command
-- Version control friendly (all outputs are generated files)
-- Consistent formatting across all presentations
-- Modify source chapter and regenerate slides instantly
+1. State the result clearly first
+2. Explain why it's important
+3. Show key steps only (not every line)
+4. Emphasize the main insight
+5. Verify with an example
+6. Discuss when it applies
+
+### Model Comparison
+
+1. Setup: Common problem to solve
+2. Method 1: Explain and show
+3. Method 2: Explain and show
+4. Method 3: Explain and show
+5. Comparison: When to use each?
+6. Example: Apply all three methods
+
+## Summary
+
+**Primary Output:** High-quality Beamer PDF slides created manually with pedagogical care
+
+**Optional Secondary Output:** PowerPoint PPTX for compatibility
+
+**Key Principle:** Content quality over automation. Each chapter deserves thoughtful slide design that prioritizes student learning.
+
+**Expected Result:** Professional academic slides suitable for teaching Masters of Finance courses, with perfect LaTeX rendering, clear pedagogical flow, and appropriate pacing.
