@@ -80,7 +80,7 @@ book:
     - part: "Part 3: Option Pricing"
       chapters:
         - Chapter_ArbitragePricing.qmd
-        - Chapter_BlackScholes_updated.qmd
+        - Chapter_BlackScholes.qmd
         - Chapter_MertonMargrabeBlack.qmd
         - Chapter_Asians.qmd
         - Chapter_OtherExotics.qmd
