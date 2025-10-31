@@ -1,0 +1,510 @@
+---
+title: "Arbitrage Pricing"
+subtitle: "Foundation of Derivatives Pricing Theory"
+author: "Finance 987"
+format:
+  beamer:
+    theme: Madrid
+    colortheme: dolphin
+    fonttheme: professionalfonts
+    aspectratio: 169
+    navigation: horizontal
+    section-titles: true
+    incremental: false
+    toc: false
+---
+
+# Introduction
+
+## Learning Objectives
+
+By the end of this lecture, you will be able to:
+
+- Explain the concept of linear pricing and its implications
+- Calculate state prices and risk-neutral probabilities
+- Apply the fundamental pricing formula with different numeraires
+- Understand how probability measures change under different numeraires
+- Value derivatives using arbitrage-free pricing methods
+
+## Why Study Arbitrage Pricing?
+
+**Key Insight:** Most of modern finance rests on one simple principle:
+
+> *There are no free lunches in well-functioning markets*
+
+. . .
+
+This principle leads to:
+
+- Black-Scholes formula
+- Risk-neutral valuation
+- Change of numeraire techniques
+- Martingale pricing methods
+
+# Linear Pricing
+
+## The Fundamental Concept
+
+**Linear Pricing** is the cornerstone of asset pricing theory
+
+. . .
+
+Think of buying fruit:
+
+- 5 apples + 6 oranges = 5 × (price of apple) + 6 × (price of orange)
+
+. . .
+
+In finance:
+
+- Price of portfolio = sum of (quantity × price) for each asset
+- This applies to **contingent claims** (payoffs in different states)
+
+## No Arbitrage Implies Linear Pricing
+
+**Definition:** An arbitrage opportunity is a trading strategy with:
+
+- Non-negative cash flows in all states
+- Strictly positive cash flow in at least one state
+
+. . .
+
+**Key Result:** If there are no arbitrage opportunities, then the pricing operator is linear:
+
+$$P(aX + bY) = aP(X) + bP(Y)$$
+
+## State Prices
+
+If pricing is linear, it must have the form:
+
+$$P(X) = \sum_{j=1}^J \pi_j X_j$$
+
+. . .
+
+where:
+
+- $\pi_j$ = **state price** (price of \$1 in state $j$)
+- $X_j$ = payoff in state $j$
+- State prices are **strictly positive** (no arbitrage)
+
+. . .
+
+**Time Value of Money:**
+$$1 = \sum_{j=1}^J \pi_j e^{rt}$$
+
+# Binomial Model
+
+## State Prices in the Binomial Model
+
+Two states (up and down), two equations:
+
+\begin{align*}
+1 &= \pi_u e^{rt} + \pi_d e^{rt} \\
+S &= \pi_u S_u + \pi_d S_d
+\end{align*}
+
+. . .
+
+**Solution:**
+$$\pi_u  = \frac{S-e^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{e^{-rt}S_u-S}{S_u - S_d}$$
+
+. . .
+
+**No-arbitrage condition:** $\pi_u, \pi_d > 0$ requires:
+$$\frac{S_u}{S} > e^{rt} > \frac{S_d}{S}$$
+
+## Arrow Securities
+
+**Definition:** An Arrow security pays \$1 in one specific state, \$0 otherwise
+
+. . .
+
+In the binomial model:
+
+- $\pi_u$ = price of Arrow security for "up" state
+- $\pi_d$ = price of Arrow security for "down" state
+
+. . .
+
+**Any derivative** can be decomposed as a portfolio of Arrow securities:
+$$C = \pi_u C_u + \pi_d C_d$$
+
+## Risk-Neutral Probabilities
+
+Define: $p_u = \pi_u e^{rt}$ and $p_d = \pi_d e^{rt}$
+
+. . .
+
+Properties:
+
+- $p_u + p_d = 1$ and both are positive
+- Can be interpreted as **probabilities**
+
+. . .
+
+**Derivative pricing formula:**
+$$C = e^{-rt}[p_u C_u + p_d C_d] = e^{-rt}\mathbb{E}^R[C]$$
+
+where $\mathbb{E}^R$ is the expectation under risk-neutral probabilities
+
+## Risk-Neutral Probability Formula
+
+$$p_u = \frac{e^{rt} - S_d/S}{S_u/S - S_d/S}$$
+
+. . .
+
+**Key Insight:** The risk-neutral probability is:
+
+- Not the "real" probability
+- The probability that makes the expected return equal to $r$
+- A mathematical tool for pricing
+
+. . .
+
+**Verification:**
+$$\mathbb{E}^R[S_T] = p_u S_u + p_d S_d = S e^{rt}$$
+
+# Multiple States
+
+## Generalizing to $J$ States
+
+With $J$ possible states at time $t$, we need $J$ equations:
+
+$$\begin{bmatrix}
+e^{rt} & e^{rt} & \cdots & e^{rt} \\
+S_1^{(1)} & S_2^{(1)} & \cdots & S_J^{(1)} \\
+\vdots & \vdots & \ddots & \vdots \\
+S_1^{(J-1)} & S_2^{(J-1)} & \cdots & S_J^{(J-1)}
+\end{bmatrix}
+\begin{bmatrix}
+\pi_1 \\ \pi_2 \\ \vdots \\ \pi_J
+\end{bmatrix} =
+\begin{bmatrix}
+1 \\ S^{(1)} \\ \vdots \\ S^{(J-1)}
+\end{bmatrix}$$
+
+. . .
+
+Need $J$ traded assets with linearly independent payoffs
+
+## Valuation with State Prices
+
+Once we have state prices:
+
+$$V = \sum_{j=1}^J \pi_j V_j$$
+
+. . .
+
+Or equivalently with risk-neutral probabilities ($p_j = \pi_j e^{rt}$):
+
+$$V = e^{-rt} \sum_{j=1}^J p_j V_j = e^{-rt} \mathbb{E}^p[V_t]$$
+
+# Continuous Time
+
+## Stochastic Discount Factor
+
+In continuous time with infinitely many states:
+
+::: {.block}
+### Fundamental Principle
+If there are no arbitrage opportunities, there exists a strictly positive random variable $m_t$ (stochastic discount factor) such that:
+
+$$P_0 = \mathbb{E}[m_t P_t]$$
+:::
+
+. . .
+
+The stochastic discount factor generalizes state prices:
+
+- For finite states: $m_t = \pi_j/\text{prob}_j$ in state $j$
+- Prices all assets consistently
+
+## Risk-Neutral Measure in Continuous Time
+
+The risk-free asset satisfies: $1 = \mathbb{E}[m_t e^{rt}]$
+
+. . .
+
+This means $m_t e^{rt}$ has expectation 1, so we can define:
+
+$$\mathbb{E}^R[Z] = \mathbb{E}[m_t e^{rt} Z]$$
+
+. . .
+
+**Result:** Under the risk-neutral measure $\mathbb{P}^R$:
+
+$$P_0 = e^{-rt} \mathbb{E}^R[P_t]$$
+
+Price = discounted expected payoff under risk-neutral measure
+
+## Martingale Property
+
+**Definition:** A martingale is a process where:
+$$\mathbb{E}_s[X_t] = X_s \text{ for all } s < t$$
+
+. . .
+
+**Key Result:** Discounted asset prices are martingales under the risk-neutral measure:
+
+$$\frac{X(0)}{R(0)} = \mathbb{E}^R\left[\frac{X_t}{R_t}\right]$$
+
+where $R_t = e^{rt}$
+
+# Change of Numeraire
+
+## Why Change Numeraire?
+
+Our choice of the risk-free asset as numeraire was **arbitrary**
+
+. . .
+
+**Key Insight:** Any strictly positive traded asset can serve as numeraire
+
+. . .
+
+Benefits of changing numeraire:
+
+- Simplifies certain calculations
+- Provides different perspectives on the same problem
+- Essential for pricing certain exotic options
+
+## Defining New Probability Measures
+
+For a dividend-reinvested asset $Y$ with strictly positive value:
+
+$$Y(0) = \mathbb{E}[m_t Y_t]$$
+
+. . .
+
+Define new probabilities using $Y$ as numeraire:
+
+$$\text{prob}^Y_s = \frac{\mathbb{E}[m_t Y_t \mathbf{1}_{\{s\}}]}{Y(0)}$$
+
+. . .
+
+Then any asset price satisfies:
+
+$$S(0) = Y(0) \mathbb{E}^Y\left[\frac{S_t}{Y_t}\right]$$
+
+## Fundamental Pricing Formula
+
+::: {.block}
+### The Fundamental Formula
+
+For any two dividend-reinvested assets $P$ and $Y$:
+
+$$Y_s = P_s \mathbb{E}^P_s \left[\frac{Y_t}{P_t}\right]$$
+
+for all times $s < t$
+:::
+
+. . .
+
+**Interpretation:**
+
+- The ratio $Y_t/P_t$ is a martingale under the $P$-numeraire measure
+- Price of $Y$ at time $s$ = price of $P$ times expected ratio
+
+## Special Cases
+
+**When $P$ is the risk-free asset:**
+$$Y_s = e^{-r(t-s)} \mathbb{E}^R_s[Y_t]$$
+
+This is the usual risk-neutral pricing formula
+
+. . .
+
+**When $P$ is the stock $S$:**
+$$V_0 = S_0 \mathbb{E}^S\left[\frac{V_T}{S_T}\right]$$
+
+Useful for pricing options with payoffs relative to stock price
+
+# Stock as Numeraire
+
+## Stock Numeraire in Binomial Model
+
+Define probabilities using stock as numeraire:
+
+$$\text{prob}^S_u = \frac{\pi_u S_u}{S}, \quad \text{prob}^S_d = \frac{\pi_d S_d}{S}$$
+
+. . .
+
+These are valid probabilities ($> 0$ and sum to 1)
+
+. . .
+
+For a call option:
+$$\frac{C}{S} = \text{prob}^S_u \frac{C_u}{S_u} + \text{prob}^S_d \frac{C_d}{S_d}$$
+
+The ratio $C/S$ is a martingale under stock numeraire
+
+## Stock Numeraire in Continuous Time
+
+For geometric Brownian motion, under different measures:
+
+. . .
+
+**Risk-neutral measure ($\mathbb{P}^R$):**
+$$\frac{dS}{S} = (r-q) dt + \sigma dB^R$$
+
+. . .
+
+**Stock numeraire measure ($\mathbb{P}^S$):**
+$$\frac{dS}{S} = (r-q+\sigma^2) dt + \sigma dB^S$$
+
+. . .
+
+**Key difference:** Drift increases by $\sigma^2$ when using stock as numeraire
+
+# Girsanov's Theorem
+
+## Changing Probability Measures
+
+When we change probability measures:
+
+- A process that was a Brownian motion **may not remain** a Brownian motion
+- It becomes an Ito process with **different drift**
+- The **diffusion coefficient** (volatility) **remains unchanged**
+
+. . .
+
+**Intuition:**
+
+- Changing probabilities changes expected movements (drift)
+- But doesn't change how much paths "wiggle" (volatility)
+
+## Example: From Actual to Risk-Neutral
+
+Under the actual probability measure $\mathbb{P}$:
+$$\frac{\mathrm{d}S}{S} = \mu \mathrm{d}t + \sigma \mathrm{d}B$$
+
+where $B$ is a Brownian motion
+
+. . .
+
+Under the risk-neutral measure $\mathbb{P}^R$:
+$$\frac{\mathrm{d}S}{S} = r \mathrm{d}t + \sigma \mathrm{d}B^*$$
+
+where $B^*$ is a Brownian motion under $\mathbb{P}^R$
+
+. . .
+
+**Note:** Same volatility $\sigma$, different drift ($\mu \to r$)
+
+# Applications
+
+## Three Ways to Price a Derivative
+
+Consider a European call option with payoff $(S_T - K)^+$
+
+. . .
+
+**Method 1: State Prices**
+$$C = \sum_j \pi_j (S_j - K)^+$$
+
+. . .
+
+**Method 2: Risk-Neutral Valuation**
+$$C = e^{-rT}\mathbb{E}^R[(S_T - K)^+]$$
+
+. . .
+
+**Method 3: Stock Numeraire**
+$$C = S_0 \mathbb{E}^S\left[\frac{(S_T - K)^+}{S_T}\right]$$
+
+All three give the **same answer**!
+
+## When to Use Each Method
+
+**State Prices:**
+
+- Discrete models with few states
+- Emphasizes market completeness
+
+. . .
+
+**Risk-Neutral Valuation:**
+
+- Most common in practice
+- Natural for Monte Carlo simulation
+- Standard for most derivatives
+
+. . .
+
+**Stock Numeraire:**
+
+- Options with payoffs relative to stock price
+- Digital options
+- Lookback and Asian options
+
+# Key Takeaways
+
+## Summary: The Big Picture
+
+1. **No arbitrage** $\Rightarrow$ **Linear pricing** $\Rightarrow$ **State prices**
+
+2. State prices $\Rightarrow$ **Risk-neutral probabilities**
+
+3. Asset price ratios are **martingales** under appropriate measures
+
+4. **Any positive asset** can serve as numeraire
+
+5. **Fundamental pricing formula:** Values are expectations of discounted payoffs
+
+6. **Girsanov's Theorem:** Changing measures changes drift, not volatility
+
+## Practical Implications
+
+::: {.block}
+### For Derivatives Pricing:
+
+- Don't need to know actual probabilities
+- Don't need to estimate expected returns $\mu$
+- Only need risk-free rate $r$ and volatility $\sigma$
+- Can price using expectations (Monte Carlo)
+- Can choose convenient numeraire for each problem
+:::
+
+## What's Next?
+
+This framework is the foundation for:
+
+- **Black-Scholes formula** (next chapter)
+- **Monte Carlo simulation** methods
+- **Exotic option pricing**
+- **Interest rate derivatives**
+- **Credit derivatives**
+
+. . .
+
+::: {.block}
+### Key Message
+Understanding arbitrage pricing is essential for understanding all of modern derivatives pricing theory
+:::
+
+# Questions?
+
+## Discussion
+
+Think about:
+
+1. Why are risk-neutral probabilities useful if they're not "real"?
+
+2. What happens to derivative prices if arbitrage opportunities exist?
+
+3. How does the choice of numeraire affect computation?
+
+4. What assumptions are we making (and are they realistic)?
+
+## Additional Resources
+
+**For deeper understanding:**
+
+- Read the chapter exercises (especially the binomial examples)
+- Practice calculating state prices in simple models
+- Simulate risk-neutral paths in Python
+- Explore different numeraire choices for the same option
+
+. . .
+
+**Next class:** We'll apply these concepts to derive the Black-Scholes formula and understand delta hedging
