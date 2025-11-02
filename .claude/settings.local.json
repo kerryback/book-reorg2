@@ -64,7 +64,8 @@
       "Bash(source:*)",
       "Bash(git init:*)",
       "WebSearch",
-      "WebFetch(domain:quarto.org)"
+      "WebFetch(domain:quarto.org)",
+      "Bash(pip install:*)"
     ],
     "deny": []
   }
