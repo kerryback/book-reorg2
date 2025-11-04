@@ -131,30 +131,6 @@ require(['plotly'], function(Plotly) {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
-div.callout-Example.callout {
-  border-left-color: #a1bced;
-}
-div.callout-Example.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
-}
-div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f185';
-  background-image: none;
-}
-div.callout-Rule.callout {
-  border-left-color: #12801f;
-}
-div.callout-Rule.callout-style-default > .callout-header {
-  background-color: rgba(18, 128, 31, 0.13);
-}
-div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f164';
-  background-image: none;
-}
 div.callout-Extra.callout {
   border-left-color: #a1bced;
 }
@@ -167,6 +143,18 @@ div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra
   content: '\f48b';
   background-image: none;
 }
+div.callout-Example.callout {
+  border-left-color: #a1bced;
+}
+div.callout-Example.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
+}
+div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f185';
+  background-image: none;
+}
 div.callout-Principle.callout {
   border-left-color: #eb4034;
 }
@@ -177,6 +165,18 @@ div.callout-Principle .callout-toggle::before {  background-image: url('data:ima
 div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f06a';
+  background-image: none;
+}
+div.callout-Rule.callout {
+  border-left-color: #12801f;
+}
+div.callout-Rule.callout-style-default > .callout-header {
+  background-color: rgba(18, 128, 31, 0.13);
+}
+div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f164';
   background-image: none;
 }
 </style>
@@ -420,51 +420,41 @@ window.Quarto = {
 </header>
 
 
-<div id="43583632" class="cell" data-execution_count="1">
+<div id="aa49db7f" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
 </div>
 <p>In the previous chapter, we developed a general framework for derivative pricing based on the absence of arbitrage. We saw how linear pricing leads to state prices, risk-neutral probabilities, and the fundamental pricing formula. We also introduced change of numeraire methods, which allow us to compute option values as expectations under different probability measures. In this chapter, we apply these principles to derive and analyze the celebrated Black-Scholes formula for European option pricing.</p>
 <p>A fundamental insight is that standard European options can be expressed as combinations of digital options. Understanding this connection provides both theoretical insight and practical computational advantages.</p>
-<p>The Black-Scholes model assumes that the underlying asset pays a constant dividend yield <span class="math inline">\(q \mathrm{d} t\)</span> (in other words the stock pays the dividend <span class="math inline">\(q S_t \mathrm{d}t\)</span>) and has an ex-dividend price <span class="math inline">\(S\)</span> satisfying</p>
-<p><span class="math display">\[\frac{\mathrm{d}S}{S} = (\mu - q) \mathrm{d}t + \sigma \mathrm{d}B\]</span></p>
-<p>for a Brownian motion <span class="math inline">\(B\)</span>, where <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\mu\)</span> are assumed to be constant. We also assume a constant continuously-compounded risk-free rate <span class="math inline">\(r\)</span>. In this model <span class="math inline">\(\mathrm{d}S\)</span> represents the capital gain and <span class="math inline">\(q S_t \mathrm{d}t\)</span> is the dividend portion of the return.</p>
+<p>The Black-Scholes model assumes that the underlying asset pays a constant dividend yield <span class="math inline">\(q \,\mathrm{d} t\)</span> (in other words the stock pays the dividend <span class="math inline">\(q S_t \,\mathrm{d}t\)</span>) and has an ex-dividend price <span class="math inline">\(S\)</span> satisfying</p>
+<p><span class="math display">\[\frac{\mathrm{d}S}{S} = (\mu - q) \,\mathrm{d}t + \sigma \,\mathrm{d}B\,.\]</span></p>
+<p>for a Brownian motion <span class="math inline">\(B\)</span>, where <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\mu\)</span> are assumed to be constant. We also assume a constant continuously-compounded risk-free rate <span class="math inline">\(r\)</span>. In this model, <span class="math inline">\(\mathrm{d}S\)</span> represents the capital gain and <span class="math inline">\(q S_t \,\mathrm{d}t\)</span> is the dividend portion of the return.</p>
 <section id="digital-options-as-building-blocks" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="digital-options-as-building-blocks"><span class="header-section-number">9.1</span> Digital Options as Building Blocks</h2>
-<p>Before deriving the Black-Scholes formula, we need to understand how standard options relate to digital options. A <strong>digital option</strong> (also called binary option) has a discontinuous payoff—it pays a fixed amount if a condition is met, zero otherwise.</p>
+<p>Before deriving the Black-Scholes formula, we need to understand how standard options relate to digital options. A <strong>digital option</strong> (also called binary option) has a discontinuous payoff — it pays a fixed amount if a condition is met and zero otherwise.</p>
 <section id="two-types-of-digitals" class="level4">
 <h4 class="anchored" data-anchor-id="two-types-of-digitals">Two Types of Digitals</h4>
-<p>Consider a call option with strike <span class="math inline">\(K\)</span> and maturity <span class="math inline">\(T\)</span>. Its payoff <span class="math inline">\((S_T - K)^+\)</span> can be decomposed as:</p>
-<p><span class="math display">\[(S_T - K)^+ = \mathbf{1}_{\{S_T &gt; K\}} S_T - K \mathbf{1}_{\{S_T &gt; K\}}\]</span></p>
+<p>Consider a call option with strike <span class="math inline">\(K\)</span> and maturity <span class="math inline">\(T\)</span>. Its payoff <span class="math inline">\((S_T - K)^+\)</span> can be decomposed as</p>
+<p><span class="math display">\[(S_T - K)^+ = \mathbf{1}_{\{S_T &gt; K\}} S_T - K \mathbf{1}_{\{S_T &gt; K\}}\,.\]</span></p>
 <p>This reveals that a call option is the difference between two digital options:</p>
 <ol type="1">
 <li><strong>Share digital</strong>: Pays <span class="math inline">\(S_T\)</span> when <span class="math inline">\(S_T &gt; K\)</span>, zero otherwise</li>
 <li><strong>Cash digital</strong>: Pays <span class="math inline">\(K\)</span> when <span class="math inline">\(S_T &gt; K\)</span>, zero otherwise</li>
 </ol>
-<p>Similarly, a put option with payoff <span class="math inline">\((K - S_T)^+\)</span> can be written as:</p>
-<p><span class="math display">\[(K - S_T)^+ = K \mathbf{1}_{\{S_T &lt; K\}} - \mathbf{1}_{\{S_T &lt; K\}} S_T\]</span></p>
+<p>Similarly, a put option with payoff <span class="math inline">\((K - S_T)^+\)</span> can be written as</p>
+<p><span class="math display">\[(K - S_T)^+ = K \mathbf{1}_{\{S_T &lt; K\}} - \mathbf{1}_{\{S_T &lt; K\}} S_T\,.\]</span></p>
 <p>This is <span class="math inline">\(K\)</span> cash digitals minus share digitals, both paying when <span class="math inline">\(S_T &lt; K\)</span>.</p>
-</section>
-<section id="why-this-decomposition-matters-note-mark-hates-this-section" class="level4">
-<h4 class="anchored" data-anchor-id="why-this-decomposition-matters-note-mark-hates-this-section">Why This Decomposition Matters Note: Mark Hates this section</h4>
-<p>This decomposition is powerful because:</p>
-<ol type="1">
-<li><strong>Computational efficiency</strong>: Digital options have closed-form expressions involving only normal probabilities</li>
-<li><strong>Theoretical insight</strong>: It connects discrete payoffs to continuous probability distributions</li>
-<li><strong>Risk management</strong>: Greeks can be computed directly from the normal density function</li>
-<li><strong>Generalization</strong>: The approach extends to exotic options and other underlying processes</li>
-</ol>
 </section>
 </section>
 <section id="girsanovs-theorem-in-the-black-scholes-model" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="girsanovs-theorem-in-the-black-scholes-model"><span class="header-section-number">9.2</span> Girsanov’s Theorem in the Black-Scholes Model</h2>
 <p>To value digital options, we need to understand changes of probability measures in continuous time. When we change probability measures, a process <span class="math inline">\(B\)</span> that was a Brownian motion cannot be expected to remain a Brownian motion under the new measure. However, Girsanov’s Theorem tells us exactly how the drift changes.</p>
-<p>In the Black-Scholes model, the dividend-reinvested stock price, denoted <span class="math inline">\(Y_t\)</span> follows:</p>
-<p><span class="math display">\[\mathrm{d}Y_t = \mu Y_t \mathrm{d}t + \sigma Y_t \mathrm{d}B_t\]</span></p>
-<p>We can rewrite this as:</p>
-<p><span class="math display">\[\mathrm{d}Y_t = r Y_t \mathrm{d}t + \sigma Y_t \mathrm{d}\left(B_t + \frac{\mu - r}{\sigma}t\right)\]</span></p>
-<p>Define <span class="math inline">\(\kappa = \frac{\mu - r}{\sigma}\)</span>, called the market price of risk or Sharpe ratio.</p>
+<p>In the Black-Scholes model, the dividend-reinvested stock price, denoted <span class="math inline">\(Y_t\)</span>, evolves as</p>
+<p><span class="math display">\[\mathrm{d}Y_t = \mu Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}B_t\,.\]</span></p>
+<p>We can rewrite this as</p>
+<p><span class="math display">\[\mathrm{d}Y_t = r Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}\left(B_t + \frac{\mu - r}{\sigma}t\right)\,.\]</span></p>
+<p>Define <span class="math inline">\(\kappa = \frac{\mu - r}{\sigma}\)</span>. This is called the market price of risk or Sharpe ratio.</p>
 <div class="callout callout-style-simple callout-Principle callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -476,21 +466,21 @@ Important Principle
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Girsanov’s Theorem</strong>: Define the exponential martingale:</p>
-<p><span class="math display">\[Z_t = \exp\left(-\frac{1}{2}\kappa^2 t - \kappa B_t\right)\]</span></p>
-<p>Since <span class="math inline">\(Z_T\)</span> is lognormal, <span class="math inline">\(\mathbb{E}[Z_T] = 1\)</span>. Under the probability measure defined by:</p>
+<p><span class="math display">\[Z_t = \exp\left(-\frac{1}{2}\kappa^2 t - \kappa B_t\right)\,.\]</span></p>
+<p>Using the rule for expectations of lognormal variables, we can see that <span class="math inline">\(\mathbb{E}[Z_T] = 1\)</span>. Under the probability measure defined by:</p>
 <p><span class="math display">\[\mathbb{E}^\kappa[Y] = \mathbb{E}[Z_T X]\]</span></p>
 <p>for any function <span class="math inline">\(X\)</span> of <span class="math inline">\(B_t\)</span> (<span class="math inline">\(0 \leq t \leq T\)</span>), the process <span class="math inline">\(B_t^\kappa = B_t + \kappa t\)</span> is a Brownian motion. Moreover, if <span class="math inline">\(M_t\)</span> is a martingale under the new measure, then <span class="math inline">\(Z_t M_t\)</span> is a martingale under the original measure.</p>
 </div>
 </div>
 <p>This theorem tells us how to construct the risk-neutral measure from the original measure. Using Ito’s lemma, we can verify that <span class="math inline">\(Z_t \frac{Y_t}{R_t}\)</span> is indeed a martingale:</p>
-<p><span class="math display">\[Z_t \frac{Y_t}{R_t} = S_0 \exp\left(-\frac{1}{2}(\sigma - \kappa)^2 t + (\sigma - \kappa)B_t\right)\]</span></p>
+<p><span class="math display">\[Z_t \frac{Y_t}{R_t} = S_0 \exp\left(-\frac{1}{2}(\sigma - \kappa)^2 t + (\sigma - \kappa)B_t\right)\,.\]</span></p>
 <p>Therefore this is a lognormal random variable and taking expectations gives:</p>
-<p><span class="math display">\[\mathbb{E}\left[Z_t \frac{Y_t}{R_t}\right] = S_0\]</span></p>
+<p><span class="math display">\[\mathbb{E}\left[Z_t \frac{Y_t}{R_t}\right] = S_0\,.\]</span></p>
 <section id="dividend-reinvested-stock-as-numeraire" class="level4">
 <h4 class="anchored" data-anchor-id="dividend-reinvested-stock-as-numeraire">Dividend Reinvested Stock as Numeraire</h4>
 <p>When using the stock as numeraire, we need the process <span class="math inline">\(\frac{R_t}{Y_t}\)</span> to be a martingale. Following similar analysis with Girsanov’s Theorem, we find that under the stock numeraire measure:</p>
-<p><span class="math display">\[\mathrm{d}Y_t = (r + \sigma^2) Y_t \mathrm{d}t + \sigma V_t \mathrm{d}B_t^Y\]</span></p>
-<p>where <span class="math inline">\(B_t^Y = B_t^R - \sigma t\)</span> is a Brownian motion under the dividend reinvested stock numeraire measure. It then follows <span class="math display">\[\frac{R_t}{Y_t} = \frac{R_0}{S_0} \exp\left(-\frac{1}{2} \sigma^2 t - \sigma B_t^Y \right) \]</span></p>
+<p><span class="math display">\[\mathrm{d}Y_t = (r + \sigma^2) Y_t \,\mathrm{d}t + \sigma V_t \,\mathrm{d}B_t^Y\,.\]</span></p>
+<p>where <span class="math inline">\(B_t^Y = B_t^R - \sigma t\)</span> is a Brownian motion under the dividend reinvested stock numeraire measure. It then follows <span class="math display">\[\frac{R_t}{Y_t} = \frac{R_0}{S_0} \exp\left(-\frac{1}{2} \sigma^2 t - \sigma B_t^Y \right)\,, \]</span></p>
 <p>which is an exponential martigale.</p>
 </section>
 </section>
@@ -500,35 +490,35 @@ Important Principle
 <section id="cash-digital-options" class="level4">
 <h4 class="anchored" data-anchor-id="cash-digital-options">Cash Digital Options</h4>
 <p>A cash digital option paying $1 when <span class="math inline">\(S_T &gt; K\)</span> has value under the risk-neutral measure:</p>
-<p><span class="math display">\[e^{-r(T-t)} \mathbb{E}_t^R[\mathbf{1}_{\{S_T &gt; K\}}] = e^{-r(T-t)} \text{prob}^R(S_T &gt; K)\]</span></p>
+<p><span class="math display">\[e^{-r(T-t)} \mathbb{E}_t^R[\mathbf{1}_{\{S_T &gt; K\}}] = e^{-r(T-t)} \text{prob}^R(S_T &gt; K)\,.\]</span></p>
 <p>Under the risk-neutral measure, the stock price follows:</p>
-<p><span class="math display">\[\frac{\mathrm{d}S}{S} = (r - q) \mathrm{d}t + \sigma \mathrm{d}B^R\]</span></p>
+<p><span class="math display">\[\frac{\mathrm{d}S}{S} = (r - q) \,\mathrm{d}t + \sigma \,\mathrm{d}B^R\,.\]</span></p>
 <p>This means:</p>
-<p><span class="math display">\[\mathrm{d}\log S = \left(r - q - \frac{\sigma^2}{2}\right) \mathrm{d}t + \sigma \mathrm{d}B^R\]</span></p>
+<p><span class="math display">\[\mathrm{d}\log S = \left(r - q - \frac{\sigma^2}{2}\right) \,\mathrm{d}t + \sigma \,\mathrm{d}B^R\,.\]</span></p>
 <p>From Chapter 2, we know this has the solution:</p>
-<p><span class="math display">\[S_T = S_t \exp\left(\left(r - q - \frac{\sigma^2}{2}\right)(T-t) + \sigma B_{T-t}^R\right) \]</span></p>
-<p>Applying the tail probability formula from <a href="Chapter_GeometricBrownianMotion.html#sec-tailprobs" class="quarto-xref"><span>Section 7.2</span></a> with <span class="math inline">\(\alpha = r - q - \sigma^2/2\)</span>:</p>
-<p><span class="math display">\[\text{prob}^R(S_T &gt; K) = N(d_2)\]</span></p>
-<p>where:</p>
-<p><span class="math display">\[d_2 = \frac{\log(S_t/K) + (r - q - \frac{\sigma^2}{2})(T-t)}{\sigma\sqrt{T-t}}\]</span></p>
+<p><span class="math display">\[S_T = S_t \exp\left(\left(r - q - \frac{\sigma^2}{2}\right)(T-t) + \sigma B_{T-t}^R\right) \,.\]</span></p>
+<p>Applying the tail probability formula from <a href="Chapter_GeometricBrownianMotion.html#sec-tailprobs" class="quarto-xref"><span>Section 7.2</span></a> with <span class="math inline">\(\alpha = r - q - \sigma^2/2\)</span> gives us</p>
+<p><span class="math display">\[\text{prob}^R(S_T &gt; K) = N(d_2)\,,\]</span></p>
+<p>where</p>
+<p><span class="math display">\[d_2 = \frac{\log(S_t/K) + (r - q - \frac{\sigma^2}{2})(T-t)}{\sigma\sqrt{T-t}}\,.\]</span></p>
 </section>
 <section id="share-digital-options" class="level4">
 <h4 class="anchored" data-anchor-id="share-digital-options">Share Digital Options</h4>
 <p>For the share digital paying <span class="math inline">\(S_T \mathbf{1}_{\{S_T &gt; K\}}\)</span>, we use the dividend reinvested stock as numeraire. We have</p>
-<p><span class="math display">\[S_T  = e^{-q T} Y_T \]</span> therefore <span class="math display">\[\frac{S_T}{Y_T}  \mathbf{1}_{\{S_T &gt; K\}} = e^{-q T}  \mathbf{1}_{\{S_T &gt; K\}}\]</span></p>
+<p><span class="math display">\[S_T  = e^{-q T} Y_T\,; \]</span> therefore, <span class="math display">\[\frac{S_T}{Y_T}  \mathbf{1}_{\{S_T &gt; K\}} = e^{-q T}  \mathbf{1}_{\{S_T &gt; K\}}\,.\]</span></p>
 <p>From the change of numeraire theory in Chapter 3:</p>
-<p><span class="math display">\[\text{Value} = Y_t \mathbb{E}_t^V[e^{-q T} \mathbf{1}_{\{S_T &gt; K\}}] = e^{-q (T-t) } S_t \cdot \text{prob}^Y(S_T &gt; K)\]</span></p>
-<p>Under the stock numeraire measure:</p>
-<p><span class="math display">\[\mathrm{d}\log S = \left(r - q + \frac{\sigma^2}{2}\right) \mathrm{d}t + \sigma \mathrm{d}B^Y\]</span></p>
+<p><span class="math display">\[\text{Value} = Y_t \mathbb{E}_t^V[e^{-q T} \mathbf{1}_{\{S_T &gt; K\}}] = e^{-q (T-t) } S_t \cdot \text{prob}^Y(S_T &gt; K)\,.\]</span></p>
+<p>Under the stock numeraire measure,</p>
+<p><span class="math display">\[\mathrm{d}\log S = \left(r - q + \frac{\sigma^2}{2}\right) \,\mathrm{d}t + \sigma \,\mathrm{d}B^Y\,.\]</span></p>
 <p>Applying the tail probability formula from <a href="Chapter_GeometricBrownianMotion.html#sec-tailprobs" class="quarto-xref"><span>Section 7.2</span></a> with <span class="math inline">\(\alpha = r - q + \sigma^2/2\)</span>:</p>
-<p><span class="math display">\[\text{prob}^Y(S_T &gt; K) = N(d_1)\]</span></p>
+<p><span class="math display">\[\text{prob}^Y(S_T &gt; K) = N(d_1)\,.\]</span></p>
 <p>where:</p>
-<p><span class="math display">\[d_1 = \frac{\log(S_t/K) + (r - q + \frac{\sigma^2}{2})(T-t)}{\sigma\sqrt{T-t}} = d_2 + \sigma\sqrt{T-t}\]</span></p>
+<p><span class="math display">\[d_1 = \frac{\log(S_t/K) + (r - q + \frac{\sigma^2}{2})(T-t)}{\sigma\sqrt{T-t}} = d_2 + \sigma\sqrt{T-t}\,.\]</span></p>
 </section>
 <section id="combining-the-results" class="level4">
 <h4 class="anchored" data-anchor-id="combining-the-results">Combining the Results</h4>
 <p>Now we can derive the Black-Scholes formula by combining our digital option results. A European call option has payoff:</p>
-<p><span class="math display">\[(S_T - K)^+ = \mathbf{1}_{\{S_T &gt; K\}} S_T - K \mathbf{1}_{\{S_T &gt; K\}}\]</span></p>
+<p><span class="math display">\[(S_T - K)^+ = \mathbf{1}_{\{S_T &gt; K\}} S_T - K \mathbf{1}_{\{S_T &gt; K\}}\,.\]</span></p>
 <p>The first term is a share digital worth <span class="math inline">\(e^{-q (T-t)}S_t \cdot \text{prob}^S(S_T &gt; K) = e^{- q (T-t)} S_t N(d_1)\)</span>.</p>
 <p>The second term is <span class="math inline">\(K\)</span> cash digitals worth <span class="math inline">\(K \cdot e^{-r(T-t)} \cdot \text{prob}^R(S_T &gt; K) = K e^{-r(T-t)} N(d_2)\)</span>.</p>
 <p>We need <span class="math inline">\(e^{-q(T-t)}\)</span> in front of the share digital to account for dividends not paid to the call holder upon exercise, the call value is:</p>
@@ -554,7 +544,7 @@ Key Result
 </div>
 <div class="callout-body-container callout-body">
 <p>The value of a European call option is:</p>
-<p><span class="math display">\[C(t, S_t) = e^{-q(T-t)} S_t N(d_1) - e^{-r(T-t)} K N(d_2)\]</span></p>
+<p><span class="math display">\[C(t, S_t) = e^{-q(T-t)} S_t N(d_1) - e^{-r(T-t)} K N(d_2)\,.\]</span></p>
 <p>where <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span> are defined above and <span class="math inline">\(N(\cdot)\)</span> is the standard normal cumulative distribution function.</p>
 </div>
 </div>
@@ -569,11 +559,11 @@ Key Result
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math display">\[P(t, S_t) = e^{-r(T-t)} K N(-d_2) - e^{-q(T-t)} S_t N(-d_1)\]</span></p>
+<p><span class="math display">\[P(t, S_t) = e^{-r(T-t)} K N(-d_2) - e^{-q(T-t)} S_t N(-d_1)\,.\]</span></p>
 </div>
 </div>
 <p>The call and put values satisfy a put-call parity relationship:</p>
-<p><span class="math display">\[e^{-r(T-t)} K + C(t, S_t) = e^{-q(T-t)} S_t + P(t, S_t)\]</span></p>
+<p><span class="math display">\[e^{-r(T-t)} K + C(t, S_t) = e^{-q(T-t)} S_t + P(t, S_t)\,.\]</span></p>
 </section>
 <section id="interactive-black-scholes-explorer" class="level4">
 <h4 class="anchored" data-anchor-id="interactive-black-scholes-explorer">Interactive Black-Scholes Explorer</h4>
@@ -594,14 +584,14 @@ Figure&nbsp;9.1: <strong>Black-Scholes Explorer.</strong> This interactive calcu
 <section id="replication-and-delta-hedging" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="replication-and-delta-hedging"><span class="header-section-number">9.4</span> Replication and Delta Hedging</h2>
 <p>The Black Scholes formula can also be derived from a no-arbitrage argument since we can replicate option payoffs through dynamic trading. Following Merton’s argument, we construct a portfolio holding <span class="math inline">\(\delta_t\)</span> shares of stock and <span class="math inline">\(\alpha_t\)</span> units of the risk-free asset, with value:</p>
-<p><span class="math display">\[W_t = \alpha_t e^{rt} + \delta_t S_t\]</span></p>
+<p><span class="math display">\[W_t = \alpha_t e^{rt} + \delta_t S_t\,.\]</span></p>
 <p>For continuous trading with no cash inflows or outflows:</p>
-<p><span class="math display">\[\mathrm{d}W_t = \delta_t \mathrm{d}S_t + \delta_t q S_t \mathrm{d}t + \alpha_t r e^{rt} \mathrm{d}t\]</span></p>
-<p>If the option value is <span class="math inline">\(C(t, S_t)\)</span>, then by Ito’s lemma:</p>
-<p><span class="math display">\[\mathrm{d}C = \frac{\partial C}{\partial t} \mathrm{d}t + \frac{\partial C}{\partial S} \mathrm{d}S + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S^2 \mathrm{d}t\]</span></p>
-<p>Matching the stochastic terms requires:</p>
-<p><span class="math display">\[\delta_t = \frac{\partial C}{\partial S}\]</span></p>
-<p>This is the option’s delta—the number of shares needed to hedge the option. Matching the drift terms in both expressions <span class="math display">\[ \frac{\partial C}{\partial S} \mu S_t + \alpha_t r R_t = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S} (\mu-q) S_t + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\]</span> which can be solved to give <span class="math display">\[ \alpha_t r R_t=r \left(W_t -\frac{\partial C}{\partial S} S_t\right)  = \frac{\partial C}{\partial t}-\frac{\partial C}{\partial S} q S_t  + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\]</span> which gives the equation <span class="math display">\[r W_t = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S}(r-q) S_t+\frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\]</span> with a boundary condition <span class="math inline">\(W_T = (S_T-K)^{+}\)</span>. However, no-arbitrage suggests <span class="math inline">\(W_t = C(t,S_t)\)</span> which gives us the partial differential equation <span class="math display">\[r C = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S} (r-q) S+\frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S^2\]</span> with a boundary condition <span class="math inline">\(C(T,S_T)= (S_T - K)^{+}\)</span>. This is a partial differential equation and a fairly tedious set of calcuations show the Black Scholes formula is a solution (in fact it is the only positive solution). Close observation of the right hand side we see this is the drift term of Ito expansion for <span class="math inline">\(C\)</span> if we work in the risk-neutral probability. The right hand side then says in the risk-neutral probability, the call option earns the risk free return.</p>
+<p><span class="math display">\[\mathrm{d}W_t = \delta_t \,\mathrm{d}S_t + \delta_t q S_t \,\mathrm{d}t + \alpha_t r e^{rt} \,\mathrm{d}t\,.\]</span></p>
+<p>If the option value is <span class="math inline">\(C(t, S_t)\)</span>, then by Ito’s lemma,</p>
+<p><span class="math display">\[\mathrm{d}C = \frac{\partial C}{\partial t} \,\mathrm{d}t + \frac{\partial C}{\partial S} \,\mathrm{d}S + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S^2 \,\mathrm{d}t\,.\]</span></p>
+<p>Matching the stochastic terms requires</p>
+<p><span class="math display">\[\delta_t = \frac{\partial C}{\partial S}\,.\]</span></p>
+<p>This is the option’s delta - the number of shares needed to hedge the option. Matching the drift terms in both expressions <span class="math display">\[ \frac{\partial C}{\partial S} \mu S_t + \alpha_t r R_t = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S} (\mu-q) S_t + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\,.\]</span> which can be solved to give <span class="math display">\[ \alpha_t r R_t=r \left(W_t -\frac{\partial C}{\partial S} S_t\right)  = \frac{\partial C}{\partial t}-\frac{\partial C}{\partial S} q S_t  + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\,,\]</span> which gives the equation <span class="math display">\[r W_t = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S}(r-q) S_t+\frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\]</span> with a boundary condition <span class="math inline">\(W_T = (S_T-K)^{+}\)</span>. However, no-arbitrage suggests <span class="math inline">\(W_t = C(t,S_t)\)</span>, which gives us the partial differential equation <span class="math display">\[r C = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S} (r-q) S+\frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S^2\]</span> with a boundary condition <span class="math inline">\(C(T,S_T)= (S_T - K)^{+}\)</span>. This is a partial differential equation and a fairly tedious set of calcuations show the Black Scholes formula is a solution (in fact it is the only positive solution). Close observation of the right hand side we see this is the drift term of Ito expansion for <span class="math inline">\(C\)</span> if we work in the risk-neutral probability. The right hand side then says in the risk-neutral probability, the call option earns the risk free return.</p>
 <p>However, there is nothing special about a call option. The same argument will apply for any European style option. The only difference is the boundary condition.</p>
 <div class="callout callout-style-simple callout-Principle callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -628,9 +618,9 @@ Important Principle
 <section id="simulating-portfolio-insurance" class="level4">
 <h4 class="anchored" data-anchor-id="simulating-portfolio-insurance">Simulating Portfolio Insurance</h4>
 <p>Recall, that a protective put position buys a put and buys a share and the payoff at the expiration of the put is given by <span class="math inline">\(\max(K,S_T)\)</span>. The reason for the name protective put is apparent since the position can pay off no less than <span class="math inline">\(K\)</span>. The cost of this insurance is the price of the put. However, if the put is not traded, we can synthetically replicate this payoff using the prodedure above assuming we can trade continuously. The basic recipe is to start with inital wealth equal to that for a protective put position: <span class="math inline">\(W_0 = P(0,S_0)+S_0\)</span>. The delta of the protective put position can be calcuated to be the delta of the put plus 1 which is <span class="math inline">\(N(d_1)\)</span>, where <span class="math inline">\(d_1\)</span> is calculated at each point in time. However, in practice we cannot trade continuously. A simple discrete strategy would rebalance at intervals <span class="math inline">\(\Delta t\)</span>. The strategy calculates <span class="math inline">\(N(d_1)\)</span> at time 0 and holds <span class="math inline">\(P(0,S_0)+S_0 - N(d_1)S_0\)</span> dollars in the risk free asset and <span class="math inline">\(N(d_1)\)</span> shares of the asset. Thereafter these holdings are adjusted. The change in portfolio value over the interval <span class="math inline">\(\Delta t\)</span> is <span class="math display">\[\Delta W= W_{i \Delta t}- W_{(i-1)\Delta t} \]</span> <span class="math display">\[
-= (P((i-1)\Delta t,S_{(i-1)\Delta t})+S_{(i-1)\Delta t} - N(d_1-)S_{(i-1)\Delta t})(R_{i\Delta t}-R_{(i-1)\Delta t}) + N(d1-)(S_{i\Delta t}-S_{(i-1)\Delta t})
+= (P((i-1)\Delta t,S_{(i-1)\Delta t})+S_{(i-1)\Delta t} - N(d_1-)S_{(i-1)\Delta t})(R_{i\Delta t}-R_{(i-1)\Delta t}) + N(d1-)(S_{i\Delta t}-S_{(i-1)\Delta t}) \,,
 \]</span> where <span class="math inline">\(N(d1-)\)</span> is the delta chosen at time <span class="math inline">\((i-1)\Delta t\)</span>. The question is if the Black Scoles model is correct, how accurate can a discrete rebalancing scheme be? This is simulated in the following code:</p>
-<div id="06b6bd41" class="cell" data-execution_count="2">
+<div id="23b152b2" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -778,28 +768,28 @@ Important Principle
 <section id="delta-delta" class="level4">
 <h4 class="anchored" data-anchor-id="delta-delta">Delta (<span class="math inline">\(\delta\)</span>)</h4>
 <p>The sensitivity to stock price changes:</p>
-<p><span class="math display">\[\delta_{call} = e^{-q(T-t)} N(d_1)\]</span> <span class="math display">\[\delta_{put} = -e^{-q(T-t)} N(-d_1)\]</span></p>
+<p><span class="math display">\[\delta_{call} = e^{-q(T-t)} N(d_1)\,.\]</span> <span class="math display">\[\delta_{put} = -e^{-q(T-t)} N(-d_1)\,.\]</span></p>
 </section>
 <section id="gamma-gamma" class="level4">
 <h4 class="anchored" data-anchor-id="gamma-gamma">Gamma (<span class="math inline">\(\Gamma\)</span>)</h4>
 <p>The rate of change of delta:</p>
-<p><span class="math display">\[\Gamma = \frac{e^{-q(T-t)} n(d_1)}{S \sigma \sqrt{T-t}}\]</span></p>
+<p><span class="math display">\[\Gamma = \frac{e^{-q(T-t)} n(d_1)}{S \sigma \sqrt{T-t}}\,,\]</span></p>
 <p>where <span class="math inline">\(n(\cdot)\)</span> is the standard normal density. Gamma is the same for calls and puts.</p>
 </section>
 <section id="theta-theta" class="level4">
 <h4 class="anchored" data-anchor-id="theta-theta">Theta (<span class="math inline">\(\Theta\)</span>)</h4>
 <p>The time decay (using <span class="math inline">\(\partial/\partial(-T)\)</span> so positive theta means value increases as time passes):</p>
-<p><span class="math display">\[\Theta_{call} = -\frac{e^{-q(T-t)} S n(d_1) \sigma}{2\sqrt{T-t}} + q e^{-q(T-t)} S N(d_1) - r e^{-r(T-t)} K N(d_2)\]</span></p>
+<p><span class="math display">\[\Theta_{call} = -\frac{e^{-q(T-t)} S n(d_1) \sigma}{2\sqrt{T-t}} + q e^{-q(T-t)} S N(d_1) - r e^{-r(T-t)} K N(d_2)\,.\]</span></p>
 </section>
 <section id="vega-mathcalv" class="level4">
 <h4 class="anchored" data-anchor-id="vega-mathcalv">Vega (<span class="math inline">\(\mathcal{V}\)</span>)</h4>
 <p>The sensitivity to volatility:</p>
-<p><span class="math display">\[\mathcal{V} = e^{-q(T-t)} S n(d_1) \sqrt{T-t}\]</span></p>
+<p><span class="math display">\[\mathcal{V} = e^{-q(T-t)} S n(d_1) \sqrt{T-t}\,.\]</span></p>
 </section>
 <section id="rho-rho" class="level4">
 <h4 class="anchored" data-anchor-id="rho-rho">Rho (<span class="math inline">\(\rho\)</span>)</h4>
 <p>The sensitivity to interest rates:</p>
-<p><span class="math display">\[\rho_{call} = (T-t) e^{-r(T-t)} K N(d_2)\]</span></p>
+<p><span class="math display">\[\rho_{call} = (T-t) e^{-r(T-t)} K N(d_2)\,.\]</span></p>
 </section>
 <section id="interactive-greeks-explorer" class="level4">
 <h4 class="anchored" data-anchor-id="interactive-greeks-explorer">Interactive Greeks Explorer</h4>
@@ -820,12 +810,12 @@ Figure&nbsp;9.2: <strong>Black-Scholes Greeks Explorer.</strong> This tool shows
 <section id="theta-and-gamma-in-delta-hedges" class="level2" data-number="9.6">
 <h2 data-number="9.6" class="anchored" data-anchor-id="theta-and-gamma-in-delta-hedges"><span class="header-section-number">9.6</span> Theta and Gamma in Delta Hedges</h2>
 <p>The relationship between theta and gamma provides deep insight into option hedging. Consider a delta-hedged portfolio (short call, long <span class="math inline">\(\delta\)</span> shares). From the fundamental PDE and our Greeks:</p>
-<p><span class="math display">\[\Theta + \frac{1}{2} \Gamma \sigma^2 S^2 = r C - (r - q) S \delta\]</span></p>
-<p>In continuous time, the portfolio change is:</p>
-<p><span class="math display">\[-\Theta \mathrm{d}t - \frac{1}{2} \Gamma \sigma^2 S^2 \mathrm{d}t + q \delta S \mathrm{d}t + (C - \delta S) r \mathrm{d}t\]</span></p>
+<p><span class="math display">\[\Theta + \frac{1}{2} \Gamma \sigma^2 S^2 = r C - (r - q) S \delta\,.\]</span></p>
+<p>In continuous time, the portfolio change is</p>
+<p><span class="math display">\[-\Theta \,\mathrm{d}t - \frac{1}{2} \Gamma \sigma^2 S^2 \,\mathrm{d}t + q \delta S \,\mathrm{d}t + (C - \delta S) r \,\mathrm{d}t\,.\]</span></p>
 <p>These terms exactly cancel—the time decay and dividends received offset losses from being short gamma and interest payments. This perfect cancellation only holds with continuous rebalancing.</p>
 <p>With discrete rebalancing, the hedge is imperfect. The portfolio is short gamma, meaning it loses money when the stock moves significantly between rebalances. This loss is approximately:</p>
-<p><span class="math display">\[\frac{1}{2} \Gamma (\Delta S)^2\]</span></p>
+<p><span class="math display">\[\frac{1}{2} \Gamma (\Delta S)^2\,,\]</span></p>
 <p>where <span class="math inline">\(\Delta S\)</span> is the stock price change. The hedging error increases with:</p>
 <ul>
 <li>Larger gamma (near the strike at expiration)</li>
@@ -845,7 +835,7 @@ Figure&nbsp;9.2: <strong>Black-Scholes Greeks Explorer.</strong> This tool shows
 <li>Cash position to finance the hedge</li>
 </ul>
 <p>The key insight from the analysis in <span class="quarto-unresolved-ref">?sec-s_deltahedging</span> is that perfect continuous hedging relies on the relationship:</p>
-<p><span class="math display">\[-\Theta \,\mathrm{d} t - \frac{1}{2}\Gamma \sigma^2S^2\,\mathrm{d} t+ q \delta S\,\mathrm{d} t+(C-\delta S)r\,\mathrm{d} t = 0\]</span></p>
+<p><span class="math display">\[-\Theta \,\mathrm{d} t - \frac{1}{2}\Gamma \sigma^2S^2\,\mathrm{d} t+ q \delta S\,\mathrm{d} t+(C-\delta S)r\,\mathrm{d} t = 0\,.\]</span></p>
 <p>With discrete rebalancing, this balance is disrupted. The portfolio gains and losses come from:</p>
 <ol type="1">
 <li><strong>Time decay</strong>: <span class="math inline">\(-\Theta \Delta t\)</span> (predictable, typically positive for short option)</li>
@@ -857,7 +847,7 @@ Figure&nbsp;9.2: <strong>Black-Scholes Greeks Explorer.</strong> This tool shows
 <section id="simulation-of-discrete-hedging" class="level4">
 <h4 class="anchored" data-anchor-id="simulation-of-discrete-hedging">Simulation of Discrete Hedging</h4>
 <p>The following code simulates the performance of discretely rebalanced delta hedges. It runs 10,000 simulations of a stock price path, with trading to an updated delta hedge each period.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div id="13c72539" class="cell" data-execution_count="3">
+<div id="c42715a2" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1090,7 +1080,7 @@ Note: Errors should decrease as rebalancing frequency increases.</code></pre>
 <section id="digital-options-and-building-blocks" class="level4">
 <h4 class="anchored" data-anchor-id="digital-options-and-building-blocks">Digital Options and Building Blocks</h4>
 <div id="exr-digital-pricing" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.1</strong></span> Consider a cash digital option that pays $1 when <span class="math inline">\(S_T &gt; K\)</span> and a share digital that pays <span class="math inline">\(S_T\)</span> when <span class="math inline">\(S_T &gt; K\)</span>. Using Black-Scholes parameters <span class="math inline">\(S_0 = 100\)</span>, <span class="math inline">\(K = 105\)</span>, <span class="math inline">\(r = 5\%\)</span>, <span class="math inline">\(q = 2\%\)</span>, <span class="math inline">\(\sigma = 20\%\)</span>, <span class="math inline">\(T = 0.25\)</span>:</p>
+<p><span class="theorem-title"><strong>Exercise 9.1</strong></span> Consider a cash digital option that pays $1 when <span class="math inline">\(S_T &gt; K\)</span> and a share digital that pays <span class="math inline">\(S_T\)</span> when <span class="math inline">\(S_T &gt; K\)</span>. Using Black-Scholes parameters <span class="math inline">\(S_0 = 100\)</span>, <span class="math inline">\(K = 105\)</span>, <span class="math inline">\(r = 5\%\)</span>, <span class="math inline">\(q = 2\%\)</span>, <span class="math inline">\(\sigma = 20\%\)</span>, <span class="math inline">\(T = 0.25\)</span>.</p>
 <ol type="a">
 <li>Calculate the analytical values of both digital options using the formulas from the chapter</li>
 <li>Verify your results using Monte Carlo simulation with 100,000 paths</li>
@@ -1099,7 +1089,7 @@ Note: Errors should decrease as rebalancing frequency increases.</code></pre>
 </ol>
 </div>
 <div id="exr-digital-delta" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.2</strong></span> The delta of a cash digital option that pays $1 when <span class="math inline">\(S_T &gt; K\)</span> is: <span class="math display">\[\Delta_{\text{digital}} = \frac{e^{-rT} n(d_2)}{\sigma S \sqrt{T}}\]</span></p>
+<p><span class="theorem-title"><strong>Exercise 9.2</strong></span> The delta of a cash digital option that pays $1 when <span class="math inline">\(S_T &gt; K\)</span> is <span class="math display">\[\Delta_{\text{digital}} = \frac{e^{-rT} n(d_2)}{\sigma S \sqrt{T}}\,,\]</span></p>
 <p>where <span class="math inline">\(n(\cdot)\)</span> is the standard normal density.</p>
 <ol type="a">
 <li>Plot this delta against stock price for <span class="math inline">\(S \in [80, 120]\)</span> with the parameters from the previous exercise</li>
@@ -1109,8 +1099,8 @@ Note: Errors should decrease as rebalancing frequency increases.</code></pre>
 </ol>
 </div>
 <p>::: {#digital puts} The following two questions can be answered in two ways.</p>
-<p>What is the vaule of a derivative security which pays <span class="math display">\[\mathbf{1}_{\{S_T &lt;K\}}\]</span></p>
-<p>What is the value of a derivative security which pays <span class="math display">\[ S_T \mathbf{1}_{\{S_T &lt;K\}}\]</span></p>
+<p>What is the vaule of a derivative security which pays <span class="math display">\[\mathbf{1}_{\{S_T &lt;K\}}\,.\]</span></p>
+<p>What is the value of a derivative security which pays <span class="math display">\[ S_T \mathbf{1}_{\{S_T &lt;K\}}\,.\]</span></p>
 <p>:::</p>
 </section>
 <section id="change-of-numeraire-and-girsanovs-theorem" class="level4">
