@@ -131,18 +131,6 @@ require(['plotly'], function(Plotly) {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
-div.callout-Rule.callout {
-  border-left-color: #12801f;
-}
-div.callout-Rule.callout-style-default > .callout-header {
-  background-color: rgba(18, 128, 31, 0.13);
-}
-div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f164';
-  background-image: none;
-}
 div.callout-Example.callout {
   border-left-color: #a1bced;
 }
@@ -153,6 +141,18 @@ div.callout-Example .callout-toggle::before {  background-image: url('data:image
 div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f185';
+  background-image: none;
+}
+div.callout-Rule.callout {
+  border-left-color: #12801f;
+}
+div.callout-Rule.callout-style-default > .callout-header {
+  background-color: rgba(18, 128, 31, 0.13);
+}
+div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f164';
   background-image: none;
 }
 div.callout-Extra.callout {
@@ -420,7 +420,7 @@ window.Quarto = {
 </header>
 
 
-<div id="fa95107f" class="cell" data-execution_count="1">
+<div id="43583632" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
@@ -630,7 +630,7 @@ Important Principle
 <p>Recall, that a protective put position buys a put and buys a share and the payoff at the expiration of the put is given by <span class="math inline">\(\max(K,S_T)\)</span>. The reason for the name protective put is apparent since the position can pay off no less than <span class="math inline">\(K\)</span>. The cost of this insurance is the price of the put. However, if the put is not traded, we can synthetically replicate this payoff using the prodedure above assuming we can trade continuously. The basic recipe is to start with inital wealth equal to that for a protective put position: <span class="math inline">\(W_0 = P(0,S_0)+S_0\)</span>. The delta of the protective put position can be calcuated to be the delta of the put plus 1 which is <span class="math inline">\(N(d_1)\)</span>, where <span class="math inline">\(d_1\)</span> is calculated at each point in time. However, in practice we cannot trade continuously. A simple discrete strategy would rebalance at intervals <span class="math inline">\(\Delta t\)</span>. The strategy calculates <span class="math inline">\(N(d_1)\)</span> at time 0 and holds <span class="math inline">\(P(0,S_0)+S_0 - N(d_1)S_0\)</span> dollars in the risk free asset and <span class="math inline">\(N(d_1)\)</span> shares of the asset. Thereafter these holdings are adjusted. The change in portfolio value over the interval <span class="math inline">\(\Delta t\)</span> is <span class="math display">\[\Delta W= W_{i \Delta t}- W_{(i-1)\Delta t} \]</span> <span class="math display">\[
 = (P((i-1)\Delta t,S_{(i-1)\Delta t})+S_{(i-1)\Delta t} - N(d_1-)S_{(i-1)\Delta t})(R_{i\Delta t}-R_{(i-1)\Delta t}) + N(d1-)(S_{i\Delta t}-S_{(i-1)\Delta t})
 \]</span> where <span class="math inline">\(N(d1-)\)</span> is the delta chosen at time <span class="math inline">\((i-1)\Delta t\)</span>. The question is if the Black Scoles model is correct, how accurate can a discrete rebalancing scheme be? This is simulated in the following code:</p>
-<div id="70e2c3ab" class="cell" data-execution_count="2">
+<div id="06b6bd41" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -857,7 +857,7 @@ Figure&nbsp;9.2: <strong>Black-Scholes Greeks Explorer.</strong> This tool shows
 <section id="simulation-of-discrete-hedging" class="level4">
 <h4 class="anchored" data-anchor-id="simulation-of-discrete-hedging">Simulation of Discrete Hedging</h4>
 <p>The following code simulates the performance of discretely rebalanced delta hedges. It runs 10,000 simulations of a stock price path, with trading to an updated delta hedge each period.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div id="af4bc25e" class="cell" data-execution_count="3">
+<div id="13c72539" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1026,7 +1026,7 @@ Figure&nbsp;9.2: <strong>Black-Scholes Greeks Explorer.</strong> This tool shows
 <span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Expected stock return μ=</span><span class="sc">{</span>mu<span class="sc">:.2f}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
 <span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="co"># Test different rebalancing frequencies</span></span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>rebalancing_frequencies <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">52</span>, <span class="dv">252</span>]  <span class="co"># Weekly, monthly, daily, etc.</span></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>rebalancing_frequencies <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">13</span>, <span class="dv">63</span>]  </span>
 <span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> <span class="dv">10000</span>  <span class="co"># Number of simulations</span></span>
 <span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hedging Error Analysis (95th percentile of absolute profits):"</span>)</span>
@@ -1041,11 +1041,10 @@ Figure&nbsp;9.2: <strong>Black-Scholes Greeks Explorer.</strong> This tool shows
 <span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Report the larger absolute error</span></span>
 <span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>    max_error <span class="op">=</span> <span class="bu">max</span>(<span class="bu">abs</span>(p95), <span class="bu">abs</span>(p5))</span>
 <span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>    freq_name <span class="op">=</span> {<span class="dv">4</span>: <span class="st">"Weekly"</span>, <span class="dv">12</span>: <span class="st">"Monthly"</span>, <span class="dv">52</span>: <span class="st">"Daily"</span>, <span class="dv">252</span>: <span class="st">"Intraday"</span>}[N]</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>    freq_name <span class="op">=</span> {<span class="dv">3</span>: <span class="st">"Monthly"</span>, <span class="dv">13</span>: <span class="st">"Weekly"</span>, <span class="dv">63</span>: <span class="st">"Daily"</span>}[N]</span>
 <span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>freq_name<span class="sc">:&lt;20}</span><span class="ss"> | </span><span class="sc">{</span>N<span class="sc">:&gt;7}</span><span class="ss"> | </span><span class="sc">{</span>max_error<span class="sc">:&gt;18.4f}</span><span class="ss">"</span>)</span>
 <span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Note: Errors should decrease as rebalancing frequency increases."</span>)</span>
-<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The Black-Scholes price is </span><span class="sc">{</span>blackscholes(S0, K, r, q, sigma, T, <span class="va">True</span>)<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Note: Errors should decrease as rebalancing frequency increases."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Discrete Delta Hedging Analysis
@@ -1056,31 +1055,13 @@ Expected stock return μ=0.12
 Hedging Error Analysis (95th percentile of absolute profits):
 Rebalancing Frequency | Periods | 95th Percentile Error
 -------------------------------------------------------
-Weekly               |       4 |             2.7472
-Monthly              |      12 |             1.6110
-Daily                |      52 |             0.7752
-Intraday             |     252 |             0.3550
+Monthly              |       3 |             3.2002
+Weekly               |      13 |             1.5593
+Daily                |      63 |             0.7157
 
-Note: Errors should decrease as rebalancing frequency increases.
-The Black-Scholes price is 4.3359</code></pre>
+Note: Errors should decrease as rebalancing frequency increases.</code></pre>
 </div>
 </div>
-</section>
-<section id="understanding-hedging-errors-note-mark-also-hates-this-section" class="level4">
-<h4 class="anchored" data-anchor-id="understanding-hedging-errors-note-mark-also-hates-this-section">Understanding Hedging Errors NOte: Mark also hates this section</h4>
-<p>The simulation results illustrate several key points about discrete hedging:</p>
-<ol type="1">
-<li><p><strong>Gamma is the enemy</strong>: When an option has high gamma (near expiration, near the strike), small stock moves between rebalances cause large hedging errors</p></li>
-<li><p><strong>Frequency matters</strong>: More frequent rebalancing reduces hedging error, but with diminishing returns and higher transaction costs</p></li>
-<li><p><strong>Volatility creates error</strong>: Higher realized volatility generally increases hedging errors for short gamma positions</p></li>
-<li><p><strong>The hedge is model-independent</strong>: Notice that the expected stock return <span class="math inline">\(\mu\)</span> affects the distribution of stock paths but not the systematic hedging error - this confirms the model-free nature of delta hedging</p></li>
-</ol>
-</section>
-<section id="practical-implications" class="level4">
-<h4 class="anchored" data-anchor-id="practical-implications">Practical Implications</h4>
-<p>In practice, traders must balance: - <strong>Hedging accuracy</strong>: More frequent rebalancing reduces error - <strong>Transaction costs</strong>: Every rebalance incurs bid-ask spreads and commissions<br>
-- <strong>Market impact</strong>: Large hedging flows can move prices unfavorably</p>
-<p>The discrete hedging analysis shows why options market makers require: - Sophisticated risk management systems for continuous monitoring - Careful consideration of gamma exposure, especially near expiration - Transaction cost models to optimize rebalancing frequency</p>
 </section>
 </section>
 <section id="implied-volatilities" class="level2" data-number="9.7">

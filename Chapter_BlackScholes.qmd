@@ -665,7 +665,7 @@ print(f"Parameters: S0={S0}, K={K}, r={r:.2f}, σ={sigma:.2f}, q={q:.2f}, T={T}"
 print(f"Expected stock return μ={mu:.2f}\n")
 
 # Test different rebalancing frequencies
-rebalancing_frequencies = [4, 12, 52, 252]  # Weekly, monthly, daily, etc.
+rebalancing_frequencies = [3, 13, 63]  
 M = 10000  # Number of simulations
 
 print("Hedging Error Analysis (95th percentile of absolute profits):")
@@ -680,36 +680,11 @@ for N in rebalancing_frequencies:
     # Report the larger absolute error
     max_error = max(abs(p95), abs(p5))
     
-    freq_name = {4: "Weekly", 12: "Monthly", 52: "Daily", 252: "Intraday"}[N]
+    freq_name = {3: "Monthly", 13: "Weekly", 63: "Daily"}[N]
     print(f"{freq_name:<20} | {N:>7} | {max_error:>18.4f}")
 
 print(f"\nNote: Errors should decrease as rebalancing frequency increases.")
-print(f"The Black-Scholes price is {blackscholes(S0, K, r, q, sigma, T, True):.4f}")
 ```
-
-#### Understanding Hedging Errors  NOte: Mark also hates this section
-
-The simulation results illustrate several key points about discrete hedging:
-
-1. **Gamma is the enemy**: When an option has high gamma (near expiration, near the strike), small stock moves between rebalances cause large hedging errors
-
-2. **Frequency matters**: More frequent rebalancing reduces hedging error, but with diminishing returns and higher transaction costs
-
-3. **Volatility creates error**: Higher realized volatility generally increases hedging errors for short gamma positions
-
-4. **The hedge is model-independent**: Notice that the expected stock return $\mu$ affects the distribution of stock paths but not the systematic hedging error - this confirms the model-free nature of delta hedging
-
-#### Practical Implications
-
-In practice, traders must balance:
-- **Hedging accuracy**: More frequent rebalancing reduces error
-- **Transaction costs**: Every rebalance incurs bid-ask spreads and commissions  
-- **Market impact**: Large hedging flows can move prices unfavorably
-
-The discrete hedging analysis shows why options market makers require:
-- Sophisticated risk management systems for continuous monitoring
-- Careful consideration of gamma exposure, especially near expiration
-- Transaction cost models to optimize rebalancing frequency
 
 ## Implied Volatilities
 
