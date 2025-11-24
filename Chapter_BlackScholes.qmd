@@ -678,6 +678,34 @@ for N in rebalancing_frequencies:
 print(f"\nNote: Errors should decrease as rebalancing frequency increases.")
 ```
 
+## Delta-Gamma Hedging
+
+To attempt to improve the performance of a discretely rebalanced delta hedge, one can use another option to create a portfolio that is both delta and gamma neutral. Being delta neutral means hedged as in the previous section---the portfolio value has no exposure to changes in the underlying asset price. In other words, it means that the derivative of the portfolio value with respect to the price of the underlying (the portfolio delta) is zero. Being gamma neutral means that the delta of the portfolio has no exposure to changes in the underlying price, which is equivalent to the second derivative of the portfolio value with respect to the price of the underlying (the portfolio gamma) being zero. If the delta truly did not change, then there would be no need to rebalance continuously, and hence no hedging error introduced by only adjusting the portfolio at discrete times rather than continuously. However, there is certainly no guarantee that a discretely rebalanced delta/gamma hedge will perform better than a discretely rebalanced delta hedge.
+
+A delta/gamma hedge can be constructed as follows. Suppose we have written (shorted) a call option and we want to hedge both the delta and gamma using the underlying asset and another option, for example, another call option with a different strike. In practice, one would want to use a liquid option for this purpose, which typically means that the strike of the option will be near the current value of the underlying (i.e., the option used to hedge would be approximately at the money).
+
+Let $\delta$ and $\Gamma$ denote the delta and gamma of the written option and let $\delta^*$ and $\Gamma^*$ denote the delta and gamma of the option used to hedge. Consider holding $a$ shares of the stock and $b$ units of the option used to hedge in conjunction with the short option. The delta of the stock is one ($\mathrm{d} S/\mathrm{d} S = 1$), so to obtain a zero portfolio delta we need
+
+$$
+0 = - \delta + a + b\delta^*.
+$$ {#eq-portfoliodelta}
+
+The gamma of the stock is zero ($\mathrm{d}^2 S/\mathrm{d} S^2 = d\,1/\mathrm{d} S = 0$), so to obtain a zero portfolio gamma we need
+
+$$
+0 = - \Gamma + b\Gamma^*\;.
+$$ {#eq-portfoliogamma}
+
+
+Equation @eq-portfoliogamma shows that we should hold enough of the second option to neutralize the gamma of the option we have shorted; i.e.,
+$$
+b= \frac{\Gamma}{\Gamma^*}
+$$
+Equation @eq-portfoliodelta shows that we should use the stock to delta hedge the portfolio of options; i.e.,
+$$
+a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
+$$
+
 ## Implied Volatilities
 
 While all other Black-Scholes inputs are observable, volatility must be estimated. Given an option's market price, we can invert the Black-Scholes formula to find the implied volatility—the $\sigma$ that produces the observed price.
@@ -874,7 +902,25 @@ c) Handle edge cases: very deep ITM/OTM options, very short/long expirations
 d) Compare computational efficiency of different numerical methods
 :::
 
+#### Delta-Gamma Hedging
 
+::: {#exr-delta-gamma-put}
+Consider delta and gamma hedging a short call option, using the underlying and a put with the same strike and maturity as the call. Calculate the position in the underlying and the put that you should take, using the analysis in the Delta-Gamma Hedging section. Will you ever need to adjust this hedge? Relate your result to put-call parity.
+:::
+
+::: {#exr-delta-gamma-simulation}
+Modify the discrete delta hedging simulation to compute percentiles of gains and losses for an investor who writes a call option and constructs a delta and gamma hedge using the underlying asset and another call option. Include the exercise price of the call option used to hedge as an input, and assume it has the same time to maturity as the option that is written.
+
+Hint: In each period, the updated cash position can be calculated as:
+```
+Cash = exp(r*dt)*Cash + a*S*(exp(q*dt)-1) - (Newa-a)*NewS - (Newb-b)*PriceHedge
+```
+where `a` denotes the number of shares of the stock held, `b` denotes the number of units held of the option that is used for hedging, and `PriceHedge` denotes the price of the option used for hedging (computed from the Black-Scholes formula each period). This expression embodies the interest earned (paid) on the cash position, the dividends received on the shares of stock and the cash inflows (outflows) from adjusting the hedge. At the final date, the value of the hedge is:
+```
+exp(r*dt)*Cash + a*S*(exp(q*dt)-1) + a*NewS + b*max(NewS-KHedge,0)
+```
+and the value of the overall portfolio is the value of the hedge less `max(NewS-KWritten,0)`, where `KHedge` denotes the strike price of the option used to hedge and `KWritten` denotes the strike of the option that was written.
+:::
 
 
 
