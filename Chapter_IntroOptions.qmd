@@ -16,7 +16,7 @@ display(
 
 # Options Markets {#sec-c:options} 
 
-Options are among the most actively traded financial instruments in the world, with billions of contracts changing hands annually across global exchanges. These versatile contracts provide investors with tools for speculation, hedging, and income generation that are impossible to replicate with assets and bonds alone.
+Options are among the most actively traded financial instruments in the world, with billions of contracts changing hands annually across global exchanges. These versatile contracts provide investors with tools for speculation, hedging, and income generation that may be impossible to replicate with static positions in other assets.
 
 This chapter provides an introduction to the mechanics and motives for trading options. Recall from @sec-c:introderivatives that a **call option** is the right to buy an underlying asset at a fixed price called the strike or strike price. Symmetrically, a **put option** is the right to sell an underlying asset at the strike price. The **underlying asset** can be a stock, index, exchange-traded fund (ETF), commodity, or other financial instrument. The buyer of an option pays the seller upfront for the right to exercise the option later, at the buyer's discretion.
 
@@ -32,7 +32,6 @@ Options have a finite lifetime, with each contract specifying an expiration date
 - *Expiration Date*: When the option contract ends
 - *Exercise*: Using the right granted by the option
 - *Underlying Asset*: The financial instrument (stock, index, etc.) that the option is based on
-- *Contract Size*: Most equity options represent 100 shares of the underlying stock
 :::
 
 #### Rights, Obligations, and Motivations
@@ -42,7 +41,7 @@ An option buyer pays the premium upfront.  Subsequently, the buyer has rights (t
 In more detail, the motivations for trading options are:
 
 - *Speculation and Leverage*: One motive for buying options is to speculate on price movements with higher leverage than direct ownership of the underlying asset. A small price change in the underlying can produce large percentage changes in option value, amplifying both potential gains and losses.
-- *Hedging and Insurance*: Options serve as insurance contracts for existing positions. For example, owning a protective put on your stock holdings limits downside risk, much like buying car insurance protects against accident costs. The option premium represents the insurance cost for this protection.
+- *Hedging and Insurance*: Options serve as insurance contracts for existing positions, as will be explained below.
 - *Income Generation*: Option sellers collect premiums upfront, similar to insurance companies collecting policy premiums. However, this income comes with obligations and potential risks if the market moves against the seller's position.
 
 ## Trading Options on Exchanges
@@ -92,7 +91,7 @@ Exchange clearinghouses serve as the counterparty to every options trade, provid
 - *Counterparty Guarantee*: 
   - Long call holders have the right to buy from the clearinghouse (not from the original seller)
   - Short call writers have an obligation to deliver to the clearinghouse (if assigned)
-  - Likewise, long put holders have the right to sell to the clearinghouse (not from the original seller) and short put writers have an obligation to buy from the clearinghouse (if assigned)
+  - Likewise, long put holders have the right to sell to the clearinghouse (not to the original seller) and short put writers have an obligation to buy from the clearinghouse (if assigned)
   - This eliminates counterparty risk for traders
 - *Exercise and Assignment Process*:
   1. Option holder notifies broker of exercise decision
@@ -113,8 +112,8 @@ Exchange clearinghouses serve as the counterparty to every options trade, provid
 @fig-options-market-data allows us to browse current market data for exchange-traded options. The columns of the table are:
 
 - *Strike*: the price at which the owner of a call (put) has the right to buy (sell) the underlying asset.
-- *Bid price*: the price that a market sell order will pay (it is the best price that limit orders are bidding for the option)
-- *Ask price*: the price that a price buy order will pay (it is the best price that limit orders are asking for the option)
+- *Bid price*: the price that a market sell order will receive (it is the best price that limit orders are bidding for the option)
+- *Ask price*: the price that a market buy order will pay (it is the best price that limit orders are asking for the option)
 - *Last price*: the last price at which the option traded.
 - *Time of last trade*: the day and time at which the option last traded.
 - *Volume*: the number of contracts traded during the day.  Each contract is for 100 shares of the underlying asset.
@@ -150,9 +149,9 @@ $$\max(K-S, 0) =
 \begin{cases} K-S & \text{if $K>S$}\\
 0 & \text{if $K \le S$}\end{cases}\,.$$
 
-If the intrinsic value of an option is positive, then the option is said to be **in the money**.  Thus, a call option with strike $K$ is in the money if $S>K$, and a put option with strike $K$ is in the money if $S<K$.  If $S=K$ (or, in practice, approximately equal), then a call is said to be **at the money**.  If an option is neither in the money nor out of the money, then it is **out of the money**.  
+If the intrinsic value of an option is positive, then the option is said to be **in the money**.  Thus, a call option with strike $K$ is in the money if $S>K$, and a put option with strike $K$ is in the money if $S<K$.  If $S=K$ (or, in practice, approximately equal), then a call is said to be **at the money**.  If an option is neither in the money nor at the money, then it is **out of the money**.  
 
-American options are always worth at least their intrinsic values, because exercising immediately is a possibility. If one could buy an in-the-money American option at less than its intrinsic value, then buying it and immediately exercising would be an arbitrage opportunity.  It is safe to assume we will not find such arbitrage opportunities in the market.
+American options are always worth at least their intrinsic values, because exercising immediately is a possibility. If one could buy an in-the-money American option at less than its intrinsic value, then buying it and immediately exercising would be an arbitrage.  It is safe to assume we will not find such arbitrage opportunities in the market.
 
 Prior to expiration, the value of an option is usually larger than its intrinsic value.  This is because there is time remaining for the underlying asset to move in a direction that is favorable for the option holder.  The excess of the value over the intrinsic value is called the option's **time value**.  As time passes and the option approaches expiration, the time value decreases.  This phenomenon is called **time decay**.
 
@@ -466,7 +465,7 @@ fig.show()
 
 #### Selling Covered Calls
 
-A common option strategy is to sell an out-of-the-money call option on an asset that one owns.  This is called selling a covered call (the risk exposure from writing the call is "covered" by owning the underlying asset).Selling a covered call generates premium income, at the expense of reducing the maximum gain on the asset (it is capped at the call strike).  Whether this turns out to be profitable depends on how high the underlying goes prior to the option maturity - if it goes up sufficiently far, then the trader will regret having sold the call; if it goes up less, or doesn't go up at all, then the trader will be happy to have captured the call premium.   
+A common option strategy is to sell an out-of-the-money call option on an asset that one owns.  This is called selling a covered call (the risk exposure from writing the call is "covered" by owning the underlying asset).  Selling a covered call generates premium income, at the expense of reducing the maximum gain on the asset (it is capped at the call strike).  Whether this turns out to be profitable depends on how high the underlying goes prior to the option maturity - if it goes up sufficiently far, then the trader will regret having sold the call; if it goes up less, or doesn't go up at all, then the trader will be happy to have captured the call premium.   
 
 ```{python}
 #| label: fig-covered-call
@@ -845,7 +844,7 @@ Out-of-the-money options cost significantly less than in-the-money or at-the-mon
 Out-of-the-money options offer the potential for large percentage returns if the underlying asset moves favorably. While the probability of profit may be lower, the potential rewards are proportionally higher, attracting speculative traders.
 
 *3. Hedging Applications*
-Portfolio managers often use out-of-the-money puts as portfolio insurance. These **tail risk** hedges provide protection against large market declines while minimizing the cost of insurance premiums.
+Portfolio managers often use out-of-the-money puts as portfolio insurance. These **tail risk** hedges provide protection against large market declines.
 
 *4. Time Value Focus*
 Out-of-the-money options consist entirely of time value (no intrinsic value). Traders who want to bet on volatility or time decay often prefer these options because their value is most sensitive to these factors.
@@ -869,8 +868,8 @@ When examining options market data, several consistent patterns emerge:
 *Time Decay Impact*:
 
 - Options with strikes far from the current price show less frequent trading
-- Last trade dates for these **deep out-of-the-money** options may be days or weeks old
-- Bid-ask spreads widen significantly for strikes with little trading interest
+- Last trade dates for **deep out-of-the-money** options may be days or weeks old
+- Bid-ask spreads widen significantly for strikes that traders are less interested in trading
 
 These patterns reflect the diverse motivations of options traders: speculation, hedging, income generation, and portfolio management. Understanding these patterns helps explain why certain options trade actively while others remain dormant, and why pricing and liquidity can vary dramatically across different strikes and expirations.
 
@@ -975,9 +974,9 @@ The only time that a call should be exercised early is to capture a dividend (or
 
 #### American Puts
 
-It is more likely that an American put should be exercised early than it is that an American call should be exercised early.  This is because the second factor above (the time value of money for the strike) is reversed for puts.  Early exercise of a put implies early receipt of the strike, which can be invested to earn interest.  
+It is generally more likely that an American put will be exercised early than an American call.  This is because the second factor above (the time value of money for the strike) is reversed for puts.  Early exercise of a put implies early receipt of the strike, which can be invested to earn interest.  
 
-Whether it is optimal to exercise an American put early depends on how deeply in the money it is and how high interest rates are.  When a put is deeply in the money (meaning the underlying asset price is low), there is little value to the flexibility of keeping the option open, because it becomes nearly certain that exercise at some date will be optimal.  In this case, one should exercise to get the strike early and forego flexibility.  When interest rates are high, the time value of money is high, so again it can be optimal to exercise early.  Whether one should exercise early depends on both of these factors - how deeply in the money the option should be before exercising depends on how high interest rates are.  The volatility of the underlying asset price is also a critical factor, because it determines the value of maintaining flexibility.  Again, we will investigate models for making this determination in later chapters. 
+Whether it is optimal to exercise an American put early depends on how deep in the money it is and how high interest rates are.  When a put is deep in the money (meaning the underlying asset price is low), there is little value to the flexibility of keeping the option open, because it becomes nearly certain that exercise at some date will be optimal.  In this case, one should exercise to get the strike early and forego flexibility.  When interest rates are high, the time value of money is high, so again it can be optimal to exercise early.  Whether one should exercise early depends on both of these factors - how deeply in the money the option should be before exercising depends on how high interest rates are.  The volatility of the underlying asset price is also a critical factor, because it determines the value of maintaining flexibility.  Again, we will investigate models for making this determination in later chapters. 
 
 #### Put-Call Parity, Option Bounds, and Early Exercise
 

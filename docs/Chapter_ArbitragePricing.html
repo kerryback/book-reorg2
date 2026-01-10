@@ -128,18 +128,6 @@ div.callout-Example.callout-style-default .callout-icon::before, div.callout-Exa
   content: '\f185';
   background-image: none;
 }
-div.callout-Extra.callout {
-  border-left-color: #a1bced;
-}
-div.callout-Extra.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
-}
-div.callout-Extra .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f48b';
-  background-image: none;
-}
 div.callout-Principle.callout {
   border-left-color: #eb4034;
 }
@@ -150,6 +138,18 @@ div.callout-Principle .callout-toggle::before {  background-image: url('data:ima
 div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f06a';
+  background-image: none;
+}
+div.callout-Extra.callout {
+  border-left-color: #a1bced;
+}
+div.callout-Extra.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
+}
+div.callout-Extra .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f48b';
   background-image: none;
 }
 div.callout-Rule.callout {
@@ -405,7 +405,7 @@ window.Quarto = {
 </header>
 
 
-<div id="7918aed3" class="cell" data-execution_count="1">
+<div id="29a1c955" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
@@ -574,11 +574,49 @@ Important Principle
 <p>where <span class="math inline">\(B\)</span> is a Brownian motion under the actual probability measure. Under the risk-neutral measure, the drift must be the risk-free rate <span class="math inline">\(r\)</span>:</p>
 <p><span class="math display">\[\frac{\mathrm{d}S}{S} = r \mathrm{d}t + \sigma \mathrm{d}B^*\]</span></p>
 <p>where <span class="math inline">\(B^*\)</span> is a Brownian motion under the risk-neutral probability.</p>
-<p>The details of how to construct these new probability measures using Girsanov’s Theorem are covered in the next chapter, where we apply them to derive the Black-Scholes formula.</p>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="8.9">
-<h2 data-number="8.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.9</span> Exercises</h2>
+<section id="girsanovs-theorem-in-the-black-scholes-model" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="girsanovs-theorem-in-the-black-scholes-model"><span class="header-section-number">8.9</span> Girsanov’s Theorem in the Black-Scholes Model</h2>
+<p>To value digital options, we need to understand changes of probability measures in continuous time. When we change probability measures, a process <span class="math inline">\(B\)</span> that was a Brownian motion cannot be expected to remain a Brownian motion under the new measure. However, Girsanov’s Theorem tells us exactly how the drift changes.</p>
+<p>In the Black-Scholes model, the dividend-reinvested stock price, denoted <span class="math inline">\(Y_t\)</span>, evolves as</p>
+<p><span class="math display">\[\mathrm{d}Y_t = \mu Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}B_t\,.\]</span></p>
+<p>We can rewrite this as</p>
+<p><span class="math display">\[\mathrm{d}Y_t = r Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}\left(B_t + \frac{\mu - r}{\sigma}t\right)\,.\]</span></p>
+<p>Define <span class="math inline">\(\kappa = \frac{\mu - r}{\sigma}\)</span>. This is called the market price of risk or Sharpe ratio.</p>
+<div class="callout callout-style-simple callout-Principle callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important Principle
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Girsanov’s Theorem</strong>: Define the exponential martingale:</p>
+<p><span class="math display">\[Z_t = \exp\left(-\frac{1}{2}\kappa^2 t - \kappa B_t\right)\,.\]</span></p>
+<p>Using the rule for expectations of lognormal variables, we can see that <span class="math inline">\(\mathbb{E}[Z_T] = 1\)</span>. Under the probability measure defined by:</p>
+<p><span class="math display">\[\mathbb{E}^\kappa[Y] = \mathbb{E}[Z_T X]\]</span></p>
+<p>for any function <span class="math inline">\(X\)</span> of <span class="math inline">\(B_t\)</span> (<span class="math inline">\(0 \leq t \leq T\)</span>), the process <span class="math inline">\(B_t^\kappa = B_t + \kappa t\)</span> is a Brownian motion. Moreover, if <span class="math inline">\(M_t\)</span> is a martingale under the new measure, then <span class="math inline">\(Z_t M_t\)</span> is a martingale under the original measure.</p>
+</div>
+</div>
+<p>This theorem tells us how to construct the risk-neutral measure from the original measure. Using Ito’s lemma, we can verify that <span class="math inline">\(Z_t \frac{Y_t}{R_t}\)</span> is indeed a martingale:</p>
+<p><span class="math display">\[Z_t \frac{Y_t}{R_t} = S_0 \exp\left(-\frac{1}{2}(\sigma - \kappa)^2 t + (\sigma - \kappa)B_t\right)\,.\]</span></p>
+<p>Therefore this is a lognormal random variable and taking expectations gives:</p>
+<p><span class="math display">\[\mathbb{E}\left[Z_t \frac{Y_t}{R_t}\right] = S_0\,.\]</span></p>
+<section id="dividend-reinvested-share-as-numeraire" class="level4">
+<h4 class="anchored" data-anchor-id="dividend-reinvested-share-as-numeraire">Dividend Reinvested Share as Numeraire</h4>
+<p>The dividend reinvested share follows the process <span class="math display">\[d Y_t = r Y_t dt + \sigma Y_t d B_t^R \,.\]</span></p>
+<p>When using the stock as numeraire, we need the process <span class="math inline">\(\frac{R_t}{Y_t}\)</span> to be a martingale. Following the analysis using Girsanov’s Theorem to find the risk neutral probabilities, we find that under the stock numeraire measure:</p>
+<p><span class="math display">\[\mathrm{d}Y_t = (r + \sigma^2) Y_t \,\mathrm{d}t + \sigma V_t \,\mathrm{d}B_t^Y\,.\]</span></p>
+<p>where <span class="math inline">\(B_t^Y = B_t^R - \sigma t\)</span> is a Brownian motion under the dividend reinvested stock numeraire measure. It then follows <span class="math display">\[\frac{R_t}{Y_t} = \frac{R_0}{S_0} \exp\left(-\frac{1}{2} \sigma^2 t - \sigma B_t^Y \right)\,, \]</span></p>
+<p>which is an exponential martigale.</p>
+<p>Girsanov’s Theorem will be important in the next chapter where we derive the Black-Scholes formula.</p>
+</section>
+</section>
+<section id="exercises" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.10</span> Exercises</h2>
 <section id="linear-pricing-and-state-prices" class="level4">
 <h4 class="anchored" data-anchor-id="linear-pricing-and-state-prices">Linear Pricing and State Prices</h4>
 <div id="exr-linear-pricing" class="theorem exercise">
@@ -683,8 +721,8 @@ Important Principle
 </div>
 </section>
 </section>
-<section id="summary" class="level2" data-number="8.10">
-<h2 data-number="8.10" class="anchored" data-anchor-id="summary"><span class="header-section-number">8.10</span> Summary</h2>
+<section id="summary" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="summary"><span class="header-section-number">8.11</span> Summary</h2>
 <p>We have developed a unified framework for derivative pricing based on the absence of arbitrage:</p>
 <ol type="1">
 <li><strong>Linear pricing</strong> implies the existence of state prices</li>

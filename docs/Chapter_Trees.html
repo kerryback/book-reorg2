@@ -182,18 +182,6 @@ div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra
   content: '\f48b';
   background-image: none;
 }
-div.callout-Example.callout {
-  border-left-color: #a1bced;
-}
-div.callout-Example.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
-}
-div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f185';
-  background-image: none;
-}
 div.callout-Principle.callout {
   border-left-color: #eb4034;
 }
@@ -216,6 +204,18 @@ div.callout-Rule .callout-toggle::before {  background-image: url('data:image/sv
 div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f164';
+  background-image: none;
+}
+div.callout-Example.callout {
+  border-left-color: #a1bced;
+}
+div.callout-Example.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
+}
+div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f185';
   background-image: none;
 }
 </style>
@@ -459,7 +459,7 @@ window.Quarto = {
 </header>
 
 
-<div id="e4fe45bc" class="cell" data-execution_count="1">
+<div id="eb3d781e" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
@@ -471,7 +471,7 @@ window.Quarto = {
 <section id="delta-hedging-and-replication" class="level4">
 <h4 class="anchored" data-anchor-id="delta-hedging-and-replication">Delta Hedging and Replication</h4>
 <p>Consider a European call option with strike <span class="math inline">\(K\)</span> and maturity <span class="math inline">\(t\)</span>. Its payoff will be <span class="math inline">\(C_u = \max(0, S_u - K)\)</span> in the up state and <span class="math inline">\(C_d = \max(0, S_d - K)\)</span> in the down state.</p>
-<p>The key insight is that we can replicate the option payoff using a portfolio of the stock and risk-free asset. Let <span class="math inline">\(\delta\)</span> be the number of shares we hold. This delta is chosen so that the portfolio has the same payoff as the option in both states:</p>
+<p>The key insight is that we can replicate the option payoff using a portfolio of the stock and risk-free asset. Let <span class="math inline">\(\delta\)</span> be the number of shares we hold. The number of shares is chosen so that the portfolio has the same payoff as the option in both states:</p>
 <p><span class="math display">\[\delta = \frac{C_u - C_d}{S_u - S_d}\]</span></p>
 <p>To see why this works, consider a portfolio that holds <span class="math inline">\(\delta\)</span> shares of stock and borrows an amount <span class="math inline">\(B\)</span> at the risk-free rate. The portfolio value at maturity will be: - Up state: <span class="math inline">\(\delta S_u - B e^{rt}\)</span> - Down state: <span class="math inline">\(\delta S_d - B e^{rt}\)</span></p>
 <p>For replication, we need these to equal the option payoffs: <span class="math display">\[\delta S_u - B e^{rt} = C_u\]</span> <span class="math display">\[\delta S_d - B e^{rt} = C_d\]</span></p>
@@ -515,7 +515,7 @@ Example
 </section>
 <section id="two-period-model" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="two-period-model"><span class="header-section-number">4.2</span> Two-Period Model</h2>
-<p>Now consider a two-period model where the stock price evolves over two time steps of length <span class="math inline">\(\Delta t = t/2\)</span>. To simplify notation and ensure the tree recombines, we parameterize the price movements using multiplicative factors <span class="math inline">\(u &gt; 1\)</span> and <span class="math inline">\(d = 1/u &lt; 1\)</span>.</p>
+<p>Now consider a two-period model where the stock price evolves over two time steps of length <span class="math inline">\(\Delta t = t/2\)</span>. To simplify notation and ensure that the tree recombines, we parameterize the price movements using multiplicative factors <span class="math inline">\(u &gt; 1\)</span> and <span class="math inline">\(d = 1/u &lt; 1\)</span>.</p>
 <p>Starting from <span class="math inline">\(S\)</span>, after one period the stock price is either <span class="math inline">\(uS\)</span> or <span class="math inline">\(dS\)</span>. After two periods, the possible prices are: - <span class="math inline">\(u^2S\)</span> (two up moves) - <span class="math inline">\(udS = S\)</span> (one up, one down)<br>
 - <span class="math inline">\(d^2S\)</span> (two down moves)</p>
 <p>The tree recombines because <span class="math inline">\(ud = du = 1\)</span>, so the middle node has price <span class="math inline">\(S\)</span> regardless of the path taken.</p>
@@ -529,7 +529,7 @@ Example
 <p><strong>Step 3: Initial Period (t = 0)</strong> Finally, calculate today’s option value: <span class="math display">\[C_0 = e^{-r\Delta t}[p \cdot C_u + (1-p) \cdot C_d]\]</span></p>
 <p><strong>For American Options:</strong> At each intermediate node, compare continuation value with immediate exercise: - Up node: <span class="math inline">\(C_u = \max(\text{continuation value}, \max(0, uS - K))\)</span> - Down node: <span class="math inline">\(C_d = \max(\text{continuation value}, \max(0, dS - K))\)</span></p>
 <p>This backward induction process automatically finds the optimal exercise strategy by comparing holding vs.&nbsp;exercising at each node.</p>
-<div id="5350046b" class="cell" data-execution_count="2">
+<div id="0d9da24e" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -761,7 +761,7 @@ This tree shows the exact same values computed in the numerical output above.</c
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binomial-trees-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: <strong>Interactive Binomial Trees Explorer.</strong> This tool allows you to experiment with N-period binomial trees. Key features: (i) <strong>Interest rate</strong>: Enter the rate per period (for annual rate with N periods, use r/N), (ii) <strong>Up move</strong>: This corresponds to <span class="math inline">\((u-1)\)</span> where <span class="math inline">\(u\)</span> is our up factor, (iii) <strong>Down move</strong>: The model automatically sets <span class="math inline">\(d = 1/u\)</span> to ensure recombination, (iv) <strong>Number of periods</strong>: See how increasing N affects option values and convergence, (v) <strong>Option types</strong>: Compare European and American option pricing, (vi) <strong>Parameters</strong>: Observe how volatility, strike price, and time to maturity affect values
+Figure&nbsp;4.2: <strong>Interactive Binomial Tree Explorer.</strong> This tool allows you to experiment with N-period binomial trees. Key features: (i) <strong>Interest rate</strong>: Enter the rate per period (for annual rate with N periods, use r/N), (ii) <strong>Up move</strong>: This corresponds to <span class="math inline">\((u-1)\)</span> where <span class="math inline">\(u\)</span> is our up factor, (iii) <strong>Down move</strong>: The model automatically sets <span class="math inline">\(d = 1/u\)</span> to ensure recombination, (iv) <strong>Number of periods</strong>: See how increasing N affects option values and convergence, (v) <strong>Option types</strong>: Compare European and American option pricing, (vi) <strong>Parameters</strong>: Observe how volatility, strike price, and time to maturity affect values
 </figcaption>
 </figure>
 </div>
@@ -769,7 +769,7 @@ Figure&nbsp;4.2: <strong>Interactive Binomial Trees Explorer.</strong> This tool
 <section id="backward-induction-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="backward-induction-implementation">Backward Induction Implementation</h4>
 <p>For American options especially, we must use backward induction. Here’s the streamlined version for practical use:</p>
-<div id="82615f14" class="cell" data-execution_count="4">
+<div id="3cd58bce" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binomial_american_fast(S0, K, r, sigma, T, N, option_type<span class="op">=</span><span class="st">'put'</span>):</span>
@@ -836,9 +836,9 @@ American call (K=105): 8.0262</code></pre>
 <li><p><strong>Memory efficiency</strong>: We only store option values for the current time step, not the entire tree</p></li>
 <li><p><strong>Backward induction logic</strong>:</p>
 <ul>
-<li>Start with payoffs at maturity</li>
-<li>At each prior time step, compute continuation value as discounted expectation</li>
-<li>For American options, compare with immediate exercise value</li>
+<li>Start with the payoffs at maturity</li>
+<li>At each prior time step, compute the continuation value as the discounted expected next-period value</li>
+<li>For American options, compare it to the immediate exercise value</li>
 <li>Take the maximum (American feature)</li>
 </ul></li>
 </ol>
@@ -850,7 +850,12 @@ American call (K=105): 8.0262</code></pre>
 <p>We should choose the parameters of the model to match the properties of the underlying asset. If we’re going to take the limit, then the important feature is that the limiting parameters match the properties of the underlying asset. Several choices are possible, but the most popular set of parameters is that proposed by <span class="citation" data-cites="CRR">(<a href="#ref-CRR" role="doc-biblioref">Cox, Ross, and Rubinstein 1979</a>)</span>.</p>
 <p>They set</p>
 <p><span class="math display">\[u = \mathrm{e}^{\sigma\sqrt{\Delta t}}, \quad d = \frac{1}{u}, \quad p = \frac{\mathrm{e}^{(r-q)\Delta t} - d}{u - d}\]</span></p>
-<p>where <span class="math inline">\(\sigma\)</span> is the standard deviation of the underlying asset return, <span class="math inline">\(r\)</span> is the risk-free rate, and <span class="math inline">\(q\)</span> is the dividend yield. This choice ensures: - The tree recombines (<span class="math inline">\(ud = 1\)</span>) - The discrete model converges to geometric Brownian motion (see <span class="quarto-unresolved-ref">?sec-c:gbm</span>). - The risk-neutral probability is well-defined when <span class="math inline">\(d &lt; \mathrm{e}^{(r-q)\Delta t} &lt; u\)</span></p>
+<p>where <span class="math inline">\(\sigma\)</span> is the standard deviation of the underlying asset return, <span class="math inline">\(r\)</span> is the risk-free rate, and <span class="math inline">\(q\)</span> is the dividend yield. This choice ensures:</p>
+<ul>
+<li>The tree recombines (<span class="math inline">\(ud = 1\)</span>)</li>
+<li>The discrete model converges to geometric Brownian motion (see <a href="Chapter_GeometricBrownianMotion.html" class="quarto-xref"><span>Chapter 7</span></a>).</li>
+<li>The risk-neutral probability is well-defined when <span class="math inline">\(d &lt; \mathrm{e}^{(r-q)\Delta t} &lt; u\)</span></li>
+</ul>
 <p>The following interactive figure shows how the option prices derived from the binomial model settle down around fixed values as the number of periods in a given time period increases (that is, as <span class="math inline">\(\Delta t = T/N \rightarrow 0\)</span>). We will later see that this limit is the celebrated Black-Scholes formula (see <a href="Chapter_BlackScholes.html" class="quarto-xref"><span>Chapter 9</span></a>).</p>
 <div id="fig-binomial-convergence" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -942,7 +947,7 @@ Figure&nbsp;4.3: <strong>Binomial Convergence to Continuous-Time Limit</strong> 
 <section id="advanced-applications" class="level4">
 <h4 class="anchored" data-anchor-id="advanced-applications">Advanced Applications</h4>
 <div id="exr-shout-option" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.15</strong></span> A shout option is an option where the holder is entitled to “shout” at any time before expiration. Upon shouting, the holder receives the immediate exercise value paid at expiration, plus an at-the-money option with the same expiration. The payoff if the holder shouts at time <span class="math inline">\(\tau\)</span> is <span class="math inline">\(\max(0, S(\tau)-K, S_T-S(\tau))\)</span> where <span class="math inline">\(K\)</span> is the original strike.</p>
+<p><span class="theorem-title"><strong>Exercise 4.15</strong></span> A shout option is an option where the holder is entitled to “shout” at any time prior to expiration. Upon shouting, the holder receives the immediate exercise value paid at expiration, plus an at-the-money option with the same expiration. The payoff if the holder shouts at time <span class="math inline">\(\tau\)</span> is <span class="math inline">\(\max(0, S(\tau)-K, S_T-S(\tau))\)</span> where <span class="math inline">\(K\)</span> is the original strike.</p>
 <ol type="a">
 <li>Show that it is better to shout at some time where <span class="math inline">\(S(\tau) &gt; K\)</span> than to never shout at all</li>
 <li>Modify the backward induction algorithm to find the optimal shouting strategy</li>

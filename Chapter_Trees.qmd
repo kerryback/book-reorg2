@@ -27,7 +27,7 @@ We start with the simplest possible model. A stock has price $S$ today (date 0) 
 
 Consider a European call option with strike $K$ and maturity $t$. Its payoff will be $C_u = \max(0, S_u - K)$ in the up state and $C_d = \max(0, S_d - K)$ in the down state.
 
-The key insight is that we can replicate the option payoff using a portfolio of the stock and risk-free asset. Let $\delta$ be the number of shares we hold. This delta is chosen so that the portfolio has the same payoff as the option in both states:
+The key insight is that we can replicate the option payoff using a portfolio of the stock and risk-free asset. Let $\delta$ be the number of shares we hold. The number of shares is chosen so that the portfolio has the same payoff as the option in both states:
 
 $$\delta = \frac{C_u - C_d}{S_u - S_d}$$
 
@@ -91,7 +91,7 @@ $$p_u = \frac{\mathrm{e}^{rt} - S_d/S}{S_u/S - S_d/S}$$
 
 ## Two-Period Model
 
-Now consider a two-period model where the stock price evolves over two time steps of length $\Delta t = t/2$. To simplify notation and ensure the tree recombines, we parameterize the price movements using multiplicative factors $u > 1$ and $d = 1/u < 1$.
+Now consider a two-period model where the stock price evolves over two time steps of length $\Delta t = t/2$. To simplify notation and ensure that the tree recombines, we parameterize the price movements using multiplicative factors $u > 1$ and $d = 1/u < 1$.
 
 Starting from $S$, after one period the stock price is either $uS$ or $dS$. After two periods, the possible prices are:
 - $u^2S$ (two up moves)
@@ -334,7 +334,7 @@ Now let's explore how N-period binomial trees behave with different parameters u
 
 <iframe width="100%" height="800" src="https://binomial-trees.koyeb.app/"></iframe>
 
-**Interactive Binomial Trees Explorer.** 
+**Interactive Binomial Tree Explorer.** 
 This tool allows you to experiment with N-period binomial trees. Key features: (i) **Interest rate**: Enter the rate per period (for annual rate with N periods, use r/N), (ii) **Up move**: This corresponds to $(u-1)$ where $u$ is our up factor, (iii) **Down move**: The model automatically sets $d = 1/u$ to ensure recombination, (iv) **Number of periods**: See how increasing N affects option values and convergence, (v) **Option types**: Compare European and American option pricing, (vi) **Parameters**: Observe how volatility, strike price, and time to maturity affect values
 
 :::
@@ -405,9 +405,9 @@ print(f"American call (K=105): {call_american:.4f}")
 2. **Memory efficiency**: We only store option values for the current time step, not the entire tree
 
 3. **Backward induction logic**:
-   - Start with payoffs at maturity
-   - At each prior time step, compute continuation value as discounted expectation
-   - For American options, compare with immediate exercise value
+   - Start with the payoffs at maturity
+   - At each prior time step, compute the continuation value as the discounted expected next-period value
+   - For American options, compare it to the immediate exercise value
    - Take the maximum (American feature)
 
 ## Parameter Calibration
@@ -423,8 +423,9 @@ They set
 $$u = \mathrm{e}^{\sigma\sqrt{\Delta t}}, \quad d = \frac{1}{u}, \quad p = \frac{\mathrm{e}^{(r-q)\Delta t} - d}{u - d}$$
 
 where $\sigma$ is the standard deviation of the underlying asset return, $r$ is the risk-free rate, and $q$ is the dividend yield. This choice ensures:
+
 - The tree recombines ($ud = 1$)
-- The discrete model converges to geometric Brownian motion (see @sec-c:gbm).
+- The discrete model converges to geometric Brownian motion (see @sec-c:geometricbrownianmotion).
 - The risk-neutral probability is well-defined when $d < \mathrm{e}^{(r-q)\Delta t} < u$
 
 The following interactive figure shows how the option prices derived from the binomial model settle down around fixed values as the number of periods in a given time period increases (that is, as $\Delta t = T/N \rightarrow 0$).  We will later see that this limit is the celebrated Black-Scholes formula (see @sec-c:blackscholes_updated).
@@ -542,7 +543,7 @@ For an American call option on a dividend-paying stock, show analytically that i
 #### Advanced Applications
 
 ::: {#exr-shout-option}
-A shout option is an option where the holder is entitled to "shout" at any time before expiration. Upon shouting, the holder receives the immediate exercise value paid at expiration, plus an at-the-money option with the same expiration. The payoff if the holder shouts at time $\tau$ is $\max(0, S(\tau)-K, S_T-S(\tau))$ where $K$ is the original strike.
+A shout option is an option where the holder is entitled to "shout" at any time prior to expiration. Upon shouting, the holder receives the immediate exercise value paid at expiration, plus an at-the-money option with the same expiration. The payoff if the holder shouts at time $\tau$ is $\max(0, S(\tau)-K, S_T-S(\tau))$ where $K$ is the original strike.
 
 a) Show that it is better to shout at some time where $S(\tau) > K$ than to never shout at all
 b) Modify the backward induction algorithm to find the optimal shouting strategy

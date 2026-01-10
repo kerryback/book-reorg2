@@ -131,28 +131,16 @@ require(['plotly'], function(Plotly) {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
-div.callout-Rule.callout {
-  border-left-color: #12801f;
+div.callout-Principle.callout {
+  border-left-color: #eb4034;
 }
-div.callout-Rule.callout-style-default > .callout-header {
-  background-color: rgba(18, 128, 31, 0.13);
+div.callout-Principle.callout-style-default > .callout-header {
+  background-color: rgba(235, 64, 52, 0.13);
 }
-div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
+div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
-  content: '\f164';
-  background-image: none;
-}
-div.callout-Example.callout {
-  border-left-color: #a1bced;
-}
-div.callout-Example.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
-}
-div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f185';
+  content: '\f06a';
   background-image: none;
 }
 div.callout-Extra.callout {
@@ -167,16 +155,28 @@ div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra
   content: '\f48b';
   background-image: none;
 }
-div.callout-Principle.callout {
-  border-left-color: #eb4034;
+div.callout-Example.callout {
+  border-left-color: #a1bced;
 }
-div.callout-Principle.callout-style-default > .callout-header {
-  background-color: rgba(235, 64, 52, 0.13);
+div.callout-Example.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
 }
-div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
+div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
-  content: '\f06a';
+  content: '\f185';
+  background-image: none;
+}
+div.callout-Rule.callout {
+  border-left-color: #12801f;
+}
+div.callout-Rule.callout-style-default > .callout-header {
+  background-color: rgba(18, 128, 31, 0.13);
+}
+div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f164';
   background-image: none;
 }
 </style>
@@ -420,7 +420,7 @@ window.Quarto = {
 </header>
 
 
-<div id="f4c03fdf" class="cell" data-execution_count="1">
+<div id="74618359" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
@@ -447,45 +447,8 @@ window.Quarto = {
 <p>This is <span class="math inline">\(K\)</span> cash digitals minus share digitals, both paying when <span class="math inline">\(S_T &lt; K\)</span>.</p>
 </section>
 </section>
-<section id="girsanovs-theorem-in-the-black-scholes-model" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="girsanovs-theorem-in-the-black-scholes-model"><span class="header-section-number">9.2</span> Girsanov’s Theorem in the Black-Scholes Model</h2>
-<p>To value digital options, we need to understand changes of probability measures in continuous time. When we change probability measures, a process <span class="math inline">\(B\)</span> that was a Brownian motion cannot be expected to remain a Brownian motion under the new measure. However, Girsanov’s Theorem tells us exactly how the drift changes.</p>
-<p>In the Black-Scholes model, the dividend-reinvested stock price, denoted <span class="math inline">\(Y_t\)</span>, evolves as</p>
-<p><span class="math display">\[\mathrm{d}Y_t = \mu Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}B_t\,.\]</span></p>
-<p>We can rewrite this as</p>
-<p><span class="math display">\[\mathrm{d}Y_t = r Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}\left(B_t + \frac{\mu - r}{\sigma}t\right)\,.\]</span></p>
-<p>Define <span class="math inline">\(\kappa = \frac{\mu - r}{\sigma}\)</span>. This is called the market price of risk or Sharpe ratio.</p>
-<div class="callout callout-style-simple callout-Principle callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important Principle
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Girsanov’s Theorem</strong>: Define the exponential martingale:</p>
-<p><span class="math display">\[Z_t = \exp\left(-\frac{1}{2}\kappa^2 t - \kappa B_t\right)\,.\]</span></p>
-<p>Using the rule for expectations of lognormal variables, we can see that <span class="math inline">\(\mathbb{E}[Z_T] = 1\)</span>. Under the probability measure defined by:</p>
-<p><span class="math display">\[\mathbb{E}^\kappa[Y] = \mathbb{E}[Z_T X]\]</span></p>
-<p>for any function <span class="math inline">\(X\)</span> of <span class="math inline">\(B_t\)</span> (<span class="math inline">\(0 \leq t \leq T\)</span>), the process <span class="math inline">\(B_t^\kappa = B_t + \kappa t\)</span> is a Brownian motion. Moreover, if <span class="math inline">\(M_t\)</span> is a martingale under the new measure, then <span class="math inline">\(Z_t M_t\)</span> is a martingale under the original measure.</p>
-</div>
-</div>
-<p>This theorem tells us how to construct the risk-neutral measure from the original measure. Using Ito’s lemma, we can verify that <span class="math inline">\(Z_t \frac{Y_t}{R_t}\)</span> is indeed a martingale:</p>
-<p><span class="math display">\[Z_t \frac{Y_t}{R_t} = S_0 \exp\left(-\frac{1}{2}(\sigma - \kappa)^2 t + (\sigma - \kappa)B_t\right)\,.\]</span></p>
-<p>Therefore this is a lognormal random variable and taking expectations gives:</p>
-<p><span class="math display">\[\mathbb{E}\left[Z_t \frac{Y_t}{R_t}\right] = S_0\,.\]</span></p>
-<section id="dividend-reinvested-stock-as-numeraire" class="level4">
-<h4 class="anchored" data-anchor-id="dividend-reinvested-stock-as-numeraire">Dividend Reinvested Stock as Numeraire</h4>
-<p>When using the stock as numeraire, we need the process <span class="math inline">\(\frac{R_t}{Y_t}\)</span> to be a martingale. Following similar analysis with Girsanov’s Theorem, we find that under the stock numeraire measure:</p>
-<p><span class="math display">\[\mathrm{d}Y_t = (r + \sigma^2) Y_t \,\mathrm{d}t + \sigma V_t \,\mathrm{d}B_t^Y\,.\]</span></p>
-<p>where <span class="math inline">\(B_t^Y = B_t^R - \sigma t\)</span> is a Brownian motion under the dividend reinvested stock numeraire measure. It then follows <span class="math display">\[\frac{R_t}{Y_t} = \frac{R_0}{S_0} \exp\left(-\frac{1}{2} \sigma^2 t - \sigma B_t^Y \right)\,, \]</span></p>
-<p>which is an exponential martigale.</p>
-</section>
-</section>
-<section id="derivation-of-the-black-scholes-formula" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="derivation-of-the-black-scholes-formula"><span class="header-section-number">9.3</span> Derivation of the Black-Scholes Formula</h2>
+<section id="derivation-of-the-black-scholes-formula" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="derivation-of-the-black-scholes-formula"><span class="header-section-number">9.2</span> Derivation of the Black-Scholes Formula</h2>
 <p>Now we apply the valuation theory from Chapter 3 (Arbitrage Pricing) and the tail probability calculations from Chapter 2 (Geometric Brownian Motion) to derive the Black-Scholes formula.</p>
 <section id="cash-digital-options" class="level4">
 <h4 class="anchored" data-anchor-id="cash-digital-options">Cash Digital Options</h4>
@@ -504,7 +467,8 @@ Important Principle
 </section>
 <section id="share-digital-options" class="level4">
 <h4 class="anchored" data-anchor-id="share-digital-options">Share Digital Options</h4>
-<p>For the share digital paying <span class="math inline">\(S_T \mathbf{1}_{\{S_T &gt; K\}}\)</span>, we use the dividend reinvested stock as numeraire. We have</p>
+<p>For the share digital paying <span class="math inline">\(S_T \mathbf{1}_{\{S_T &gt; K\}}\)</span>, we use the dividend reinvested stock, <span class="math inline">\(Y_t\)</span> as numeraire.</p>
+<p>We have</p>
 <p><span class="math display">\[S_T  = e^{-q T} Y_T\,; \]</span> therefore, <span class="math display">\[\frac{S_T}{Y_T}  \mathbf{1}_{\{S_T &gt; K\}} = e^{-q T}  \mathbf{1}_{\{S_T &gt; K\}}\,.\]</span></p>
 <p>From the change of numeraire theory in Chapter 3:</p>
 <p><span class="math display">\[\text{Value} = Y_t \mathbb{E}_t^V[e^{-q T} \mathbf{1}_{\{S_T &gt; K\}}] = e^{-q (T-t) } S_t \cdot \text{prob}^Y(S_T &gt; K)\,.\]</span></p>
@@ -581,8 +545,8 @@ Figure&nbsp;9.1: <strong>Black-Scholes Explorer.</strong> This interactive calcu
 </div>
 </section>
 </section>
-<section id="replication-and-delta-hedging" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="replication-and-delta-hedging"><span class="header-section-number">9.4</span> Replication and Delta Hedging</h2>
+<section id="sec-s_deltahedging" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="sec-s_deltahedging"><span class="header-section-number">9.3</span> Replication and Delta Hedging</h2>
 <p>The Black Scholes formula can also be derived from a no-arbitrage argument since we can replicate option payoffs through dynamic trading. Following Merton’s argument, we construct a portfolio holding <span class="math inline">\(\delta_t\)</span> shares of stock and <span class="math inline">\(\alpha_t\)</span> units of the risk-free asset, with value:</p>
 <p><span class="math display">\[W_t = \alpha_t e^{rt} + \delta_t S_t\,.\]</span></p>
 <p>For continuous trading with no cash inflows or outflows:</p>
@@ -591,7 +555,7 @@ Figure&nbsp;9.1: <strong>Black-Scholes Explorer.</strong> This interactive calcu
 <p><span class="math display">\[\mathrm{d}C = \frac{\partial C}{\partial t} \,\mathrm{d}t + \frac{\partial C}{\partial S} \,\mathrm{d}S + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S^2 \,\mathrm{d}t\,.\]</span></p>
 <p>Matching the stochastic terms requires</p>
 <p><span class="math display">\[\delta_t = \frac{\partial C}{\partial S}\,.\]</span></p>
-<p>This is the option’s delta - the number of shares needed to hedge the option. Matching the drift terms in both expressions <span class="math display">\[ \frac{\partial C}{\partial S} \mu S_t + \alpha_t r R_t = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S} (\mu-q) S_t + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\,.\]</span> which can be solved to give <span class="math display">\[ \alpha_t r R_t=r \left(W_t -\frac{\partial C}{\partial S} S_t\right)  = \frac{\partial C}{\partial t}-\frac{\partial C}{\partial S} q S_t  + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\,,\]</span> which gives the equation <span class="math display">\[r W_t = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S}(r-q) S_t+\frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\]</span> with a boundary condition <span class="math inline">\(W_T = (S_T-K)^{+}\)</span>. However, no-arbitrage suggests <span class="math inline">\(W_t = C(t,S_t)\)</span>, which gives us the partial differential equation <span class="math display">\[r C = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S} (r-q) S+\frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S^2\]</span> with a boundary condition <span class="math inline">\(C(T,S_T)= (S_T - K)^{+}\)</span>. This is a partial differential equation and a fairly tedious set of calcuations show the Black Scholes formula is a solution (in fact it is the only positive solution). Close observation of the right hand side we see this is the drift term of Ito expansion for <span class="math inline">\(C\)</span> if we work in the risk-neutral probability. The right hand side then says in the risk-neutral probability, the call option earns the risk free return.</p>
+<p>This is the option’s delta - the number of shares needed to hedge the option. Matching the drift terms in both expressions <span class="math display">\[ \frac{\partial C}{\partial S} \mu S_t + \alpha_t r R_t = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S} (\mu-q) S_t + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\,.\]</span> which can be solved to give <span class="math display">\[ \alpha_t r R_t=r \left(W_t -\frac{\partial C}{\partial S} S_t\right)  = \frac{\partial C}{\partial t}-\frac{\partial C}{\partial S} q S_t  + \frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\,,\]</span> which gives the equation <span class="math display">\[r W_t = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S}(r-q) S_t+\frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S_t^2\]</span> with a boundary condition <span class="math inline">\(W_T = (S_T-K)^{+}\)</span>. However, no-arbitrage suggests <span class="math inline">\(W_t = C(t,S_t)\)</span>, which gives us the partial differential equation <span class="math display">\[r C = \frac{\partial C}{\partial t} + \frac{\partial C}{\partial S} (r-q) S+\frac{1}{2} \frac{\partial^2 C}{\partial S^2} \sigma^2 S^2\]</span> with a boundary condition <span class="math inline">\(C(T,S_T)= (S_T - K)^{+}\)</span>. This is a partial differential equation and a fairly tedious set of calcuations show the Black Scholes formula is a solution (in fact it is the only positive solution). Close observation of the right hand side we see this is the drift term of Ito expansion for <span class="math inline">\(C\)</span> if we work in the risk-neutral probability. The right hand side then says in the risk-neutral probability, the call option earns the risk free return. This analysis also gives another interpretation of the Black Scholes formula <span class="math display">\[C_t= S_t N(d_1) - e^{-r(T-t)} K N(d_2)\]</span> The first term on the righthand side of the equation corresponds to the value of the shares of stock in the replicating portfolio and the second term corresponds to the amount borrowed in the replicating portfolio.</p>
 <p>However, there is nothing special about a call option. The same argument will apply for any European style option. The only difference is the boundary condition.</p>
 <div class="callout callout-style-simple callout-Principle callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -615,12 +579,99 @@ Important Principle
 <li><strong>Hedging condition</strong>: The drift term equals the risk-free return when perfectly hedged</li>
 </ol>
 <p>The Black-Scholes formula satisfies this PDE with the appropriate boundary conditions for calls and puts.</p>
-<section id="simulating-portfolio-insurance" class="level4">
-<h4 class="anchored" data-anchor-id="simulating-portfolio-insurance">Simulating Portfolio Insurance</h4>
-<p>Recall, that a protective put position buys a put and buys a share and the payoff at the expiration of the put is given by <span class="math inline">\(\max(K,S_T)\)</span>. The reason for the name protective put is apparent since the position can pay off no less than <span class="math inline">\(K\)</span>. The cost of this insurance is the price of the put. However, if the put is not traded, we can synthetically replicate this payoff using the prodedure above assuming we can trade continuously. The basic recipe is to start with inital wealth equal to that for a protective put position: <span class="math inline">\(W_0 = P(0,S_0)+S_0\)</span>. The delta of the protective put position can be calcuated to be the delta of the put plus 1 which is <span class="math inline">\(N(d_1)\)</span>, where <span class="math inline">\(d_1\)</span> is calculated at each point in time. However, in practice we cannot trade continuously. A simple discrete strategy would rebalance at intervals <span class="math inline">\(\Delta t\)</span>. The strategy calculates <span class="math inline">\(N(d_1)\)</span> at time 0 and holds <span class="math inline">\(P(0,S_0)+S_0 - N(d_1)S_0\)</span> dollars in the risk free asset and <span class="math inline">\(N(d_1)\)</span> shares of the asset. Thereafter these holdings are adjusted. The change in portfolio value over the interval <span class="math inline">\(\Delta t\)</span> is <span class="math display">\[\Delta W= W_{i \Delta t}- W_{(i-1)\Delta t} \]</span> <span class="math display">\[
-= (P((i-1)\Delta t,S_{(i-1)\Delta t})+S_{(i-1)\Delta t} - N(d_1-)S_{(i-1)\Delta t})(R_{i\Delta t}-R_{(i-1)\Delta t}) + N(d1-)(S_{i\Delta t}-S_{(i-1)\Delta t}) \,,
-\]</span> where <span class="math inline">\(N(d1-)\)</span> is the delta chosen at time <span class="math inline">\((i-1)\Delta t\)</span>. The question is if the Black Scoles model is correct, how accurate can a discrete rebalancing scheme be? This is simulated in the following code:</p>
-<div id="4bbf9053" class="cell" data-execution_count="2">
+</section>
+<section id="greeks" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="greeks"><span class="header-section-number">9.4</span> Greeks</h2>
+<p>The sensitivities of option values to various inputs are called Greeks. From the Black-Scholes formula:</p>
+<section id="delta-delta" class="level4">
+<h4 class="anchored" data-anchor-id="delta-delta">Delta (<span class="math inline">\(\delta\)</span>)</h4>
+<p>The sensitivity to stock price changes:</p>
+<p><span class="math display">\[\delta_{call} = e^{-q(T-t)} N(d_1)\,.\]</span> <span class="math display">\[\delta_{put} = -e^{-q(T-t)} N(-d_1)\,.\]</span></p>
+</section>
+<section id="gamma-gamma" class="level4">
+<h4 class="anchored" data-anchor-id="gamma-gamma">Gamma (<span class="math inline">\(\Gamma\)</span>)</h4>
+<p>The rate of change of delta:</p>
+<p><span class="math display">\[\Gamma = \frac{e^{-q(T-t)} n(d_1)}{S \sigma \sqrt{T-t}}\,,\]</span></p>
+<p>where <span class="math inline">\(n(\cdot)\)</span> is the standard normal density. Gamma is the same for calls and puts.</p>
+</section>
+<section id="theta-theta" class="level4">
+<h4 class="anchored" data-anchor-id="theta-theta">Theta (<span class="math inline">\(\Theta\)</span>)</h4>
+<p>The time decay (using <span class="math inline">\(\partial/\partial(-T)\)</span> so positive theta means value increases as time passes):</p>
+<p><span class="math display">\[\Theta_{call} = -\frac{e^{-q(T-t)} S n(d_1) \sigma}{2\sqrt{T-t}} + q e^{-q(T-t)} S N(d_1) - r e^{-r(T-t)} K N(d_2)\,.\]</span></p>
+</section>
+<section id="vega-mathcalv" class="level4">
+<h4 class="anchored" data-anchor-id="vega-mathcalv">Vega (<span class="math inline">\(\mathcal{V}\)</span>)</h4>
+<p>The sensitivity to volatility:</p>
+<p><span class="math display">\[\mathcal{V} = e^{-q(T-t)} S n(d_1) \sqrt{T-t}\,.\]</span></p>
+</section>
+<section id="rho-rho" class="level4">
+<h4 class="anchored" data-anchor-id="rho-rho">Rho (<span class="math inline">\(\rho\)</span>)</h4>
+<p>The sensitivity to interest rates:</p>
+<p><span class="math display">\[\rho_{call} = (T-t) e^{-r(T-t)} K N(d_2)\,.\]</span></p>
+</section>
+<section id="interactive-greeks-explorer" class="level4">
+<h4 class="anchored" data-anchor-id="interactive-greeks-explorer">Interactive Greeks Explorer</h4>
+<p>The Greeks measure how option prices change with respect to various parameters. The following interactive tool lets you visualize how the Greeks behave across different stock prices and parameter values.</p>
+<div id="fig-bs-greeks" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bs-greeks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe height="750" width="100%" src="https://greeks.koyeb.app/">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bs-greeks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.2: <strong>Black-Scholes Greeks Explorer.</strong> This tool shows how delta, gamma, theta, vega, and rho vary with the stock price and other parameters. Pay particular attention to how gamma peaks near the strike price and how theta becomes more negative as expiration approaches.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="theta-and-gamma-in-delta-hedges" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="theta-and-gamma-in-delta-hedges"><span class="header-section-number">9.5</span> Theta and Gamma in Delta Hedges</h2>
+<p>The relationship between theta and gamma provides deep insight into option hedging. Consider a delta-hedged portfolio (short call, long <span class="math inline">\(\delta\)</span> shares). From the fundamental PDE and our Greeks:</p>
+<p><span class="math display">\[\Theta + \frac{1}{2} \Gamma \sigma^2 S^2 = r C - (r - q) S \delta\,.\]</span></p>
+<p>In continuous time, the portfolio change is</p>
+<p><span class="math display">\[-\Theta \,\mathrm{d}t - \frac{1}{2} \Gamma \sigma^2 S^2 \,\mathrm{d}t + q \delta S \,\mathrm{d}t + (C - \delta S) r \,\mathrm{d}t\,.\]</span></p>
+<p>These terms exactly cancel—the time decay and dividends received offset losses from being short gamma and interest payments. This perfect cancellation only holds with continuous rebalancing.</p>
+<p>With discrete rebalancing, the hedge is imperfect. The portfolio is short gamma, meaning it loses money when the stock moves significantly between rebalances. This loss is approximately:</p>
+<p><span class="math display">\[\frac{1}{2} \Gamma (\Delta S)^2\,,\]</span></p>
+<p>where <span class="math inline">\(\Delta S\)</span> is the stock price change. The hedging error increases with:</p>
+<ul>
+<li>Larger gamma (near the strike at expiration)</li>
+<li>Higher volatility</li>
+<li>Longer time between rebalances</li>
+</ul>
+<section id="discretely-rebalanced-delta-hedges" class="level4">
+<h4 class="anchored" data-anchor-id="discretely-rebalanced-delta-hedges">Discretely Rebalanced Delta Hedges</h4>
+<p>The theoretical analysis above assumes continuous rebalancing, but in practice, hedging must be done at discrete intervals. This introduces hedging error that we can analyze through simulation.</p>
+</section>
+<section id="the-discrete-hedging-problem" class="level4">
+<h4 class="anchored" data-anchor-id="the-discrete-hedging-problem">The Discrete Hedging Problem</h4>
+<p>Consider a delta hedge that is rebalanced at discrete times <span class="math inline">\(0 = t_0 &lt; t_1 &lt; \cdots &lt; t_N = T\)</span> with <span class="math inline">\(\Delta t = T/N\)</span>. Between rebalancing dates, the hedge portfolio consists of:</p>
+<ul>
+<li>Short position in the option</li>
+<li>Long <span class="math inline">\(\delta_{t_i}\)</span> shares of stock (where <span class="math inline">\(\delta_{t_i}\)</span> is computed at the last rebalancing date)</li>
+<li>Cash position to finance the hedge</li>
+</ul>
+<p>The key insight from the analysis in <a href="#sec-s_deltahedging" class="quarto-xref"><span>Section 9.3</span></a> is that perfect continuous hedging relies on the relationship:</p>
+<p><span class="math display">\[-\Theta \,\mathrm{d} t - \frac{1}{2}\Gamma \sigma^2S^2\,\mathrm{d} t+ q \delta S\,\mathrm{d} t+(C-\delta S)r\,\mathrm{d} t = 0\,.\]</span></p>
+<p>With discrete rebalancing, this balance is disrupted. The portfolio gains and losses come from:</p>
+<ol type="1">
+<li><strong>Time decay</strong>: <span class="math inline">\(-\Theta \Delta t\)</span> (predictable, typically positive for short option)</li>
+<li><strong>Gamma exposure</strong>: <span class="math inline">\(-\frac{1}{2}\Gamma (\Delta S)^2\)</span> (stochastic losses when short gamma)</li>
+<li><strong>Interest and dividends</strong>: Financing costs and dividend income</li>
+<li><strong>Delta drift</strong>: Changes in delta between rebalancing dates</li>
+</ol>
+<p>Suppose we set up a delta hedge at date <span class="math inline">\(0\)</span> for a call option that we have sold. We sell the call at the Black-Scholes price <span class="math inline">\(C(0, S_0)\)</span>. We use the proceeds plus borrowed funds to buy <span class="math inline">\(\delta_0 = \mathrm{e}^{-qT}\mathrm{N}(d_1)\)</span> shares, where <span class="math inline">\(d_1\)</span> is the parameter at date 0 for the Black-Scholes call value and delta. We rebalance the hedge at each date <span class="math inline">\(t_1, \ldots, t_n\)</span>, holding the short call position until it matures at date <span class="math inline">\(T\)</span>. Rebalancing means that we trade to re-establish the delta hedge based on the Black-Scholes call delta at that date, buying shares when the delta has gone up and selling shares when the delta has fallen. Let <span class="math inline">\(\delta_t\)</span> denote the Black-Scholes delta at each <span class="math inline">\(t\)</span> and let $C_t denote the Black-Scholes call value <span class="math inline">\(C(t, S_t)\)</span>.</p>
+<p>Our cash position at date 0 is $ - (_0S_0 - C_0$. The cash position changes at each subsequent date due to (i) interest earned/paid on the cash position during the period, (ii) dividends received during the period on the shares owned, and (iii) cash paid or received when buying or selling stock to re-establish the delta hedge. Approximate the interest on cash in each time period as <span class="math inline">\(r\cdot \Delta t\)</span> per dollar of cash at the beginning of the period. Approximate the dividends received in each time period as <span class="math inline">\(q \cdot \Delta t\)</span> per dollar value of stock at the beginning of the period.</p>
+<p>The portfolio starts at a zero value at date <span class="math inline">\(0\)</span>, because we used none of our own funds to put it on. Let <span class="math inline">\(V_t\)</span> denote the portfolio value at date <span class="math inline">\(t\)</span>. The change in the portfolio value from <span class="math inline">\(t_i\)</span> to <span class="math inline">\(t_{i+1}\)</span> for each <span class="math inline">\(i\)</span> is <span class="math display">\[V_{t_{i+1}} - V_{t_i} = - (\delta_{t_i}S_{t_i} - V_{t_i})r\Delta t + \delta_{t_i}S_{t_i}q\Delta t + \delta_{t_i}
+(S_{t_{i+1}} - S_{t_i}) - (C_{t_{i+1}} - C_{t_i})\,.\]</span> The terms on the right-hand side are (i) interest paid on borrowed funds, (ii) dividends received on shares owned, (iii) gain or loss on the shares owned, (iv) change in the value of the short call position. The following figure simulates stock price paths and computes the portfolio value at date <span class="math inline">\(t_{n+1}=T\)</span>. Of course, the call value at date <span class="math inline">\(T\)</span> is its intrinsic value.</p>
+<p>To compute the real-world distribution of gains and losses from a discretely-rebalanced delta hedge, we input the expected rate of return <span class="math inline">\(\mu\)</span>. We consider adjusting the hedge at dates <span class="math inline">\(0=t_0&lt;t_1&lt;\cdots&lt;t_N=T\)</span>, with <span class="math inline">\(t_i-t_{i-1}=\Delta t = T/N\)</span> for each <span class="math inline">\(i\)</span>. The changes in the natural logarithm of the stock price between successive dates <span class="math inline">\(t_{i-1}\)</span> and <span class="math inline">\(t_i\)</span> are simulated as <span class="math display">\[\Delta \log S = \left(\mu-q-\frac{1}{2}\sigma^2\right)\,\Delta t + \sigma\,\Delta B\; ,\]</span> where <span class="math inline">\(\Delta B\)</span> is normally distributed with mean zero and variance <span class="math inline">\(\Delta t\)</span>. The random variables <span class="math inline">\(\Delta B\)</span> are simulated as standard normals multiplied by <span class="math inline">\(\sqrt{\Delta t}\)</span>. We begin with the portfolio that is short a call, long <span class="math inline">\(\delta\)</span> shares of the underlying, and short <span class="math inline">\(\delta S-C\)</span> in cash. After the stock price changes, say from <span class="math inline">\(S\)</span> to <span class="math inline">\(S'\)</span>, we compute the new delta <span class="math inline">\(\delta'\)</span>. The cash flow from adjusting the hedge is <span class="math inline">\((\delta-\delta')S'\)</span>. Accumulation (or payment) of interest on the cash position is captured by the factor <span class="math inline">\(e^{r\Delta t}\)</span>. Continuous payment of dividends is modelled similarly: the dividends earned during the period <span class="math inline">\(\Delta t\)</span> is taken to be <span class="math inline">\(\delta S\left(e^{q\Delta t}-1\right)\)</span>. The cash position is adjusted due to interest, dividends, and the cash flow from adjusting the hedge. At date <span class="math inline">\(T\)</span>, the value of the portfolio is the cash position less the intrinsic value of the option.</p>
+<p>To describe the distribution of gains and losses, we also compute percentiles of the distribution. The percentile is calculated with the Python program.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</section>
+<section id="simulation-of-discrete-hedging" class="level4">
+<h4 class="anchored" data-anchor-id="simulation-of-discrete-hedging">Simulation of Discrete Hedging</h4>
+<p>The following code simulates the performance of discretely rebalanced delta hedges. It runs 100,000 simulations of a stock price path, with trading to an updated delta hedge each period.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<div id="404d83bd" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -631,20 +682,20 @@ Important Principle
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># incs = np.genfromtxt('incs.csv',delimiter=",",skip_header=1)</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> blackscholes(S0, K, r, q, sig, T, call <span class="op">=</span> <span class="va">True</span>):</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''Calculate option price using B-S formula.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    '''Calculate option price using B-S formula.</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">        S0 (num): initial price of underlying asset.</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">        K (num): strick price.</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">        r (num): risk free rate.</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">        q (num): dividend yield</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">        sig (num): Black-Scholes volatility.</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">        T (num): maturity.</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">        call (bool): True returns call price, False returns put price.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    Args:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#        S0 (num): initial price of underlying asset.</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#        K (num): strick price.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#        r (num): risk free rate.</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#        q (num): dividend yield</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#        sig (num): Black-Scholes volatility.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#        T (num): maturity.</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#        call (bool): True returns call price, False returns put price.</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">        num</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">    '''</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#    Returns:</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#        num</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#    '''</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    d1 <span class="op">=</span> (np.log(S0<span class="op">/</span>K) <span class="op">+</span> (r <span class="op">-</span>q <span class="op">+</span> sig<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> T)<span class="op">/</span>(sig<span class="op">*</span>np.sqrt(T))</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    d2 <span class="op">=</span> d1 <span class="op">-</span> sig<span class="op">*</span>np.sqrt(T)</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#     norm = sp.stats.norm</span></span>
@@ -655,20 +706,20 @@ Important Principle
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.exp(<span class="op">-</span>q<span class="op">*</span>T)<span class="op">*</span>S0 <span class="op">*</span> <span class="op">-</span>norm.cdf(<span class="op">-</span>d1,<span class="dv">0</span>,<span class="dv">1</span>) <span class="op">+</span> K <span class="op">*</span> np.exp(<span class="op">-</span>r <span class="op">*</span> T) <span class="op">*</span> norm.cdf(<span class="op">-</span>d2,<span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> blackscholes_delta(S0, K, r, q, sig, T, call <span class="op">=</span> <span class="va">True</span>):</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''Calculate option price using B-S formula.</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">#    '''Calculate option price using B-S formula.</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">        S0 (num): initial price of underlying asset.</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">        K (num): strick price.</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co">        r (num): risk free rate.</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">        q (num): dividend yield</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co">        sig (num): Black-Scholes volatility.</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">        T (num): maturity.</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">        call (bool): True returns call price, False returns put price.</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#    Args:</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">#        S0 (num): initial price of underlying asset.</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">#        K (num): strick price.</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co">#        r (num): risk free rate.</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">#        q (num): dividend yield</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co">#        sig (num): Black-Scholes volatility.</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">#        T (num): maturity.</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">#        call (bool): True returns call price, False returns put price.</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">        num</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co">    '''</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">#   Returns:</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">#        num</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co">#    '''</span></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    d1 <span class="op">=</span> (np.log(S0<span class="op">/</span>K) <span class="op">+</span> (r <span class="op">-</span>q <span class="op">+</span> sig<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> T)<span class="op">/</span>(sig<span class="op">*</span>np.sqrt(T))</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    d2 <span class="op">=</span> d1 <span class="op">-</span> sig<span class="op">*</span>np.sqrt(T)</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co">#     norm = sp.stats.norm</span></span>
@@ -727,7 +778,7 @@ Important Principle
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> np.zeros((m,n))</span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>put<span class="op">=</span> blackscholes(S0,K,r, q, sig,T,call<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>call<span class="op">=</span> blackscholes(S0,K,r, q, sig,T,call<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>incs_cumsum <span class="op">=</span>  np.concatenate((np.zeros((<span class="dv">1</span>,n)),incs),axis<span class="op">=</span><span class="dv">0</span>).cumsum(axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>V_vec <span class="op">=</span> np.zeros((m<span class="op">+</span><span class="dv">1</span>,n))</span>
@@ -738,324 +789,40 @@ Important Principle
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> blackscholes_delta(St[:<span class="op">-</span><span class="dv">1</span>,:],K,r, q, sig,T<span class="op">-</span>t_mat[:<span class="op">-</span><span class="dv">1</span>,:])</span>
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>V_vec[<span class="dv">0</span>,:] <span class="op">=</span> S0 <span class="op">+</span> put</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>V_vec[<span class="dv">0</span>,:] <span class="op">=</span> call</span>
 <span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,m<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    V_vec[i,:] <span class="op">=</span> V_vec[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">+</span> (np.exp(r<span class="op">*</span>dt)<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> (V_vec[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">-</span> delta[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">*</span> St[i<span class="op">-</span><span class="dv">1</span>,:])<span class="op">+</span> delta[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">*</span> (St[i,:]<span class="op">-</span>St[i<span class="op">-</span><span class="dv">1</span>,:])</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    V_vec[i,:] <span class="op">=</span> V_vec[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">+</span> (np.exp(r<span class="op">*</span>dt)<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> (V_vec[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">-</span>delta[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">*</span> St[i<span class="op">-</span><span class="dv">1</span>,:])<span class="op">+</span> delta[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">*</span> (St[i,:]<span class="op">-</span>St[i<span class="op">-</span><span class="dv">1</span>,:])</span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Uses actual simulated changes in riskfree and stock price not the dt and dB approximations </span></span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="co"># plot ST versus VT</span></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>plt.scatter(St[m,:],V_vec[m,:])</span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Stock Price at Maturity'</span>)</span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Value of Portfolio Insurance'</span>)</span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Uses actual simulated changes in riskfree and stock price not the dt and dB approximations</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="co"># plot hedging profits</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>simulated_delta_hedge<span class="op">=</span> V_vec[m,:] <span class="op">-</span>np.maximum(St[m,:]<span class="op">-</span>K,<span class="dv">0</span>)</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>plt.scatter(St[m,:],simulated_delta_hedge)</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.scatter(St[m,:],-np.maximum(St[m,:]-K,0)+V_vec[m,:])</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.scatter(St[m,:],V_vec[m,:])</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Stock Price at Maturity'</span>)</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Hedging Error'</span>)</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Ninety fifth percentile"</span>)</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.percentile(simulated_delta_hedge, <span class="dv">95</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Chapter_BlackScholes_files/figure-html/cell-3-output-1.png" width="585" height="282" class="figure-img"></p>
+<p><img src="Chapter_BlackScholes_files/figure-html/cell-3-output-1.png" width="600" height="282" class="figure-img"></p>
 </figure>
 </div>
 </div>
-</div>
-<p>With <span class="math inline">\(m=100\)</span> rebalancing dates over <span class="math inline">\(T=0.5\)</span> for the parameters chosen the repliacting strategy does a pretty good job. The hedging errors occur when the stock price is close to the strike price. This is not surprising since the delta changes (measured by the gamma) fastest around this point. A gamma hedge would potentially improve the performance.</p>
-<p>The portfolio insurance rebalancing scheme involves sell stock and buying bonds when the stock price goes down and buying stocks and selling bonds when the stock price goes up. This can be destabilizing and was identified as a contributor to the 1987 stock market crash.</p>
-</section>
-</section>
-<section id="greeks" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="greeks"><span class="header-section-number">9.5</span> Greeks</h2>
-<p>The sensitivities of option values to various inputs are called Greeks. From the Black-Scholes formula:</p>
-<section id="delta-delta" class="level4">
-<h4 class="anchored" data-anchor-id="delta-delta">Delta (<span class="math inline">\(\delta\)</span>)</h4>
-<p>The sensitivity to stock price changes:</p>
-<p><span class="math display">\[\delta_{call} = e^{-q(T-t)} N(d_1)\,.\]</span> <span class="math display">\[\delta_{put} = -e^{-q(T-t)} N(-d_1)\,.\]</span></p>
-</section>
-<section id="gamma-gamma" class="level4">
-<h4 class="anchored" data-anchor-id="gamma-gamma">Gamma (<span class="math inline">\(\Gamma\)</span>)</h4>
-<p>The rate of change of delta:</p>
-<p><span class="math display">\[\Gamma = \frac{e^{-q(T-t)} n(d_1)}{S \sigma \sqrt{T-t}}\,,\]</span></p>
-<p>where <span class="math inline">\(n(\cdot)\)</span> is the standard normal density. Gamma is the same for calls and puts.</p>
-</section>
-<section id="theta-theta" class="level4">
-<h4 class="anchored" data-anchor-id="theta-theta">Theta (<span class="math inline">\(\Theta\)</span>)</h4>
-<p>The time decay (using <span class="math inline">\(\partial/\partial(-T)\)</span> so positive theta means value increases as time passes):</p>
-<p><span class="math display">\[\Theta_{call} = -\frac{e^{-q(T-t)} S n(d_1) \sigma}{2\sqrt{T-t}} + q e^{-q(T-t)} S N(d_1) - r e^{-r(T-t)} K N(d_2)\,.\]</span></p>
-</section>
-<section id="vega-mathcalv" class="level4">
-<h4 class="anchored" data-anchor-id="vega-mathcalv">Vega (<span class="math inline">\(\mathcal{V}\)</span>)</h4>
-<p>The sensitivity to volatility:</p>
-<p><span class="math display">\[\mathcal{V} = e^{-q(T-t)} S n(d_1) \sqrt{T-t}\,.\]</span></p>
-</section>
-<section id="rho-rho" class="level4">
-<h4 class="anchored" data-anchor-id="rho-rho">Rho (<span class="math inline">\(\rho\)</span>)</h4>
-<p>The sensitivity to interest rates:</p>
-<p><span class="math display">\[\rho_{call} = (T-t) e^{-r(T-t)} K N(d_2)\,.\]</span></p>
-</section>
-<section id="interactive-greeks-explorer" class="level4">
-<h4 class="anchored" data-anchor-id="interactive-greeks-explorer">Interactive Greeks Explorer</h4>
-<p>The Greeks measure how option prices change with respect to various parameters. The following interactive tool lets you visualize how the Greeks behave across different stock prices and parameter values.</p>
-<div id="fig-bs-greeks" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-bs-greeks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<iframe height="750" width="100%" src="https://greeks.koyeb.app/">
-</iframe>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bs-greeks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.2: <strong>Black-Scholes Greeks Explorer.</strong> This tool shows how delta, gamma, theta, vega, and rho vary with the stock price and other parameters. Pay particular attention to how gamma peaks near the strike price and how theta becomes more negative as expiration approaches.
-</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="theta-and-gamma-in-delta-hedges" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="theta-and-gamma-in-delta-hedges"><span class="header-section-number">9.6</span> Theta and Gamma in Delta Hedges</h2>
-<p>The relationship between theta and gamma provides deep insight into option hedging. Consider a delta-hedged portfolio (short call, long <span class="math inline">\(\delta\)</span> shares). From the fundamental PDE and our Greeks:</p>
-<p><span class="math display">\[\Theta + \frac{1}{2} \Gamma \sigma^2 S^2 = r C - (r - q) S \delta\,.\]</span></p>
-<p>In continuous time, the portfolio change is</p>
-<p><span class="math display">\[-\Theta \,\mathrm{d}t - \frac{1}{2} \Gamma \sigma^2 S^2 \,\mathrm{d}t + q \delta S \,\mathrm{d}t + (C - \delta S) r \,\mathrm{d}t\,.\]</span></p>
-<p>These terms exactly cancel—the time decay and dividends received offset losses from being short gamma and interest payments. This perfect cancellation only holds with continuous rebalancing.</p>
-<p>With discrete rebalancing, the hedge is imperfect. The portfolio is short gamma, meaning it loses money when the stock moves significantly between rebalances. This loss is approximately:</p>
-<p><span class="math display">\[\frac{1}{2} \Gamma (\Delta S)^2\,,\]</span></p>
-<p>where <span class="math inline">\(\Delta S\)</span> is the stock price change. The hedging error increases with:</p>
-<ul>
-<li>Larger gamma (near the strike at expiration)</li>
-<li>Higher volatility</li>
-<li>Longer time between rebalances</li>
-</ul>
-<section id="discretely-rebalanced-delta-hedges" class="level4">
-<h4 class="anchored" data-anchor-id="discretely-rebalanced-delta-hedges">Discretely Rebalanced Delta Hedges</h4>
-<p>The theoretical analysis above assumes continuous rebalancing, but in practice, hedging must be done at discrete intervals. This introduces hedging error that we can analyze through simulation.</p>
-</section>
-<section id="the-discrete-hedging-problem" class="level4">
-<h4 class="anchored" data-anchor-id="the-discrete-hedging-problem">The Discrete Hedging Problem</h4>
-<p>Consider a delta hedge that is rebalanced at discrete times <span class="math inline">\(0 = t_0 &lt; t_1 &lt; \cdots &lt; t_N = T\)</span> with <span class="math inline">\(\Delta t = T/N\)</span>. Between rebalancing dates, the hedge portfolio consists of:</p>
-<ul>
-<li>Short position in the option</li>
-<li>Long <span class="math inline">\(\delta_{t_i}\)</span> shares of stock (where <span class="math inline">\(\delta_{t_i}\)</span> is computed at the last rebalancing date)</li>
-<li>Cash position to finance the hedge</li>
-</ul>
-<p>The key insight from the analysis in <span class="quarto-unresolved-ref">?sec-s_deltahedging</span> is that perfect continuous hedging relies on the relationship:</p>
-<p><span class="math display">\[-\Theta \,\mathrm{d} t - \frac{1}{2}\Gamma \sigma^2S^2\,\mathrm{d} t+ q \delta S\,\mathrm{d} t+(C-\delta S)r\,\mathrm{d} t = 0\,.\]</span></p>
-<p>With discrete rebalancing, this balance is disrupted. The portfolio gains and losses come from:</p>
-<ol type="1">
-<li><strong>Time decay</strong>: <span class="math inline">\(-\Theta \Delta t\)</span> (predictable, typically positive for short option)</li>
-<li><strong>Gamma exposure</strong>: <span class="math inline">\(-\frac{1}{2}\Gamma (\Delta S)^2\)</span> (stochastic losses when short gamma)</li>
-<li><strong>Interest and dividends</strong>: Financing costs and dividend income</li>
-<li><strong>Delta drift</strong>: Changes in delta between rebalancing dates</li>
-</ol>
-</section>
-<section id="simulation-of-discrete-hedging" class="level4">
-<h4 class="anchored" data-anchor-id="simulation-of-discrete-hedging">Simulation of Discrete Hedging</h4>
-<p>The following code simulates the performance of discretely rebalanced delta hedges. It runs 10,000 simulations of a stock price path, with trading to an updated delta hedge each period.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div id="a7c9d96c" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numba <span class="im">import</span> jit</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> blackscholes(S0, K, r, q, sig, T, call <span class="op">=</span> <span class="va">True</span>):</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''Calculate option price using Black-Scholes formula.'''</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    d1 <span class="op">=</span> (np.log(S0<span class="op">/</span>K) <span class="op">+</span> (r <span class="op">-</span>q <span class="op">+</span> sig<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> T)<span class="op">/</span>(sig<span class="op">*</span>np.sqrt(T))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    d2 <span class="op">=</span> d1 <span class="op">-</span> sig<span class="op">*</span>np.sqrt(T)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> call:</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.exp(<span class="op">-</span>q<span class="op">*</span>T)<span class="op">*</span>S0 <span class="op">*</span> norm.cdf(d1,<span class="dv">0</span>,<span class="dv">1</span>) <span class="op">-</span> K <span class="op">*</span> np.exp(<span class="op">-</span>r <span class="op">*</span> T) <span class="op">*</span> norm.cdf(d2,<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.exp(<span class="op">-</span>q<span class="op">*</span>T)<span class="op">*</span>S0 <span class="op">*</span> (<span class="op">-</span>norm.cdf(<span class="op">-</span>d1,<span class="dv">0</span>,<span class="dv">1</span>)) <span class="op">+</span> K <span class="op">*</span> np.exp(<span class="op">-</span>r <span class="op">*</span> T) <span class="op">*</span> norm.cdf(<span class="op">-</span>d2,<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> blackscholes_delta(S0, K, r, q, sig, T, call <span class="op">=</span> <span class="va">True</span>):</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''Calculate option delta using Black-Scholes formula.'''</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    d1 <span class="op">=</span> (np.log(S0<span class="op">/</span>K) <span class="op">+</span> (r <span class="op">-</span>q <span class="op">+</span> sig<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> T)<span class="op">/</span>(sig<span class="op">*</span>np.sqrt(T))</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> call:</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.exp(<span class="op">-</span>q<span class="op">*</span>T)<span class="op">*</span>norm.cdf(d1,<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.exp(<span class="op">-</span>q<span class="op">*</span>T)<span class="op">*</span>norm.cdf(<span class="op">-</span>d1,<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> norm_cdf_fast(x):</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">    Fast approximation of cumulative normal distribution.</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">    Accurate to about 7 decimal places using Abramowitz &amp; Stegun approximation.</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Constants for the approximation</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    a1 <span class="op">=</span>  <span class="fl">0.254829592</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    a2 <span class="op">=</span> <span class="op">-</span><span class="fl">0.284496736</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    a3 <span class="op">=</span>  <span class="fl">1.421413741</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    a4 <span class="op">=</span> <span class="op">-</span><span class="fl">1.453152027</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    a5 <span class="op">=</span>  <span class="fl">1.061405429</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    p  <span class="op">=</span>  <span class="fl">0.3275911</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save the sign of x</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    sign <span class="op">=</span> <span class="fl">1.0</span> <span class="cf">if</span> x <span class="op">&gt;=</span> <span class="fl">0.0</span> <span class="cf">else</span> <span class="op">-</span><span class="fl">1.0</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="bu">abs</span>(x) <span class="op">/</span> np.sqrt(<span class="fl">2.0</span>)</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Abramowitz &amp; Stegun formula</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> (<span class="fl">1.0</span> <span class="op">+</span> p <span class="op">*</span> x)</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> <span class="fl">1.0</span> <span class="op">-</span> (((((a5 <span class="op">*</span> t <span class="op">+</span> a4) <span class="op">*</span> t) <span class="op">+</span> a3) <span class="op">*</span> t <span class="op">+</span> a2) <span class="op">*</span> t <span class="op">+</span> a1) <span class="op">*</span> t <span class="op">*</span> np.exp(<span class="op">-</span>x <span class="op">*</span> x)</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">0.5</span> <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">+</span> sign <span class="op">*</span> y)</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> blackscholes_delta_fast(S, K, r, q, sigma, T):</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Fast Black-Scholes delta for call option using Numba."""</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> T <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">1.0</span> <span class="cf">if</span> S <span class="op">&gt;</span> K <span class="cf">else</span> <span class="fl">0.0</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    d1 <span class="op">=</span> (np.log(S <span class="op">/</span> K) <span class="op">+</span> (r <span class="op">-</span> q <span class="op">+</span> sigma<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> <span class="dv">2</span>) <span class="op">*</span> T) <span class="op">/</span> (sigma <span class="op">*</span> np.sqrt(T))</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.exp(<span class="op">-</span>q <span class="op">*</span> T) <span class="op">*</span> norm_cdf_fast(d1)</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_single_path(S0, K, r, sigma, q, T, mu, N, drift, vol_dt,</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>                        discount, div_factor, delta_0, cash_0, random_normals):</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="co">    Simulate a single delta hedge path.</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="co">    Optimized with Numba JIT compilation.</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    dt <span class="op">=</span> T <span class="op">/</span> N</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    log_s <span class="op">=</span> np.log(S0)</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    cash <span class="op">=</span> cash_0</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> S0</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    delta <span class="op">=</span> delta_0</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Rebalancing loop</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, N):</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Stock price evolution</span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>        log_s <span class="op">+=</span> drift <span class="op">+</span> vol_dt <span class="op">*</span> random_normals[j]</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>        new_s <span class="op">=</span> np.exp(log_s)</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>        <span class="co"># New delta for rebalancing</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>        time_remaining <span class="op">=</span> T <span class="op">-</span> j <span class="op">*</span> dt</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>        new_delta <span class="op">=</span> blackscholes_delta_fast(new_s, K, r, q, sigma, time_remaining)</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Update cash position: interest + dividends - rebalancing cost</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>        cash <span class="op">=</span> (discount <span class="op">*</span> cash <span class="op">+</span></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>               delta <span class="op">*</span> s <span class="op">*</span> div_factor <span class="op">-</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>               (new_delta <span class="op">-</span> delta) <span class="op">*</span> new_s)</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> new_s</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>        delta <span class="op">=</span> new_delta</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Final period</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>    log_s <span class="op">+=</span> drift <span class="op">+</span> vol_dt <span class="op">*</span> random_normals[N]</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    final_s <span class="op">=</span> np.exp(log_s)</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Final hedge value</span></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>    final_hedge_value <span class="op">=</span> (discount <span class="op">*</span> cash <span class="op">+</span></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>                       delta <span class="op">*</span> s <span class="op">*</span> div_factor <span class="op">+</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>                       delta <span class="op">*</span> final_s)</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Profit = hedge value - option payoff</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    option_payoff <span class="op">=</span> <span class="bu">max</span>(final_s <span class="op">-</span> K, <span class="fl">0.0</span>)</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> final_hedge_value <span class="op">-</span> option_payoff</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_all_simulations(S0, K, r, sigma, q, T, mu, M, N, drift, vol_dt,</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>                       discount, div_factor, delta_0, cash_0, all_random_normals):</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Run all M simulations using Numba JIT."""</span></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>    profits <span class="op">=</span> np.zeros(M)</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(M):</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>        profits[i] <span class="op">=</span> simulate_single_path(</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>            S0, K, r, sigma, q, T, mu, N, drift, vol_dt,</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>            discount, div_factor, delta_0, cash_0, all_random_normals[i, :]</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> profits</span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulated_delta_hedge_profit(S0, K, r, sigma, q, T, mu, M, N, pct):</span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="co">    Simulate profits/losses from discretely rebalanced delta hedge.</span></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="co">    Optimized version using Numba JIT compilation.</span></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="co">    S0: initial stock price</span></span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a><span class="co">    K: strike price</span></span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="co">    r: risk-free rate</span></span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="co">    sigma: volatility</span></span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="co">    q: dividend yield</span></span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="co">    T: time to maturity</span></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="co">    mu: expected stock return (actual, not risk-neutral)</span></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a><span class="co">    M: number of simulations</span></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="co">    N: number of rebalancing periods</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a><span class="co">    pct: percentile to return</span></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>    dt <span class="op">=</span> T <span class="op">/</span> N</span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>    vol_dt <span class="op">=</span> sigma <span class="op">*</span> np.sqrt(dt)</span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    drift <span class="op">=</span> (mu <span class="op">-</span> q <span class="op">-</span> <span class="fl">0.5</span> <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> dt</span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    discount <span class="op">=</span> np.exp(r <span class="op">*</span> dt)</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>    div_factor <span class="op">=</span> np.exp(q <span class="op">*</span> dt) <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initial setup (using scipy for initial values)</span></span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>    call_0 <span class="op">=</span> blackscholes(S0, K, r, q, sigma, T, <span class="va">True</span>)</span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>    delta_0 <span class="op">=</span> blackscholes_delta(S0, K, r, q, sigma, T, <span class="va">True</span>)</span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>    cash_0 <span class="op">=</span> call_0 <span class="op">-</span> delta_0 <span class="op">*</span> S0</span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate all random numbers upfront for better performance</span></span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>    all_random_normals <span class="op">=</span> np.random.randn(M, N <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run all simulations using JIT-compiled function</span></span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>    profits <span class="op">=</span> run_all_simulations(</span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>        S0, K, r, sigma, q, T, mu, M, N, drift, vol_dt,</span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>        discount, div_factor, delta_0, cash_0, all_random_normals</span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.percentile(profits, pct <span class="op">*</span> <span class="dv">100</span>)</span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Hedge a call option with discrete rebalancing</span></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>S0 <span class="op">=</span> <span class="dv">100</span>      <span class="co"># Initial stock price</span></span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">100</span>       <span class="co"># Strike price (at-the-money)</span></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">0.05</span>      <span class="co"># Risk-free rate</span></span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="fl">0.2</span>   <span class="co"># Volatility</span></span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="fl">0.02</span>      <span class="co"># Dividend yield</span></span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="fl">0.25</span>      <span class="co"># 3 months to maturity</span></span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="fl">0.12</span>     <span class="co"># Expected stock return</span></span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Discrete Delta Hedging Analysis"</span>)</span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"=============================="</span>)</span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Parameters: S0=</span><span class="sc">{</span>S0<span class="sc">}</span><span class="ss">, K=</span><span class="sc">{</span>K<span class="sc">}</span><span class="ss">, r=</span><span class="sc">{</span>r<span class="sc">:.2f}</span><span class="ss">, σ=</span><span class="sc">{</span>sigma<span class="sc">:.2f}</span><span class="ss">, q=</span><span class="sc">{</span>q<span class="sc">:.2f}</span><span class="ss">, T=</span><span class="sc">{</span>T<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Expected stock return μ=</span><span class="sc">{</span>mu<span class="sc">:.2f}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="co"># Test different rebalancing frequencies</span></span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>rebalancing_frequencies <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">13</span>, <span class="dv">63</span>]  </span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> <span class="dv">10000</span>  <span class="co"># Number of simulations</span></span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hedging Error Analysis (95th percentile of absolute profits):"</span>)</span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Rebalancing Frequency | Periods | 95th Percentile Error"</span>)</span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">55</span>)</span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> rebalancing_frequencies:</span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get both tails of the distribution</span></span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>    p95 <span class="op">=</span> simulated_delta_hedge_profit(S0, K, r, sigma, q, T, mu, M, N, <span class="fl">0.95</span>)</span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>    p5 <span class="op">=</span> simulated_delta_hedge_profit(S0, K, r, sigma, q, T, mu, M, N, <span class="fl">0.05</span>)</span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Report the larger absolute error</span></span>
-<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>    max_error <span class="op">=</span> <span class="bu">max</span>(<span class="bu">abs</span>(p95), <span class="bu">abs</span>(p5))</span>
-<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>    freq_name <span class="op">=</span> {<span class="dv">3</span>: <span class="st">"Monthly"</span>, <span class="dv">13</span>: <span class="st">"Weekly"</span>, <span class="dv">63</span>: <span class="st">"Daily"</span>}[N]</span>
-<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>freq_name<span class="sc">:&lt;20}</span><span class="ss"> | </span><span class="sc">{</span>N<span class="sc">:&gt;7}</span><span class="ss"> | </span><span class="sc">{</span>max_error<span class="sc">:&gt;18.4f}</span><span class="ss">"</span>)</span>
-<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Note: Errors should decrease as rebalancing frequency increases."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Discrete Delta Hedging Analysis
-==============================
-Parameters: S0=100, K=100, r=0.05, σ=0.20, q=0.02, T=0.25
-Expected stock return μ=0.12
-
-Hedging Error Analysis (95th percentile of absolute profits):
-Rebalancing Frequency | Periods | 95th Percentile Error
--------------------------------------------------------
-Monthly              |       3 |             3.2002
-Weekly               |      13 |             1.5593
-Daily                |      63 |             0.7157
-
-Note: Errors should decrease as rebalancing frequency increases.</code></pre>
+<pre><code>Ninety fifth percentile
+0.31540269503348367</code></pre>
 </div>
 </div>
+<p>Notice that the largest hedging errors occur when the option expires near the money. This is beacuse the change in the delta around this point (Gamma) is large. Decreasing the hedging frequency will generally lead to larger hedging errors.</p>
 </section>
 </section>
-<section id="delta-gamma-hedging" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="delta-gamma-hedging"><span class="header-section-number">9.7</span> Delta-Gamma Hedging</h2>
+<section id="delta-gamma-hedging" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="delta-gamma-hedging"><span class="header-section-number">9.6</span> Delta-Gamma Hedging</h2>
 <p>To attempt to improve the performance of a discretely rebalanced delta hedge, one can use another option to create a portfolio that is both delta and gamma neutral. Being delta neutral means hedged as in the previous section—the portfolio value has no exposure to changes in the underlying asset price. In other words, it means that the derivative of the portfolio value with respect to the price of the underlying (the portfolio delta) is zero. Being gamma neutral means that the delta of the portfolio has no exposure to changes in the underlying price, which is equivalent to the second derivative of the portfolio value with respect to the price of the underlying (the portfolio gamma) being zero. If the delta truly did not change, then there would be no need to rebalance continuously, and hence no hedging error introduced by only adjusting the portfolio at discrete times rather than continuously. However, there is certainly no guarantee that a discretely rebalanced delta/gamma hedge will perform better than a discretely rebalanced delta hedge.</p>
 <p>A delta/gamma hedge can be constructed as follows. Suppose we have written (shorted) a call option and we want to hedge both the delta and gamma using the underlying asset and another option, for example, another call option with a different strike. In practice, one would want to use a liquid option for this purpose, which typically means that the strike of the option will be near the current value of the underlying (i.e., the option used to hedge would be approximately at the money).</p>
 <p>Let <span class="math inline">\(\delta\)</span> and <span class="math inline">\(\Gamma\)</span> denote the delta and gamma of the written option and let <span class="math inline">\(\delta^*\)</span> and <span class="math inline">\(\Gamma^*\)</span> denote the delta and gamma of the option used to hedge. Consider holding <span class="math inline">\(a\)</span> shares of the stock and <span class="math inline">\(b\)</span> units of the option used to hedge in conjunction with the short option. The delta of the stock is one (<span class="math inline">\(\mathrm{d} S/\mathrm{d} S = 1\)</span>), so to obtain a zero portfolio delta we need</p>
@@ -1071,9 +838,155 @@ b= \frac{\Gamma}{\Gamma^*}
 \]</span> Equation <a href="#eq-portfoliodelta" class="quarto-xref">Equation&nbsp;<span>9.1</span></a> shows that we should use the stock to delta hedge the portfolio of options; i.e., <span class="math display">\[
 a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 \]</span></p>
+<section id="simulating-portfolio-insurance" class="level4">
+<h4 class="anchored" data-anchor-id="simulating-portfolio-insurance">Simulating Portfolio Insurance</h4>
+<p>Recall, that a protective put position buys a put and buys a share and the payoff at the expiration of the put is given by <span class="math inline">\(\max(K,S_T)\)</span>. The reason for the name protective put is apparent since the position can pay off no less than <span class="math inline">\(K\)</span>. The cost of this insurance is the price of the put. However, if the put is not traded, we can synthetically replicate this payoff using the prodedure above assuming we can trade continuously. The basic recipe is to start with inital wealth equal to that for a protective put position: <span class="math inline">\(W_0 = P(0,S_0)+S_0\)</span>. The delta of the protective put position can be calcuated to be the delta of the put plus 1 which is <span class="math inline">\(N(d_1)\)</span>, where <span class="math inline">\(d_1\)</span> is calculated at each point in time. However, in practice we cannot trade continuously. A simple discrete strategy would rebalance at intervals <span class="math inline">\(\Delta t\)</span>. The strategy calculates <span class="math inline">\(N(d_1)\)</span> at time 0 and holds <span class="math inline">\(P(0,S_0)+S_0 - N(d_1)S_0\)</span> dollars in the risk free asset and <span class="math inline">\(N(d_1)\)</span> shares of the asset. Thereafter these holdings are adjusted. The change in portfolio value over the interval <span class="math inline">\(\Delta t\)</span> is <span class="math display">\[\Delta W= W_{i \Delta t}- W_{(i-1)\Delta t} \]</span> <span class="math display">\[
+= (P((i-1)\Delta t,S_{(i-1)\Delta t})+S_{(i-1)\Delta t} - N(d_1-)S_{(i-1)\Delta t})(R_{i\Delta t}-R_{(i-1)\Delta t}) + N(d1-)(S_{i\Delta t}-S_{(i-1)\Delta t}) \,,
+\]</span> where <span class="math inline">\(N(d1-)\)</span> is the delta chosen at time <span class="math inline">\((i-1)\Delta t\)</span>. The question is if the Black Scoles model is correct, how accurate can a discrete rebalancing scheme be? This is simulated in the following code:</p>
+<div id="8322a07a" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># from bsfunctions import *</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> <span class="bu">pow</span>, exp, sqrt</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># incs = np.genfromtxt('incs.csv',delimiter=",",skip_header=1)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> blackscholes(S0, K, r, q, sig, T, call <span class="op">=</span> <span class="va">True</span>):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''Calculate option price using B-S formula.</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">        S0 (num): initial price of underlying asset.</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">        K (num): strick price.</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">        r (num): risk free rate.</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">        q (num): dividend yield</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">        sig (num): Black-Scholes volatility.</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">        T (num): maturity.</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">        call (bool): True returns call price, False returns put price.</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">        num</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">    '''</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    d1 <span class="op">=</span> (np.log(S0<span class="op">/</span>K) <span class="op">+</span> (r <span class="op">-</span>q <span class="op">+</span> sig<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> T)<span class="op">/</span>(sig<span class="op">*</span>np.sqrt(T))</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    d2 <span class="op">=</span> d1 <span class="op">-</span> sig<span class="op">*</span>np.sqrt(T)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">#     norm = sp.stats.norm</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    norm <span class="op">=</span> stats.norm</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> call:</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.exp(<span class="op">-</span>q<span class="op">*</span>T)<span class="op">*</span>S0 <span class="op">*</span> norm.cdf(d1,<span class="dv">0</span>,<span class="dv">1</span>) <span class="op">-</span> K <span class="op">*</span> np.exp(<span class="op">-</span>r <span class="op">*</span> T) <span class="op">*</span> norm.cdf(d2,<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.exp(<span class="op">-</span>q<span class="op">*</span>T)<span class="op">*</span>S0 <span class="op">*</span> <span class="op">-</span>norm.cdf(<span class="op">-</span>d1,<span class="dv">0</span>,<span class="dv">1</span>) <span class="op">+</span> K <span class="op">*</span> np.exp(<span class="op">-</span>r <span class="op">*</span> T) <span class="op">*</span> norm.cdf(<span class="op">-</span>d2,<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> blackscholes_delta(S0, K, r, q, sig, T, call <span class="op">=</span> <span class="va">True</span>):</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''Calculate option price using B-S formula.</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co">        S0 (num): initial price of underlying asset.</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co">        K (num): strick price.</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co">        r (num): risk free rate.</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="co">        q (num): dividend yield</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co">        sig (num): Black-Scholes volatility.</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="co">        T (num): maturity.</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="co">        call (bool): True returns call price, False returns put price.</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="co">        num</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="co">    '''</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    d1 <span class="op">=</span> (np.log(S0<span class="op">/</span>K) <span class="op">+</span> (r <span class="op">-</span>q <span class="op">+</span> sig<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> T)<span class="op">/</span>(sig<span class="op">*</span>np.sqrt(T))</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    d2 <span class="op">=</span> d1 <span class="op">-</span> sig<span class="op">*</span>np.sqrt(T)</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co">#     norm = sp.stats.norm</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    norm <span class="op">=</span> stats.norm</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">type</span>(call) <span class="op">==</span> <span class="bu">bool</span>:</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> call:</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> np.exp(<span class="op">-</span>q<span class="op">*</span>T)<span class="op">*</span>norm.cdf(d1,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> np.exp(<span class="op">-</span>q<span class="op">*</span>T)<span class="op">*</span>norm.cdf(<span class="op">-</span>d1,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Not a valid value for call"</span>)</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="co"># parameters</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co"># number of paths</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="co"># n = incs.shape[1]</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100000</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="co"># number of divisions</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="co"># m = incs.shape[0]</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="co"># interest rate</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">.1</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="co"># dividend yield</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>q<span class="op">=</span><span class="fl">0.0</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="co"># true drift</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="fl">.15</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="co"># volatility</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>sig <span class="op">=</span> <span class="fl">.2</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial Stock Price</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>S0 <span class="op">=</span> <span class="dv">42</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Strike Price</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">42</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Maturity</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="co"># seed for random generator</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>seed<span class="op">=</span> <span class="dv">1234</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="co"># define a random generator</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>rg <span class="op">=</span> np.random.RandomState(seed)</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="co"># generate normal random vairables</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>dt<span class="op">=</span> T<span class="op">/</span>m</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>vol<span class="op">=</span>sig<span class="op">*</span>np.sqrt(dt)</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>incs <span class="op">=</span> rg.normal(<span class="dv">0</span>,vol,[m,n])</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>tline <span class="op">=</span> np.linspace(<span class="dv">0</span>,T,m<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>St <span class="op">=</span> np.zeros((m<span class="op">+</span><span class="dv">1</span>,n))</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="co">#St1 = np.zeros((m+1,n))</span></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>V_vec <span class="op">=</span> np.zeros((m<span class="op">+</span><span class="dv">1</span>,n))</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> np.zeros((m,n))</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>put<span class="op">=</span> blackscholes(S0,K,r, q, sig,T,call<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>incs_cumsum <span class="op">=</span>  np.concatenate((np.zeros((<span class="dv">1</span>,n)),incs),axis<span class="op">=</span><span class="dv">0</span>).cumsum(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>V_vec <span class="op">=</span> np.zeros((m<span class="op">+</span><span class="dv">1</span>,n))</span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>t_mat <span class="op">=</span>  np.repeat(tline.reshape((m<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>)), n, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>drift_cumsum <span class="op">=</span> (mu <span class="op">-</span>q <span class="op">-</span><span class="fl">0.5</span><span class="op">*</span>sig<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> t_mat</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>St <span class="op">=</span> S0 <span class="op">*</span> np.exp(incs_cumsum <span class="op">+</span> drift_cumsum)</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> blackscholes_delta(St[:<span class="op">-</span><span class="dv">1</span>,:],K,r, q, sig,T<span class="op">-</span>t_mat[:<span class="op">-</span><span class="dv">1</span>,:])</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>V_vec[<span class="dv">0</span>,:] <span class="op">=</span> S0 <span class="op">+</span> put</span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,m<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>    V_vec[i,:] <span class="op">=</span> V_vec[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">+</span> (np.exp(r<span class="op">*</span>dt)<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> (V_vec[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">-</span> delta[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">*</span> St[i<span class="op">-</span><span class="dv">1</span>,:])<span class="op">+</span> delta[i<span class="op">-</span><span class="dv">1</span>,:] <span class="op">*</span> (St[i,:]<span class="op">-</span>St[i<span class="op">-</span><span class="dv">1</span>,:])</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Uses actual simulated changes in riskfree and stock price not the dt and dB approximations </span></span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a><span class="co"># plot ST versus VT</span></span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>plt.scatter(St[m,:],V_vec[m,:])</span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Stock Price at Maturity'</span>)</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Value of Portfolio Insurance'</span>)</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_BlackScholes_files/figure-html/cell-4-output-1.png" width="585" height="282" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With <span class="math inline">\(m=100\)</span> rebalancing dates over <span class="math inline">\(T=0.5\)</span> for the parameters chosen the repliacting strategy does a pretty good job. The hedging errors occur when the stock price is close to the strike price. This is not surprising since the delta changes (measured by the gamma) fastest around this point. A gamma hedge would potentially improve the performance.</p>
+<p>The portfolio insurance rebalancing scheme involves sell stock and buying bonds when the stock price goes down and buying stocks and selling bonds when the stock price goes up. This can be destabilizing and was identified as a contributor to the 1987 stock market crash.</p>
 </section>
-<section id="implied-volatilities" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="implied-volatilities"><span class="header-section-number">9.8</span> Implied Volatilities</h2>
+</section>
+<section id="implied-volatilities" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="implied-volatilities"><span class="header-section-number">9.7</span> Implied Volatilities</h2>
 <p>While all other Black-Scholes inputs are observable, volatility must be estimated. Given an option’s market price, we can invert the Black-Scholes formula to find the implied volatility—the <span class="math inline">\(\sigma\)</span> that produces the observed price.</p>
 <p>Implied volatilities serve several purposes:</p>
 <ol type="1">
@@ -1093,8 +1006,8 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 <p>The smile has been particularly pronounced for equity index options since the 1987 crash, suggesting market participants price in crash risk.</p>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="9.9">
-<h2 data-number="9.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">9.9</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="exercises"><span class="header-section-number">9.8</span> Exercises</h2>
 <section id="digital-options-and-building-blocks" class="level4">
 <h4 class="anchored" data-anchor-id="digital-options-and-building-blocks">Digital Options and Building Blocks</h4>
 <div id="exr-digital-pricing" class="theorem exercise">
@@ -1116,15 +1029,18 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 <li>What happens to the digital delta as time to expiration approaches zero?</li>
 </ol>
 </div>
-<p>::: {#digital puts} The following two questions can be answered in two ways.</p>
-<p>What is the vaule of a derivative security which pays <span class="math display">\[\mathbf{1}_{\{S_T &lt;K\}}\,.\]</span></p>
-<p>What is the value of a derivative security which pays <span class="math display">\[ S_T \mathbf{1}_{\{S_T &lt;K\}}\,.\]</span></p>
-<p>:::</p>
+<div id="exr-digital-puts" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9.3</strong></span> The following two questions can be answered in two ways.</p>
+<ol type="a">
+<li>What is the vaule of a derivative security that pays <span class="math inline">\(\mathbf{1}_{\{S_T &lt;K\}}\)</span>?</li>
+<li>What is the value of a derivative security that pays $ S_T _{{S_T &lt;K}}$?</li>
+</ol>
+</div>
 </section>
 <section id="change-of-numeraire-and-girsanovs-theorem" class="level4">
 <h4 class="anchored" data-anchor-id="change-of-numeraire-and-girsanovs-theorem">Change of Numeraire and Girsanov’s Theorem</h4>
 <div id="exr-measure-verification" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.3</strong></span> Using simulation, verify the change of numeraire formulas for digital options:</p>
+<p><span class="theorem-title"><strong>Exercise 9.4</strong></span> Using simulation, verify the change of numeraire formulas for digital options:</p>
 <ol type="a">
 <li>Under the risk-neutral measure, simulate <span class="math inline">\(S_T\)</span> following <span class="math inline">\(dS/S = (r-q)dt + \sigma dB^R\)</span></li>
 <li>Under the stock numeraire measure, simulate <span class="math inline">\(S_T\)</span> following <span class="math inline">\(dS/S = (r-q+\sigma^2)dt + \sigma dB^S\)</span><br>
@@ -1135,7 +1051,7 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 </ol>
 </div>
 <div id="exr-girsanov-application" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.4</strong></span> Verify the exponential martingale property in Girsanov’s Theorem. With <span class="math inline">\(\kappa = (\mu - r)/\sigma\)</span>:</p>
+<p><span class="theorem-title"><strong>Exercise 9.5</strong></span> Verify the exponential martingale property in Girsanov’s Theorem. With <span class="math inline">\(\kappa = (\mu - r)/\sigma\)</span>:</p>
 <ol type="a">
 <li>Simulate paths of <span class="math inline">\(Z_t = \exp(-\frac{1}{2}\kappa^2 t - \kappa B_t)\)</span> where <span class="math inline">\(B_t\)</span> is standard Brownian motion</li>
 <li>Verify that <span class="math inline">\(\mathbb{E}[Z_T] = 1\)</span> for various values of <span class="math inline">\(T\)</span></li>
@@ -1147,7 +1063,7 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 <section id="black-scholes-formula-and-properties" class="level4">
 <h4 class="anchored" data-anchor-id="black-scholes-formula-and-properties">Black-Scholes Formula and Properties</h4>
 <div id="exr-bs-implementation" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.5</strong></span> Implement the complete Black-Scholes formula with all Greeks:</p>
+<p><span class="theorem-title"><strong>Exercise 9.6</strong></span> Implement the complete Black-Scholes formula with all Greeks:</p>
 <ol type="a">
 <li>Create a Python class <code>BlackScholesOption</code> that calculates price, delta, gamma, theta, vega, and rho</li>
 <li>Include both calls and puts with proper dividend yield handling</li>
@@ -1156,7 +1072,7 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 </ol>
 </div>
 <div id="exr-bs-limits" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.6</strong></span> Analyze the limiting behavior of the Black-Scholes formula:</p>
+<p><span class="theorem-title"><strong>Exercise 9.7</strong></span> Analyze the limiting behavior of the Black-Scholes formula:</p>
 <ol type="a">
 <li>Show that as <span class="math inline">\(T \to 0\)</span>, the call value approaches <span class="math inline">\(\max(S_0 - K, 0)\)</span></li>
 <li>Show that as <span class="math inline">\(\sigma \to 0\)</span>, the formula approaches the deterministic payoff present value</li>
@@ -1165,7 +1081,7 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 </ol>
 </div>
 <div id="exr-volatility-impact" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.7</strong></span> Using the interactive Black-Scholes explorer or your own implementation:</p>
+<p><span class="theorem-title"><strong>Exercise 9.8</strong></span> Using the interactive Black-Scholes explorer or your own implementation:</p>
 <ol type="a">
 <li>For an at-the-money option, plot call value against volatility for <span class="math inline">\(\sigma \in [0.1, 1.0]\)</span></li>
 <li>Repeat for options that are 10% in-the-money and 10% out-of-the-money</li>
@@ -1177,7 +1093,7 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 <section id="greeks-and-risk-management" class="level4">
 <h4 class="anchored" data-anchor-id="greeks-and-risk-management">Greeks and Risk Management</h4>
 <div id="exr-greeks-plots" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.8</strong></span> Create comprehensive plots of the Greeks using the interactive Greeks explorer as reference:</p>
+<p><span class="theorem-title"><strong>Exercise 9.9</strong></span> Create comprehensive plots of the Greeks using the interactive Greeks explorer as reference:</p>
 <ol type="a">
 <li>Plot delta, gamma, theta, vega, and rho against stock price for an at-the-money option</li>
 <li>Repeat for different times to expiration: 1 month, 3 months, 6 months, 1 year</li>
@@ -1186,7 +1102,7 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 </ol>
 </div>
 <div id="exr-gamma-hedging" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.9</strong></span> Consider delta and gamma hedging a short call option using the underlying and a put with the same strike and maturity:</p>
+<p><span class="theorem-title"><strong>Exercise 9.10</strong></span> Consider delta and gamma hedging a short call option using the underlying and a put with the same strike and maturity:</p>
 <ol type="a">
 <li>Derive the positions in stock and put needed for a delta-gamma neutral portfolio</li>
 <li>Show that this hedge never needs adjustment (relate to put-call parity)</li>
@@ -1197,17 +1113,17 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 </section>
 <section id="the-fundamental-pde-and-replication" class="level4">
 <h4 class="anchored" data-anchor-id="the-fundamental-pde-and-replication">The Fundamental PDE and Replication</h4>
-<div id="PDE00">
-<p>Show that the stock price and the boond price satisfy the fundamental PDE with the appropriate boundary condition.</p>
+<div id="exr-PDE00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9.11</strong></span> Show that the stock price and the boond price satisfy the fundamental PDE with the appropriate boundary condition.</p>
 </div>
-<div id="PDE0">
-<p>Show that the share digital and cash digital prices satisfy the fundamenatl PDE with the appropriate boundary condition.</p>
+<div id="exr-PDE0" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9.12</strong></span> Show that the share digital and cash digital prices satisfy the fundamenatl PDE with the appropriate boundary condition.</p>
 </div>
-<div id="PDE1">
-<p>Use risk neutral valuation to find the value of a derivative security which pays <span class="math inline">\(\ln(S_T)\)</span>. Verify your value satisfies the fundamental PDE with the appropriate boundary condition. What is the replicating portfolio? Is this option harder to hedge than a standard option? Why or why not?</p>
+<div id="exr-PDE1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9.13</strong></span> Use risk neutral valuation to find the value of a derivative security which pays <span class="math inline">\(\ln(S_T)\)</span>. Verify your value satisfies the fundamental PDE with the appropriate boundary condition. What is the replicating portfolio? Is this option harder to hedge than a standard option? Why or why not?</p>
 </div>
 <div id="exr-exotic-greeks" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.10</strong></span> Calculate the Greeks for exotic payoffs:</p>
+<p><span class="theorem-title"><strong>Exercise 9.14</strong></span> Calculate the Greeks for exotic payoffs:</p>
 <ol type="a">
 <li>For a derivative paying <span class="math inline">\(S_T^2\)</span>, find the value, delta, and gamma using risk-neutral valuation</li>
 <li>For a derivative paying <span class="math inline">\(\log(S_T)\)</span>, repeat the calculation</li>
@@ -1215,13 +1131,17 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 <li>Compare the hedging difficulty (gamma exposure) of these payoffs to standard options.</li>
 </ol>
 </div>
-<p>:::{#digital option replication} Modify the code which simulates portfolio insurance to simulate replication of a cash digital option. Where do the largest errors tend to occur? :::</p>
-<p>:::{#option replication and transaction costs} Modify the code which simulates portfolio insurance to incur a transaction cost. One model has ask price <span class="math inline">\(1.01 S_t\)</span> and and bid price share <span class="math inline">\(0.99 S_t\)</span>. Another model has ask price <span class="math inline">\(S_t +.005\)</span> and bid price <span class="math inline">\(S_t - .005\)</span>. Try different rebalancing frequencies. What rebalancing frequency gives the best hedging? Where do the largest errors tend to occur? :::</p>
+<div id="exr-digital-option-replication" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9.15</strong></span> Modify the code which simulates delta hedging to simulate replication of a cash digital option. Where do the largest errors tend to occur? Compare the hedging difficulty (gamma exposure) of these payoffs to standard options.</p>
+</div>
+<div id="exr-option-replication-with-costs" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9.16</strong></span> Modify the code which simulates delta hedging to incur a transaction cost. One model has ask price <span class="math inline">\(1.01 S_t\)</span> and and bid price share <span class="math inline">\(0.99 S_t\)</span>. Another model has ask price <span class="math inline">\(S_t +.005\)</span> and bid price <span class="math inline">\(S_t - .005\)</span>. Try different rebalancing frequencies. What rebalancing frequency gives the best hedging? Where do the largest errors tend to occur?</p>
+</div>
 </section>
 <section id="discrete-hedging-and-practical-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="discrete-hedging-and-practical-implementation">Discrete Hedging and Practical Implementation</h4>
 <div id="exr-discrete-hedging-analysis" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.11</strong></span> Extend the discrete hedging simulation from the chapter:</p>
+<p><span class="theorem-title"><strong>Exercise 9.17</strong></span> Extend the discrete hedging simulation from the chapter:</p>
 <ol type="a">
 <li>Compare hedging errors for different rebalancing frequencies: daily, weekly, monthly</li>
 <li>Analyze how hedging errors scale with volatility and time to expiration<br>
@@ -1231,7 +1151,7 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 </ol>
 </div>
 <div id="exr-gamma-scalping" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.12</strong></span> Analyze the gamma scalping strategy:</p>
+<p><span class="theorem-title"><strong>Exercise 9.18</strong></span> Analyze the gamma scalping strategy:</p>
 <ol type="a">
 <li>Show that a delta-hedged short option position has P&amp;L approximately equal to <span class="math inline">\(-\frac{1}{2}\Gamma(\Delta S)^2\)</span></li>
 <li>Simulate this P&amp;L for different realized volatilities vs.&nbsp;implied volatility</li>
@@ -1243,7 +1163,7 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 <section id="implied-volatility-and-market-practice" class="level4">
 <h4 class="anchored" data-anchor-id="implied-volatility-and-market-practice">Implied Volatility and Market Practice</h4>
 <div id="exr-implied-vol-calculation" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.13</strong></span> Implement an implied volatility calculator:</p>
+<p><span class="theorem-title"><strong>Exercise 9.19</strong></span> Implement an implied volatility calculator:</p>
 <ol type="a">
 <li>Use numerical methods (bisection or Newton-Raphson) to invert the Black-Scholes formula</li>
 <li>Test with market-like option prices and verify convergence</li>
@@ -1255,10 +1175,10 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 <section id="delta-gamma-hedging-1" class="level4">
 <h4 class="anchored" data-anchor-id="delta-gamma-hedging-1">Delta-Gamma Hedging</h4>
 <div id="exr-delta-gamma-put" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.14</strong></span> Consider delta and gamma hedging a short call option, using the underlying and a put with the same strike and maturity as the call. Calculate the position in the underlying and the put that you should take, using the analysis in the Delta-Gamma Hedging section. Will you ever need to adjust this hedge? Relate your result to put-call parity.</p>
+<p><span class="theorem-title"><strong>Exercise 9.20</strong></span> Consider delta and gamma hedging a short call option, using the underlying and a put with the same strike and maturity as the call. Calculate the position in the underlying and the put that you should take, using the analysis in the Delta-Gamma Hedging section. Will you ever need to adjust this hedge? Relate your result to put-call parity.</p>
 </div>
 <div id="exr-delta-gamma-simulation" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.15</strong></span> Modify the discrete delta hedging simulation to compute percentiles of gains and losses for an investor who writes a call option and constructs a delta and gamma hedge using the underlying asset and another call option. Include the exercise price of the call option used to hedge as an input, and assume it has the same time to maturity as the option that is written.</p>
+<p><span class="theorem-title"><strong>Exercise 9.21</strong></span> Modify the discrete delta hedging simulation to compute percentiles of gains and losses for an investor who writes a call option and constructs a delta and gamma hedge using the underlying asset and another call option. Include the exercise price of the call option used to hedge as an input, and assume it has the same time to maturity as the option that is written.</p>
 <p>Hint: In each period, the updated cash position can be calculated as:</p>
 <pre><code>Cash = exp(r*dt)*Cash + a*S*(exp(q*dt)-1) - (Newa-a)*NewS - (Newb-b)*PriceHedge</code></pre>
 <p>where <code>a</code> denotes the number of shares of the stock held, <code>b</code> denotes the number of units held of the option that is used for hedging, and <code>PriceHedge</code> denotes the price of the option used for hedging (computed from the Black-Scholes formula each period). This expression embodies the interest earned (paid) on the cash position, the dividends received on the shares of stock and the cash inflows (outflows) from adjusting the hedge. At the final date, the value of the hedge is:</p>
@@ -1267,8 +1187,8 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 </div>
 </section>
 </section>
-<section id="summary" class="level2" data-number="9.10">
-<h2 data-number="9.10" class="anchored" data-anchor-id="summary"><span class="header-section-number">9.10</span> Summary</h2>
+<section id="summary" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="summary"><span class="header-section-number">9.9</span> Summary</h2>
 <p>The Black-Scholes model combines the theoretical foundations of arbitrage pricing with practical implementation:</p>
 <ol type="1">
 <li><strong>Change of numeraire</strong>: Digital options under different measures give the formula</li>
@@ -1285,7 +1205,8 @@ a=\delta - \frac{\Gamma}{\Gamma^*}\delta^*\;.
 <hr>
 <ol>
 <li id="fn1"><p>See Karatzas and Shreve (1991).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>The implementation uses Numba JIT compilation for significant performance improvements (typically 20-100x speedup compared to pure Python loops).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>If numsims = 11 and pct =0.1, the percentile function returns the second lowest element in the series. The logic is that 10% of the numbers, excluding the number returned, are below the number returned—i.e., 1 out of the other 10 are below—and 90% of the others are above. In particular, if pct = 0.5, the percentile function returns the median. When necessary, the function interpolates; for example, if numsims = 10 and pct=0.1, then the number returned is an interpolation between the lowest and second lowest numbers.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>The implementation uses vectorized calculations to improve performance (typically much faster than pure Python loops).<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

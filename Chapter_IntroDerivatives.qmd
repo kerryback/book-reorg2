@@ -2,7 +2,7 @@
 # Derivative Securities {#sec-c:introderivatives}
 
 
-Derivative securities are financial instruments whose value is derived from an underlying asset, index, or rate. These instruments are used for hedging risks and for speculation. The underlying assets can be stocks, bonds, commodities, currencies, interest rates, or market indices. The fundamental characteristic of derivatives is that their values fluctuate based on changes in the price of the underlying assets.
+Derivative securities are financial instruments whose values are derived from an underlying asset, index, or rate. These instruments are used for hedging risks and for speculation. The underlying assets can be stocks, bonds, commodities, currencies, interest rates, or market indices. The fundamental characteristic of derivatives is that their values fluctuate based on changes in the price of the underlying assets.
 
 Derivatives play a significant role in financial markets by allowing investors to manage risk exposures and take speculative positions with a relatively small amount of capital. They are also widely used by corporations and financial institutions to hedge against fluctuations in interest rates, currency values, and commodity prices. The rapid growth of the derivatives market over the past few decades has made these instruments an essential part of global financial markets.
 
@@ -52,7 +52,7 @@ The rapid expansion of derivatives markets has been driven by advancements in fi
 ## Trading of Derivative Securities
 
 #### Exchange-Traded Derivatives
-These derivatives are traded on regulated exchanges such as the CME, NYSE Euronext, and Intercontinental Exchange (ICE). Exchange-traded derivatives are standardized and cleared through central counterparties, reducing counterparty risk. The standardization ensures price transparency and facilitates liquidity, making these markets highly efficient.
+These derivatives are traded on regulated exchanges such as the CME, NYSE Euronext, and Intercontinental Exchange (ICE). Exchange-traded derivatives are standardized and cleared through central counterparties, reducing counterparty risk. The standardization facilitates price transparency and liquidity, making these markets highly efficient.
 
 #### Over-the-Counter (OTC) Derivatives
 OTC derivatives are privately negotiated contracts between two parties, offering greater customization but higher counterparty risk. Common OTC derivatives include forward contracts, swaps, and exotic options. The flexibility of OTC markets allows financial institutions to create tailored risk management solutions, but the lack of centralized clearing increases default risk.

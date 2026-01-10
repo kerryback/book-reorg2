@@ -9,6 +9,8 @@ project:
 execute:
   freeze: auto
 
+jupyter: python3
+
 filters:
   - custom-callout
 #  - black-formatter

@@ -217,7 +217,57 @@ $$\frac{\mathrm{d}S}{S} = r \mathrm{d}t + \sigma \mathrm{d}B^*$$
 
 where $B^*$ is a Brownian motion under the risk-neutral probability.
 
-The details of how to construct these new probability measures using Girsanov's Theorem are covered in the next chapter, where we apply them to derive the Black-Scholes formula.
+## Girsanov's Theorem in the Black-Scholes Model
+
+To value digital options, we need to understand changes of probability measures in continuous time. When we change probability measures, a process $B$ that was a Brownian motion cannot be expected to remain a Brownian motion under the new measure. However, Girsanov's Theorem tells us exactly how the drift changes.
+
+In the Black-Scholes model, the dividend-reinvested stock price, denoted $Y_t$, evolves as
+
+$$\mathrm{d}Y_t = \mu Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}B_t\,.$$
+
+We can rewrite this as
+
+$$\mathrm{d}Y_t = r Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}\left(B_t + \frac{\mu - r}{\sigma}t\right)\,.$$
+
+Define $\kappa = \frac{\mu - r}{\sigma}$.  This is called the market price of risk or Sharpe ratio.
+
+::: Principle
+**Girsanov's Theorem**: Define the exponential martingale:
+
+$$Z_t = \exp\left(-\frac{1}{2}\kappa^2 t - \kappa B_t\right)\,.$$
+
+Using the rule for expectations of lognormal variables, we can see that $\mathbb{E}[Z_T] = 1$. Under the probability measure defined by:
+
+$$\mathbb{E}^\kappa[Y] = \mathbb{E}[Z_T X]$$
+
+for any function $X$ of $B_t$ ($0 \leq t \leq T$), the process $B_t^\kappa = B_t + \kappa t$ is a Brownian motion. Moreover, if $M_t$ is a martingale under the new measure, then $Z_t M_t$ is a martingale under the original measure.
+:::
+
+This theorem tells us how to construct the risk-neutral measure from the original measure. Using Ito's lemma, we can verify that $Z_t \frac{Y_t}{R_t}$ is indeed a martingale:
+
+$$Z_t \frac{Y_t}{R_t} = S_0 \exp\left(-\frac{1}{2}(\sigma - \kappa)^2 t + (\sigma - \kappa)B_t\right)\,.$$
+
+Therefore this is a lognormal random variable and taking expectations gives:
+
+$$\mathbb{E}\left[Z_t \frac{Y_t}{R_t}\right] = S_0\,.$$
+
+
+#### Dividend Reinvested Share as Numeraire
+
+The dividend reinvested share follows the process
+$$d Y_t = r Y_t dt + \sigma Y_t d B_t^R \,.$$
+
+
+When using the stock as numeraire, we need the process $\frac{R_t}{Y_t}$ to be a martingale. Following the analysis using Girsanov's Theorem to find the risk neutral probabilities, we find that under the stock numeraire measure:
+
+$$\mathrm{d}Y_t = (r + \sigma^2) Y_t \,\mathrm{d}t + \sigma V_t \,\mathrm{d}B_t^Y\,.$$
+
+where $B_t^Y = B_t^R - \sigma t$ is a Brownian motion under the dividend reinvested stock numeraire measure.  It then follows 
+$$\frac{R_t}{Y_t} = \frac{R_0}{S_0} \exp\left(-\frac{1}{2} \sigma^2 t - \sigma B_t^Y \right)\,, $$
+
+which is an exponential martigale.
+
+Girsanov's Theorem will be important in the next chapter where we derive the Black-Scholes formula.
 
 ## Exercises
 
