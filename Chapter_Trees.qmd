@@ -467,7 +467,7 @@ Create a Python function in which the user inputs $S$, $S_d$, $S_u$, $K$, $r$ an
 
 1. Compute the delta and use the replication formula
 2. Compute the state prices and use linear pricing
-3. Compute the risk-neutral probabilities and use discounted expectation
+3. Compute the risk-neutral probabilities and use the discounted expectation
 4. Compute the probabilities using the stock as numeraire
 
 Verify that all of these methods produce the same answer.
