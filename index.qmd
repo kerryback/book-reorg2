@@ -14,7 +14,7 @@ This is an incomplete and in-progress draft of a python-based introduction to de
 - The python code generating each figure can be made visible by clicking the corresponding 'Code' button. 
 - The python code in each chapter is available in a Jupyter notebook.  Click the GitHub icon at the top left below the book title.  The notebooks open in Google Colab with <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/> buttons.  You can also download the notebooks from GitHub or clone the GitHub repository.
 - In addition to figures that display hover data, there are also several figures where you can see how results depend on parameters by varying the parameters with sliders or dropdown menus, etc.  
-- The chat icon below the book title on the top left links to a NotebookLM notebook that contains the book.  You can ask questions and get answers based on the book. It is powered by Google's Gemini AI.   
+- The chat icon below the book title on the top left links to a NotebookLM notebook where you can ask questions and get answers based on the book. It is powered by Google's Gemini AI.   
 - The icon to the right of the GitHub icon allows you to toggle between light and dark modes.
 - The book is [Hypothesis](https://web.hypothes.is/){target="_blank"} enabled.  Click the icons at the top right to log in or sign up and to create annotations or to highlight text.  The annotations and highlights will be visible to you in subsequent visits to the book once you log in to your Hypothesis account.  We prefer that you do not post annotations or highlights to the Public account.
 
