@@ -1,0 +1,219 @@
+{{< include macros.qmd >}}
+
+# Brownian Motion {#sec-c:brownian}
+
+Brownian motion is a fundamental tool for modeling variables that change randomly over time.  Consider predicting a future stock price.  We don't know today what the price will be tomorrow, nor what it will be the following day, nor what it will be the day after that.  We can regard the price three days from now as today's price plus the change from today to tomorrow plus the change from tomorrow to the following day plus the change from that day to the next.  Thus, there are three random changes in this small example.  A simple way to model this situation is to assume that each change is a normally distributed random variable with some mean and variance.  Thus, the price in three days is viewed as today's price plus the sum of three normal increments.
+
+Rather than predicting daily changes as in the previous paragraph, we might be interested in predicting hourly changes or even minute-to-minute changes.  This will lead to more, but smaller, increments.  A Brownian motion is a model of changes at all frequencies, with all changes being normally distributed.
+
+We will ultimately deal with different means and different variances, but we start with what is called a standard Brownian motion, which is similar to beginning the study of normal random variables by studying a standard normal variable, that is, a normal random variable with a zero mean and a unit variance.  The definition of a standard Brownian motion is that its change over any time interval 
+
+- is normally distributed
+- is independent of prior changes
+- has a zero mean
+- has a variance equal to the length of the time interval.
+
+The last bullet point reflects the fact that things are more uncertain the further into the future we look.^[A formal definition of a Brownian motion would include a specification of the information that we have for predicting the future. The definition given here is correct when the only information is the past history of the Brownian motion.] 
+
+## Brownian Paths
+
+We call a variable that changes randomly over time a stochastic process.  A path of a stochastic process is a random function of time, recording how it evolves over time. 
+We can plot an approximate path of a Brownian motion by summing up normally distributed changes.  We take an interval of time $[0, t]$ and split it up as
+$$0=t_0 < t_1< \cdots < t_{n-1} < t_n=t$$
+where the times $t_i$ are equally spaced, meaning that $t_i-t_{i-1} = t/n$, which we will call $\Delta t$.  We generate $n$ normally distributed random variables with zero mean and variance equal to $\Delta t$ and define the approximate Brownian motion, which we call $B$, as the cumulative sum of the normal variables.  By convention, we start any Brownian motion at $B_0=0$.  Our approximation fits the definition of a standard Brownian motion, except that we have limited the frequency of the changes to $n$ changes within the interval.  By taking $n$ larger, we can always get a better approximation.  An introduction to simulation (also called Monte Carlo analysis) is provided in the appendis (@sec-c:intromontecarlo).  
+
+
+```{python}
+#| label: fig-brownian-path
+#| fig-cap: "A path of an approximate Brownian motion with 1,000 normally distributed steps."
+import numpy as np
+import plotly.graph_objects as go
+
+n = 1000   # number of subdivisions
+t = 0.5    # last date
+dt = t/n
+
+# generate dB for each time step
+dB = np.random.normal(scale = np.sqrt(dt), size=n)
+
+# B starts at 0 and is cumulative sum of the dB
+B = np.zeros(n+1)
+B[1:] = dB.cumsum()
+
+fig = go.Figure()
+fig.add_trace(
+  go.Scatter(
+    x=np.arange(0, t+dt, dt), 
+    y=B, 
+    mode='lines', 
+    hovertemplate='t = %{x:.2f}<br>B = %{y:.2f}<extra></extra>'  # 
+    )
+)
+
+fig.update_layout(
+    showlegend=False,
+    xaxis_title='Time',
+    yaxis_title='Approximate Brownian Motion',
+    template='plotly_white',
+    height=300,
+    autosize=True
+)
+
+fig.show()
+#| out-width: "100%"
+```
+
+## Binomial Approximation {#sec-s:brownian_binomial}
+
+We can also generate an approximate path of a Brownian motion by taking only up or down steps of a fixed size at each date, rather than using normally distributed steps.  We call this a binomial model.  A binomial model approximates  the normally distributed increments of a Brownian Motion due to the Central Limit Theorem, which says that an appropriately scaled sum of a large number of random variables has approximately a normal distribution.  The binomial approximation is often useful for pricing options, especially American options, as we will see.  An introduction to binomial models is provided in the appendix. (@sec-c:introbinomial).
+
+```{python}
+#| label: fig-binomial-path
+#| fig-cap: "A path of an approximate Brownian motion with 1,000 binomial steps."
+import numpy as np
+import plotly.graph_objects as go
+
+n = 1000   # number of subdivisions
+t = 0.5    # last date
+dt = t/n
+sqdt = np.sqrt(dt)
+
+# generate dB for each time step
+dB = np.random.choice([-sqdt, sqdt], size=n)
+B = np.zeros(n+1)
+
+# Brownian path starts at 0 and is cumulative sum of the dB
+B[1:] = dB.cumsum()
+
+fig = go.Figure()
+fig.add_trace(
+  go.Scatter(
+    x=np.arange(0, t+dt, dt), 
+    y=B, 
+    mode='lines', 
+    hovertemplate='t = %{x:.2f}<br>B = %{y:.2f}<extra></extra>'  # 
+    )
+)
+
+fig.update_layout(
+    showlegend=False,
+    xaxis_title='Time',
+    yaxis_title='Binomial Process',
+    template='plotly_white',
+    height=300,
+    autosize=True
+)
+
+fig.show()
+#| out-width: "100%"
+```
+
+## Nonzero Quadratic Variation {#sec-s:quadraticvariation}
+
+@fig-brownian-path and @fig-binomial-path illustrate a distinctive characteristic of a Brownian motion: it jiggles rapidly, moving up and down in a very erratic way.  The name Brownian motion derives from the botanist Robert Brown's observations of the erratic behavior of particles suspended in a fluid.  The plot of other functions with which we may be familiar will be much smoother.  This is captured in the concept of quadratic variation.  
+
+Consider a discrete partition 
+$$0=t_0 < t_1 < t_2 < \cdots < t_n=t$$
+of the time interval $[0,t]$ as before.  Let $B$ be a Brownian motion and calculate the sum of squared changes
+$$\sum_{i=1}^n (\Delta B_{t_i})^2\; ,$$
+where $\Delta B_{t_i}$ denotes the change $B_{t_i}-B_{t_{i-1}}.$  If we consider finer partitions with the length of each time interval $t_i-t_{i-1}$ going to zero, the limit of the sum is called the quadratic variation of the process.  \index{quadratic variation} For a Brownian motion, the quadratic variation over an interval $[0,t]$ is equal to $t$ with probability one.  Here is a plot of the quadratic variation (that is, the cumulative sum of squared changes) of the previous approximation of a Brownian motion.  The plot shows that the approximation has quadratic variation through each date $s \le t$ that is approximately equal to $s$.
+
+```{python}
+#| label: fig-quadratic-variation
+#| fig-cap: "Quadratic variation of an approximate Brownian motion path with 1,000 normally distributed steps."
+
+# using the approximate path created in the previous code block
+# quadratic variation is cumulative sum of squared changes
+
+dQ = dB**2
+Q = np.zeros(n+1)
+Q[1:] = dQ.cumsum()
+
+fig = go.Figure()
+fig.add_trace(
+  go.Scatter(
+    x=np.arange(0, t+dt, dt), 
+    y=Q, 
+    mode='lines', 
+    hovertemplate='t = %{x:.2f}<br>B = %{y:.2f}<extra></extra>' 
+    )
+)
+
+fig.update_layout(
+    showlegend=False,
+    xaxis_title='Time',
+    yaxis_title='Quadratic Variation',
+    template='plotly_white',
+    height=300,
+    autosize=True
+)
+fig.show()
+#| out-width: "100%"
+```
+
+To better visualize the convergence of the quadratic variation of a Brownian motion as the number $n$ of subdivisions of the interval $[0, t]$ grows, we encourage readers to interact with the plot below, which simulates a handful of approximate Brownian paths and their quadratic variations.
+
+::: {#fig-interactive_quad_var}
+<iframe width="600" height="500" src="https://quadratic-variation.koyeb.app/"></iframe>
+
+**Convergence of quadratic variation of approximate Brownian motions.** 
+Five approximate paths of a Brownian motion are generated, and the quadratic variation is computed for each.  The second figure also shows the true theoretical quadratic variation $\int_0^t(\mathrm{d}B_s)^2 = \int_0^t \mathrm{d}s = t$.  If the two figures do not appear side-by-side, hover over the plot area to reveal a vertical slider.
+:::
+
+The typical functions with which we are familiar are continuously differentiable.  If $x$ is a continuously differentiable function of time, then the quadratic variation of $x$ is zero.  A simple example is a linear function: $x_s = as$ for all $s$ for a constant $a$. Then, using the previous partition of the interval $[0, t]$, the sum of squared changes of the function from $0$ to $t$ is
+$$\sum_{i=1}^n (\Delta x_{t_i})^2 = \sum_{i=1}^n  [a\,\Delta t]^2 = na^2 (\Delta t)^2 = na^2 \left(\frac{t}{n}\right)^2 = \frac{a^2t^2}{n} \rightarrow 0$$
+as $n \rightarrow \infty$.  For example, if $a=1$ and $n=1000$, then the sum of squared changes from date $0$ to date $1$ is $1000 \times 0.001^2 = 0.001$.  Essentially the same argument shows that the quadratic variation of any continuously differentiable function is zero, because such a function is approximately linear at each point.  Thus, the jiggling of a Brownian motion, which leads to the nonzero quadratic variation, is quite unusual. 
+
+
+## Infinite Total Variation
+
+To explain exactly how unusual the nonzero quadratic variation is, it is helpful to consider total variation, \index{total variation} which is defined in the same way as quadratic variation but with the squared changes $(\Delta B_{t_i})^2$ replaced by the absolute values of the changes $|\Delta B_{t_i}|.$  A general mathematical theorem states that, if the quadratic variation of a continuous function is nonzero, then its total variation is infinite.  Therefore, each path of a Brownian motion has infinite total variation (with probability one).  This means that, to draw a true path of a Brownian motion on a blackboard, we would need an infinite amount of chalk!
+
+If we zoom in close enough in @fig-brownian-path, we can see the linear steps $\Delta B$.  However, if we could zoom in on a segment of a path of a true Brownian motion, it would look much the same as the entire picture does to the naked eye---no matter how small the segment, we would still see the characteristic jiggling.  That jiggling, even at microscopic scales, is the source of the infinite variation.
+
+## Continuous Martingales and Levy's Theorem
+
+One may well question why we should be interested in this curious mathematical object.  The reason is that asset pricing inherently involves martingales (variables that evolve randomly over time in such a way that their expected changes are always zero), as our fundamental pricing formula (@eq-formula) establishes.  Furthermore, continuous processes (variables whose paths are continuous functions of time) are much more tractable mathematically than are processes that can jump at some instants.   So, we are led to a study of continuous martingales.  An important fact is that any non-constant continuous martingale must have infinite total variation.  So, the normal functions with which we are familiar are left behind once we enter the study of continuous martingales.  
+
+There remains perhaps the question of why we focus on Brownian motion within the world of continuous martingales.  The answer here is that any continuous martingale is really just a transformation of a Brownian motion.  This is a consequence of the following important fact, which is known as Levy's theorem: \index{Levy's theorem}
+
+::: Principle
+A continuous martingale is a Brownian motion if and only if its quadratic variation over each time interval $[s, t]$ equals $t-s$.
+:::
+
+Thus, among continuous martingales, a Brownian motion is distinguished by the condition that its quadratic variation over each time interval is equal to the length of the interval.  This is really just a normalization.  A different continuous martingale may have a different quadratic variation, but it can be converted to a Brownian motion by changing the clock speed to measure time according to the quadratic variation.  Furthermore, many continuous martingales can be constructed as stochastic integrals with respect to a Brownian motion.  We take up that topic in the next chapter.
+
+## Correlation of Brownian Motions {#sec-s:correlation}
+
+Consider two standard Brownian motions $B_1$ and $B_2$.
+The relation between the two Brownian motions is determined by their covariance or correlation.  Given dates $s<t$, we know that both changes $B_{1t}-B_{1s}$ and $B_{2t}-B_{2s}$ are normally distributed with zero mean and variance equal to $t-s$, given information at date $s$.  There is a stochastic process $\rho$ such that the covariance \index{covariance} of these two normally distributed random variables, given the information at date $s$, is 
+$$\mathbb{E}_s \left[\int_s^t \rho_u\mathrm{d}   u\right]\; .$$
+The process $\rho$ is called the correlation process of the two Brownian motions. \index{correlation coefficient} The correlation of the changes $B_{1t}-B_{1s}$ and $B_{2t}-B_{2s}$, given information at date $s$, is
+$$\frac{\text{covariance}}{\text{product of standard deviations}}  = \frac{\mathbb{E}_s\int_s^t \rho_u \mathrm{d}   u}{\sqrt{t-s} \sqrt{t-s}} = \frac{1}{t-s}\mathbb{E}_s\int_s^t \rho_u \mathrm{d}   u\; .$$
+Thus, the correlation is the expected average value of $\rho_u$.  In particular, when $\rho$ is constant, the correlation of the changes is $\rho$.  The two Brownian motions are independent if $\rho=0$.  In this case, knowledge of one Brownian motion -- even knowledge of its future values -- will not help to predict the other.
+
+Just as we computed quadratic variation by taking a limit of sums of squared changes, we compute what is called joint variation by taking a limit of sums of products of changes.  For the two Brownian motions, the joint variation over an interval $[0, t]$ is
+$$\lim_{n \rightarrow \infty} \sum_{i=1}^n \Delta B_{1t_i} \times \Delta B_{2t_i} $$
+given increasingly fine partitions $0=t_0 < \cdots < t_n=t$ as before. 
+The joint variation of two Brownian motions equals the integral of their correlation process; that is, the joint variation over $[0, t]$ equals $\int_0^t \rho_s\mathrm{d} s$, with probability one.  Thus, the expected joint variation equals the covariance. 
+
+## Exercises
+
+::: {#exr-brownian1}
+ Consider a discrete partition $0=t_0 < t_1 < \cdots t_n=t$ of the time interval $[0,t]$ with $t_i - t_{i-1} = \Delta t = t/n$ for each $i$.  Consider the function 
+$$X_t=\mathrm{e}^t\; .$$
+Write a function that computes and plots $\sum_{i=1}^n (\Delta X_{t_i})^2$, where 
+$$\Delta X_{t_i} = X_{t_i}-X_{t_{i-1}} = \mathrm{e}^{t_i} - \mathrm{e}^{t_{i-1}}\; .$$
+:::
+::: {#exr-brownian2}
+ Repeat the previous problem for the function $X_t = t^3$.  In both this and the previous problem, can you tell what happens to $\sum_{i=1}^n (\Delta X_{t_i})^2$ as $n \rightarrow \infty$?
+:::
+::: {#exr-brownian3}
+ Write a function to compute $\sum_{i=1}^n (\Delta B_{t_i})^2$ from a partition of an interval $[0, t]$, for given $t$ and $n$, where $B$ is a simulated Brownian motion.  For a given $t$, what happens to the sum as $n \rightarrow \infty$?  
+:::
+::: {#exr-brownian4}
+ Repeat the previous problem to compute $\sum_{i=1}^n (\Delta B_{t_i})^3$, where $B$ is a simulated Brownian motion.  For a given $t$, what happens to the sum as $n \rightarrow \infty$?  
+:::
+::: {#exr-brownian5}
+ Repeat the previous problem, computing instead $\sum_{i=1}^n |\Delta B_{t_i}|$ where $| \cdot |$ denotes the absolute value.  What happens to this sum as $n \rightarrow \infty$?
+:::

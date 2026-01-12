@@ -1,0 +1,322 @@
+{{< include macros.qmd >}}
+
+```{python}
+#| echo: false
+
+import plotly
+from IPython.display import display, HTML
+
+plotly.offline.init_notebook_mode(connected=True)
+display(
+    HTML(
+        '<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>'
+    )
+)
+```
+
+# Futures Markets {#sec-c:futures}
+
+Futures contracts are among the oldest and most important derivative securities, with organized futures trading dating back centuries. These contracts are standardized agreements to deliver an asset at a future date in exchange for payment at that date.  The price that the buyer pays the seller when the asset is delivered is set at the earlier date when the commitment to trade is made and is called the futures price.  The futures price is determined by the market, like stock and option prices.  Traders can submit either limit orders or market orders to buy or sell futures contracts.  Buying a contract commits the buyer to pay the futures price (the price at which the contract is traded) upon delivery, and selling a contract commits the seller to deliver at the future date and receive payment then.
+
+Futures trading is similar to options trading.  The exchange determines the contracts that are traded.  A clearinghouse stands as the counterparty to each trader, guaranteeing the fulfillment of the contract.  The clearinghouse imposes margin requirements to ensure that traders have the financial wherewithal to meet their obligations. There is no pre-existing supply of futures contracts.  Contracts are created by trade.  The number of outstanding long contracts is always equal to the number of short contracts and is called open interest.  
+
+A contrast between futures markets and options markets is that both buyers and sellers of futures contracts have future obligations, and both parties must post margin.  In options markets, only the seller of an option has a future obligation and must post margin.  A related contrast is that the buyer of a futures contract does not pay the seller at the time of the trade.  Instead, both buyers and sellers post margin and make gains or losses based on changes in the futures price subsequent to the trade (as is explained below).
+
+The buyer of a futures contract (who is said to be long the contract) has the obligation to accept delivery of the underlying asset at the  futures expiration date and to pay the futures price at which he bought the contract.  The seller of a contract (who is said to be short the contract) has an obligation to deliver the underlying asset at the futures price at the futures expiration date.  For example, the buyer of a corn contract will receive corn and pay for it (if she does not offset the obligation by selling a contract prior to the contract's expiration) and the seller of a corn contract will deliver corn and receive payment (if he does not offset the obligation by buying a contract prior to the contract's expiration).
+
+Like options, most traders unwind positions by making offsetting trades rather than holding positions to expiration.  For example, a corn farmer might sell a corn futures contract at a price of $5.00 per bushel.  The farmer can deliver on the contract and receive $5.00.  However, the farmer could instead buy the contract at a later date at the market futures price.  Suppose, for example, that the spot price of corn is near $4.00 per bushel near the contract's expiration.  Then the futures price will also be near $4.00, because a near-term futures contract is essentially a spot contract (this is called **spot-futures convergence**).  As an alternative to delivering on the futures contract at $5.00, the farmer could instead buy the futures contract in the market at $4.00, canceling the delivery obligation.  In this scenario, the farmer makes $1.00 per bushel from selling the contract at $5.00 and buying it at $4.00.  The farmer can then sell her corn in the spot market for $4.00.  Combined with the $1.00 profit on the futures contract, the net proceeds for the farmer are again $5.00 per bushel.  
+
+The delivery terms on futures contracts are standardized and specified by the exchange.  The exchange designates a delivery location and a delivery date.  The exchange also specifies the quantity and quality of the underlying asset that must be delivered.  For some contracts, different qualities can be delivered, and there are specifications for price adjustments based on the quality.  The specifications of the [corn futures contract on the CME](https://www.cmegroup.com/markets/agriculture/grains/corn.contractSpecs.html) give a good sense for how this works.
+
+Some futures contracts are **cash settled**.  For such contracts, there are no provisions for physical delivery.  Instead, contracts that are held to expiration are settled based on a formula tied to the underlying asset at the time of expiration.  For example, the [e-mini S&P 500 futures contract at the CME](https://www.cmegroup.com/markets/equities/sp/e-mini-sandp500.contractSpecs.html) is 
+cash settled. The contract is settled based on the value of the S&P 500 index at the time of expiration.  This eliminates the need to deliver or receive delivery of the 500 stocks that make up the index.  The "quantity" specification for cash settled contracts is a **multiplier** that determines the dollar value of the contract.  The e-mini S&P 500 contract has a multiplier of 50 dollars per unit of the index.^[The term "e-mini" is an historical artifact.  When the S&P 500 futures contract was first introduced, it had a multiplier of $500.  When the index rose, so that a contract represented a higher dollar value of stocks, this was reduced to $250.  The e-mini was simultaneously traded with a multiplier of $50.  Currently, the e-mini contract has the largest multiplier of any S&P 500 contract at the CME (there is another contract with a multiplier of $5, called the "micro e-mini").]   If someone buys a contract at a futures price of 6000 and holds to expiration and the index is at 6500 on the expiration date, then that trader makes 50 $\,\times\,$ (6500 - 6000) $\,=\,$ 250,000 dollars profit on the trade.
+
+Futures contracts in the modern sense began trading in the United States in 1851, but cash-settled contracts did not begin trading until 1981.^[Millo, Y., 2007, "Making Things Deliverable: The Origins of Index-Based Derivatives", *Sociological Review*, vol. 55.]  Part of the complication with introducing cash-settled contracts is that they blur the line between trading and gambling.  The buyer and seller of an S&P 500 futures contract are clearly betting on how the S&P 500 index will perform.  The buyer wins if the index finishes above the futures price, and the seller wins otherwise.  There are other cash-settled contracts that do not even involve an underlying asset.  For example, there are weather contracts that are cash settled based on the number of heating degree days in a particular time frame.  The distinction that has been drawn between legal trading of cash-settled futures contracts and possibly illegal gambling is that futures contracts must satisfy legitimate risk-management needs for some market participants.  For example, an equity fund manager who wants to reduce her stock market exposure at a minimal trading cost can sell S&P 500 futures contracts to hedge the fund's stock portfolio.  
+
+
+## Margin and Marking to Market
+
+One of the most distinctive features of futures trading is the **daily settlement** or **marking to market** process. This mechanism virtually eliminates counterparty risk and enables leverage while maintaining market integrity.
+
+#### The Daily Settlement Process
+
+Each trading day, the exchange establishes a **settlement price** (based on end-of-day transaction prices) for each futures contract. All open positions are marked to this price. The daily profit or loss on each position is calculated and immediately transferred between accounts.  
+
+For example, suppose you buy one e-mini S&P 500 futures contract at 6000 and the following happens:
+
+- Day 1: Settlement price = 6010 → Gain = (6010 - 6000) × $50 = $500 (credited to your account)
+- Day 2: Settlement price = 5990 → Loss = (5990 - 6010) × $50 = $1,000 (debited from your account)
+- Day 3: Settlement price = 6020 → Gain = (6020 - 5990) × $50 = $1,500 (credited to your account)
+
+At the end of day 3, you have had a net sum of $1,000 credited to your account.  If you close your position by selling the contract at the end of day 3, you walk away with a $1,000 gain, which is simply the increase in the futures price over the time you held the contract (6020 - 6000) times the $50 multiplier.
+
+#### Margin Requirements
+
+The exchange determines a minimum amount of margin required to open a futures position.  This is called the **initial margin**.  The initial margin is typically 3-12% of the contract value.  The exchange also determines a minimum (smaller) amount of margin required to keep a futures position open.  This is called the **maintenance margin**.  If the account balance falls below the maintenance margin, a margin call occurs.  A margin call is a demand for additional margin to be posted to bring the account balance back to the initial margin level.  If the trader fails to meet the margin call, the position will be liquidated.  
+
+Trading a futures contract with 10% margin means being levered 10 to 1.  If the futures price moves 1% against the trader, the trader will lose 10% of the margin deposit.  If the futures price moves 1% in favor of the trader, the trader will gain 10% of the margin deposit.  These high leverage ratios are feasible because of the marking-to-market process.
+
+## The Expectations Hypothesis
+
+The expectations hypothesis states that futures prices represent the market's unbiased expectations of future spot prices. This is a simple theory of the determination of futures prices and provides a convenient way to infer investors' beliefs about the future from currently observable prices.
+
+The motivation for this hypothesis is the idea that, if the futures price were lower than the expected spot price, then traders "should" buy the futures contract and plan to sell the spot asset when delivered on the futures at maturity.  This strategy has a positive expected profit when the futures price is lower than the expected spot price.  This buying activity should drive up the price of the futures contract, until it converges to the expected spot price.  Symmetrically, investors "should" sell the futures if its price is above the expected spot price, planning to buy the spot asset at the futures maturity to cover the delivery obligation on the futures, and this selling activity should cause the futures price to fall, until it converges to the expected spot price.  Thus, in equilibrium, futures prices "should" equal the expected spot price. 
+
+All of the quotation marks around "should" in the previous paragraph reflect the fact that the theory presumes risk neutrality on the part of a large enough group of investors to move the futures price to the expected spot price.  If investors are risk averse, then they may buy a limited quantity of the futures when its price is low relative to the expected spot price and sell a limited quantity of the futures when its price is high relative to the expected spot price, generating an expected profit as described in the previous paragraph.  However, risk averse investors will weigh the expected profit against the risk, considering their other investments as well, and only allocate a limited amount of capital to the bet.  This amount of capital may not be enough to move the futures price fully to the expected spot price.  Empirically, futures prices seem to frequently deviate from expected spot prices in significant ways.
+
+From the general theory of asset pricing, which is developed in this book, the difference between the futures price and the expected spot price depends on the covariance of the spot price with market risk factors.  For example, the Capital Asset Pricing Model asserts that it depends on the covariance of the spot price with the aggregate market return.
+
+Despite the presence of a risk premium, the expectations of traders regarding future spot prices are undoubtedly a prime determinant of futures prices.  They are also a prime determinant of today's spot prices.  The linkage between today's spot price and today's futures price is known as **spot-futures parity**.  
+
+## Spot-Futures Parity
+
+In contrast to the expectations hypothesis, which predicts a relationship between today's futures price and the expected future spot price, spot-futures parity is a relationship between today's futures price and today's spot price.  The foundation for spot-futures parity is arbitrage activity (making riskless profits) rather than making positive expected return but risky investments (as in the expectations hypothesis).  The arbitrage involves either (i) buying the spot asset and simultaneously selling a futures contract, or (ii) borrowing and selling the spot asset and simultaneously buying a futures contract.  The exact relationship between the spot and futures price depends on the differences between holding the underlying asset and being long a futures contract.  There are four potential differences, which are normally grouped into two categories.  
+
+- *Cost of carry*: The cost of carry is the cost of holding the underlying asset over a period of time.  There are no costs of owning a futures contract (ignoring the margin account).  
+  - One component of the cost of carry is that holding the underlying asset ties up funds, and we incur an opportunity cost of the foregone interest that could be earned by depositing the funds instead.  
+  - There can also be significant storage costs involved in holding commodities.  
+- *Convenience yield*: There can also be advantages to owning the underlying asset.  These are collectively called the convenience yield.
+  - If the underlying asset pays dividends or other cash flows, then these are part of the "convenience" of holding the spot asset.
+  - For commodities, there can be other advantages to holding the spot asset today rather than getting it in the future.  These may be difficult to quantify but can be very real.  For example, during a time of strained crude oil supply and elevated prices that is expected to be temporary, oil companies will not be indifferent about having crude now versus having it later. 
+
+The spot futures-parity formula is 
+
+$$F = \mathrm{e}^{(c-y)T}S$$
+
+where 
+
+- $F=\,$ futures price, 
+- $S=\,$ current spot price, 
+- $c=\,$ cost of carry expressed as a continuously compounded rate, 
+- $y=\,$ convenience yield expressed as a continuously compounded rate,
+- $T=\,$ time to expiration.
+
+#### Arbitrage When Parity Is Violated
+
+To see why the formula must be true, first consider the simplest case in which there are no storage costs, no dividends or other cash flows, and no other forms of convenience yield, so the opportunity cost of foregone interest is the only factor present.  In this case, $c=r$, the risk-free interest rate, and $y=0$.  
+
+*1. Buy spot and sell futures*:
+
+Let's suppose first that spot-futures parity is violated in the direction $F>\mathrm{e}^{rT}S$ and see how that can be arbitraged.  The arbitrage is to buy the cheaper side of the inequality and sell the more expensive side (buy low and sell high, of course).  So, this means that we buy the underlying asset.  We do this by borrowing $S$ dollars.  We simultaneously sell the futures contract at price $F$.  At expiration, we deliver the spot asset that we bought to fulfill the futures contract and receive $F$.  We will at this time owe $\mathrm{e}^{rT}S$ on the loan, and we can repay the loan and pocket the surplus $F-\mathrm{e}^{rT}S$.
+
+*2. Sell spot and buy futures*:
+
+Now suppose that spot-futures parity is violated in the direction $F<\mathrm{e}^{rT}S$.  Again, we buy low and sell high.  Here, that means that we buy the futures contract and sell the underlying asset.  We sell the underlying asset by borrowing it and then selling (called short selling).  Later, we have to return it to whomever we borrowed it from.   We assume that we can cover the loan of the asset by returning the same amount that we borrowed, because the lender will not be missing any dividend payments or other cash flows  and there is no other convenience of holding the underlying asset.  In practice, the lender will charge a small fee, but we ignore that here.  Because we bought the futures contract, we pay $F$ at maturity, accept delivery of the asset, and then deliver the asset to the lender.  We earn interest on the proceeds from selling the asset, so we net $\mathrm{e}^{rT}S - F$.
+
+This type of arbitraging activity will move market prices until spot-futures parity holds.  It is an activity in which institutions regularly engage.  It is thus safe to assume that spot-futures parity always holds to a reasonably high degree of approximation.  
+
+This reasoning extends directly to including storage costs, which are clearly another expense of holding the underlying asset, when such costs are nonnegligible.  Likewise, dividends received or other advantages of holding the underlying asset act in the opposite direction of carrying costs and so should be subtracted from the cost of carry.  This reasoning leads to the general spot-futures parity formula.
+
+#### Forward Curves
+
+The relationship between the contract maturity and the futures price is known as the **forward curve**. The spot-futures parity formula tells us that the futures price should depend on the contract maturity $T$ based on the factor $\mathrm{e}^{(c-y)T}$.
+
+Gold is an asset that has negligible storage costs, does not pay dividends, and has no other form of convenience yield.  Thus, $c-y$ for gold is just the risk-free interest rate $r$.  Consequently, spot-futures parity for gold states that gold futures prices are higher than spot prices and increase with maturity.  @fig-forward1 presents the gold forward curve at a single point in time.  The upward slope reflects the fact that the future value factor $\mathrm{e}^{rT}$ is larger for larger $T$.  
+
+For financial assets, such as stock portfolios, the only cost of carry is the interest rate, and the only convenience yield is the dividend yield.  Consequently, in the spot-futures parity formula for financial assets, $c=r$ and $r-y$ is the difference between the interest rate and the dividend yield.  
+Whether $r-y$ is positive or negative determines whether futures prices are higher than spot prices (and increase with maturity) or whether the opposite is true.  
+
+For currency futures, the dividend yield (by which we mean in general the cash flow earned from holding the underlying asset) is the interest rate that can be earned by investing in the currency.  Thus, for currency futures, $c-y=r-r_f$, where $r_f$ is the foreign interest rate.  @fig-forward1 presents the forward curves for the Japanese yen and Mexican peso at a single date.  On that date, the dollar interest rate was higher than the yen interest rate - so $c-y>0$ and the forward curve was upward sloping - and lower than the peso interest rate - so $c-y<0$ and the forward curve was downward sloping.  @fig-forward1 also presents the forward curve for S&P 500 futures at a time when interest rates were lower than the dividend yields on stock, so $c-y<0$ and the forward curve was downward sloping.  When interest rates are higher, the S&P 500 forward curve is upward sloping. 
+
+```{python}
+
+#| label: fig-forward1
+#| fig-height: 600
+#| fig-cap: Forward curves for CME futures contracts on the dates specified.
+#| out-width: "100%"
+
+import pandas as pd
+from dateutil.relativedelta import relativedelta
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+df = pd.read_csv('https://www.dropbox.com/s/832hth1es40f4g7/newfutures.csv?dl=1', index_col=0)
+df = df[df.date>='2010-01-01']
+df.date = pd.to_datetime(df.date)
+
+# Function to add months and set day to 15th
+def add_months_and_set_day(date, months_to_add):
+    new_date = date + relativedelta(months=int(months_to_add))
+    new_date = new_date.replace(day=15)
+    return new_date
+
+# Apply the function to create the new column
+df['new_to_date'] = df.apply(
+    lambda row: add_months_and_set_day(row['date'], row['months past front month']), 
+    axis=1
+)
+df = df.reset_index(drop=True).set_index(['code', 'date', 'new_to_date']).settle
+
+yen = df.loc[('CME_JY', '2022-06-29')]
+peso = df.loc[('CME_MP', '2022-06-29')]
+gold = df.loc[('CME_GC', '2022-06-29')]
+sp500 = df.loc[('CME_ES', '2020-06-01')]
+
+# Create figure with 2x2 subplots with horizontal spacing
+fig = make_subplots(
+    rows=2, cols=2,
+    subplot_titles=('Gold (2022-06-29)', 'S&P 500 (2020-06-01)', 
+                    'Japanese Yen (2022-06-29)', 'Mexican Peso (2022-06-29)'),
+    specs=[[{"secondary_y": False}, {"secondary_y": False}],
+           [{"secondary_y": False}, {"secondary_y": False}]],
+    horizontal_spacing=0.12  # Add horizontal spacing between columns
+)
+
+# Add Gold trace (top left)
+fig.add_trace(
+    go.Scatter(x=gold.index, y=gold.values, 
+               name='Gold',
+               mode='lines+markers',
+               hovertemplate='%{x|%b %Y}<br>Price: %{y}<extra></extra>'),
+    row=1, col=1
+)
+
+# Add S&P 500 trace (top right)
+fig.add_trace(
+    go.Scatter(x=sp500.index, y=sp500.values, 
+               name='S&P 500',
+               mode='lines+markers',
+               hovertemplate='%{x|%b %Y}<br>Price: %{y}<extra></extra>'),
+    row=1, col=2
+)
+
+# Add Yen trace (bottom left)
+fig.add_trace(
+    go.Scatter(x=yen.index, y=yen.values, 
+               name='Japanese Yen',
+               mode='lines+markers',
+               hovertemplate='%{x|%b %Y}<br>Price: %{y}<extra></extra>'),
+    row=2, col=1
+)
+
+# Add Peso trace (bottom right)
+fig.add_trace(
+    go.Scatter(x=peso.index, y=peso.values, 
+               name='Mexican Peso',
+               mode='lines+markers',
+               hovertemplate='%{x|%b %Y}<br>Price: %{y}<extra></extra>'),
+    row=2, col=2
+)
+
+# Update layout - set width=None for auto-sizing
+fig.update_layout(
+    height=600,
+    width=None,  # Auto-adjust width to container
+    showlegend=False,
+    autosize=True,  # Enable responsive sizing
+    template='plotly_white',  # Use plotly white template
+    margin=dict(t=60)  # Add top margin to prevent overlap with plotly icons
+)
+
+# Update axes labels with smaller font
+fig.update_xaxes(title_text="Maturity Date", row=2, col=1)
+fig.update_xaxes(title_text="Maturity Date", row=2, col=2)
+fig.update_yaxes(title_text="Futures Price", row=1, col=1)
+fig.update_yaxes(title_text="", row=1, col=2)
+fig.update_yaxes(title_text="Futures Price", row=2, col=1)
+fig.update_yaxes(title_text="", row=2, col=2)
+
+fig.show()
+```
+
+#### Commodities
+
+Spot-futures parity for commodities is more complex than for financial assets, because of storage costs and convenience yields.  Because the convenience yield by definition is never negative, the spot-futures parity formula gives us $F \leq  \mathrm{e}^{rT}S$, where, for commodities, $c$ is the interest rate plus the storage cost rate.  The difference between the futures price $F$ and $\mathrm{e}^{rT}S$ depends on the convenience yield $y$ and the contract maturity $T$.  We generally have no direct measure of the convenience yield other than this difference, so the spot-futures parity formula for commodities, while true and a useful concept, may have little predictive power.  An additional complication is that storage costs are very high for some commodities, such as electricity and natural gas, which can make the upper bound $F \leq \mathrm{e}^{rT}S$ nearly meaningless.
+
+As a result of these factors, forward curves for commodities are in general more complex than forward curves for financial assets. @fig-forward2 presents forward curves for crude oil, natural gas, and corn at various dates.  April 20, 2020 was the day that crude famously "went negative."  This was at the onset of the coronavirus crisis, when demand had plummeted, and storage facilities at Cushing, Oklahoma (the delivery point for the CME WTI contract) were full.  Some traders were willing to pay others to get out of their obligations to accept delivery in Cushing -- they sold their oil at a negative price.  To connect to our discussion, note that the extremely large positive slope of the forward curve means that $c-y$ must be extremely large.  This was true because storage costs were extremely high and the convenience yield was zero.
+
+The crude oil forward curve was steeply downward sloping in March 2022 following the Russian invasion of Ukraine, as seen in @fig-forward2.  This means that $c-y<0$ and large in absolute value.  We can attribute this to a high convenience yield of being in possession of oil at a time when future supplies were very uncertain.
+
+The forward curve for natural gas is always cyclical as seen in @fig-forward2.  The initial upward sloping section in that figure reflects the high storage cost of natural gas (that is, a high $c$) The "buy spot, sell futures" arbitrage strategy described above is not an arbitrage here, because of the high storage cost of holding natural gas from summer to winter.  The downward sloping segment from winter to summer reflects the high convenience yield of owning natural gas in the winter when demand and spot market prices are high.  The overall slope of the natural gas forward curve in @fig-forward2 is downward, but that varies over time, depending on the convenience yield of owning natural gas at the time of the futures trading; that is, it depends on supply and demand conditions in the spot market. 
+
+The corn forward curve also has a cyclical pattern, as seen in @fig-forward2.  The cyclical pattern is a consequence of cyclicality in the convenience yield and storage costs of corn.   The convenience yield is highest in the summer before harvest, when corn is relatively scarce, and storage costs are highest after harvest, when silos are relatively full.  As is the case with natural gas, the overall slope of the forward curve for corn depends on demand and supply conditions in the spot market at the time of the futures trading.
+
+
+
+```{python}
+#| label: fig-forward2
+#| fig-height: 600
+#| fig-cap: Forward curves for CME futures contracts on the dates specified.
+#| out-width: "100%"
+
+crude1 = df.loc[('CME_CL', '2020-04-20')]
+crude2 = df.loc[('CME_CL', '2022-03-08')]
+gas = df.loc[('CME_NG', '2018-06-08')]
+corn = df.loc[('CME_C', '2018-06-08')]
+
+
+# Create figure with 2x2 subplots with horizontal spacing
+fig = make_subplots(
+    rows=2, cols=2,
+    subplot_titles=('Crude Oil (2020-04-20)', 'Crude Oil (2022-03-08)', 
+                    'Natural Gas (2018-06-08)', 'Corn (2018-06-08)'),
+    specs=[[{"secondary_y": False}, {"secondary_y": False}],
+           [{"secondary_y": False}, {"secondary_y": False}]],
+    horizontal_spacing=0.12  # Add horizontal spacing between columns
+)
+
+# Add Gold trace (top left)
+fig.add_trace(
+    go.Scatter(x=crude1.index, y=crude1.values, 
+               name='Crude (2020-04-20)',
+               mode='lines+markers',
+               hovertemplate='%{x|%b %Y}<br>Price: %{y}<extra></extra>'),
+    row=1, col=1
+)
+
+# Add S&P 500 trace (top right)
+fig.add_trace(
+    go.Scatter(x=crude2.index, y=crude2.values, 
+               name='Crude (2022-03-08)',
+               mode='lines+markers',
+               hovertemplate='%{x|%b %Y}<br>Price: %{y}<extra></extra>'),
+    row=1, col=2
+)
+
+# Add Yen trace (bottom left)
+fig.add_trace(
+    go.Scatter(x=gas.index, y=gas.values, 
+               name='Natural Gas (2018-06-08)',
+               mode='lines+markers',
+               hovertemplate='%{x|%b %Y}<br>Price: %{y}<extra></extra>'),
+    row=2, col=1
+)
+
+# Add Peso trace (bottom right)
+fig.add_trace(
+    go.Scatter(x=corn.index, y=corn.values, 
+               name='Corn (2018-06-08)',
+               mode='lines+markers',
+               hovertemplate='%{x|%b %Y}<br>Price: %{y}<extra></extra>'),
+    row=2, col=2
+)
+
+# Update layout - set width=None for auto-sizing
+fig.update_layout(
+    height=600,
+    width=None,  # Auto-adjust width to container
+    showlegend=False,
+    autosize=True,  # Enable responsive sizing
+    template='plotly_white',  # Use plotly white template
+    margin=dict(t=60)  # Add top margin to prevent overlap with plotly icons
+)
+
+# Update axes labels with smaller font
+fig.update_xaxes(title_text="Contract Date", row=2, col=1)
+fig.update_xaxes(title_text="Contract Date", row=2, col=2)
+fig.update_yaxes(title_text="Futures Price", row=1, col=1)
+fig.update_yaxes(title_text="", row=1, col=2)
+fig.update_yaxes(title_text="Futures Price", row=2, col=1)
+fig.update_yaxes(title_text="", row=2, col=2)
+
+fig.show()
+```
+
+## Options on Futures
+
+Many exchanges trade options on futures contracts, creating a derivative on a derivative. A call option on a futures contract is the right to buy the futures contract at the strike.  A put option is the right to sell the futures contract at the strike.  Compared to trading options on the underlying asset, trading options on futures benefits from the liquidity of the futures market and the leverage present in futures.  Moreover, they allow traders to avoid the issues of physical delivery and storage that are associated with options on the underlying asset.
+
+Exercise of an option on a futures contract creates a long (for a call) or short (for a put) position in the futures contract for the party that exercises.  When an option is exercised, the clearinghouse randomly selects someone who has sold the option and assigns to them the opposite contract: a short (for the seller of a call) or long (for the seller of a put) position in the futures contract.
+Both parties are immediately marked to market, and there are corresponding cash transfers based on the strike of the futures option and the current market futures price.  
+
+An example should make this clearer.  Suppose a trader buys a call option on corn futures with a strike of $5.00 (per bushel).  The trader later exercises the option when the corn futures price is $5.50.  The trader will be assigned a long futures contract, marked to market at $5.50 and will receive in cash the $0.50 difference between the futures price and the strike price.  The option writer who is selected by the clearinghouse will have $0.50 deducted from her margin account and will be assigned a short futures contract at $5.50.  If they desire to do so, both the party who exercised and the option writer can trade out of their futures contracts at the market price and walk away with the $0.50 gain or loss and no further obligations.  

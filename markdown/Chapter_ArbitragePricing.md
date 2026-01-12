@@ -1,0 +1,415 @@
+{{< include macros.qmd >}}
+
+# Arbitrage Pricing {#sec-c:arbitrage_pricing}
+
+```{python}
+#| eval: true
+#| echo: false
+
+import plotly
+from IPython.display import display, HTML
+
+plotly.offline.init_notebook_mode(connected=True)
+display(
+    HTML(
+        '<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>'
+    )
+)
+```
+
+This chapter develops the fundamental principles of arbitrage pricing, starting from the concept of linear pricing and building up to continuous-time models with change of numeraire.
+
+## Linear Pricing
+
+The fundamental concept underlying most finance theory, from Miller-Modigliani to the Black-Scholes model, is linear pricing. The concept of linear pricing is essentially the same as asking for the price of five apples and six oranges. Of course, this is the price of one apple times five plus the price of one orange times six. However, instead of pricing bundles of commodities today, we will find prices of dollars in different contingencies at times in the future.
+
+An arbitrage opportunity is a trading strategy that produces nonnegative cash flows at all times in all contingencies with a strictly positive cash flow at some time in some contingency. If such an opportunity were to exist, traders would exploit it until prices adjust to eliminate the possibility. Although simple, this has powerful implications.
+
+Consider a world where there are $J$ possible states of the world at time $t$. No arbitrage then implies the following properties:
+
+1. If $X$ and $Y$ are time $t$ random cash flows, the time 0 price of the random cash flow $aX+bY$ is $a$ times the time 0 price of $X$ plus $b$ times the time 0 price of $Y$. If $P(\cdot)$ is a pricing function that gives us the price of a random cash flow today, then $P(aX+bY)=aP(X) + bP(Y)$. In other words, the pricing operator is linear. This follows because if this fails to hold, there is an arbitrage assuming an agent can buy and sell any quantities at these prices. Because the pricing operator is linear, it must have the form $P(X) = \sum_{j=1}^J \pi_j X_j$ where $X_j$ is the random cash flow in state~$j$. We call $\pi_j$ the price of a dollar at time $t$ in state $j$ or a state price.
+
+2. The price of any positive nonzero random cash flow at time $t$ is strictly positive. Again, this follows from no arbitrage (think how much of an asset paying a positive dividend you would want if it were free or even if you were paid to take the asset). This implies the state prices are strictly positive.
+
+3. The pricing operator obeys time value of money: $1=\sum_{j=1}^J \pi_j e^{rt}$, where $r$ is the continuously compounded yield to maturity of a bond maturing at $t$. This is the present value rule: the present value of the future value $e^{rt}$ is one or, equivalently, the present value of a dollar paid at $t$ is $e^{-rt}$.
+
+4. The pricing operator must be consistent with observable prices. The price $S_0$ of a traded asset with random cash flows at time $t$ is given by $S_0= \sum_{j=1}^J \pi_j S_j$ where $S_j$ is the random cash flow in state $j$.
+
+::: Principle
+In the absence of arbitrage opportunities, there exist positive state prices such that the price of any security is the sum across the states of the world of its payoff multiplied by the state price.
+:::
+
+This conclusion generalizes to other models, including models in which the stock price takes a continuum of possible values, interpreting the sum in that case as an integral.
+
+## State Prices in the Binomial Model
+
+In the single-period binomial model with up and down states, we have two equations for the state prices $\pi_u$ and $\pi_d$:
+
+$$ 1 = \pi_u e^{rt} + \pi_d e^{rt} $$
+$$ S = \pi_u S_u + \pi_d S_d $$
+
+The first equation prices the risk-free asset (invest \$1 today, receive $e^{rt}$ in both states). The second prices the stock.
+
+Solving these equations gives:
+
+$$\pi_u  = \frac{S-e^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{e^{-rt}S_u-S}{S_u - S_d}$$
+
+Notice that the requirement $\pi_u, \pi_d > 0$ is precisely the no-arbitrage condition:
+
+$$\frac{S_u}{S} > e^{rt} > \frac{S_d}{S}$$
+
+We can think of any security as a portfolio of Arrow securities. An Arrow security pays \$1 at time $t$ if a specific state occurs and pays nothing otherwise. In our binomial model, $\pi_u$ is the price of an Arrow security paying \$1 in the up state, and $\pi_d$ is the price of an Arrow security paying \$1 in the down state.
+
+For any derivative with payoffs $C_u$ and $C_d$:
+
+$$C = \pi_u C_u + \pi_d C_d$$
+
+#### Risk-Neutral Probabilities
+
+Define $p_u = \pi_u e^{rt}$ and $p_d = \pi_d e^{rt}$. Since $p_u + p_d = 1$ and both are positive, we can interpret them as probabilities—the risk-neutral probabilities. Then:
+
+$$C = e^{-rt}[p_u C_u + p_d C_d]$$
+
+The asset price equals its expected payoff discounted at the risk-free rate, where the expectation uses risk-neutral probabilities. Note that:
+
+$$p_u = \frac{e^{rt} - S_d/S}{S_u/S - S_d/S}$$
+
+## Multiple States
+
+Now consider a market with $J > 2$ possible states at time $t$. We need to find $J$ state prices $\pi_1, \ldots, \pi_J$. If we have $J$ traded assets (including the risk-free asset) with linearly independent payoffs, we can solve:
+
+$$\begin{bmatrix} 
+e^{rt} & e^{rt} & \cdots & e^{rt} \\
+S_1^{(1)} & S_2^{(1)} & \cdots & S_J^{(1)} \\
+\vdots & \vdots & \ddots & \vdots \\
+S_1^{(J-1)} & S_2^{(J-1)} & \cdots & S_J^{(J-1)}
+\end{bmatrix}
+\begin{bmatrix}
+\pi_1 \\ \pi_2 \\ \vdots \\ \pi_J
+\end{bmatrix} = 
+\begin{bmatrix}
+1 \\ S^{(1)} \\ \vdots \\ S^{(J-1)}
+\end{bmatrix}$$
+
+where $S^{(i)}$ is the current price of asset $i$ and $S_j^{(i)}$ is its payoff in state $j$.
+
+With state prices determined, we can value any derivative:
+
+$$V = \sum_{j=1}^J \pi_j V_j$$
+
+The risk-neutral probabilities are $p_j = \pi_j e^{rt}$, giving:
+
+$$V = e^{-rt} \sum_{j=1}^J p_j V_j = e^{-rt} \mathbb{E}^p[V_t]$$
+
+## Martingale Pricing
+
+A martingale is a stochastic process for which the expected value of tomorrow's value is today's value. In our framework, discounted values of non-dividend paying trading strategies are martingales under the risk-neutral measure.
+
+If $X(0)$ is today's value of a portfolio with random payoff $X$ at time $t$:
+
+$$\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{e^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]$$
+
+where $R(0) = 1$ and $R_t = e^{rt}$. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.
+
+## Continuous Time
+
+We now extend to continuous-time models where the stock price can take a continuum of values. The principle becomes:
+
+::: Principle
+If there are no arbitrage opportunities, then there exists for each date $t$ a strictly positive random variable $m_t$, called a stochastic discount factor, such that the date-0 value of any dividend-reinvested asset with price $P$ is:
+
+$$P_0 = \mathbb{E}[m_t P_t]$$
+:::
+
+The stochastic discount factor $m_t$ generalizes state prices to continuous distributions. For a finite number of states, $m_t = \pi_j/\text{prob}_j$ in state $j$, where $\text{prob}_j$ is the actual probability.
+
+#### Connection to Risk-Neutral Probabilities
+
+The risk-free asset satisfies:
+
+$$1 = \mathbb{E}[m_t e^{rt}]$$
+
+This means $m_t e^{rt}$ has expectation 1. We can define a new probability measure by:
+
+$$\mathbb{E}^R[Z] = \mathbb{E}[m_t e^{rt} Z]$$
+
+for any random variable $Z$. Under this risk-neutral measure:
+
+$$P_0 = e^{-rt} \mathbb{E}^R[P_t]$$
+
+## Change of Numeraire
+
+Our choice of the risk-free asset as numeraire was arbitrary. Any strictly positive non-dividend paying trading strategy can serve as a numeraire.
+
+For a dividend-reinvested asset $Y$ with strictly positive value:
+
+$$Y(0) = \mathbb{E}[m_t Y_t]$$
+
+Define new probabilities by:
+
+$$\text{prob}^Y_s = \frac{\mathbb{E}[m_t Y_t \mathbf{1}_{\{s\}}]}{Y(0)}$$
+
+where $\mathbf{1}_{\{s\}}$ is the indicator function for state $s$. Then:
+
+$$S(0) = Y(0) \mathbb{E}^Y\left[\frac{S_t}{Y_t}\right]$$
+
+The ratio $S_t/Y_t$ is a martingale under the probability measure induced by using $Y$ as numeraire.
+
+#### Fundamental Pricing Formula
+
+::: Principle
+In the absence of arbitrage opportunities, prices $P$ and $Y$ of dividend-reinvested assets satisfy, for all $s < t$:
+
+$$Y_s = P_s \mathbb{E}^P_s \left[\frac{Y_t}{P_t}\right]$$
+:::
+
+This is the fundamental pricing formula. The value at time $s$ of asset $Y$ is the expectation, under the appropriate probability measure, of its value $Y_t$ at time $t$ discounted by the factor $P_s/P_t$.
+
+When $P$ is the risk-free asset:
+
+$$Y_s = e^{-r(t-s)} \mathbb{E}^R_s[Y_t]$$
+
+#### Changing Probability Measures
+
+For continuous distributions, the probability of event $A$ using $S$ as numeraire is:
+
+$$\text{prob}^S(A) = \mathbb{E}\left[\mathbf{1}_A m_t \frac{S_t}{S_0}\right]$$
+
+The expectation of any random variable $X$ using $S$ as numeraire is:
+
+$$\mathbb{E}^S[X] = \mathbb{E}\left[X m_t \frac{S_t}{S_0}\right]$$
+
+Different numeraires lead to different probability measures but the same derivative prices.
+
+## Stock as Numeraire
+
+Using the stock as numeraire is particularly useful for certain derivatives. In the binomial model, define:
+
+$$\text{prob}^S_u = \frac{\pi_u S_u}{S}, \quad \text{prob}^S_d = \frac{\pi_d S_d}{S}$$
+
+These sum to 1 and are positive. For a call option:
+
+$$\frac{C}{S} = \text{prob}^S_u \frac{C_u}{S_u} + \text{prob}^S_d \frac{C_d}{S_d}$$
+
+The ratio $C/S$ (number of shares the call is worth) is a martingale under the stock numeraire measure.
+
+In continuous time, for any derivative $V$ on stock $S$:
+
+$$V_0 = S_0 \mathbb{E}^S\left[\frac{V_T}{S_T}\right]$$
+
+This formulation is often convenient for options that depend on the stock price relative to some level.
+
+## Changes of Probability and Girsanov's Theorem
+
+When we change probability measures, we cannot expect a process $B$ that was a Brownian motion to remain a Brownian motion. The expected change in a Brownian motion must always be zero, but when we change probabilities, the expected change of $B$ is likely to become nonzero. However, the Brownian motion $B$ will still be an Ito process under the new probability measure.
+
+Changing probabilities only changes the drift of an Ito process—the diffusion coefficient remains unchanged. This is because the diffusion coefficient determines how much each path "jiggles," which is unaffected by changing the probability measure.
+
+#### Example: Risk-Neutral Probability
+
+Suppose the stock price follows:
+
+$$\frac{\mathrm{d}S}{S} = \mu \mathrm{d}t + \sigma \mathrm{d}B$$
+
+where $B$ is a Brownian motion under the actual probability measure. Under the risk-neutral measure, the drift must be the risk-free rate $r$:
+
+$$\frac{\mathrm{d}S}{S} = r \mathrm{d}t + \sigma \mathrm{d}B^*$$
+
+where $B^*$ is a Brownian motion under the risk-neutral probability.
+
+## Girsanov's Theorem in the Black-Scholes Model
+
+To value digital options, we need to understand changes of probability measures in continuous time. When we change probability measures, a process $B$ that was a Brownian motion cannot be expected to remain a Brownian motion under the new measure. However, Girsanov's Theorem tells us exactly how the drift changes.
+
+In the Black-Scholes model, the dividend-reinvested stock price, denoted $Y_t$, evolves as
+
+$$\mathrm{d}Y_t = \mu Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}B_t\,.$$
+
+We can rewrite this as
+
+$$\mathrm{d}Y_t = r Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}\left(B_t + \frac{\mu - r}{\sigma}t\right)\,.$$
+
+Define $\kappa = \frac{\mu - r}{\sigma}$.  This is called the market price of risk or Sharpe ratio.
+
+::: Principle
+**Girsanov's Theorem**: Define the exponential martingale:
+
+$$Z_t = \exp\left(-\frac{1}{2}\kappa^2 t - \kappa B_t\right)\,.$$
+
+Using the rule for expectations of lognormal variables, we can see that $\mathbb{E}[Z_T] = 1$. Under the probability measure defined by:
+
+$$\mathbb{E}^\kappa[Y] = \mathbb{E}[Z_T X]$$
+
+for any function $X$ of $B_t$ ($0 \leq t \leq T$), the process $B_t^\kappa = B_t + \kappa t$ is a Brownian motion. Moreover, if $M_t$ is a martingale under the new measure, then $Z_t M_t$ is a martingale under the original measure.
+:::
+
+This theorem tells us how to construct the risk-neutral measure from the original measure. Using Ito's lemma, we can verify that $Z_t \frac{Y_t}{R_t}$ is indeed a martingale:
+
+$$Z_t \frac{Y_t}{R_t} = S_0 \exp\left(-\frac{1}{2}(\sigma - \kappa)^2 t + (\sigma - \kappa)B_t\right)\,.$$
+
+Therefore this is a lognormal random variable and taking expectations gives:
+
+$$\mathbb{E}\left[Z_t \frac{Y_t}{R_t}\right] = S_0\,.$$
+
+
+#### Dividend Reinvested Share as Numeraire
+
+The dividend reinvested share follows the process
+$$d Y_t = r Y_t dt + \sigma Y_t d B_t^R \,.$$
+
+
+When using the stock as numeraire, we need the process $\frac{R_t}{Y_t}$ to be a martingale. Following the analysis using Girsanov's Theorem to find the risk neutral probabilities, we find that under the stock numeraire measure:
+
+$$\mathrm{d}Y_t = (r + \sigma^2) Y_t \,\mathrm{d}t + \sigma V_t \,\mathrm{d}B_t^Y\,.$$
+
+where $B_t^Y = B_t^R - \sigma t$ is a Brownian motion under the dividend reinvested stock numeraire measure.  It then follows 
+$$\frac{R_t}{Y_t} = \frac{R_0}{S_0} \exp\left(-\frac{1}{2} \sigma^2 t - \sigma B_t^Y \right)\,, $$
+
+which is an exponential martigale.
+
+Girsanov's Theorem will be important in the next chapter where we derive the Black-Scholes formula.
+
+## Exercises
+
+#### Linear Pricing and State Prices
+
+::: {#exr-linear-pricing}
+Consider a market with 3 possible states at time $T = 1$. There are two traded assets:
+- Risk-free bond: pays $e^{0.05}$ in all states  
+- Risky asset: pays $(10, 15, 5)$ in states $(1, 2, 3)$ respectively, currently priced at $S_0 = 9$
+
+a) Set up the system of equations to find state prices $(\pi_1, \pi_2, \pi_3)$
+b) Solve for the state prices
+c) Find the risk-neutral probabilities $(p_1, p_2, p_3)$
+d) Price a derivative that pays $(0, 20, 0)$ in the three states
+e) Verify that the risk-neutral expected return on the risky asset equals the risk-free rate
+:::
+
+::: {#exr-arrow-securities}
+In the three-state model from the previous exercise:
+a) What is the price of an Arrow security that pays $1 in state 2 and $0 in states 1 and 3?
+b) Show that any derivative payoff can be written as a portfolio of Arrow securities
+c) Price a "digital option" that pays $100 if the risky asset's payoff exceeds $12, and $0 otherwise
+d) Compare this to pricing the same payoff using risk-neutral probabilities
+:::
+
+::: {#exr-no-arbitrage-conditions}
+Consider a two-period binomial model where the stock can go from $S_0 = 100$ to either $S_u = 120$ or $S_d = 80$ in the first period, with risk-free rate $r = 5\%$ per period.
+
+a) Find the no-arbitrage bounds: show that $S_d < S_0 e^r < S_u$ must hold
+b) Calculate the risk-neutral probability $p$ for the up move
+c) If the stock goes to $S_u = 120$ in the first period, it can go to $S_{uu} = 144$ or $S_{ud} = 96$ in the second period. If the stock goes to $S_d = 80$, it can go to $S_{du} = 96$ or $S_{dd} = 64$. Verify that the tree recombines ($S_{ud} = S_{du}$)
+d) Calculate the state prices for all four final states: $(\pi_{uu}, \pi_{ud}, \pi_{du}, \pi_{dd})$
+:::
+
+#### Risk-Neutral Measures and Martingales
+
+::: {#exr-martingale-property}
+In the Black-Scholes model with constant dividend yield $q$, show that:
+a) $e^{-qt}S_t$ is a martingale under the risk-neutral measure
+b) $S_t/R_t$ is a martingale under the risk-neutral measure, where $R_t = e^{rt}$
+c) If $V_t$ is the value of any derivative, then $e^{-rt}V_t$ is a martingale under the risk-neutral measure
+:::
+
+::: {#exr-risk-neutral-simulation}
+Use simulation to verify the martingale property in a simple setting. Generate 10,000 paths of geometric Brownian motion under the risk-neutral measure:
+$$\frac{dS}{S} = (r-q) dt + \sigma dB^R$$
+
+With parameters $S_0 = 100$, $r = 5\%$, $q = 2\%$, $\sigma = 20\%$, and $T = 1$:
+
+a) Verify that $\mathbb{E}^R[S_T e^{-qT}] \approx S_0$ (martingale property)
+b) Verify that $\mathbb{E}^R[e^{-rT}S_T] \approx S_0 e^{-qT}$ (discounted expectation)
+c) Calculate the sample variance of both expressions and comment on the simulation error
+:::
+
+#### Change of Numeraire
+
+::: {#exr-numeraire-digital}
+Use simulation to verify the change of numeraire for digital options. Consider a digital option that pays $1$ if $S_T \geq K$ with $S_0 = 100$, $K = 105$, $r = 5\%$, $q = 2\%$, $\sigma = 20\%$, $T = 0.5$.
+
+Price this option using two methods:
+a) Risk-neutral measure: $\mathbb{E}^R[e^{-rT} \mathbf{1}_{\{S_T \geq K\}}]$
+b) Stock numeraire: $S_0 \mathbb{E}^S[\frac{1}{S_T} \mathbf{1}_{\{S_T \geq K\}}]$
+
+Under the stock numeraire, the stock follows:
+$$\frac{dS}{S} = (r-q+\sigma^2) dt + \sigma dB^S$$
+
+Verify that both methods give the same price up to simulation error.
+:::
+
+::: {#exr-share-digital}
+Calculate the price of a "share digital" option that pays $S_T$ if $S_T \leq K$ and $0$ otherwise, using the Black-Scholes model assumptions.
+
+a) Use the stock as numeraire to show the price is $S_0 \mathbb{E}^S[\mathbf{1}_{\{S_T \leq K\}}]$
+b) Under the stock numeraire measure, show that $\log S_T$ is normally distributed
+c) Calculate the price analytically in terms of the normal CDF
+d) Verify your result by simulation
+:::
+
+::: {#exr-cross-asset-option}
+Suppose two assets $S$ and $V$ follow geometric Brownian motions under the risk-neutral measure:
+$$\frac{dS}{S} = r dt + \sigma_S dB_S^R$$
+$$\frac{dV}{V} = r dt + \sigma_V dB_V^R$$
+
+with correlation $\rho$ between the Brownian motions.
+
+Find the value of an option that pays $V_T \mathbf{1}_{\{V_T \geq S_T\}}$ using $V$ as the numeraire. 
+
+*Hint: Under the $V$-numeraire measure, determine the dynamics of $S/V$ and use the fact that $S_T/V_T \leq 1$ when $V_T \geq S_T$.*
+:::
+
+#### Fundamental Pricing Formula
+
+::: {#exr-fundamental-formula}
+The fundamental pricing formula states that for any two assets $P$ and $Y$:
+$$Y_s = P_s \mathbb{E}^P_s\left[\frac{Y_t}{P_t}\right]$$
+
+a) Verify this formula when $P$ is the risk-free asset and $Y$ is a stock
+b) Verify this formula when $P$ is a stock and $Y$ is the risk-free asset  
+c) Show that this implies $Y_t/P_t$ is a martingale under the $P$-numeraire measure
+d) Use this formula to derive the Black-Scholes formula by setting $P$ as the risk-free asset and $Y$ as a call option
+:::
+
+::: {#exr-stochastic-discount-factor}
+In a single-period model with stochastic discount factor $m$:
+a) Show that if there are no arbitrage opportunities, then $\mathbb{E}[m] > 0$ and the law of one price holds
+b) Prove that $\mathbb{E}[mR] = 1$ where $R = e^{rT}$ is the gross risk-free return
+c) Show that the risk-neutral probabilities are given by $p_j = \frac{m_j \cdot \text{prob}_j}{\mathbb{E}[m]}$ where $\text{prob}_j$ is the actual probability of state $j$
+d) Verify that under the risk-neutral measure, all assets have expected return equal to the risk-free rate
+:::
+
+#### Advanced Applications
+
+::: {#exr-quanto-option}
+A quanto option pays in domestic currency but depends on a foreign asset price. Consider a call option that pays $(S_T^f - K)^+$ dollars, where $S^f$ is a foreign stock price.
+
+If the exchange rate is $X_t$ (domestic per foreign currency), the foreign stock in domestic currency is $S_t = X_t S_t^f$.
+
+a) Show that under the domestic risk-neutral measure, if $S^f$ and $X$ are correlated with correlation $\rho$, then $S^f$ has drift $r^d - r^f - \rho \sigma_X \sigma_S$
+b) Price the quanto call option using this adjusted drift
+c) Compare this to a standard call option on the domestic value $S_t = X_t S_t^f$
+
+*Note: $r^d$ and $r^f$ are domestic and foreign risk-free rates respectively.*
+:::
+
+::: {#exr-multi-asset-rainbow}
+Consider a "rainbow option" that pays $\max(S_T^{(1)}, S_T^{(2)}, K)$ where $S^{(1)}$ and $S^{(2)}$ are two correlated stocks.
+
+a) Using the fundamental pricing formula, show that this can be priced as $\mathbb{E}^R[e^{-rT}\max(S_T^{(1)}, S_T^{(2)}, K)]$
+b) Explain why you cannot easily use a single asset as numeraire for this payoff
+c) Set up a Monte Carlo simulation to price this option with realistic parameters
+d) Compare the rainbow option price to the sum of two individual call options minus a call on the minimum of the two stocks
+:::
+
+## Summary
+
+We have developed a unified framework for derivative pricing based on the absence of arbitrage:
+
+1. **Linear pricing** implies the existence of state prices
+2. **State prices** can be converted to risk-neutral probabilities  
+3. **Asset price ratios** are martingales under appropriate probability measures
+4. **Any positive asset** can serve as numeraire, inducing its own probability measure
+5. The **fundamental pricing formula** expresses values as expectations of discounted payoffs
+6. **Girsanov's Theorem** provides the mathematical machinery to change between probability measures in continuous time
+
+This framework extends from simple binomial models to general continuous-time models, providing the foundation for modern derivative pricing theory.

@@ -1,0 +1,1019 @@
+{{< include macros.qmd >}}
+
+```{python}
+#| echo: false
+
+import plotly
+from IPython.display import display, HTML
+
+plotly.offline.init_notebook_mode(connected=True)
+display(
+    HTML(
+        '<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>'
+    )
+)
+```
+
+# Options Markets {#sec-c:options} 
+
+Options are among the most actively traded financial instruments in the world, with billions of contracts changing hands annually across global exchanges. These versatile contracts provide investors with tools for speculation, hedging, and income generation that may be impossible to replicate with static positions in other assets.
+
+This chapter provides an introduction to the mechanics and motives for trading options. Recall from @sec-c:introderivatives that a **call option** is the right to buy an underlying asset at a fixed price called the strike or strike price. Symmetrically, a **put option** is the right to sell an underlying asset at the strike price. The **underlying asset** can be a stock, index, exchange-traded fund (ETF), commodity, or other financial instrument. The buyer of an option pays the seller upfront for the right to exercise the option later, at the buyer's discretion.
+
+## Option Basics
+
+Options have a finite lifetime, with each contract specifying an expiration date. Most exchange-traded options can be exercised at any time prior to expiration (**American options**), while others can only be exercised at the expiration date (**European options**). Despite their names, both types trade on exchanges worldwide.
+
+::: {.callout-note}
+#### Key Options Terminology
+
+- *Premium*: The price paid to buy an option (like an insurance premium)
+- *Strike Price*: The fixed price at which the option can be exercised
+- *Expiration Date*: When the option contract ends
+- *Exercise*: Using the right granted by the option
+- *Underlying Asset*: The financial instrument (stock, index, etc.) that the option is based on
+:::
+
+#### Rights, Obligations, and Motivations
+
+An option buyer pays the premium upfront.  Subsequently, the buyer has rights (they can choose whether to exercise the option) but they have no obligations.  The maximum loss of an option buyer is the option premium.  On the other hand, option sellers receive the premium upfront but subsequently they have obligations: they must fulfill the contract if the option is exercised.  They face potentially unlimited losses (especially for calls).  The motivation for buying an option can be to speculate on the underlying asset price or it can be to hedge an existing risk.  The motivation for selling an option is always to receive the option premium. 
+
+In more detail, the motivations for trading options are:
+
+- *Speculation and Leverage*: One motive for buying options is to speculate on price movements with higher leverage than direct ownership of the underlying asset. A small price change in the underlying can produce large percentage changes in option value, amplifying both potential gains and losses.
+- *Hedging and Insurance*: Options serve as insurance contracts for existing positions, as will be explained below.
+- *Income Generation*: Option sellers collect premiums upfront, similar to insurance companies collecting policy premiums. However, this income comes with obligations and potential risks if the market moves against the seller's position.
+
+## Trading Options on Exchanges
+
+Options are actively traded on organized exchanges and also arranged as private contracts (called over-the-counter or OTC). Exchange-traded options offer standardized contracts with transparent pricing, while OTC options can be customized but involve counterparty risk.
+
+Most option positions on exchanges are closed before expiration through offsetting trades rather than exercise. This allows traders to capture profits, limit losses, or adjust strategies as market conditions change.
+
+
+#### Strikes and Maturities
+
+ Exchanges determine which strike prices and expiration dates are available for trading. As time passes and options expire, new expiration cycles are introduced. New strike prices are also added when the underlying price moves, ensuring strikes bracket the current market price. The number of available strikes and expirations depends on trading interest and exchange policies.
+
+#### Order Types and Execution
+
+As in stock markets, traders can submit either market orders or limit orders.  **Market orders** execute immediately "at market," which is explained below.  **Limit orders** are price-contingent orders.  A limit buy order specifies a maximum price the trader is willing to pay, and a limit sell order specifies a minimum price the trader is willing to accept.  A limit order can execute immediately if someone else is willing to take the other side.  Otherwise, it joins the queue of limit orders and will eventually execute against an incoming market order when and if the limit price becomes the best available price for the counterparty (the highest price among limit buy orders or the lowest price among limit sell orders) and when it achieves time priority among other limit orders at the same price (i.e., it was the first to arrive).
+
+For an option sell order, trading "at market" means trading at the highest limit buy price in the market.  This is the best price, from the seller's point of view, that other traders are bidding for the option, and it is called the **bid price**.  For an option buy order, trading at market means trading at the lowest limit sell price in the market.  This is the best price that other traders are asking for the option, and it is called the **ask price**. In summary, 
+
+- *Market Orders* execute immediately at the best available price:
+  - Market buy order → executes at the ask price
+  - Market sell order → executes at the bid price
+- *Limit Orders* specify a maximum buy price or minimum sell price:
+  - May get better execution price but risks non-execution
+- *Example*: If you want to buy a call option trading at bid $2.50 / ask $2.60:
+  - Market order: Pay $2.60 immediately  
+  - Limit order at $2.55: Wait for seller willing to accept $2.55 (may never happen)
+  - Limit order at $2.40: Less likely to execute than a limit order at $2.55 
+
+
+#### Open Interest and Contract Creation
+
+We say that an option buyer has a **long position**, and an option seller has a **short position**. Unlike stocks, options have no pre-existing supply. At any time, the number of long positions exactly equals the number of short positions, and this total is called **open interest**.  When a new option series (specific strike/expiration combination) is introduced, open interest starts at zero. Options are created through trading activity:
+
+- *First trade*: 1 buyer + 1 seller → Open interest = 1
+- *New position created*: New buyer + New seller → Open interest increases  
+- *Position closed*: Existing holder sells to new buyer → Open interest unchanged
+- *Both parties close*: Existing buyer and seller offset → Open interest decreases
+
+
+
+
+#### The Role of the Clearinghouse
+
+Exchange clearinghouses serve as the counterparty to every options trade, providing several crucial functions:
+
+- *Counterparty Guarantee*: 
+  - Long call holders have the right to buy from the clearinghouse (not from the original seller)
+  - Short call writers have an obligation to deliver to the clearinghouse (if assigned)
+  - Likewise, long put holders have the right to sell to the clearinghouse (not to the original seller) and short put writers have an obligation to buy from the clearinghouse (if assigned)
+  - This eliminates counterparty risk for traders
+- *Exercise and Assignment Process*:
+  1. Option holder notifies broker of exercise decision
+  2. Broker notifies clearinghouse  
+  3. Clearinghouse randomly selects a short position for assignment
+  4. Underlying shares and strike payment flow through clearinghouse
+- *Margin*: 
+  - Option sellers must post collateral (margin) to ensure they can meet their obligations. 
+  - This protects the clearinghouse from default risk.
+- *Benefits of the Clearinghouse System*:
+  - Reduced counterparty default risk for all market participants
+  - Ability to close positions by making trades with different traders than your original counterparty  
+
+
+## Patterns in Option Prices
+
+
+@fig-options-market-data allows us to browse current market data for exchange-traded options. The columns of the table are:
+
+- *Strike*: the price at which the owner of a call (put) has the right to buy (sell) the underlying asset.
+- *Bid price*: the price that a market sell order will receive (it is the best price that limit orders are bidding for the option)
+- *Ask price*: the price that a market buy order will pay (it is the best price that limit orders are asking for the option)
+- *Last price*: the last price at which the option traded.
+- *Time of last trade*: the day and time at which the option last traded.
+- *Volume*: the number of contracts traded during the day.  Each contract is for 100 shares of the underlying asset.
+- *Open interest*: The number of contracts for which there are currently outstanding positions.
+
+
+::: {#fig-options-market-data} 
+<iframe height="750" width="720" src="https://options-market-data.koyeb.app/"></iframe>
+
+The options market data is from the CBOE and is proivided courtesy of Yahoo Finance.  Hover over the table to reveal a vertical slider. 
+:::
+
+Experimenting with @fig-options-market-data reveals consistent patterns in how options are priced relative to each other. Understanding these patterns helps build intuition about option values.  We should see the following:
+
+- *Strike Price Effects:*
+  - Call Options: Prices decrease as strike prices increase.  For example, a call with strike $50 is worth more than a call with strike $100, so it trades at a higher premium. 
+  - Put Options: Prices increase as strike prices increase.  For example, a put with strike $100 is worth more than a put with strike $50, so it trades at a higher premium.
+- *Time to Expiration Effects:* Longer-dated options cost more because they provide:
+  - More time for favorable price movements
+  - Greater flexibility (American options can be exercised over a longer period)
+
+
+## Intrinsic Value, Time Value, and Moneyness
+
+The **intrinsic value** of an option is what the option would be worth if it had to be exercised immediately or would expire.  For a call option, this is the difference between the underlying asset price and the strike of the call, if that is positive, and is zero otherwise.  Letting $S$ denote the price of the underlying asset and $K$ the strike price, the intrinsic value of a call is
+
+$$\begin{cases} S-K & \text{if $S>K$}\\
+0 & \text{if $S \le K$}\end{cases}\,.$$
+
+This can be written more compactly as $\max(S-K, 0)$.  For example, if the underlying asset is trading at \$50, and the strike is \$40, then the intrinsic value is \$10.  This reflects the fact that we could pay \$10 for the option, pay the strike of \$40 to exercise, then sell the underlying asset in the market for \$50 and break even.   Symmetrically, the intrinsic value of a put option is
+
+$$\max(K-S, 0) = 
+\begin{cases} K-S & \text{if $K>S$}\\
+0 & \text{if $K \le S$}\end{cases}\,.$$
+
+If the intrinsic value of an option is positive, then the option is said to be **in the money**.  Thus, a call option with strike $K$ is in the money if $S>K$, and a put option with strike $K$ is in the money if $S<K$.  If $S=K$ (or, in practice, approximately equal), then a call is said to be **at the money**.  If an option is neither in the money nor at the money, then it is **out of the money**.  
+
+American options are always worth at least their intrinsic values, because exercising immediately is a possibility. If one could buy an in-the-money American option at less than its intrinsic value, then buying it and immediately exercising would be an arbitrage.  It is safe to assume we will not find such arbitrage opportunities in the market.
+
+Prior to expiration, the value of an option is usually larger than its intrinsic value.  This is because there is time remaining for the underlying asset to move in a direction that is favorable for the option holder.  The excess of the value over the intrinsic value is called the option's **time value**.  As time passes and the option approaches expiration, the time value decreases.  This phenomenon is called **time decay**.
+
+## Payoff and Profit Diagrams
+
+Understanding option payoffs is fundamental to options trading. A **payoff diagram** shows the intrinsic value of an option position as a function of the price of the underlying asset.  This is the value the option position would have at expiration.  A **profit diagram** shows the profit from putting on an option position and holding to maturity as a function of the price of the underlying asset at maturity.  The difference between the profit and the payoff is the premium paid (for long positions) or received (for short positions).  Here are the payoff and profit diagrams for each of the four basic option positions:
+
+#### Long Call
+
+A long call position benefits if the underlying asset does well. The maximum loss is limited to the premium paid, while the potential profit is unlimited. The breakeven point is at the strike price plus the premium.
+
+```{python}
+#| label: fig-long-call
+#| fig-height: 400
+#| fig-cap: Payoff and profit diagrams of a long call position (buying a call option), assuming the call premium was $5.00.
+#| out-width: "100%"
+
+import numpy as np
+import plotly.graph_objects as go
+import plotly.express as px
+
+# Parameters
+K = 100  # Strike price
+premium = 5  # Option premium
+S = np.concatenate([np.linspace(0, K, 50), np.linspace(K, 140, 50)])[:-1]  # Include 0 and strike price
+
+# Long call payoff and profit
+call_payoff = np.maximum(S - K, 0)
+call_profit = call_payoff - premium
+
+fig = go.Figure()
+
+# Add payoff line
+fig.add_trace(go.Scatter(
+    x=S, y=call_payoff,
+    mode='lines',
+    name='Payoff at Expiration',
+    line=dict(color='blue', width=2)
+))
+
+# Add profit line
+fig.add_trace(go.Scatter(
+    x=S, y=call_profit,
+    mode='lines',
+    name='Profit or Loss',
+    line=dict(color='red', width=2, dash='dash')
+))
+
+
+# Add strike price line
+fig.add_vline(x=K, line_dash="dot", line_color="gray",
+              annotation_text=f"Strike = ${K}")
+
+# Add vertical line at x=0 (y-axis)
+# fig.add_vline(x=0, line_dash="solid", line_color="black", line_width=1)
+
+# Formatting
+fig.update_layout(
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Payoff or Profit ($)",
+    template="plotly_white",
+    autosize=True,
+    height=400,
+    legend=dict(x=0.02, y=0.98, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black'
+)
+
+fig.show()
+```
+
+
+
+#### Long Put
+
+A long put position benefits when the underlying asset does poorly. Like a long call, the maximum loss is the premium paid.  Unlike a long call, the maximum profit of a long put is limited, but it is limited only by the fact that the underlying asset price cannot fall below zero. The breakeven point is at the strike price minus the premium.
+
+```{python}
+#| label: fig-long-put
+#| fig-height: 400
+#| fig-cap: Payoff and profit diagrams of a long put position (buying a put option), assuming the put premium was $5.00.
+#| out-width: "100%"
+# Long put payoff and profit
+put_payoff = np.maximum(K - S, 0)
+put_profit = put_payoff - premium
+
+fig = go.Figure()
+
+# Add payoff line
+fig.add_trace(go.Scatter(
+    x=S, y=put_payoff,
+    mode='lines',
+    name='Payoff at Expiration',
+    line=dict(color='blue', width=2)
+))
+
+# Add profit line
+fig.add_trace(go.Scatter(
+    x=S, y=put_profit,
+    mode='lines',
+    name='Profit or Loss',
+    line=dict(color='red', width=2, dash='dash')
+))
+
+
+# Add strike price line
+fig.add_vline(x=K, line_dash="dot", line_color="gray",
+              annotation_text=f"Strike = ${K}")
+
+fig.update_layout(
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Payoff or Profit ($)",
+    template="plotly_white",
+    autosize=True,
+    height=400,
+    legend=dict(x=0.2, y=0.98, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black'
+)
+
+fig.show()
+```
+
+
+#### Short Call
+
+A short call position (writing a call) benefits if the underlying asset does poorly, like a long put.  However, the potential profit and loss of a short call are very different from those of a long put.  The maximum profit is the premium received, while the potential loss is unlimited.
+
+```{python}
+#| label: fig-short-call
+#| fig-height: 400
+#| fig-cap: Payoff and profit diagrams of a short call position (writing a call option), assuming the call premium was $5.00.
+#| out-width: "100%"
+
+# Short call payoff and profit (opposite of long call)
+short_call_payoff = -call_payoff
+short_call_profit = premium - call_payoff
+
+fig = go.Figure()
+
+# Add payoff line
+fig.add_trace(go.Scatter(
+    x=S, y=short_call_payoff,
+    mode='lines',
+    name='Payoff at Expiration',
+    line=dict(color='blue', width=2)
+))
+
+# Add profit line
+fig.add_trace(go.Scatter(
+    x=S, y=short_call_profit,
+    mode='lines',
+    name='Profit or Loss',
+    line=dict(color='red', width=2, dash='dash')
+))
+
+
+# Add strike price line
+fig.add_vline(x=K, line_dash="dot", line_color="gray",
+              annotation_text=f"Strike = ${K}")
+
+fig.update_layout(
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Payoff or Profit ($)",
+    template="plotly_white",
+    autosize=True,
+    height=400,
+    legend=dict(x=0.02, y=0.8, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black'
+)
+
+fig.show()
+```
+
+
+
+#### Short Put
+
+A short put position (writing a put) benefits if the underlying asset does well, like a long call.  But, the profit and loss possibilities for a short put are very different from those of a long call. The maximum profit is the premium received, while the maximum loss occurs if the underlying asset price falls to zero (loss = strike price - premium).
+
+```{python}
+#| label: fig-short-put
+#| fig-height: 400
+#| fig-cap: Payoff and profit diagrams of a short put position (writing a put option), assuming the put premium was $5.00.
+#| out-width: "100%"
+
+short_put_payoff = -put_payoff
+short_put_profit = premium - put_payoff
+
+fig = go.Figure()
+
+# Add payoff line
+fig.add_trace(go.Scatter(
+    x=S, y=short_put_payoff,
+    mode='lines',
+    name='Payoff at Expiration',
+    line=dict(color='blue', width=2)
+))
+
+# Add profit line
+fig.add_trace(go.Scatter(
+    x=S, y=short_put_profit,
+    mode='lines',
+    name='Profit or Loss',
+    line=dict(color='red', width=2, dash='dash')
+))
+
+# Add strike price line
+fig.add_vline(x=K, line_dash="dot", line_color="gray",
+              annotation_text=f"Strike = ${K}")
+
+fig.update_layout(
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Payoff orProfit ($)",
+    template="plotly_white",
+    autosize=True,
+    height=400,
+    legend=dict(x=0.02, y=0.98, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black'
+)
+
+fig.show()
+
+```
+
+
+#### Summary of Basic Option Positions
+
+The four basic option positions can be summarized as follows:
+
+| Position | Market View | Max Profit | Max Loss | Breakeven |
+|----------|-------------|------------|----------|-----------|
+| Long Call | Bullish | Unlimited | Premium paid | Strike + Premium |
+| Long Put | Bearish | Strike - Premium | Premium paid | Strike - Premium |
+| Short Call | Bearish | Premium received | Unlimited | Strike + Premium |
+| Short Put | Bullish | Premium received | Strike - Premium | Strike - Premium |
+
+These basic positions form the building blocks for more complex option strategies such as spreads, straddles, and collars.
+
+
+
+## Option Portfolios
+
+Individual options can be combined with each other and with the underlying asset to create portfolios with specific risk-reward profiles. These strategies allow investors to implement sophisticated views about market direction, volatility, and risk management. We examine several common option portfolios below.  We present the payoff diagram for each.  
+
+The payoff of a portfolio is the sum of the payoffs of its constituent positions.  Frequently, an easy way to compute the payoff diagram of a portfolio is to add the payoffs at a single point on the $x$-axis (the origin is often a good place to start) and then add the slopes of the individual positions.  For example, if the sum of the slopes is $+1$, then the portfolio payoff diagram will slope upwards, one-for-one with the underlying asset price.  If the sum of the slopes is zero, then the portfolio payoff will be flat; if the sum of the slopes is $-1$, then the portfolio payoff diagram will slope downwards, one-for-one with the underlying asset price.  In each figure, we show the payoffs of the individual positions and the combined portfolio payoff.
+
+#### Protective Put
+
+A protective put combines a long position in the underlying asset with a long put option. 
+The protective put acts like insurance for a long position in the underlying asset. The value of the portfolio at maturity is always at least the put strike price, because the asset can be delivered in exchange for the strike by exercising the put.  This strategy provides downside protection while maintaining upside potential.
+
+```{python}
+#| label: fig-protective-put
+#| fig-height: 400
+#| fig-cap: Payoff diagram of a protective put position (long the underlying asset and long a put option).
+#| out-width: "100%"
+
+# Parameters for all strategies
+S0 = 100  # Current asset price
+K_put = 95   # Put strike
+K_call = 105 # Call strike (for other strategies)
+put_premium = 3
+call_premium = 2
+
+S = np.arange(161)
+# Protective put: Long asset + Long put
+asset_payoff = S  # asset value at maturity
+put_payoff = np.maximum(K_put - S, 0)  # Put payoff at maturity
+protective_put_payoff = asset_payoff + put_payoff
+
+fig = go.Figure()
+
+# Individual components
+fig.add_trace(go.Scatter(x=S, y=asset_payoff, mode='lines', 
+                        name='Long Underlying Asset', line=dict(color='blue', dash='dot')))
+fig.add_trace(go.Scatter(x=S, y=put_payoff, mode='lines', 
+                        name='Long Put', line=dict(color='green', dash='dot')))
+
+# Combined strategy
+fig.add_trace(go.Scatter(x=S, y=protective_put_payoff, mode='lines', 
+                        name='Protective Put', line=dict(color='red', width=3)))
+
+fig.add_vline(x=K_put, line_dash="dot", line_color="gray", 
+              annotation_text=f"Put Strike = ${K_put}")
+
+# Add vertical line at x=0 (y-axis)
+fig.add_vline(x=0, line_dash="solid", line_color="black", line_width=1)
+
+fig.update_layout(
+    title="Protective Put Strategy",
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Portfolio Value ($)",
+    template="plotly_white", 
+    height=400,
+    autosize=True,
+    legend=dict(x=0.02, y=0.98, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black'
+)
+
+fig.show()
+```
+
+#### Selling Covered Calls
+
+A common option strategy is to sell an out-of-the-money call option on an asset that one owns.  This is called selling a covered call (the risk exposure from writing the call is "covered" by owning the underlying asset).  Selling a covered call generates premium income, at the expense of reducing the maximum gain on the asset (it is capped at the call strike).  Whether this turns out to be profitable depends on how high the underlying goes prior to the option maturity - if it goes up sufficiently far, then the trader will regret having sold the call; if it goes up less, or doesn't go up at all, then the trader will be happy to have captured the call premium.   
+
+```{python}
+#| label: fig-covered-call
+#| fig-height: 400
+#| fig-cap: Payoff diagram of a covered call position (long the underlying asset and short a call option).
+#| out-width: "100%"
+
+call_payoff = np.maximum(S - K_call, 0)  # 
+covered_call_payoff = asset_payoff - call_payoff
+
+fig = go.Figure()
+
+# Individual components
+fig.add_trace(go.Scatter(x=S, y=asset_payoff, mode='lines', 
+                        name='Long Underlying Asset', line=dict(color='blue', dash='dot')))
+fig.add_trace(go.Scatter(x=S, y=-call_payoff, mode='lines', 
+                        name='Short Call', line=dict(color='orange', dash='dot')))
+
+# Combined strategy
+fig.add_trace(go.Scatter(x=S, y=covered_call_payoff, mode='lines', 
+                        name='Covered Call', line=dict(color='red', width=3)))
+
+fig.add_vline(x=K_call, line_dash="dot", line_color="gray", 
+              annotation_text=f"Call Strike = ${K_call}")
+
+fig.update_layout(
+    title="Covered Call Strategy",
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Portfolio Value ($)",
+    template="plotly_white", 
+    height=400,
+    autosize=True,
+    legend=dict(x=0.02, y=0.98, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black'
+)
+
+fig.show()
+
+```
+
+
+#### Collar
+
+A collar combines a protective put with selling a covered call. This strategy provides downside protection and pays for some or all of the protection by capping the upside potential.   The portfolio value is limited to a minimum of the put strike and a maximum of the call strike, regardless of how far the underlying asset price moves.  If the premium received from the call that is sold equals (or, in practice, is approximately equal to) the premium paid for the put, then the collar is called a **zero-cost collar**.
+
+```{python}
+#| label: fig-collar
+#| fig-height: 400
+#| fig-cap: Payoff diagram of a collar (long the underlying asset, long a put option, and short a call option at a higher strike). 
+#| out-width: "100%"
+
+# Collar: Long asset + Long put + Short call
+call_payoff = -np.maximum(S - K_call, 0)  # Short call payoff at maturity
+collar_payoff = asset_payoff + put_payoff + call_payoff
+
+fig = go.Figure()
+
+# Individual components
+fig.add_trace(go.Scatter(x=S, y=asset_payoff, mode='lines', 
+                        name='Long Underlying Asset', line=dict(color='blue', dash='dot')))
+fig.add_trace(go.Scatter(x=S, y=put_payoff, mode='lines', 
+                        name='Long Put', line=dict(color='green', dash='dot')))
+fig.add_trace(go.Scatter(x=S, y=call_payoff, mode='lines', 
+                        name='Short Call', line=dict(color='orange', dash='dot')))
+
+# Combined strategy
+fig.add_trace(go.Scatter(x=S, y=collar_payoff, mode='lines', 
+                        name='Collar', line=dict(color='red', width=3)))
+
+fig.add_vline(x=K_put, line_dash="dot", line_color="gray", 
+              annotation_text=f"Put Strike = ${K_put}",
+              annotation_position="top left")
+fig.add_vline(x=K_call, line_dash="dot", line_color="gray", 
+              annotation_text=f"Call Strike = ${K_call}")
+
+fig.update_layout(
+    title="Collar Strategy",
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Portfolio Value ($)",
+    template="plotly_white", 
+    height=400,
+    autosize=True,
+    legend=dict(x=0.02, y=0.98, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black',
+    yaxis_range=[-50, 200]
+)
+
+fig.show()
+```
+
+
+
+#### Bull Call Spread
+
+
+A profit diagram is derived from a payoff diagram by subtracting the premium paid for each long position and adding the premium received for each short position.  There is a simple rule for determining from the payoff diagram whether the net premium is positive or negative.  If the payoff diagram lies entirely at or above the $x$-axis, then a net premium must be paid to put on the position. 
+ Otherwise there would be an arbitrage opportunity. 
+  Thus, the profit diagram lies below the payoff diagram (and goes below the $x$ axis into negative territory somewhere) if the payoff is always greater than or equal to zero.  Symmetrically, the profit diagram lies above the payoff diagram (and goes above the $x$-axis into positive territory) if the payoff is always less than or equal to zero.  
+
+A bull call spread involves buying a call option and selling another call option with a higher strike price. This strategy profits from moderate upward price movements.  Because the payoff diagram lies above the $x$-axis, we know that a net premium is paid to put on the position.  In fact, the call with a higher strike that is sold will be cheaper than the call with a lower strike that is bought, and the investor will have to pay the difference to put on the position.  Remember that the purpose of selling options is always to receive the premium income.  In this case, the call with the higher strike is sold to partially offset the cost of the call with the lower strike.  Consequently, a bull call spread is a relatively low cost bet on the upside of an asset.
+
+```{python}
+#| label: fig-bull-spread
+#| fig-height: 400
+#| fig-cap: Payoff diagram of a bull call spread (long a call and short a call at a higher strike).
+#| out-width: "100%"
+
+# Bull call spread parameters
+K_low = 95   # Lower strike (long call)
+K_high = 105 # Higher strike (short call)
+low_call_premium = 7
+high_call_premium = 3
+
+# Bull call spread: Long low-strike call + Short high-strike call
+long_call_payoff = np.maximum(S - K_low, 0)  # Long call payoff at maturity
+short_call_payoff = -np.maximum(S - K_high, 0)  # Short call payoff at maturity
+bull_spread_payoff = long_call_payoff + short_call_payoff
+
+fig = go.Figure()
+
+# Individual components
+fig.add_trace(go.Scatter(x=S, y=long_call_payoff, mode='lines', 
+                        name=f'Long {K_low} Call', line=dict(color='blue', dash='dot')))
+fig.add_trace(go.Scatter(x=S, y=short_call_payoff, mode='lines', 
+                        name=f'Short {K_high} Call', line=dict(color='green', dash='dot')))
+
+# Combined strategy
+fig.add_trace(go.Scatter(x=S, y=bull_spread_payoff, mode='lines', 
+                        name='Bull Call Spread', line=dict(color='red', width=3)))
+
+fig.add_vline(x=K_low, line_dash="dot", line_color="gray", 
+              annotation_text=f"Low Strike = ${K_low}",
+              annotation_position="top left")
+fig.add_vline(x=K_high, line_dash="dot", line_color="gray", 
+              annotation_text=f"High Strike = ${K_high}")
+
+fig.update_layout(
+    title="Bull Call Spread",
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Portfolio Value ($)",
+    template="plotly_white", 
+    height=400,
+    autosize=True,
+    legend=dict(x=0.02, y=0.98, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black'
+)
+
+fig.show()
+```
+
+
+
+#### Bear Put Spread
+
+A bear put spread involves buying a put option and selling another put option with a lower strike price. This strategy profits from moderate downward price movement.  The motivation for putting on a bear spread is the desire to own a put either for protection (i.e., hedging/insurance) or as a bet on the downside of an asset.  This protection or bet is provided by the put with the higher strike.  The put with the lower strike is sold to reduce the cost of the bet.  As with a bull call spread, the payoff is always nonnegative, so there must be a net premium paid to put it on (the put that is sold will have a lower price than the put that is bought, so the trader must pay the difference).
+
+```{python}
+#| label: fig-bear-spread
+#| fig-height: 400
+#| fig-cap: Payoff diagram of a bear put spread (long a put and short a put at a lower strike).
+#| out-width: "100%"
+
+# Bear put spread: Long high-strike put + Short low-strike put
+high_put_premium = 8
+low_put_premium = 4
+
+long_put_payoff = np.maximum(K_high - S, 0)  # Long put payoff at maturity
+short_put_payoff = -np.maximum(K_low - S, 0)  # Short put payoff at maturity
+bear_spread_payoff = long_put_payoff + short_put_payoff
+
+fig = go.Figure()
+
+# Individual components
+fig.add_trace(go.Scatter(x=S, y=long_put_payoff, mode='lines', 
+                        name=f'Long {K_high} Put', line=dict(color='blue', dash='dot')))
+fig.add_trace(go.Scatter(x=S, y=short_put_payoff, mode='lines', 
+                        name=f'Short {K_low} Put', line=dict(color='green', dash='dot')))
+
+# Combined strategy
+fig.add_trace(go.Scatter(x=S, y=bear_spread_payoff, mode='lines', 
+                        name='Bear Put Spread', line=dict(color='red', width=3)))
+
+fig.add_vline(x=K_low, line_dash="dot", line_color="gray", 
+              annotation_text=f"Low Strike = ${K_low}",
+              annotation_position="top left")
+fig.add_vline(x=K_high, line_dash="dot", line_color="gray", 
+              annotation_text=f"High Strike = ${K_high}")
+
+fig.update_layout(
+    title="Bear Put Spread",
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Portfolio Value ($)",
+    template="plotly_white", 
+    height=400,
+    autosize=True,
+    legend=dict(x=0.02, y=0.77, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black'
+)
+
+fig.show()
+```
+
+
+
+#### Straddle
+
+A straddle involves buying both a call and a put option with the same strike price. This strategy profits from large price movements in either direction (high volatility).  The profit diagram lies below the payoff diagram and will be in negative territory if the underlying finishes near the straddle strike.
+
+```{python}
+#| label: fig-straddle
+#| fig-height: 400
+#| fig-cap: Payoff diagram of a straddle (long a call and put with the same strike).
+#| out-width: "100%"
+
+# Straddle: Long call + Long put (same strike)
+K_straddle = 100
+straddle_call_premium = 5
+straddle_put_premium = 5
+
+straddle_call_payoff = np.maximum(S - K_straddle, 0)  # Call payoff at maturity
+straddle_put_payoff = np.maximum(K_straddle - S, 0)  # Put payoff at maturity
+straddle_payoff = straddle_call_payoff + straddle_put_payoff
+
+fig = go.Figure()
+
+# Individual components
+fig.add_trace(go.Scatter(x=S, y=straddle_call_payoff, mode='lines', 
+                        name=f'Long {K_straddle} Call', line=dict(color='blue', dash='dot')))
+fig.add_trace(go.Scatter(x=S, y=straddle_put_payoff, mode='lines', 
+                        name=f'Long {K_straddle} Put', line=dict(color='green', dash='dot')))
+
+# Combined strategy
+fig.add_trace(go.Scatter(x=S, y=straddle_payoff, mode='lines', 
+                        name='Long Straddle', line=dict(color='red', width=3)))
+
+fig.add_vline(x=K_straddle, line_dash="dot", line_color="gray", 
+              annotation_text=f"Strike = ${K_straddle}")
+
+fig.update_layout(
+    title="Long Straddle",
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Portfolio Value ($)",
+    template="plotly_white", 
+    height=400,
+    autosize=True,
+    legend=dict(x=0.02, y=0.6, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black',
+)
+
+fig.show()
+```
+
+
+
+#### Butterfly Spread
+
+A butterfly spread involves buying options at two different strike prices and selling two options at a strike price midway between the other two strikes. This strategy profits when the underlying asset price stays near the middle strike (low volatility).  As with the other spreads we have examined, the payoff is nonnegative, so the trader must pay a net premium to put the position on.
+
+```{python}
+#| label: fig-butterfly
+#| fig-height: 400
+#| fig-cap: Payoff diagram of a butterfly spread (long a call at a low strike, short two calls at a middle strike, and long a call at a high strike, with the middle strike being the average of the low and high strikes.).
+#| out-width: "100%"
+
+# Butterfly spread parameters
+K_low_bf = 90
+K_mid_bf = 100
+K_high_bf = 110
+low_call_bf_premium = 12
+mid_call_bf_premium = 6
+high_call_bf_premium = 2
+
+# Butterfly: Long low call + Short 2 middle calls + Long high call
+bf_low_call = np.maximum(S - K_low_bf, 0)  # Long low call payoff at maturity
+bf_mid_call = -2 * np.maximum(S - K_mid_bf, 0)  # Short 2 middle calls payoff at maturity
+bf_high_call = np.maximum(S - K_high_bf, 0)  # Long high call payoff at maturity
+butterfly_payoff = bf_low_call + bf_mid_call + bf_high_call
+
+fig = go.Figure()
+
+# Individual components
+fig.add_trace(go.Scatter(x=S, y=bf_low_call, mode='lines', 
+                        name=f'Long {K_low_bf} Call', line=dict(color='blue', dash='dot')))
+fig.add_trace(go.Scatter(x=S, y=bf_mid_call, mode='lines', 
+                        name=f'Short 2x {K_mid_bf} Calls', line=dict(color='green', dash='dot')))
+fig.add_trace(go.Scatter(x=S, y=bf_high_call, mode='lines', 
+                        name=f'Long {K_high_bf} Call', line=dict(color='orange', dash='dot')))
+
+# Combined strategy
+fig.add_trace(go.Scatter(x=S, y=butterfly_payoff, mode='lines', 
+                        name='Butterfly Spread', line=dict(color='red', width=3)))
+
+fig.add_vline(x=K_low_bf, line_dash="dot", line_color="gray", 
+              annotation_text=f"Low = ${K_low_bf}",
+              annotation_position="top left")
+fig.add_vline(x=K_mid_bf, line_dash="dot", line_color="gray", 
+              annotation_text=f"Mid = ${K_mid_bf}",
+              annotation_position="left")
+fig.add_vline(x=K_high_bf, line_dash="dot", line_color="gray", 
+              annotation_text=f"High = ${K_high_bf}",
+              annotation_position="bottom right")
+
+fig.update_layout(
+    title="Butterfly Spread",
+    xaxis_title="Underlying Asset Price at Expiration ($)",
+    yaxis_title="Portfolio Value ($)",
+    template="plotly_white", 
+    height=400,
+    autosize=True,
+    legend=dict(x=0.02, y=0.98, xanchor='left', yanchor='top'),
+    yaxis_zeroline=False,
+    xaxis_zeroline=True,
+    xaxis_zerolinecolor='black'
+)
+
+fig.show()
+```
+
+
+
+#### Interactive Portfolio Builder
+
+The strategies shown above represent just a few of the many possible option combinations. The interactive figure below allows you to experiment with option portfolios.  The value at maturity of a portfolio of options is plotted, assuming all of the options have the same maturity.  Enter positive quantities for long positions in options and negative quantities for short positions.  Long or short positions in the underlying asset can also be included. Cash means a position in a risk-free asset sufficient to deliver the specified amount of cash at the option maturity.
+
+Try recreating the strategies we've discussed above, or experiment with your own combinations to develop intuition about how option portfolios behave.
+
+::: {#fig-option_portfolios}
+<iframe width="780" height="400" src="https://option-portfolios.koyeb.app"></iframe>
+:::
+
+## Volume and Open Interest Patterns
+
+Understanding trading volume and open interest patterns provides insight into market behavior and liquidity in options markets. These patterns reflect how traders use options and where market activity concentrates.
+
+#### The Life Cycle of Open Interest
+
+When an exchange first introduces a new option series (a specific combination of underlying asset, strike price, and expiration date), open interest starts at zero. Open interest represents the total number of outstanding option contracts that have not been closed or exercised.
+
+*Initial Growth Phase*: As traders begin to notice and trade the new option, open interest grows. Each time a new buyer purchases an option from a new seller (rather than from someone closing an existing position), open interest increases by one contract. For example:
+
+- Day 1: Trader A buys 10 call contracts from Trader B → Open interest = 10
+- Day 2: Trader C buys 5 call contracts from Trader D → Open interest = 15  
+- Day 3: Trader E buys 3 call contracts from Trader A (closing A's position) → Open interest = 15 (unchanged)
+
+*Peak Activity*: Open interest typically reaches its peak when the option has several weeks or months remaining until expiration and the strike price is reasonably close to the current price of the underlying asset. During this phase, the option attracts both speculators and hedgers.
+
+*Decline Phase*: As expiration approaches, open interest generally declines for several reasons:
+
+- Traders close positions by making offsetting trades rather than holding to expiration
+- Some positions are exercised early (for American options)
+- Risk managers prefer not to hold options too close to expiration due to increased time decay and volatility
+
+*Final Settlement*: At expiration, remaining open interest is settled through automatic exercise (for in-the-money options) or expires worthless (for out-of-the-money options).
+
+#### Why Out-of-the-Money Options Are Popular
+
+Examining @fig-options-market-data reveals that trading activity and open interest are often concentrated in out-of-the-money options rather than in-the-money ones. Several factors explain this pattern:
+
+*1. Leverage and Cost Efficiency*
+Out-of-the-money options cost significantly less than in-the-money or at-the-money options. This lower cost provides higher leverage, allowing traders to control more shares with the same dollar investment. A trader with $1,000 might be able to buy:
+
+- 2 in-the-money calls at $500 each, or  
+- 20 out-of-the-money calls at $50 each
+
+*2. Speculative Appeal*
+Out-of-the-money options offer the potential for large percentage returns if the underlying asset moves favorably. While the probability of profit may be lower, the potential rewards are proportionally higher, attracting speculative traders.
+
+*3. Hedging Applications*
+Portfolio managers often use out-of-the-money puts as portfolio insurance. These **tail risk** hedges provide protection against large market declines.
+
+*4. Time Value Focus*
+Out-of-the-money options consist entirely of time value (no intrinsic value). Traders who want to bet on volatility or time decay often prefer these options because their value is most sensitive to these factors.
+
+#### Observable Patterns in Market Data
+
+When examining options market data, several consistent patterns emerge:
+
+*Strike Price Distribution*: 
+
+- Volume and open interest concentrate in strikes within roughly 10-20% of the current price of the underlying asset
+- Call activity tends to be higher in strikes above the current price
+- Put activity tends to be higher in strikes below the current price
+
+*Maturity Effects*:
+
+- Near-term expirations (1-8 weeks) typically show the highest volume due to active trading
+- Longer-term options (3+ months) may show high open interest but lower daily volume
+- Options expiring in less than a week often see volume spikes as traders close positions
+
+*Time Decay Impact*:
+
+- Options with strikes far from the current price show less frequent trading
+- Last trade dates for **deep out-of-the-money** options may be days or weeks old
+- Bid-ask spreads widen significantly for strikes that traders are less interested in trading
+
+These patterns reflect the diverse motivations of options traders: speculation, hedging, income generation, and portfolio management. Understanding these patterns helps explain why certain options trade actively while others remain dormant, and why pricing and liquidity can vary dramatically across different strikes and expirations.
+
+## Put-Call Parity
+
+Put-call parity is one of the most important relationships in option pricing. It establishes a precise connection between the prices of European calls, puts, the underlying asset, and risk-free bonds. This relationship must hold to prevent arbitrage opportunities - riskless profit possibilities that would be quickly eliminated by trader activity.
+
+#### The Put-Call Parity Relationship
+
+For European options on assets that do not pay dividends prior to option expiry, put-call parity states that:
+
+$$\text{Cash} + \text{Call} = \text{Put} + \text{Underlying}$$
+
+More precisely, 
+
+$$\mathrm{e}^{-rT}K + C = P + S$$
+
+where
+
+- $C$ = price of a European call option
+- $P$ = price of a European put option  
+- $S$ = current price of the underlying asset
+- $K$ = strike price (same for both call and put)
+- $r$ = risk-free interest rate
+- $T$ = time to expiration
+
+The term $\mathrm{e}^{-rT}K$ represents the present value of the strike price - the amount of cash that, when invested at the risk-free rate, will grow to exactly $K$ at expiration.  Here we are using continuous compounding/discounting, so $\mathrm{e}^{-rT}$ is the discount factor.  This is a common and convenient way to represent discount factors when considering various fractions of a year.  The appropriate discount rate for a particular period can be imputed from the yields of Treasury bonds at nearby maturities.
+
+#### Understanding the Economic Logic
+
+The put-call parity relationship reflects the fact that two different portfolios have identical payoffs at expiration:
+
+*Portfolio A*: Cash + Call
+
+- Hold cash worth $\mathrm{e}^{-rT}K$ (which grows to $K$ by expiration)
+- Own a call option with strike $K$
+
+*Portfolio B*: Put + Underlying 
+
+- Own a put option with strike $K$
+- Own one share of the underlying asset
+
+Let's examine what happens at expiration for any possible price $S_T$ of the underlying asset:
+
+- *Case 1: Asset price at expiration $S_T > K$*
+  - Portfolio A: Cash grows to $K$, call is worth $S_T - K$, total value = $K + S_T - K = S_T$.  In other words, the call is exercised at expiration using the accumulated cash, so the total value is the value $S_T$ of the underlying asset.
+  - Portfolio B: Put expires worthless, underlying asset is worth $S_T$, total value = $0 + S_T = S_T$
+
+- *Case 2: Asset price at expiration $S_T \leq K$*  
+  - Portfolio A: Cash grows to $K$, call expires worthless, total value = $K + 0 = K$
+  - Portfolio B: Put is worth $K - S_T$, underlying asset is worth $S_T$, total value = $K - S_T + S_T = K$.  In other words, the underlying asset is delivered to exercise the put at expiration, so the total value is the strike $K$.
+
+Because both portfolios have identical payoffs in all possible scenarios, they must have the same current value to prevent arbitrage opportunities.
+
+
+#### Practical Implications
+
+Put-call parity has several important applications:
+
+*1. Option Pricing*: If we know the prices of a call, the underlying asset, and the risk-free rate, we can determine what the put price should be (and vice versa).
+
+*2. Synthetic Instruments*: We can create synthetic positions:
+
+- Synthetic call: $C = P + S - K\mathrm{e}^{-rT}$  
+- Synthetic put: $P = C - S + K\mathrm{e}^{-rT}$
+- Synthetic underlying: $S = C - P + K\mathrm{e}^{-rT}$
+
+*3. Conversion and Reversal Strategies*: Professional traders use these synthetic relationships to identify mispriced options and construct arbitrage trades.
+
+#### Important Limitations
+
+Put-call parity as stated above applies specifically to:
+
+- *European options* (cannot be exercised before expiration)
+- *Non-dividend-paying assets* (dividends complicate the relationship)
+- *Same strike price and expiration* for both call and put
+
+For American options, the put-call parity relation does not always hold, and, for assets that pay dividends prior to the option's maturity, the present value of expected dividends must be subtracted from the asset price in the parity relationship.
+Despite these limitations, put-call parity is one of the most reliable and useful relationships in options theory, providing a foundation for understanding option pricing and identifying trading opportunities.
+
+## Early Exercise of American Options
+
+Most exchange-traded options are American-style, meaning they can be exercised at any time before expiration. However, early exercise is not always optimal and should be considered carefully. Understanding when early exercise might be beneficial requires analyzing the trade-off between immediate payoff and the option's remaining time value.
+
+An option's value consists of two components:
+
+- *Intrinsic value*: The value if it were expiring now
+- *Time value*: The additional value from the possibility of more favorable price movements before expiration
+
+Early exercise is optimal when the value is equal to the intrinsic value alone, meaning that the time value has shrunk to zero.
+
+
+#### American Calls 
+
+For American call options on assets that pay no dividends prior to the option maturity, early exercise is never optimal. This important result is sometimes stated as "calls are better alive than dead."  It follows from two facts:  
+
+1.  In financial markets, as in life generally, "keeping your options open" is valuable.  In other words, there is value to the flexibility that an option provides.  This flexibility is lost once it is exercised.
+
+2.  Early exercise of a call means paying the strike early, which has an opportunity cost equal to the foregone interest that could be earned if the cash were held instead of being used to pay the strike.  
+
+The only time that a call should be exercised early is to capture a dividend (or other cash flow) paid by the underlying asset.  Call holders do not receive dividends, so it may be optimal to exercise to avoid missing the dividend.  Even in this circumstance, individual investors will generally find it better to sell the call in the market rather than exercising.  However, institutional investors, who can trade at lower costs, may find it profitable to exercise.  Regardless, if anyone finds it optimal to exercise, the bid price of the call must have fallen to the call's intrinsic value, meaning the time value of the option has shrunk to zero.  This typically occurs only just before an ex-dividend date, and even then the dividend must be large enough to offset the value of preserving flexibility for the remaining maturity of the option.  In subsequent chapters, we will investigate models for determining how large the dividend must be.
+
+#### American Puts
+
+It is generally more likely that an American put will be exercised early than an American call.  This is because the second factor above (the time value of money for the strike) is reversed for puts.  Early exercise of a put implies early receipt of the strike, which can be invested to earn interest.  
+
+Whether it is optimal to exercise an American put early depends on how deep in the money it is and how high interest rates are.  When a put is deep in the money (meaning the underlying asset price is low), there is little value to the flexibility of keeping the option open, because it becomes nearly certain that exercise at some date will be optimal.  In this case, one should exercise to get the strike early and forego flexibility.  When interest rates are high, the time value of money is high, so again it can be optimal to exercise early.  Whether one should exercise early depends on both of these factors - how deeply in the money the option should be before exercising depends on how high interest rates are.  The volatility of the underlying asset price is also a critical factor, because it determines the value of maintaining flexibility.  Again, we will investigate models for making this determination in later chapters. 
+
+#### Put-Call Parity, Option Bounds, and Early Exercise
+
+The put-call parity formula for European options on non-dividend-paying assets is 
+$$ C + \mathrm{e}^{-rT}K = P + S$$
+Because the put value must be at least zero, this gives us the inequality
+$$C + \mathrm{e}^{-rT}K \ge S \;\Leftrightarrow\; C \ge S - \mathrm{e}^{-rT}K > S - K\,.$$
+Thus, we can see that the value of a European call on a non-dividend-paying asset must be strictly greater than the intrinsic value.   Because American calls are worth at least as much as their European counterparts, the value of an American call on a non-dividend-paying asset must also be strictly greater than its intrinsic value and hence should not be exercised early.
+
+The "strictly greater" rather than "greater than or equal to" is due to the time value of money, as encapsulated in the fact that $\mathrm{e}^{-rT}K < K$.  This is factor \#2 described above as to why American calls on non-dividend-paying assets should never be exercised early. 
+
+Because call values are also at least zero, we can likewise obtain an inequality for put values from put-call parity, namely, 
+$$\mathrm{e}^{-rT}K \le P + S \; \Leftrightarrow \; P \ge \mathrm{e}^{-rT}K - S\,.$$
+Put-call parity is for European options, but, because American options are worth at least as much as European options, this inequality also holds for American options on non-dividend-paying assets.  However, this does not tell us that early exercise of American puts is suboptimal, because, as discussed before, the time value of money operates in reverse fashion for puts compared to calls (the present value of the strike appears with a positive sign on the right-hand side of the inequality for puts but with a negative sign for calls).  In fact, it is possible that
+$$K - S = P > \mathrm{e}^{-rT}K-S\,.$$
+In this circumstance, the time value of the put has shrunk to zero, and early exercise is optimal.
+
+
+## Exercises
+
+
+::: {#exr-intro-options-1}
+As illustrated in the protective put, covered call, and collar examples, a long position in one unit of the underlying asset has a payoff diagram equal to the 45-degree line.  Symmetrically, a short position in one unit of the underlying asset has a payoff diagram equal to the negative of the 45-degree line.  What option position would cap the possible loss from a short position?  How would you collar a short position?  Write python code to generate the payoff diagrams of these porttolios.
+::: 
+
+::: {#exr-intro-options-2}
+The text explains a bull call spread.  Using put-call parity, explain how we can obtain the same payoff diagram using puts.  Write python code to generate the payoff diagrams of the bull call spread and the bull put spread.
+::: 
+
+::: {#exr-intro-options-3}
+Repeat the previous exercise, but for a bear spread in calls and puts.
+::: 
+
+::: {#exr-intro-options-4}
+Write python code to generate the payoff diagram of a short straddle (short call and short put with the same strike and expiration).  What option positions would cap the possible losses from a short straddle?  Write python code to generate the payoff diagram of the short straddle with these additional options.  Using put-call parity, explain the similarity of this payoff diagram with the payoff diagram of a butterfly spread.
+::: 
+
+::: {#exr-intro-options-5}
+Suppose you have a short position in an asset.  You can protect the short position and pay for the protection by collaring the shortposition as in @exr-intro-options-1.  There are other options that could be sold to pay for protection (options that do not create a collar).  Write python code to generate the payoff diagrams of the following option portfolios combined with the short position in the underlying asset: (a) a long call and two short calls with higher strikes, (b) a short call and two long calls with higher strikes.  
+:::
