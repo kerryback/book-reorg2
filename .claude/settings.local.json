@@ -70,7 +70,9 @@
       "Bash(where:*)",
       "Bash(jupyter kernelspec:*)",
       "Bash(cat:*)",
-      "Bash(gh repo create:*)"
+      "Bash(gh repo create:*)",
+      "Bash(cmd.exe /c start 01_intro_options_dark.html)",
+      "Bash(cmd.exe /c start \"docs\\01_intro_options.html\")"
     ],
     "deny": []
   }
