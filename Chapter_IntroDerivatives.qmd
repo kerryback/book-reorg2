@@ -2,7 +2,7 @@
 # Derivative Securities {#sec-c:introderivatives}
 
 
-Derivative securities are financial instruments whose values are derived from an underlying asset, index, or rate. These instruments are used for hedging risks and for speculation. The underlying assets can be stocks, bonds, commodities, currencies, interest rates, or market indices. The fundamental characteristic of derivatives is that their values fluctuate based on changes in the price of the underlying assets.
+A Derivative security is a financial instruments the value of which is derived from an underlying asset, index, or rate. Derivative securities are used for hedging risks and for speculation. The underlying assets can be stocks, bonds, commodities, currencies, interest rates, or market indices. The fundamental characteristic of a derivative security is that its value fluctuates based on changes in the price of the underlying asset.
 
 Derivatives play a significant role in financial markets by allowing investors to manage risk exposures and take speculative positions with a relatively small amount of capital. They are also widely used by corporations and financial institutions to hedge against fluctuations in interest rates, currency values, and commodity prices. The rapid growth of the derivatives market over the past few decades has made these instruments an essential part of global financial markets.
 
@@ -29,7 +29,6 @@ Options give the holder the right, but not the obligation, to buy (call option) 
 
 Options provide strategic flexibility for investors, as they allow for various trading strategies, including covered calls, protective puts, straddles, and spreads. The pricing of options depends on several factors, including the price of the underlying asset, volatility, time to expiration, interest rates, and dividends. The Black-Scholes model and binomial tree model are widely used for option pricing.
 
-The versatility of options allows investors to construct positions that range from conservative hedging strategies to highly speculative trades. For example, covered call strategies can generate income in sideways markets, while long straddles can profit from significant price swings in either direction.
 
 #### Swaps
 Swaps involve the exchange of cash flows based on different financial instruments. The most common types include interest rate swaps, currency swaps, and credit default swaps (CDS). Swaps are mainly traded in OTC markets and are primarily used for hedging risks associated with fluctuating interest rates and currency values.

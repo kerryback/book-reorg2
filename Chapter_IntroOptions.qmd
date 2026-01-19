@@ -22,7 +22,7 @@ This chapter provides an introduction to the mechanics and motives for trading o
 
 ## Option Basics
 
-Options have a finite lifetime, with each contract specifying an expiration date. Most exchange-traded options can be exercised at any time prior to expiration (**American options**), while others can only be exercised at the expiration date (**European options**). Despite their names, both types trade on exchanges worldwide.
+Options have a finite lifetime, with each contract specifying an expiration date. Most exchange-traded options can be exercised at any time prior to expiration (**American options**), while others can only be exercised at the expiration date (**European options**). Despite their names, both types trade on exchanges worldwide.  Options on individual stocks are ordinarily American, while options of stock indices are typically European.
 
 ::: {.callout-note}
 #### Key Options Terminology
@@ -46,7 +46,7 @@ In more detail, the motivations for trading options are:
 
 ## Trading Options on Exchanges
 
-Options are actively traded on organized exchanges and also arranged as private contracts (called over-the-counter or OTC). Exchange-traded options offer standardized contracts with transparent pricing, while OTC options can be customized but involve counterparty risk.
+Options are actively traded on organized exchanges and also arranged as private contracts (called over-the-counter or OTC). Exchange-traded options offer standardized contracts, while OTC options can be customized but involve counterparty risk.
 
 Most option positions on exchanges are closed before expiration through offsetting trades rather than exercise. This allows traders to capture profits, limit losses, or adjust strategies as market conditions change.
 
@@ -116,7 +116,7 @@ Exchange clearinghouses serve as the counterparty to every options trade, provid
 - *Ask price*: the price that a market buy order will pay (it is the best price that limit orders are asking for the option)
 - *Last price*: the last price at which the option traded.
 - *Time of last trade*: the day and time at which the option last traded.
-- *Volume*: the number of contracts traded during the day.  Each contract is for 100 shares of the underlying asset.
+- *Volume*: the number of contracts traded during the day.  The size of a contract (for example, the number of shares for stock options) is determined by the exchange on which the contract is listed.
 - *Open interest*: The number of contracts for which there are currently outstanding positions.
 
 
