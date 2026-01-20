@@ -167,7 +167,7 @@ fig.show()
 #| out-width: "100%"
 ```
 
-The functions and processes $X$ defined in this section have important interpretations.  @eq-ito_discrete_1 can be rewritten to say that the percent change in $X$ is $\mu \Delta t$.  This could represent the value of a savings account that earns interest of $\mu \Delta t$ in each period of length $\Delta t$.  This is the common way of calculating, for example, monthly interest, where $\mu$ is called the annual rate of interest and $\Delta t$ would be $1/12$.  The limiting @eq-ito_discrete_3 is called continuous compounding of interest.
+The functions and processes $X$ defined in this section have important interpretations.  @eq-ito_discrete_1 can be rewritten to say that the percent change in $X$ is $\mu \Delta t$.  This could represent the value of a savings account that earns interest of $\mu \Delta t$ in each period of length $\Delta t$.  This is the common way of calculating, for example, monthly interest, where $\mu$ is called the annual rate of interest and $\Delta t$ would be $1/12$.  
 
 Similarly, @eq-ito_discrete_4 can be rewritten to say that the percent change in $X$ is $\mu \Delta t + \sigma \Delta B$.  This represents a random rate of return -- for example, the return of a stock.  The expected rate of return in this case is $\mu \Delta t$, and the variance of the rate of return is $\sigma^2 \Delta t$.  The limiting @eq-ito_discrete_3 is called continuous compounding of returns.
 
@@ -182,14 +182,14 @@ $$X_t = X_0 +  \int_0^t \mu X_s \mathrm{d} s + \int_0^t \sigma X_s \mathrm{d} B_
 The first integral in this formula is an ordinary integral.  The second is an Ito integral, which is to be explained.  The sum of an ordinary integral and an Ito integral is called an Ito process.  An Ito process always has continuous paths. 
 
 Let's depart from the example of the previous section and consider a process $X$ satisfying, for all $t>0$,
-$$X_t = \int_0^t \alpha_s\mathrm{d} s + \int_0^t \theta_s \mathrm{d} B_s\,.$${#eq-ito1}
+$$X_t = \int_0^t \alpha_s\mathrm{d} s + \int_0^t \theta_s \mathrm{d} B_s\,,$${#eq-ito1}
 where $\alpha$ and $\theta$ can be stochastic processes.  The example of the previous section fits this form, because we could take $\alpha_s = \mu X_s$ and $\theta_s = \sigma X_s$.  The definition of the Ito integral
 $$\int_0^t \theta_s \mathrm{d} B_s$$
 is relatively complicated.  It is enough for our purposes to know that it can be approximated by a  discrete sum
 $$\sum_{i=1}^n \theta_{t_{i-1}}(B_{t_i} - B_{t_{i-1}})\,,$$
 given a partition
 $$ 0 = t_0 < \cdots < t_n = t\,,$$
-when $n$ is large and the time between successive dates is small.  The Ito integral exists provided $\theta$ does not anticipate the future (so $\theta_{t_{i-1}}$ is independent of the increment $B_{t_i}- B_{t_{i-1}}$) and provided $\theta$ does not explode to $\pm \infty$ in finite time, so 
+when $n$ is large and the time between successive dates is small.  The Ito integral exists provided $\theta$ does not anticipate the future (meaning that $\theta_{t_{i-1}}$ can depend on the history of $B$ only until date $t_{i-1}$) and provided $\theta$ does not explode to $\pm \infty$ in finite time, so 
 $$\int_0^t \theta_s^2 \mathrm{d} s < \infty$$
 for all $t > 0$, with probability one.
 
@@ -273,21 +273,21 @@ where $\rho$ is the correlation process of the two Brownian motions.
 The real meaning of this rule is that it is possible to calculate the joint variation (i.e., limit of sum of products of changes) of the two Ito processes from $0$ to $t$ as
 $$\int_0^t (\mathrm{d} X_{1s})(\mathrm{d} X_{2s}) = \int_0^t (\sigma_{1s}\mathrm{d} B_{1s})(\sigma_{2s}\mathrm{d} B_{2s}) = \int_0^t \sigma_{1s}\sigma_{2s}\rho_s\mathrm{d} s\,.
 $$ {#eq-itojointvariation}
-The last integral in this equation is the correct formula for the quadratic variation.  As with squaring differentials, taking products of differentials is a mnemonic device to get us to the correct formula.^[A somewhat more precise definition than our previous description of the stochastic integral $\int_0^t \sigma_{1,t} dB_{1t}$ is when @eq-regularity1 holds, the stochastic integral is the (unique) martingale with joint variation with any other Ito process given by @eq-itojointvariation.]
+The last integral in this equation is the correct formula for the joint variation.  As with squaring differentials, taking products of differentials is a mnemonic device to get us to the correct formula.^[A somewhat more precise definition than our previous description of the stochastic integral $\int_0^t \sigma_{1,t} dB_{1t}$ is when @eq-regularity1 holds, the stochastic integral is the (unique) martingale with joint variation with any other Ito process given by @eq-itojointvariation.]
 
 ## Introduction to Ito's Formula {#sec-s:itosformula}
 
 First we recall some facts of the ordinary calculus.  If $y=f(x)$ and $x_t = g(t)$ with $f$ and $g$ being continuously differentiable functions, then 
-$$\frac{\mathrm{d}  y}{\mathrm{d}  t} = \frac{\mathrm{d}  y}{\mathrm{d}  x}\times \frac{\mathrm{d}  x}{\mathrm{d}  t} = f**(x_t)g**(t)\; .$$
+$$\frac{\mathrm{d}  y}{\mathrm{d}  t} = \frac{\mathrm{d}  y}{\mathrm{d}  x}\times \frac{\mathrm{d}  x}{\mathrm{d}  t} = f'(x_t)g'(t)\; .$$
 This implies that, for each $t>0$,
-$$y_t = f(x_t) = y_0 + \int_0^t \frac{\mathrm{d}  y}{\mathrm{d}  s}\mathrm{d}   s = y_0 + \int_0^t f**(x_s)g**(s)\mathrm{d}   s\; .$$
-Substituting $\mathrm{d} x_s = g**(s)\mathrm{d}   s$, we can also write this as
+$$y_t = f(x_t) = y_0 + \int_0^t \frac{\mathrm{d}  y}{\mathrm{d}  s}\mathrm{d}   s = y_0 + \int_0^t f'(x_s)g'(s)\mathrm{d}   s\; .$$
+Substituting $\mathrm{d} x_s = g'(s)\mathrm{d}   s$, we can also write this as
 $$
-y_t = f(x_t) = y_0 + \int_0^t f**(x_s)\mathrm{d}   x_s\,,
+y_t = f(x_t) = y_0 + \int_0^t f'(x_s)\mathrm{d}   x_s\,,
 $$ {#eq-ordinarycalculus}
 or, in differential form,
 $$
-dy_t = f**(x_t)\mathrm{d} x_t \,.
+dy_t = f'(x_t)\mathrm{d} x_t \,.
 $$ {#eq-ordinarycalculus2}
 What people frequently remember about integrals from their calculus courses is that there are a lot of tricky substitutions that can be made to simplify the calculation of various integrals.  We won't need those in this book.  All we will use are equations of the form of @eq-ordinarycalculus, which is a special case of the Fundamental Theorem of Calculus, which says that a function is the integral of its derivative.  Intuitively, we can think of @eq-ordinarycalculus as saying that the change in $y$ over a discrete interval (from $0$ to $t$) is the continuous sum (integral) of its infinitesimal changes.  
 
@@ -295,30 +295,30 @@ We will contrast  @eq-ordinarycalculus  with the following special case of Ito's
 
 ::: Principle 
 If $B$ is a Brownian motion and $Y = f(B)$ for a twice-continuously differentiable function $f$, then 
-$$\mathrm{d}   Y_t = f**(B_t)\mathrm{d}   B_t + \frac{1}{2}f****(B_t)\mathrm{d}   t  \,. 
+$$\mathrm{d}   Y_t = f'(B_t)\mathrm{d}   B_t + \frac{1}{2}f''(B_t)\mathrm{d}   t  \,. 
 $$ {#eq-ito0}
 :::
-Comparing @eq-ito0 to @eq-ordinarycalculus2, we see that Ito's formula has an extra term involving the second derivative $f****$.   
+Comparing @eq-ito0 to @eq-ordinarycalculus2, we see that Ito's formula has an extra term involving the second derivative $f''$.   
 
-@eq-ito0 implies that $Y=f(B)$ is an Ito process with drift $f****(B_t)/2$ and diffusion coefficient $f**(B_t)$.  The real meaning of @eq-ito0 is the integrated form:
+@eq-ito0 implies that $Y=f(B)$ is an Ito process with drift $f''(B_t)/2$ and diffusion coefficient $f'(B_t)$.  The real meaning of @eq-ito0 is the integrated form:
 $$
-Y_t = f(B_t) = Y_0 + \int_0^t f**(B_s)\mathrm{d}   B_s + \frac{1}{2}\int_0^t f****(B_s)\mathrm{d}   s\;.
+Y_t = f(B_t) = Y_0 + \int_0^t f'(B_s)\mathrm{d}   B_s + \frac{1}{2}\int_0^t f''(B_s)\mathrm{d}   s\;.
 $$ {#eq-itonew1}
 Thus, the change in $Y$ over a discrete interval is again the continuous sum of its infinitesimal changes, but now the infinitesimal changes are given by @eq-ito0.  Note that the first integral in @eq-itonew1 is an Ito integral.
 
 To gain some intuition for the extra term in Ito's formula, we return to the ordinary calculus.  Given dates $s<t$, the derivative defines a linear approximation of the change in $y$ from $s$ to $t$; that is, setting $\Delta x = x_t-x_s$ and $\Delta y = y_t - y_s$, we have the approximation
-$$\Delta y \approx f**(x_s) \,\Delta x\; .$$
+$$\Delta y \approx f'(x_s) \,\Delta x\; .$$
 A better approximation is given by the second-order Taylor series expansion
-$$\Delta y \approx f**(x_s)\,\Delta x + \frac{1}{2} f****(x_s)\,(\Delta x)^2\; .$$
-An interpretation of  @eq-ordinarycalculus is that the linear approximation works perfectly for infinitesimal time periods $\mathrm{d}  s$, because we can compute the change in $y$ over the time interval $[0,t]$ by summing up the infinitesimal changes $f**(x_s)\mathrm{d}   x_s$.  In other words, the second-order term $\frac{1}{2} f****(x_s)\,(\Delta x)^2$ vanishes when we consider very short time periods.
+$$\Delta y \approx f'(x_s)\,\Delta x + \frac{1}{2} f''(x_s)\,(\Delta x)^2\; .$$
+An interpretation of  @eq-ordinarycalculus is that the linear approximation works perfectly for infinitesimal time periods $\mathrm{d}  s$, because we can compute the change in $y$ over the time interval $[0,t]$ by summing up the infinitesimal changes $f'(x_s)\mathrm{d}   x_s$.  In other words, the second-order term $\frac{1}{2} f''(x_s)\,(\Delta x)^2$ vanishes when we consider very short time periods.
 
 The second-order Taylor series expansion in the case of $Y=f(B)$ is 
-$$\Delta Y \approx f**(B_s)\,\Delta B + \frac{1}{2} f****(B_s)\,(\Delta B)^2\; .$$
+$$\Delta Y \approx f'(B_s)\,\Delta B + \frac{1}{2} f''(B_s)\,(\Delta B)^2\; .$$
 For example, given a partition $0=t_0 < t_1 < \cdots < t_n=t$ of the time interval $[0,t]$, we have, with the same notation we have used earlier,
 
 $$
 Y_t = Y_0 + \sum_{i=1}^n \Delta Y_{t_i}  
-\approx Y_0 + \sum_{i=1}^n f**(B_{t_{i-1}})\,\Delta B_{t_i} + \frac{1}{2} \sum_{i=1}^n f****(B_{t_{i-1}})\,(\Delta B_{t_i})^2\;.
+\approx Y_0 + \sum_{i=1}^n f'(B_{t_{i-1}})\,\Delta B_{t_i} + \frac{1}{2} \sum_{i=1}^n f''(B_{t_{i-1}})\,(\Delta B_{t_i})^2\;.
 $$ {#eq-itonew2}
 
 
@@ -327,7 +327,7 @@ $$\lim_{n \rightarrow \infty} \sum_{i=1}^n (\Delta B_{t_i})^2 = t\; ,$$
 whereas for the continuously differentiable function $x_t = g(t)$, the same limit is zero.  In fact it seems sensible to interpret the limit of $(\Delta B)^2$ as $(\mathrm{d}  B)^2 =\mathrm{d}  t$.
 This is perfectly consistent with Ito's formula: if we take the limit in @eq-itonew2, replacing the limit of $(\Delta B_{t_i})^2$ with $(\mathrm{d}  B)^2 = \mathrm{d}  t$, we obtain @eq-itonew1.
 
-To see the accuracy of Ito's approximation over different time steps, as well as the impact of the second-derivative term $\int_0^t (1/2)f****(B_s)\mathrm{d} s$, we encourage readers to interact with the plot below.  It examines the function $f(x)=\mathrm{e}^{x}$ (for which we have $f**(x)=\mathrm{e}^x$ and $f****(x) = \mathrm{e}^x$).  It simulates an approximate path of a Brownian motion as we have done before.  It then compares the true value of $\mathrm{e}^{B_{t_i}}$ to the Ito expansion 
+To see the accuracy of Ito's approximation over different time steps, as well as the impact of the second-derivative term $\int_0^t \frac{1}{2}f''(B_s)\mathrm{d} s$, we encourage readers to interact with the plot below.  It examines the function $f(x)=\mathrm{e}^{x}$ (for which we have $f'(x)=\mathrm{e}^x$ and $f''(x) = \mathrm{e}^x$).  It simulates an approximate path of a Brownian motion as we have done before.  It then compares the true value of $\mathrm{e}^{B_{t_i}}$ to the Ito expansion 
 $$\mathrm{e}^{B_t}=1 + \int_0^t \mathrm{e}^{B_s} \mathrm{d} B_s + \frac{1}{2}\int_0^t \mathrm{e}^{B_s} \mathrm{d} s$$
 using the discretization 
 $$\Delta \mathrm{e}^{B_{t_i}}= \mathrm{e}^{B_{t_{i-1}}} \Delta B_{t_i} + \frac{1}{2} \mathrm{e}^{B_{t_{i-1}}} \Delta t \,.$$
@@ -370,7 +370,7 @@ This verifies @eq-ito_discrete_5.
 Now consider the more general case $Y_t = f(t, X_t)$ where $X$ is an Ito process.  As explained before, this means that
 $$\mathrm{d} X_t = \alpha_t\mathrm{d} t + \theta_t \mathrm{d} B_t
 $$ {#eq-itoagain}
-for some stochastic processes $\alpha$ and $\theta$, where $B$ is a standard Brownian motion.  Then, from our previous rules, $(\mathrm{d} X)^2 = \theta^2\mathrm{d} t$.  Ito's formula in this more general case takes the same form as Calculation Rule \ref{ruleito1}, replacing the Brownian motion $B$ with the Ito process $X$.
+for some stochastic processes $\alpha$ and $\theta$, where $B$ is a standard Brownian motion.  Then, from our previous rules, $(\mathrm{d} X)^2 = \theta^2\mathrm{d} t$.  Ito's formula in this more general case takes the same form as @eq-itoagain, replacing the Brownian motion $B$ with the Ito process $X$.
 
 ::: Principle
 
@@ -389,8 +389,7 @@ Here are some important examples of Ito's formula.
 If $Y = X^\alpha$ for a constant $\alpha$, then
 $$\mathrm{d} Y = \alpha X^{\alpha-1}\mathrm{d} X + \frac{1}{2}\alpha (\alpha - 1)X^{\alpha-2}(\mathrm{d} X)^2\,.$$
 This is equivalent to 
-$$\frac{\mathrm{d} Y}{Y} = \alpha \frac{\mathrm{d} X}{X} + \frac{\alpha(\alpha-1)}{2}\left(\frac{\mathrm{d} X}{X}\right)^2\,.
-$$ {#ito-powerformula}
+$$\frac{\mathrm{d} Y}{Y} = \alpha \frac{\mathrm{d} X}{X} + \frac{\alpha(\alpha-1)}{2}\left(\frac{\mathrm{d} X}{X}\right)^2\,.$${#ito-powerformula}
 :::
 
 ::: Rule
@@ -429,7 +428,7 @@ $$\begin{multline}
 
 :::
 
-This is analogous to a second-order Taylor series expansion in the variables $X_1$ and $X_2$.  A similar formula applies to functions of more two Ito processes.  We just need to include a term for each $\mathrm{d} X_i$, each $(\mathrm{d} X_i)^2$ and each $(\mathrm{d} X_i)(\mathrm{d} X_j)$.
+This is analogous to a second-order Taylor series expansion in the variables $X_1$ and $X_2$.  A similar formula applies to functions of more than two Ito processes.  We just need to include a term for each $\mathrm{d} X_i$, each $(\mathrm{d} X_i)^2$ and each $(\mathrm{d} X_i)(\mathrm{d} X_j)$.
 
 Here are some important examples.  We switch notation from $X_1$ and $X_2$ to $X$ and $Y$ and from $Y$ to $Z$ so we can drop the subscripts.  These formulas follow from @eq-itogeneralnew2 by taking $f(x,y)=xy$ or $f(x,y)=y/x$.
 
@@ -461,11 +460,6 @@ This is the same as in the usual calculus.
 
 
 ## Exercises
-
-::: {#exr-ito1}
-Ito's Lemma can be used in different ways to get the same answer.  For example, let $X_t = a t + b B_t$ and use Ito's lemma on the function $e^{X_t}$.  Alternatively, let $f(t, B_t) = e^{a t + bB_t}$.  Use Ito's lemma on $f(,)$.
-::: 
-
 
 ::: {#exr-ito2}
 Let $\mathrm{d} X_t = \mu X_t \mathrm{d} t + \sigma X_t \mathrm{d} B_t$.  Use Ito's lemma to find $\log(X_t)$ .  What is the expected value and variance of $\log(X_t)$ ?
