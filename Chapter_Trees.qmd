@@ -77,17 +77,19 @@ These state prices satisfy:
 - $\pi_u, \pi_d > 0$ (under no-arbitrage condition $S_u/S > \mathrm{e}^{rt} > S_d/S$)
 - $\pi_u \mathrm{e}^{rt} + \pi_d \mathrm{e}^{rt} = 1$
 
-This motivates defining risk-neutral probabilities:
+This motivates defining two numbers $p_u$ and $p_d$:
 
 $$p_u = \pi_u \mathrm{e}^{rt}, \quad p_d = \pi_d \mathrm{e}^{rt}$$
 
-Then:
+Then, we have.
 
 $$C = \mathrm{e}^{-rt}[p_u C_u + p_d C_d]$$
 
-The option value is the discounted expected payoff under the risk-neutral probability measure. Note that:
+Notice that $p_u>0$, $p_d>0$, and $p_u+p_d=1$.  This makes it possible to view $p_u$ and $p_d$ as artificial probabilities.  We make no claim that they represent anyone's beliefs, but they have the mathematical properties of probabilities.  They are universally called the `risk-neutral probabilities.'  The motivation for this terminology is that, as the previous equation shows, option values are discounted `expected values' using these probabilities to compute the expectation.  This is how options would be valued if investors were risk neutral.  We **do not** assume that investors are risk neutral; nevertheless, we can compute option values **as if** investors were risk-neutral, with beliefs represented by the risk-neutral probabilities.
 
+Rather than first calculating the state prices, we can calculate the risk-neutral probabilities directly as
 $$p_u = \frac{\mathrm{e}^{rt} - S_d/S}{S_u/S - S_d/S}$$
+and $p_d = 1-p_u$.
 
 ## Two-Period Model
 

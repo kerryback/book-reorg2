@@ -13,14 +13,14 @@ We will ultimately deal with different means and different variances, but we sta
 - has a zero mean
 - has a variance equal to the length of the time interval.
 
-The last bullet point reflects the fact that things are more uncertain the further into the future we look.^[A formal definition of a Brownian motion would include a specification of the information that we have for predicting the future. The definition given here is correct when the only information is the past history of the Brownian motion.] 
+The last bullet point reflects the fact that things are more uncertain the further into the future we look.^[Underlying this definition is a notion of information flow through time. We will have no need to formalize this concept but loosely speaking, we assume that, at a minimum, at each time $t$ the entire history, or path, up until time $t$ of the Brownian motion is known. Consequently, any function of time and the path of the brownian motion up until $t$ is also known. For example, the maximum of the Brownian motion up until time $t$ is known. However, things after time $t$ are random to the observer at time $t$. Later we will note when this is relevant.] 
 
 ## Brownian Paths
 
 We call a variable that changes randomly over time a stochastic process.  A path of a stochastic process is a random function of time, recording how it evolves over time. 
 We can plot an approximate path of a Brownian motion by summing up normally distributed changes.  We take an interval of time $[0, t]$ and split it up as
-$$0=t_0 < t_1< \cdots < t_{n-1} < t_n=t$$
-where the times $t_i$ are equally spaced, meaning that $t_i-t_{i-1} = t/n$, which we will call $\Delta t$.  We generate $n$ normally distributed random variables with zero mean and variance equal to $\Delta t$ and define the approximate Brownian motion, which we call $B$, as the cumulative sum of the normal variables.  By convention, we start any Brownian motion at $B_0=0$.  Our approximation fits the definition of a standard Brownian motion, except that we have limited the frequency of the changes to $n$ changes within the interval.  By taking $n$ larger, we can always get a better approximation.  An introduction to simulation (also called Monte Carlo analysis) is provided in the appendis (@sec-c:intromontecarlo).  
+$$0=t_0 < t_1< \cdots < t_{n-1} < t_n=t\,,$$
+where the times $t_i$ are equally spaced, meaning that $t_i-t_{i-1} = t/n$, which we will call $\Delta t$.  We generate $n$ normally distributed random variables with zero mean and variance equal to $\Delta t$ and define the approximate Brownian motion, which we call $B$, as the cumulative sum of the normal variables.  By convention, we start any Brownian motion at $B_0=0$.  Our approximation fits the definition of a standard Brownian motion, except that we have limited the frequency of the changes to $n$ changes within the interval.  By taking $n$ larger, we can always get a better approximation.  An introduction to simulation (also called Monte Carlo analysis) is provided in @sec-c:montecarlo.  
 
 
 ```{python}
@@ -65,7 +65,7 @@ fig.show()
 
 ## Binomial Approximation {#sec-s:brownian_binomial}
 
-We can also generate an approximate path of a Brownian motion by taking only up or down steps of a fixed size at each date, rather than using normally distributed steps.  We call this a binomial model.  A binomial model approximates  the normally distributed increments of a Brownian Motion due to the Central Limit Theorem, which says that an appropriately scaled sum of a large number of random variables has approximately a normal distribution.  The binomial approximation is often useful for pricing options, especially American options, as we will see.  An introduction to binomial models is provided in the appendix. (@sec-c:introbinomial).
+We can also generate an approximate path of a Brownian motion by taking only up or down steps of a fixed size at each date, rather than using normally distributed steps.  We call this a binomial model.  A binomial model approximates  the normally distributed increments of a Brownian Motion due to the Central Limit Theorem, which says that an appropriately scaled sum of a large number of random variables has approximately a normal distribution.  The binomial approximation is often useful for pricing options, especially American options, as we will see.  An introduction to binomial models is provided in @sec-c:binomial.
 
 ```{python}
 #| label: fig-binomial-path
@@ -110,9 +110,9 @@ fig.show()
 
 ## Nonzero Quadratic Variation {#sec-s:quadraticvariation}
 
-@fig-brownian-path and @fig-binomial-path illustrate a distinctive characteristic of a Brownian motion: it jiggles rapidly, moving up and down in a very erratic way.  The name Brownian motion derives from the botanist Robert Brown's observations of the erratic behavior of particles suspended in a fluid.  The plot of other functions with which we may be familiar will be much smoother.  This is captured in the concept of quadratic variation.  
+@fig-brownian-path and @fig-binomial-path illustrate a distinctive characteristic of a Brownian motion: it jiggles rapidly, moving up and down in a very erratic way.  The name Brownian motion derives from the botanist Robert Brown's observations of the erratic behavior of particles suspended in a fluid.  The plot of other functions with which we may be familiar will be much smoother.  The concept of quadratic variation captures the difference between Brownian motion paths and smoother functions of time. 
 
-Consider a discrete partition 
+To define quadratic variation, consider a discrete partition 
 $$0=t_0 < t_1 < t_2 < \cdots < t_n=t$$
 of the time interval $[0,t]$ as before.  Let $B$ be a Brownian motion and calculate the sum of squared changes
 $$\sum_{i=1}^n (\Delta B_{t_i})^2\; ,$$
@@ -167,13 +167,13 @@ as $n \rightarrow \infty$.  For example, if $a=1$ and $n=1000$, then the sum of 
 
 ## Infinite Total Variation
 
-To explain exactly how unusual the nonzero quadratic variation is, it is helpful to consider total variation, \index{total variation} which is defined in the same way as quadratic variation but with the squared changes $(\Delta B_{t_i})^2$ replaced by the absolute values of the changes $|\Delta B_{t_i}|.$  A general mathematical theorem states that, if the quadratic variation of a continuous function is nonzero, then its total variation is infinite.  Therefore, each path of a Brownian motion has infinite total variation (with probability one).  This means that, to draw a true path of a Brownian motion on a blackboard, we would need an infinite amount of chalk!
+To explain exactly how unusual the nonzero quadratic variation is, it is helpful to consider total variation, \index{total variation} which is defined in the same way as quadratic variation but with the squared changes $(\Delta B_{t_i})^2$ replaced by the absolute values of the changes $|\Delta B_{t_i}|.$  A general mathematical theorem states that, if the quadratic variation of a continuous function is nonzero, then its total variation is infinite.  Therefore, each path of a Brownian motion has infinite total variation (with probability one).  This means that, to draw a true path of a Brownian motion on a blackboard, however short, we would need an infinite amount of chalk!
 
 If we zoom in close enough in @fig-brownian-path, we can see the linear steps $\Delta B$.  However, if we could zoom in on a segment of a path of a true Brownian motion, it would look much the same as the entire picture does to the naked eye---no matter how small the segment, we would still see the characteristic jiggling.  That jiggling, even at microscopic scales, is the source of the infinite variation.
 
 ## Continuous Martingales and Levy's Theorem
 
-One may well question why we should be interested in this curious mathematical object.  The reason is that asset pricing inherently involves martingales (variables that evolve randomly over time in such a way that their expected changes are always zero), as our fundamental pricing formula (@eq-formula) establishes.  Furthermore, continuous processes (variables whose paths are continuous functions of time) are much more tractable mathematically than are processes that can jump at some instants.   So, we are led to a study of continuous martingales.  An important fact is that any non-constant continuous martingale must have infinite total variation.  So, the normal functions with which we are familiar are left behind once we enter the study of continuous martingales.  
+One may well question why we should be interested in this curious mathematical object.  The reason is that, as we will see in subsequent chapters, asset pricing inherently involves martingales (variables that evolve randomly over time in such a way that their expected changes are always zero).  Furthermore, continuous processes (variables whose paths are continuous functions of time) are much more tractable mathematically than are processes that can jump at some instants.   So, we are led to a study of continuous martingales.  An important fact is that any non-constant continuous martingale must have infinite total variation.  So, the normal functions with which we are familiar are left behind once we enter the study of continuous martingales.  
 
 There remains perhaps the question of why we focus on Brownian motion within the world of continuous martingales.  The answer here is that any continuous martingale is really just a transformation of a Brownian motion.  This is a consequence of the following important fact, which is known as Levy's theorem: \index{Levy's theorem}
 

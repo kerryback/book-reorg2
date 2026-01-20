@@ -132,44 +132,37 @@ div.csl-indent {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <script type="text/javascript">
-
 window.PlotlyConfig = {MathJaxConfig: 'local'};
-
 if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-
 if (typeof require !== 'undefined') {
-
 require.undef("plotly");
-
 requirejs.config({
-
     paths: {
-
         'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
-
     }
-
 });
-
 require(['plotly'], function(Plotly) {
-
     window._Plotly = Plotly;
-
 });
-
 }
-
 </script>
-
-
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
+div.callout-Extra.callout {
+  border-left-color: #a1bced;
+}
+div.callout-Extra.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
+}
+div.callout-Extra .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f48b';
+  background-image: none;
+}
 div.callout-Example.callout {
   border-left-color: #a1bced;
 }
@@ -180,18 +173,6 @@ div.callout-Example .callout-toggle::before {  background-image: url('data:image
 div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f185';
-  background-image: none;
-}
-div.callout-Principle.callout {
-  border-left-color: #eb4034;
-}
-div.callout-Principle.callout-style-default > .callout-header {
-  background-color: rgba(235, 64, 52, 0.13);
-}
-div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f06a';
   background-image: none;
 }
 div.callout-Rule.callout {
@@ -206,16 +187,16 @@ div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.c
   content: '\f164';
   background-image: none;
 }
-div.callout-Extra.callout {
-  border-left-color: #a1bced;
+div.callout-Principle.callout {
+  border-left-color: #eb4034;
 }
-div.callout-Extra.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
+div.callout-Principle.callout-style-default > .callout-header {
+  background-color: rgba(235, 64, 52, 0.13);
 }
-div.callout-Extra .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
+div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
-  content: '\f48b';
+  content: '\f06a';
   background-image: none;
 }
 </style>
@@ -459,7 +440,7 @@ window.Quarto = {
 </header>
 
 
-<div id="faf00fe0" class="cell" data-execution_count="1">
+<div id="adae7f75" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
@@ -505,12 +486,12 @@ Example
 <p>where the state prices are:</p>
 <p><span class="math display">\[\pi_u = \frac{S - \mathrm{e}^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{\mathrm{e}^{-rt}S_u - S}{S_u - S_d}\]</span></p>
 <p>These state prices satisfy: - <span class="math inline">\(\pi_u, \pi_d &gt; 0\)</span> (under no-arbitrage condition <span class="math inline">\(S_u/S &gt; \mathrm{e}^{rt} &gt; S_d/S\)</span>) - <span class="math inline">\(\pi_u \mathrm{e}^{rt} + \pi_d \mathrm{e}^{rt} = 1\)</span></p>
-<p>This motivates defining risk-neutral probabilities:</p>
+<p>This motivates defining two numbers <span class="math inline">\(p_u\)</span> and <span class="math inline">\(p_d\)</span>:</p>
 <p><span class="math display">\[p_u = \pi_u \mathrm{e}^{rt}, \quad p_d = \pi_d \mathrm{e}^{rt}\]</span></p>
-<p>Then:</p>
+<p>Then, we have.</p>
 <p><span class="math display">\[C = \mathrm{e}^{-rt}[p_u C_u + p_d C_d]\]</span></p>
-<p>The option value is the discounted expected payoff under the risk-neutral probability measure. Note that:</p>
-<p><span class="math display">\[p_u = \frac{\mathrm{e}^{rt} - S_d/S}{S_u/S - S_d/S}\]</span></p>
+<p>Notice that <span class="math inline">\(p_u&gt;0\)</span>, <span class="math inline">\(p_d&gt;0\)</span>, and <span class="math inline">\(p_u+p_d=1\)</span>. This makes it possible to view <span class="math inline">\(p_u\)</span> and <span class="math inline">\(p_d\)</span> as artificial probabilities. We make no claim that they represent anyone’s beliefs, but they have the mathematical properties of probabilities. They are universally called the <code>risk-neutral probabilities.'  The motivation for this terminology is that, as the previous equation shows, option values are discounted</code>expected values’ using these probabilities to compute the expectation. This is how options would be valued if investors were risk neutral. We <strong>do not</strong> assume that investors are risk neutral; nevertheless, we can compute option values <strong>as if</strong> investors were risk-neutral, with beliefs represented by the risk-neutral probabilities.</p>
+<p>Rather than first calculating the state prices, we can calculate the risk-neutral probabilities directly as <span class="math display">\[p_u = \frac{\mathrm{e}^{rt} - S_d/S}{S_u/S - S_d/S}\]</span> and <span class="math inline">\(p_d = 1-p_u\)</span>.</p>
 </section>
 </section>
 <section id="two-period-model" class="level2" data-number="4.2">
@@ -529,7 +510,7 @@ Example
 <p><strong>Step 3: Initial Period (t = 0)</strong> Finally, calculate today’s option value: <span class="math display">\[C_0 = e^{-r\Delta t}[p \cdot C_u + (1-p) \cdot C_d]\]</span></p>
 <p><strong>For American Options:</strong> At each intermediate node, compare continuation value with immediate exercise: - Up node: <span class="math inline">\(C_u = \max(\text{continuation value}, \max(0, uS - K))\)</span> - Down node: <span class="math inline">\(C_d = \max(\text{continuation value}, \max(0, dS - K))\)</span></p>
 <p>This backward induction process automatically finds the optimal exercise strategy by comparing holding vs.&nbsp;exercising at each node.</p>
-<div id="1a495452" class="cell" data-execution_count="2">
+<div id="b33b1c6d" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -769,7 +750,7 @@ Figure&nbsp;4.2: <strong>Interactive Binomial Tree Explorer.</strong> This tool 
 <section id="backward-induction-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="backward-induction-implementation">Backward Induction Implementation</h4>
 <p>For American options especially, we must use backward induction. Here’s the streamlined version for practical use:</p>
-<div id="790f9b7d" class="cell" data-execution_count="4">
+<div id="19ed2c58" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binomial_american_fast(S0, K, r, sigma, T, N, option_type<span class="op">=</span><span class="st">'put'</span>):</span>
