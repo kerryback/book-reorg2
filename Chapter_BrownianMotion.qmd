@@ -13,7 +13,7 @@ We will ultimately deal with different means and different variances, but we sta
 - has a zero mean
 - has a variance equal to the length of the time interval.
 
-The last bullet point reflects the fact that things are more uncertain the further into the future we look.^[Underlying this definition is a notion of information flow through time. We will have no need to formalize this concept but loosely speaking, we assume that, at a minimum, at each time $t$ the entire history, or path, up until time $t$ of the Brownian motion is known. Consequently, any function of time and the path of the brownian motion up until $t$ is also known. For example, the maximum of the Brownian motion up until time $t$ is known. However, things after time $t$ are random to the observer at time $t$. Later we will note when this is relevant.] 
+The last bullet point reflects the fact that things are more uncertain the further into the future we look.^[Underlying this definition is a notion of information flow through time. We will have no need to formalize this concept but loosely speaking, we assume that, at a minimum, at each time $t$ the entire history, or path, up until time $t$ of the Brownian motion is known. Consequently, any function of time and the path of the Brownian motion up until $t$ is also known. For example, the maximum of the Brownian motion up until time $t$ is known. However, things after time $t$ are random to the observer at time $t$. Later we will note when this is relevant.] 
 
 ## Brownian Paths
 
