@@ -169,7 +169,7 @@ fig.show()
 
 The functions and processes $X$ defined in this section have important interpretations.  @eq-ito_discrete_1 can be rewritten to say that the percent change in $X$ is $\mu \Delta t$.  This could represent the value of a savings account that earns interest of $\mu \Delta t$ in each period of length $\Delta t$.  This is the common way of calculating, for example, monthly interest, where $\mu$ is called the annual rate of interest and $\Delta t$ would be $1/12$.  
 
-Similarly, @eq-ito_discrete_4 can be rewritten to say that the percent change in $X$ is $\mu \Delta t + \sigma \Delta B$.  This represents a random rate of return -- for example, the return of a stock.  The expected rate of return in this case is $\mu \Delta t$, and the variance of the rate of return is $\sigma^2 \Delta t$.  The limiting @eq-ito_discrete_3 is called continuous compounding of returns.
+Similarly, @eq-ito_discrete_4 can be rewritten to say that the percent change in $X$ is $\mu \Delta t + \sigma \Delta B$.  This represents a random rate of return -- for example, the return of a stock.  The expected rate of return in this case is $\mu \Delta t$, and the variance of the rate of return is $\sigma^2 \Delta t$.  
 
 
 
