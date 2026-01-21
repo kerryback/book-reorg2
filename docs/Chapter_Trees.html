@@ -163,16 +163,16 @@ div.callout-Principle.callout-style-default .callout-icon::before, div.callout-P
   content: '\f06a';
   background-image: none;
 }
-div.callout-Rule.callout {
-  border-left-color: #12801f;
+div.callout-Example.callout {
+  border-left-color: #a1bced;
 }
-div.callout-Rule.callout-style-default > .callout-header {
-  background-color: rgba(18, 128, 31, 0.13);
+div.callout-Example.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
 }
-div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
+div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
-  content: '\f164';
+  content: '\f185';
   background-image: none;
 }
 div.callout-Extra.callout {
@@ -187,16 +187,16 @@ div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra
   content: '\f48b';
   background-image: none;
 }
-div.callout-Example.callout {
-  border-left-color: #a1bced;
+div.callout-Rule.callout {
+  border-left-color: #12801f;
 }
-div.callout-Example.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
+div.callout-Rule.callout-style-default > .callout-header {
+  background-color: rgba(18, 128, 31, 0.13);
 }
-div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
+div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
-  content: '\f185';
+  content: '\f164';
   background-image: none;
 }
 </style>
@@ -440,7 +440,7 @@ window.Quarto = {
 </header>
 
 
-<div id="c14a1f5a" class="cell" data-execution_count="1">
+<div id="72b80130" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
@@ -492,7 +492,7 @@ Example
 <p>Define</p>
 <p><span class="math display">\[\pi_u = \frac{S - \mathrm{e}^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{\mathrm{e}^{-rt}S_u - S}{S_u - S_d}\,.\]</span></p>
 <p>We can rearrange <a href="#eq-oneperiodcall" class="quarto-xref">Equation&nbsp;<span>4.2</span></a> to obtain <span id="eq-oneperiodstateprices1"><span class="math display">\[C = \pi_u C_u + \pi_d C_d\,. \qquad(4.3)\]</span></span> We can also confirm by simple algebra that <span id="eq-oneperiodstateprices2"><span class="math display">\[S = \pi_u S_u + \pi_d S_d \qquad(4.4)\]</span></span> and <span id="eq-oneperiodstateprices3"><span class="math display">\[1 = \pi_u \mathrm{e}^{rt} + \pi_d \mathrm{e}^{rt}\,. \qquad(4.5)\]</span></span></p>
-<p>It is useful to envision hypothetical securities that pay $1 in a single state and 0 in the other. We can regard <span class="math inline">\(\pi_u\)</span> as the price of the up security and <span class="math inline">\(\pi_d\)</span> as the price of the down security.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We call them <strong>state prices.</strong> <a href="#eq-oneperiodstateprices1" class="quarto-xref">Equation&nbsp;<span>4.3</span></a>–<a href="#eq-oneperiodstateprices3" class="quarto-xref">Equation&nbsp;<span>4.5</span></a> show that we can value each of the actual assets—the call option, the underlying asset, and the risk-free asset—can be valued as a portfolio, breaking the asset down into a payoff in the up state and a payoff in the down state and pricing the payoffs using the state prices. Our no-arbitrage condition <span class="math inline">\(S_u/S &gt; \mathrm{e}^{rt} &gt; S_d/S\)</span> implies that the state prices are positive—it costs something today to get something in the future.</p>
+<p>It is useful to envision hypothetical securities that pay $1 in a single state and 0 in the other. We can regard <span class="math inline">\(\pi_u\)</span> as the price of the up security and <span class="math inline">\(\pi_d\)</span> as the price of the down security.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We call them <strong>state prices.</strong> <a href="#eq-oneperiodstateprices1" class="quarto-xref">Equation&nbsp;<span>4.3</span></a>–<a href="#eq-oneperiodstateprices3" class="quarto-xref">Equation&nbsp;<span>4.5</span></a> show that we can value each of the actual assets—the call option, the underlying asset, and the risk-free asset—as a portfolio, breaking the asset down into a payoff in the up state and a payoff in the down state and pricing the payoffs using the state prices. Our no-arbitrage condition <span class="math inline">\(S_u/S &gt; \mathrm{e}^{rt} &gt; S_d/S\)</span> implies that the state prices are positive—it costs something today to get something in the future.</p>
 </section>
 <section id="risk-neutral-pricing" class="level4">
 <h4 class="anchored" data-anchor-id="risk-neutral-pricing">Risk-Neutral Pricing</h4>
@@ -529,7 +529,7 @@ Example
 <p><strong>Step 3: Initial Period (t = 0)</strong> Finally, calculate today’s option value: <span class="math display">\[C_0 = e^{-r\Delta t}[p \cdot C_u + (1-p) \cdot C_d]\]</span></p>
 <p><strong>For American Options:</strong> At each intermediate node, compare the continuation value with immediate exercise: - Up node: <span class="math inline">\(C_u = \max(\text{continuation value}, \max(0, uS - K))\)</span> - Down node: <span class="math inline">\(C_d = \max(\text{continuation value}, \max(0, dS - K))\)</span></p>
 <p>This backward induction process automatically finds the optimal exercise strategy by comparing holding versus exercising at each node. The following code is a somewhat inefficient implementation in which the backward induction process should be transparent. We will later accelerate it by vectorizing.</p>
-<div id="8cc1f363" class="cell" data-execution_count="2">
+<div id="41d9779b" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -769,7 +769,7 @@ Figure&nbsp;4.2: <strong>Interactive Binomial Tree Explorer.</strong> This tool 
 <section id="backward-induction-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="backward-induction-implementation">Backward Induction Implementation</h4>
 <p>For American options especially, we must use backward induction. Here’s the streamlined version for practical use:</p>
-<div id="520270fc" class="cell" data-execution_count="4">
+<div id="d90da441" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binomial_american_fast(S0, K, r, sigma, T, N, option_type<span class="op">=</span><span class="st">'put'</span>):</span>
