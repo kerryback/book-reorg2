@@ -35,18 +35,18 @@ $$\delta = \frac{C_u - C_d}{S_u - S_d}$$ {#eq-oneperioddelta}
 
 and consider buying $\delta$ shares of the stock and borrowing an amount $B$ at the risk-free rate. The portfolio value at maturity will be $\delta S_u - B e^{rt}$ in the up state and $\delta S_d - B e^{rt}$ in the down state.
 For replication, we need these to equal the option payoff:
-$$\delta S_u - B e^{rt} = C_u$$
-$$\delta S_d - B e^{rt} = C_d$$
+$$\delta S_u - B e^{rt} = C_u\,,$$
+$$\delta S_d - B e^{rt} = C_d\,.$$
 
 Subtracting the second equation from the first gives
-$$\delta(S_u - S_d) = C_u - C_d$$
+$$\delta(S_u - S_d) = C_u - C_d\,.$$
 
 This is the same as our delta formula @eq-oneperioddelta. We can solve for the amount to borrow:
 
-$$B = e^{-rt}(\delta S_u - C_u) = e^{-rt}(\delta S_d - C_d)$$
+$$B = e^{-rt}(\delta S_u - C_u) = e^{-rt}(\delta S_d - C_d)\,.$$
 
 The initial cost of this replicating portfolio is:
-$$\text{Portfolio Cost} = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)$$
+$$\text{Portfolio Cost} = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)\,.$$
 
 If the portfolio were cheaper than the call option, then there would be an arbitrage opportunity---buy the portfolio and sell the call.  The reverse trade would be an arbitrage if the portfolio were more expensive than the call option.  Therefore, the assumption that there are no arbitrage opportunities implies that the call option must trade for $C$ defined as 
 
@@ -68,7 +68,7 @@ Suppose $S = 100$, $S_u = 110$, $S_d = 90$, $K = 105$, $r = 0.05$, $t = 1$. Then
 
 Define
 
-$$\pi_u = \frac{S - \mathrm{e}^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{\mathrm{e}^{-rt}S_u - S}{S_u - S_d}$$
+$$\pi_u = \frac{S - \mathrm{e}^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{\mathrm{e}^{-rt}S_u - S}{S_u - S_d}\,.$$
 
 We can rearrange @eq-oneperiodcall to obtain 
 $$C = \pi_u C_u + \pi_d C_d\,.$$ {#eq-oneperiodstateprices1}

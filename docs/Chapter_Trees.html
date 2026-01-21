@@ -151,16 +151,16 @@ require(['plotly'], function(Plotly) {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
-div.callout-Example.callout {
-  border-left-color: #a1bced;
+div.callout-Principle.callout {
+  border-left-color: #eb4034;
 }
-div.callout-Example.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
+div.callout-Principle.callout-style-default > .callout-header {
+  background-color: rgba(235, 64, 52, 0.13);
 }
-div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
+div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
-  content: '\f185';
+  content: '\f06a';
   background-image: none;
 }
 div.callout-Rule.callout {
@@ -175,18 +175,6 @@ div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.c
   content: '\f164';
   background-image: none;
 }
-div.callout-Principle.callout {
-  border-left-color: #eb4034;
-}
-div.callout-Principle.callout-style-default > .callout-header {
-  background-color: rgba(235, 64, 52, 0.13);
-}
-div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f06a';
-  background-image: none;
-}
 div.callout-Extra.callout {
   border-left-color: #a1bced;
 }
@@ -197,6 +185,18 @@ div.callout-Extra .callout-toggle::before {  background-image: url('data:image/s
 div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f48b';
+  background-image: none;
+}
+div.callout-Example.callout {
+  border-left-color: #a1bced;
+}
+div.callout-Example.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
+}
+div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f185';
   background-image: none;
 }
 </style>
@@ -440,7 +440,7 @@ window.Quarto = {
 </header>
 
 
-<div id="6675c08e" class="cell" data-execution_count="1">
+<div id="c14a1f5a" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
@@ -455,11 +455,11 @@ window.Quarto = {
 <p>Consider a European call option with strike <span class="math inline">\(K\)</span> and maturity <span class="math inline">\(t\)</span>. Its payoff will be <span class="math inline">\(C_u = \max(0, S_u - K)\)</span> in the up state and <span class="math inline">\(C_d = \max(0, S_d - K)\)</span> in the down state. A key insight is that we can replicate the option payoff in this simple model using a portfolio of the stock and risk-free asset. This insight extends to more realistic models, as we will see later.</p>
 <p>Define</p>
 <p><span id="eq-oneperioddelta"><span class="math display">\[\delta = \frac{C_u - C_d}{S_u - S_d} \qquad(4.1)\]</span></span></p>
-<p>and consider buying <span class="math inline">\(\delta\)</span> shares of the stock and borrowing an amount <span class="math inline">\(B\)</span> at the risk-free rate. The portfolio value at maturity will be <span class="math inline">\(\delta S_u - B e^{rt}\)</span> in the up state and <span class="math inline">\(\delta S_d - B e^{rt}\)</span> in the down state. For replication, we need these to equal the option payoff: <span class="math display">\[\delta S_u - B e^{rt} = C_u\]</span> <span class="math display">\[\delta S_d - B e^{rt} = C_d\]</span></p>
-<p>Subtracting the second equation from the first gives <span class="math display">\[\delta(S_u - S_d) = C_u - C_d\]</span></p>
+<p>and consider buying <span class="math inline">\(\delta\)</span> shares of the stock and borrowing an amount <span class="math inline">\(B\)</span> at the risk-free rate. The portfolio value at maturity will be <span class="math inline">\(\delta S_u - B e^{rt}\)</span> in the up state and <span class="math inline">\(\delta S_d - B e^{rt}\)</span> in the down state. For replication, we need these to equal the option payoff: <span class="math display">\[\delta S_u - B e^{rt} = C_u\,,\]</span> <span class="math display">\[\delta S_d - B e^{rt} = C_d\,.\]</span></p>
+<p>Subtracting the second equation from the first gives <span class="math display">\[\delta(S_u - S_d) = C_u - C_d\,.\]</span></p>
 <p>This is the same as our delta formula <a href="#eq-oneperioddelta" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>. We can solve for the amount to borrow:</p>
-<p><span class="math display">\[B = e^{-rt}(\delta S_u - C_u) = e^{-rt}(\delta S_d - C_d)\]</span></p>
-<p>The initial cost of this replicating portfolio is: <span class="math display">\[\text{Portfolio Cost} = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)\]</span></p>
+<p><span class="math display">\[B = e^{-rt}(\delta S_u - C_u) = e^{-rt}(\delta S_d - C_d)\,.\]</span></p>
+<p>The initial cost of this replicating portfolio is: <span class="math display">\[\text{Portfolio Cost} = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)\,.\]</span></p>
 <p>If the portfolio were cheaper than the call option, then there would be an arbitrage opportunity—buy the portfolio and sell the call. The reverse trade would be an arbitrage if the portfolio were more expensive than the call option. Therefore, the assumption that there are no arbitrage opportunities implies that the call option must trade for <span class="math inline">\(C\)</span> defined as</p>
 <p><span id="eq-oneperiodcall"><span class="math display">\[C = \delta S - e^{-rt}(\delta S_u - C_u)\,. \qquad(4.2)\]</span></span></p>
 <div class="callout callout-style-simple callout-Example callout-titled">
@@ -490,7 +490,7 @@ Example
 <section id="state-prices" class="level4">
 <h4 class="anchored" data-anchor-id="state-prices">State Prices</h4>
 <p>Define</p>
-<p><span class="math display">\[\pi_u = \frac{S - \mathrm{e}^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{\mathrm{e}^{-rt}S_u - S}{S_u - S_d}\]</span></p>
+<p><span class="math display">\[\pi_u = \frac{S - \mathrm{e}^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{\mathrm{e}^{-rt}S_u - S}{S_u - S_d}\,.\]</span></p>
 <p>We can rearrange <a href="#eq-oneperiodcall" class="quarto-xref">Equation&nbsp;<span>4.2</span></a> to obtain <span id="eq-oneperiodstateprices1"><span class="math display">\[C = \pi_u C_u + \pi_d C_d\,. \qquad(4.3)\]</span></span> We can also confirm by simple algebra that <span id="eq-oneperiodstateprices2"><span class="math display">\[S = \pi_u S_u + \pi_d S_d \qquad(4.4)\]</span></span> and <span id="eq-oneperiodstateprices3"><span class="math display">\[1 = \pi_u \mathrm{e}^{rt} + \pi_d \mathrm{e}^{rt}\,. \qquad(4.5)\]</span></span></p>
 <p>It is useful to envision hypothetical securities that pay $1 in a single state and 0 in the other. We can regard <span class="math inline">\(\pi_u\)</span> as the price of the up security and <span class="math inline">\(\pi_d\)</span> as the price of the down security.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We call them <strong>state prices.</strong> <a href="#eq-oneperiodstateprices1" class="quarto-xref">Equation&nbsp;<span>4.3</span></a>–<a href="#eq-oneperiodstateprices3" class="quarto-xref">Equation&nbsp;<span>4.5</span></a> show that we can value each of the actual assets—the call option, the underlying asset, and the risk-free asset—can be valued as a portfolio, breaking the asset down into a payoff in the up state and a payoff in the down state and pricing the payoffs using the state prices. Our no-arbitrage condition <span class="math inline">\(S_u/S &gt; \mathrm{e}^{rt} &gt; S_d/S\)</span> implies that the state prices are positive—it costs something today to get something in the future.</p>
 </section>
@@ -529,7 +529,7 @@ Example
 <p><strong>Step 3: Initial Period (t = 0)</strong> Finally, calculate today’s option value: <span class="math display">\[C_0 = e^{-r\Delta t}[p \cdot C_u + (1-p) \cdot C_d]\]</span></p>
 <p><strong>For American Options:</strong> At each intermediate node, compare the continuation value with immediate exercise: - Up node: <span class="math inline">\(C_u = \max(\text{continuation value}, \max(0, uS - K))\)</span> - Down node: <span class="math inline">\(C_d = \max(\text{continuation value}, \max(0, dS - K))\)</span></p>
 <p>This backward induction process automatically finds the optimal exercise strategy by comparing holding versus exercising at each node. The following code is a somewhat inefficient implementation in which the backward induction process should be transparent. We will later accelerate it by vectorizing.</p>
-<div id="bbe03f22" class="cell" data-execution_count="2">
+<div id="8cc1f363" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -769,7 +769,7 @@ Figure&nbsp;4.2: <strong>Interactive Binomial Tree Explorer.</strong> This tool 
 <section id="backward-induction-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="backward-induction-implementation">Backward Induction Implementation</h4>
 <p>For American options especially, we must use backward induction. Here’s the streamlined version for practical use:</p>
-<div id="8f898f50" class="cell" data-execution_count="4">
+<div id="520270fc" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binomial_american_fast(S0, K, r, sigma, T, N, option_type<span class="op">=</span><span class="st">'put'</span>):</span>
