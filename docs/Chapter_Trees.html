@@ -151,18 +151,6 @@ require(['plotly'], function(Plotly) {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
-div.callout-Rule.callout {
-  border-left-color: #12801f;
-}
-div.callout-Rule.callout-style-default > .callout-header {
-  background-color: rgba(18, 128, 31, 0.13);
-}
-div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f164';
-  background-image: none;
-}
 div.callout-Example.callout {
   border-left-color: #a1bced;
 }
@@ -175,16 +163,16 @@ div.callout-Example.callout-style-default .callout-icon::before, div.callout-Exa
   content: '\f185';
   background-image: none;
 }
-div.callout-Extra.callout {
-  border-left-color: #a1bced;
+div.callout-Rule.callout {
+  border-left-color: #12801f;
 }
-div.callout-Extra.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
+div.callout-Rule.callout-style-default > .callout-header {
+  background-color: rgba(18, 128, 31, 0.13);
 }
-div.callout-Extra .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
+div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
-  content: '\f48b';
+  content: '\f164';
   background-image: none;
 }
 div.callout-Principle.callout {
@@ -197,6 +185,18 @@ div.callout-Principle .callout-toggle::before {  background-image: url('data:ima
 div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f06a';
+  background-image: none;
+}
+div.callout-Extra.callout {
+  border-left-color: #a1bced;
+}
+div.callout-Extra.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
+}
+div.callout-Extra .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f48b';
   background-image: none;
 }
 </style>
@@ -440,7 +440,7 @@ window.Quarto = {
 </header>
 
 
-<div id="c7488199" class="cell" data-execution_count="1">
+<div id="6675c08e" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
@@ -455,18 +455,13 @@ window.Quarto = {
 <p>Consider a European call option with strike <span class="math inline">\(K\)</span> and maturity <span class="math inline">\(t\)</span>. Its payoff will be <span class="math inline">\(C_u = \max(0, S_u - K)\)</span> in the up state and <span class="math inline">\(C_d = \max(0, S_d - K)\)</span> in the down state. A key insight is that we can replicate the option payoff in this simple model using a portfolio of the stock and risk-free asset. This insight extends to more realistic models, as we will see later.</p>
 <p>Define</p>
 <p><span id="eq-oneperioddelta"><span class="math display">\[\delta = \frac{C_u - C_d}{S_u - S_d} \qquad(4.1)\]</span></span></p>
-<p>and consider buying <span class="math inline">\(\delta\)</span> shares of the stock and borrowing an amount <span class="math inline">\(B\)</span> at the risk-free rate. The portfolio value at maturity will be:</p>
-<ul>
-<li>Up state: <span class="math inline">\(\delta S_u - B e^{rt}\)</span></li>
-<li>Down state: <span class="math inline">\(\delta S_d - B e^{rt}\)</span></li>
-</ul>
-<p>For replication, we need these to equal the option payoff: <span class="math display">\[\delta S_u - B e^{rt} = C_u\]</span> <span class="math display">\[\delta S_d - B e^{rt} = C_d\]</span></p>
-<p>Subtracting the second equation from the first: <span class="math display">\[\delta(S_u - S_d) = C_u - C_d\]</span></p>
-<p>This gives us our delta formula <a href="#eq-oneperioddelta" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>. We can solve for the amount to borrow:</p>
+<p>and consider buying <span class="math inline">\(\delta\)</span> shares of the stock and borrowing an amount <span class="math inline">\(B\)</span> at the risk-free rate. The portfolio value at maturity will be <span class="math inline">\(\delta S_u - B e^{rt}\)</span> in the up state and <span class="math inline">\(\delta S_d - B e^{rt}\)</span> in the down state. For replication, we need these to equal the option payoff: <span class="math display">\[\delta S_u - B e^{rt} = C_u\]</span> <span class="math display">\[\delta S_d - B e^{rt} = C_d\]</span></p>
+<p>Subtracting the second equation from the first gives <span class="math display">\[\delta(S_u - S_d) = C_u - C_d\]</span></p>
+<p>This is the same as our delta formula <a href="#eq-oneperioddelta" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>. We can solve for the amount to borrow:</p>
 <p><span class="math display">\[B = e^{-rt}(\delta S_u - C_u) = e^{-rt}(\delta S_d - C_d)\]</span></p>
 <p>The initial cost of this replicating portfolio is: <span class="math display">\[\text{Portfolio Cost} = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)\]</span></p>
 <p>If the portfolio were cheaper than the call option, then there would be an arbitrage opportunity—buy the portfolio and sell the call. The reverse trade would be an arbitrage if the portfolio were more expensive than the call option. Therefore, the assumption that there are no arbitrage opportunities implies that the call option must trade for <span class="math inline">\(C\)</span> defined as</p>
-<p><span id="eq-oneperiodcall"><span class="math display">\[C = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)\,. \qquad(4.2)\]</span></span></p>
+<p><span id="eq-oneperiodcall"><span class="math display">\[C = \delta S - e^{-rt}(\delta S_u - C_u)\,. \qquad(4.2)\]</span></span></p>
 <div class="callout callout-style-simple callout-Example callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -479,9 +474,15 @@ Example
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Suppose <span class="math inline">\(S = 100\)</span>, <span class="math inline">\(S_u = 110\)</span>, <span class="math inline">\(S_d = 90\)</span>, <span class="math inline">\(K = 105\)</span>, <span class="math inline">\(r = 0.05\)</span>, <span class="math inline">\(t = 1\)</span>. Then: - <span class="math inline">\(C_u = \max(0, 110 - 105) = 5\)</span> - <span class="math inline">\(C_d = \max(0, 90 - 105) = 0\)</span> - <span class="math inline">\(\delta = \frac{5 - 0}{110 - 90} = 0.25\)</span> - <span class="math inline">\(B = e^{-0.05}(0.25 \times 110 - 5) = e^{-0.05} \times 22.5 \approx 21.43\)</span> - Option price <span class="math inline">\(= 0.25 \times 100 - 21.43 = 3.57\)</span></p>
-<p><strong>Verification:</strong> In the up state, the portfolio is worth <span class="math inline">\(0.25 \times 110 - 22.5 = 5\)</span>, matching <span class="math inline">\(C_u\)</span>. In the down state, it’s worth <span class="math inline">\(0.25 \times 90 - 22.5 = 0\)</span>, matching <span class="math inline">\(C_d\)</span>.</p>
-<p>This delta hedging shows that by holding 0.25 shares and borrowing $21.43, we can perfectly replicate the option payoff.</p>
+<p>Suppose <span class="math inline">\(S = 100\)</span>, <span class="math inline">\(S_u = 110\)</span>, <span class="math inline">\(S_d = 90\)</span>, <span class="math inline">\(K = 105\)</span>, <span class="math inline">\(r = 0.05\)</span>, <span class="math inline">\(t = 1\)</span>. Then:</p>
+<ul>
+<li><span class="math inline">\(C_u = \max(0, 110 - 105) = 5\)</span></li>
+<li><span class="math inline">\(C_d = \max(0, 90 - 105) = 0\)</span></li>
+<li><span class="math inline">\(\delta = \frac{5 - 0}{110 - 90} = 0.25\)</span></li>
+<li><span class="math inline">\(B = e^{-0.05}(0.25 \times 110 - 5) = e^{-0.05} \times 22.5 \approx 21.43\)</span></li>
+<li>Option price <span class="math inline">\(= 0.25 \times 100 - 21.43 = 3.57\)</span></li>
+</ul>
+<p><strong>Verification:</strong> In the up state, the portfolio is worth <span class="math inline">\(0.25 \times 110 - 22.5 = 5\)</span>, matching <span class="math inline">\(C_u\)</span>. In the down state, it’s worth <span class="math inline">\(0.25 \times 90 - 22.5 = 0\)</span>, matching <span class="math inline">\(C_d\)</span>. Thus, by buying 0.25 shares and borrowing $21.43, we can perfectly replicate the option payoff.</p>
 </div>
 </div>
 </div>
@@ -528,7 +529,7 @@ Example
 <p><strong>Step 3: Initial Period (t = 0)</strong> Finally, calculate today’s option value: <span class="math display">\[C_0 = e^{-r\Delta t}[p \cdot C_u + (1-p) \cdot C_d]\]</span></p>
 <p><strong>For American Options:</strong> At each intermediate node, compare the continuation value with immediate exercise: - Up node: <span class="math inline">\(C_u = \max(\text{continuation value}, \max(0, uS - K))\)</span> - Down node: <span class="math inline">\(C_d = \max(\text{continuation value}, \max(0, dS - K))\)</span></p>
 <p>This backward induction process automatically finds the optimal exercise strategy by comparing holding versus exercising at each node. The following code is a somewhat inefficient implementation in which the backward induction process should be transparent. We will later accelerate it by vectorizing.</p>
-<div id="6e230f43" class="cell" data-execution_count="2">
+<div id="bbe03f22" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -768,7 +769,7 @@ Figure&nbsp;4.2: <strong>Interactive Binomial Tree Explorer.</strong> This tool 
 <section id="backward-induction-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="backward-induction-implementation">Backward Induction Implementation</h4>
 <p>For American options especially, we must use backward induction. Here’s the streamlined version for practical use:</p>
-<div id="3b33c4c2" class="cell" data-execution_count="4">
+<div id="8f898f50" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binomial_american_fast(S0, K, r, sigma, T, N, option_type<span class="op">=</span><span class="st">'put'</span>):</span>

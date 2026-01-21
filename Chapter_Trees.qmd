@@ -33,19 +33,15 @@ Define
 
 $$\delta = \frac{C_u - C_d}{S_u - S_d}$$ {#eq-oneperioddelta}
 
-and consider buying $\delta$ shares of the stock and borrowing an amount $B$ at the risk-free rate. The portfolio value at maturity will be:
-
-- Up state: $\delta S_u - B e^{rt}$
-- Down state: $\delta S_d - B e^{rt}$
-
+and consider buying $\delta$ shares of the stock and borrowing an amount $B$ at the risk-free rate. The portfolio value at maturity will be $\delta S_u - B e^{rt}$ in the up state and $\delta S_d - B e^{rt}$ in the down state.
 For replication, we need these to equal the option payoff:
 $$\delta S_u - B e^{rt} = C_u$$
 $$\delta S_d - B e^{rt} = C_d$$
 
-Subtracting the second equation from the first:
+Subtracting the second equation from the first gives
 $$\delta(S_u - S_d) = C_u - C_d$$
 
-This gives us our delta formula @eq-oneperioddelta. We can solve for the amount to borrow:
+This is the same as our delta formula @eq-oneperioddelta. We can solve for the amount to borrow:
 
 $$B = e^{-rt}(\delta S_u - C_u) = e^{-rt}(\delta S_d - C_d)$$
 
@@ -54,19 +50,18 @@ $$\text{Portfolio Cost} = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)$$
 
 If the portfolio were cheaper than the call option, then there would be an arbitrage opportunity---buy the portfolio and sell the call.  The reverse trade would be an arbitrage if the portfolio were more expensive than the call option.  Therefore, the assumption that there are no arbitrage opportunities implies that the call option must trade for $C$ defined as 
 
-$$C = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)\,.$$ {#eq-oneperiodcall}
+$$C = \delta S - e^{-rt}(\delta S_u - C_u)\,.$$ {#eq-oneperiodcall}
 
 ::: Example
 Suppose $S = 100$, $S_u = 110$, $S_d = 90$, $K = 105$, $r = 0.05$, $t = 1$. Then:
+
 - $C_u = \max(0, 110 - 105) = 5$
 - $C_d = \max(0, 90 - 105) = 0$
 - $\delta = \frac{5 - 0}{110 - 90} = 0.25$
 - $B = e^{-0.05}(0.25 \times 110 - 5) = e^{-0.05} \times 22.5 \approx 21.43$
 - Option price $= 0.25 \times 100 - 21.43 = 3.57$
 
-**Verification:** In the up state, the portfolio is worth $0.25 \times 110 - 22.5 = 5$, matching $C_u$. In the down state, it's worth $0.25 \times 90 - 22.5 = 0$, matching $C_d$.
-
-This delta hedging shows that by holding 0.25 shares and borrowing $21.43, we can perfectly replicate the option payoff.
+**Verification:** In the up state, the portfolio is worth $0.25 \times 110 - 22.5 = 5$, matching $C_u$. In the down state, it's worth $0.25 \times 90 - 22.5 = 0$, matching $C_d$.  Thus, by buying 0.25 shares and borrowing $21.43, we can perfectly replicate the option payoff.
 :::
 
 #### State Prices
