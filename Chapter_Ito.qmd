@@ -406,7 +406,7 @@ $$ {#eq-rule6}
 :::
 
 ::: Example
-We showed in the previous Example that $X$ defined in @eq-ito_discrete_6 satisfies @eq-ito_discrete_5, but it is also useful to see how we can start from @eq-ito_discrete_5 and deduce that @eq-ito_discrete_6 is the solution.  We can do that by taking logarithms.  Set $Y_t = \log X_t$.  Then, using @eq-rule6 and substituting from @eq-ito_discrete_5, we have
+We showed in the previous example that $X$ defined in @eq-ito_discrete_6 satisfies @eq-ito_discrete_5, but it is also useful to see how we can start from @eq-ito_discrete_5 and deduce that @eq-ito_discrete_6 is the solution.  We can do that by taking logarithms.  Set $Y_t = \log X_t$.  Then, using @eq-rule6 and substituting from @eq-ito_discrete_5, we have
 $$\mathrm{d} \log X = \left(\mu - \frac{1}{2}\sigma^2\right)\mathrm{d} t + \sigma\mathrm{d} B\,.$$
 There is no $X$ on the right-hand side of this, so we can simply integrate to compute $\log X_t$ as
 $$\log X_t = \log X_0 + \left(\mu - \frac{1}{2}\sigma^2\right)t + \sigma B_t\,.$$

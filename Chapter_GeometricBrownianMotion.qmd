@@ -20,18 +20,18 @@ display(
 ```
 
 
-A random variable $\tilde{y}$ is lognormally distributed if it can be written as $\tilde{y}=  \mathrm{e}^{\tilde{x}}$ where $\tilde{x}$  has a normal distribution.  Another way of saying this is that $\log \tilde y$ is normally distributed.  We denote the expected value (mean) of any random variable using the symbol $\mathbb{E}$.  The mean of a lognormal random variable is given by the following.
+A random variable $y$ is lognormally distributed if it can be written as $y=  \mathrm{e}^{x}$ where $x$  has a normal distribution.  Another way of saying this is that $\log y$ is normally distributed.  The mean of a lognormal random variable is given by the following.
 
 ::: Principle
-If $\tilde y = \tilde{x}$ where $\tilde x$ is normally distributed with mean $m$ and standard deviation $s$, then 
-$$\mathbb{E}[\tilde{y}]=e^{m +  s^2/2};.
+If $y = \mathrm{e}^x$ where $x$ is normally distributed with mean $m$ and standard deviation $s$, then 
+$$\mathbb{E}[y]=e^{m +  s^2/2}\,.
 $$ {#eq-lognormal}
 :::
 An example of the distribution of a lognormal random variable is shown in @fig-lognormal.
 
 ```{python}
 #| label: fig-lognormal
-#| fig-cap: "The distribution of the random variable y = exp(x) where x has the standard normal distribution."
+#| fig-cap: "The distribution of the random variable $y=e^x$ where $x$ has the standard normal distribution."
 import numpy as np
 from scipy.stats import lognorm
 import plotly.graph_objects as go
@@ -71,13 +71,13 @@ An important stochastic process is geometric Brownian motion given by
 $$
 S_t=S_0\mathrm{e}^{\mu t- \sigma^2 t/2 + \sigma B_t}
 $$ {#eq-exponential1}
-for constants $\mu$ and $\sigma$, where $B$ is a Brownian motion.  For each time $t$, the random variable $S_t$ in @eq-exponential1 is a lognormal random variable. Ito's formula for exponentials of Ito processes implies
+for constants $\mu$ and $\sigma$, where $B$ is a Brownian motion.  For each time $t$, the random variable $S_t$ in @eq-exponential1 is a lognormal random variable. Ito's formula for exponentials of Ito processes implies^[Setting $X_t = \mu t - \sigma^2 t/2 + \sigma B_t$, we have S_t = \mathrm{e}^{X_t}, so $\mathrm d S/S = \mathrm d X + \frac{1}{2}(\mathrm d X)^2 = \mu \mathrm d t - \sigma^2/2 \mathrm d t + \sigma \mathrm d B + \frac{1}{2}(\mathrm{d} X)^2 = \mu\mathrm{d}   t+\sigma\mathrm{d}   B$.]
 $$
 \frac{\mathrm{d}  S}{S} = \mu\mathrm{d}   t+\sigma\mathrm{d}   B\;.
 $$ {#eq-Y}
 When we see an equation of the form @eq-Y, we should recognize @eq-exponential1 as the solution. 
 
-The process $S$ is called a geometric Brownian motion.  We interpret @eq-Y as stating that $\mu\mathrm{d}   t$ is the expected rate of change of $S$ and $\sigma^2\mathrm{d}   t$ is the variance of the rate of change in an instant $\mathrm{d}  t$.  We call $\mu$ the **drift** and $\sigma$ the **volatility**.  The geometric Brownian motion grows at the average rate of $\mu$, in the sense that $\mathbb{E}[S_t] = \mathrm{e}^{\mu t}S_0$.  This can be verified with the aid of @eq-lognormal.
+We interpret @eq-Y as stating that $\mu\mathrm{d}   t$ is the expected percentage change of $S$ and $\sigma^2\mathrm{d}   t$ is the variance of the percentage change in an instant $\mathrm{d}  t$.  We call $\mu$ the **drift** and $\sigma$ the **volatility**.  The geometric Brownian motion grows at the average rate of $\mu$, in the sense that $\mathbb{E}[S_t] = \mathrm{e}^{\mu t}S_0$.  This can be verified with the aid of @eq-lognormal.
 
 If $\mu=0$, then $\mathbb{E}[S_t] = S_0$.  In fact, a geometric Brownian motion $S$ as in @eq-exponential1 and @eq-Y is a martingale when $\mu=0$.  It is an example of what is called an **exponential martingale**.  An exponential is always positive, so an exponential martingale is always positive.
 
@@ -154,7 +154,7 @@ The reason for the name **continuously compounded** is that compounding a monthl
 $$\left(1 + \frac{0.1194/12}{n}\right)^ n - 1\,,$$
 which converges to $0.01$ as $n \rightarrow \infty$.  Thus, compounding an infinite number of times during a month at an annual rate of $0.1194$ (equal to a monthly rate of $0.1194/12$) is equivalent to the actual 1\% return.^[ The reason for considering this concept is that compound returns like $(1+r_1)(1+r_2)$ are simpler to analyze in some contexts as $\mathrm{e}^{x_1+x_2}$.]
 
-Given a dividend-reinvested asset price $S$, the rate of return from date $t_1$ to $t_2$ is $S_{t_2}/S_{t_1} - 1$.  Denote this rate of return by $r$ and defined the corresponding continuously compounded return
+Given a dividend-reinvested asset price $S$, the rate of return from date $t_1$ to $t_2$ is $S_{t_2}/S_{t_1} - 1$.  Denote this rate of return by $r$ and define the corresponding continuously compounded return
 $$x = \log(1+r) = \log\left(\frac{S_{t_2}}{S_{t_1}}\right) = \log S_{t_2} - \log S_{t_1}\,.$$
 Using @eq-exponential2, we see that the continuously compounded return is 
 $$
