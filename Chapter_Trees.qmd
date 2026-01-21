@@ -21,28 +21,32 @@ This chapter introduces binomial tree models for valuing derivative securities. 
 
 ## One-Period Binomial Model
 
-We start with the simplest possible model. A stock has price $S$ today (date 0) and will have one of two possible values at date $t$: either $S_u$ (up state) or $S_d$ (down state), where $S_u > S_d$. There is also a risk-free asset earning a continuously compounded rate $r$, so the gross return of the risk-free asset between 0 and $t$ is $\mathrm{e}^{rt}$.  We assume that $S_u/S > \mathrm{e}^{rt}>S_d/S_0$.  This ensures that neither asset dominates the other in the sense of always having an equal or higher return.  If such a dominance condition were to exist, then riskless profits could be made by going long the high return asset and short the low return asset.  We call that an arbitrage.  Thus, we call our assumption that $S_u/S > \mathrm{e}^{rt}>S_d/S_0$ a **no-arbitrage** assumption.  It is very reasonable to assume there are no arbitrage opportunities in the market, because they would be quickly exploited by market participants, whose trades would cause prices to move so that the opportunities would vanish.  
+We start with the simplest possible model. A stock has price $S$ today (date 0) and will have one of two possible values at date $t$: either $S_u$ (up state) or $S_d$ (down state), where $S_u > S_d$. There is also a risk-free asset earning a continuously compounded rate $r$, so the gross return of the risk-free asset between 0 and $t$ is $\mathrm{e}^{rt}$.  
 
-#### Delta Hedging and Replication
+We assume that $S_u/S > \mathrm{e}^{rt}>S_d/S_0$.  This ensures that neither asset dominates the other in the sense of always having an equal or higher return.  If such a dominance were to exist, then riskless profits could be made by going long the high return asset and short the low return asset.  We call a riskless profitable trade an arbitrage.  Thus, we call our assumption that $S_u/S > \mathrm{e}^{rt}>S_d/S_0$ a **no-arbitrage** assumption.  It is very reasonable to assume there are no arbitrage opportunities in the market, because they would be quickly exploited by market participants, whose trades cause prices to move so that the opportunities vanish.  
 
-Consider a European call option with strike $K$ and maturity $t$. Its payoff will be $C_u = \max(0, S_u - K)$ in the up state and $C_d = \max(0, S_d - K)$ in the down state.
+#### Deltas and Replication
 
-The key insight is that we can replicate the option payoff using a portfolio of the stock and risk-free asset. Let $\delta$ be the number of shares we hold. The number of shares is chosen so that the portfolio has the same payoff as the option in both states:
+Consider a European call option with strike $K$ and maturity $t$. Its payoff will be $C_u = \max(0, S_u - K)$ in the up state and $C_d = \max(0, S_d - K)$ in the down state.  A key insight is that we can replicate the option payoff in this simple model using a portfolio of the stock and risk-free asset.  This insight extends to more realistic models, as we will see later.  
 
-$$\delta = \frac{C_u - C_d}{S_u - S_d}$$
+Define
 
-To see why this works, consider a portfolio that holds $\delta$ shares of stock and borrows an amount $B$ at the risk-free rate. The portfolio value at maturity will be:
+$$\delta = \frac{C_u - C_d}{S_u - S_d}$$ {#eq-oneperioddelta}
+
+and consider buying $\delta$ shares of the stock and borrowing an amount $B$ at the risk-free rate. The portfolio value at maturity will be:
+
 - Up state: $\delta S_u - B e^{rt}$
 - Down state: $\delta S_d - B e^{rt}$
 
-For replication, we need these to equal the option payoffs:
+For replication, we need these to equal the option payoff:
 $$\delta S_u - B e^{rt} = C_u$$
 $$\delta S_d - B e^{rt} = C_d$$
 
 Subtracting the second equation from the first:
 $$\delta(S_u - S_d) = C_u - C_d$$
 
-This gives us our delta formula. We can solve for the borrowing amount:
+This gives us our delta formula @eq-oneperioddelta. We can solve for the amount to borrow:
+
 $$B = e^{-rt}(\delta S_u - C_u) = e^{-rt}(\delta S_d - C_d)$$
 
 The initial cost of this replicating portfolio is:
