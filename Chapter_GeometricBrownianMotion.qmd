@@ -148,11 +148,11 @@ fig.show()
 
 ## Continuously Compounded Returns
 
-Given a rate of return $r$ over a time period of $\Delta t$ years, the annualized continuously compounded return is defined to be the number $x$ such that $\mathrm{e}^{x\Delta t} = 1+r$; equivalently, $x = \log(1+r) / \Delta t$.  We frequently take **annualized** for granted and just say **continuously compounded return.**  As an example, if you earn 1\% in a month, then the continuously compounded return is $\log (1.01) / (1/12) = 0.1194$.  
+Given a rate of return $r$ over a time period of $\Delta t$ years, the annualized continuously compounded return is defined to be the number $x$ such that $\mathrm{e}^{x\Delta t} = 1+r$; equivalently, $x = \log(1+r) / \Delta t$.  We frequently take **annualized** for granted and just say **continuously compounded return.**  As an example, if you earn 10\% in a year, then the continuously compounded return is $\log 1.1 = 0.0953$.  
 
-The reason for the name **continuously compounded** is that compounding a monthly rate of interest of $0.1194/12$ for a total of $n$ times during a month produces a total return over the month of 
-$$\left(1 + \frac{0.1194/12}{n}\right)^ n - 1\,,$$
-which converges to $0.01$ as $n \rightarrow \infty$.  Thus, compounding an infinite number of times during a month at an annual rate of $0.1194$ (equal to a monthly rate of $0.1194/12$) is equivalent to the actual 1\% return.^[ The reason for considering this concept is that compound returns like $(1+r_1)(1+r_2)$ are simpler to analyze in some contexts as $\mathrm{e}^{x_1+x_2}$.]
+The reason for the name **continuously compounded** is that compounding a rate of i $0.0953$ for a total of $n$ times during a year produces a total return over the year of 
+$$\left(1 + \frac{0.0953}{n}\right)^ n - 1\,,$$
+which converges to $0.10$ as $n \rightarrow \infty$.  Thus, compounding an infinite number of times during a year at an annual rate of $0.0953$ is equivalent to the actual 10\% return.
 
 Given a dividend-reinvested asset price $S$, the rate of return from date $t_1$ to $t_2$ is $S_{t_2}/S_{t_1} - 1$.  Denote this rate of return by $r$ and define the corresponding continuously compounded return
 $$x = \log(1+r) = \log\left(\frac{S_{t_2}}{S_{t_1}}\right) = \log S_{t_2} - \log S_{t_1}\,.$$
@@ -167,64 +167,37 @@ and variance $\sigma^2 \Delta t$, where we define $\Delta t = t_2-t_1$.  Given h
 
 ## Tail Probabilities of Geometric Brownian Motions {#sec-tailprobs}
 
-For each of the numeraires discussed in the previous section, we have
-$$
-\mathrm{d}  \log S = \alpha\mathrm{d}   t + \sigma\mathrm{d}   B\;,
-$$ {#eq-tailprob1}
 
-for some $\alpha$ and $\sigma$, where $B$ is a Brownian motion under the probability measure associated with the numeraire.  Specifically, $\sigma=\sigma$, $B=B^*$, and
-
-
-
-\renewcommand{\labelenumi}{(\arabic{enumi})}
-1. for the risk-neutral probability, $\alpha = r-q-\sigma^2/2$,
-2. when $\mathrm{e}^{qt}S_t$ is the numeraire, $\alpha = r-q +\sigma^2/2$,
-3. when another risky asset price $Y$ is the numeraire, $\alpha = r-q+\rho\sigma\phi-\sigma^2/2$.
-
-
-
-We will assume in this section that $\alpha$ and $\sigma$ are constants.
-The essential calculation in pricing options is to compute $\text{prob}(S_t>K)$ and $\text{prob}(S_t<K)$ for a constant $K$ (the strike price of an option), where $\text{prob}$ denotes the probabilities at date $0$ (the date we are pricing an option) associated with a particular numeraire.  
-
-@eq-tailprob1 gives us
-$$\log S_t = \log S_0 + \alpha T + \sigma B_t\; .$$
-Given this, we deduce
+Let $S$ be a geometric Brownian motion with coefficients $(\mu, \sigma)$ as in @eq-exponential1--@eq-exponential3.  We want to compute the probability, given only date-0 information, that $S_t>K$ for a given $t$ and $K$.  This will be useful for deriving option pricing formulas.  Because the natural logarithm is a monotonic function, the condition $S_t>K$ is equivalent to $\log S_t > \log K$.  From this fact and @eq-exponential2, we deduce that 
 
 $$ 
-S_t > K  \quad\Longleftrightarrow\quad \log S_t > \log K
+S_t > K  \quad\Longleftrightarrow\quad \log S_0 + \left(\mu + \frac{1}{2}\sigma^2 \right) t+ \sigma B_t > \log K - \log S_0-\left(\mu - \frac{1}{2}\sigma^2 \right) t\,.
 $$
-$$
- \quad\Longleftrightarrow\quad \sigma B_t > \log K - \log S_0-\alpha T
-$$
-$$
- \quad\Longleftrightarrow\quad \frac{B_t}{\sqrt{T}} > \frac{\log K - \log S_0-\alpha T}{\sigma\sqrt{T}}
-$$
-$$
- \quad\Longleftrightarrow\quad -\frac{B_t}{\sqrt{T}} < \frac{\log S_0-\log K + \alpha T}{\sigma\sqrt{T}}
-$$
-$$
- \quad\Longleftrightarrow\quad -\frac{B_t}{\sqrt{T}} < \frac{\log \left(\frac{S_0}{K}\right) + \alpha T}{\sigma\sqrt{T}}\;.
-$$ {#eq-tailprob2}
 
+By rearranging a bit, we obtain
 
-The random variable on the left-hand side of @eq-tailprob2 has the standard normal distribution---it is normally distributed with mean equal to zero and variance equal to one.  As is customary, we will denote the probability that a standard normal is less than some number $d$ as $\mathrm{N}(d)$.  We conclude:
+$$
+S_t > K \quad\Longleftrightarrow\quad -\frac{B_t}{\sqrt{t}} < \frac{\log S_0-\log K + \left(\mu - \frac{1}{2}\sigma^2 \right) t}{\sigma\sqrt{t}}
+$${#eq-tailprob2}
+
+The reason for rearranging in this way is that the random variable $-B_t/\sqrt{t}$ has the standard normal distribution---it is normally distributed with mean equal to zero and variance equal to one---and the probability that a standard normal random variable is less than some number is given by the standard normal distribution function.  Denote the standard normal distribution function by $\mathrm N(\cdot)$.  We conclude:
 
 ::: Rule
-Assume $\mathrm{d}  \log S = \alpha\mathrm{d}   t + \sigma\mathrm{d}   B$, where $B$ is a Brownian motion.  Then, for any number $K$,
+If $S$ is a geometric Brownian motion with coefficients $(\mu, \sigma)$, then, for any number $K$ and any time $t$,
 $$
 \text{prob}(S_t>K) = \mathrm{N}(d)\;,
 $$ {#eq-tailprob01}
 where
 $$
-d = \frac{\log \left(\frac{S_0}{K}\right) + \alpha T}{\sigma\sqrt{T}}\;.
+d = \frac{\log S_0 - \log K + \left(\mu - \frac{1}{2}\sigma^2\right) t}{\sigma\sqrt{t}}\;.
 $$ {#eq-tailprob3}
 :::
 
 
-The  probability $\text{prob}(S_t<K)$ can be calculated similarly, but the simplest way to derive it is to note that the events $S_t>K$ and $S_t<K$ are complementary---their probabilities sum to one (the event $S_t=K$ having zero probability).  Therefore $\text{prob}(S_t<K) = 1-\mathrm{N}(d)$.  This is the probability that a standard normal is greater than $d$, and by virtue of the symmetry of the standard normal distribution, it equals the probability that a standard normal is less than $-d$.  Therefore, we have:
+The events $S_t>K$ and $S_t<K$ are complementary---their probabilities sum to one (the event $S_t=K$ having zero probability).  Therefore $\text{prob}(S_t<K) = 1-\mathrm{N}(d)$.  This is the probability that a standard normal is greater than $d$, and by virtue of the symmetry of the standard normal distribution, it equals the probability that a standard normal is less than $-d$.  Therefore, we have:
 
 ::: Rule
-Assume $\mathrm{d}  \log S = \alpha\mathrm{d}   t + \sigma\mathrm{d}   B$, where $B$ is a Brownian motion.  Then, for any number $K$,
+If $S$ is a geometric Brownian motion with coefficients $(\mu, \sigma)$, then, for any number $K$ and any time $t$,
 $$
 \text{prob}(S_t<K) = \mathrm{N}(-d)\;,
 $$ {#eq-tailprob02}
@@ -234,7 +207,7 @@ where $d$ is defined in @eq-tailprob3.
 ## Exercises
 
 ::: {#exr-gbm1}
-Use Ito's Lemma to derive the stochastic differential equation for $S_t^2$.  Show that $S(t)^2$ is a geometric Brownian motion if $\mu$ and $\sigma$ are constants and find $\mathbb{E}[S(t)^2]$.
+Use Ito's formula to show that if $S$ is a geometric Brownian, then $S^2$ is also a geometric Brownian motion.  
 ::: 
 
 ::: {#exr-gbm2} 
