@@ -132,41 +132,22 @@ div.csl-indent {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <script type="text/javascript">
-
 window.PlotlyConfig = {MathJaxConfig: 'local'};
-
 if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-
 if (typeof require !== 'undefined') {
-
 require.undef("plotly");
-
 requirejs.config({
-
     paths: {
-
         'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
-
     }
-
 });
-
 require(['plotly'], function(Plotly) {
-
     window._Plotly = Plotly;
-
 });
-
 }
-
 </script>
-
-
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
@@ -180,6 +161,18 @@ div.callout-Example .callout-toggle::before {  background-image: url('data:image
 div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f185';
+  background-image: none;
+}
+div.callout-Extra.callout {
+  border-left-color: #a1bced;
+}
+div.callout-Extra.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
+}
+div.callout-Extra .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f48b';
   background-image: none;
 }
 div.callout-Principle.callout {
@@ -204,18 +197,6 @@ div.callout-Rule .callout-toggle::before {  background-image: url('data:image/sv
 div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f164';
-  background-image: none;
-}
-div.callout-Extra.callout {
-  border-left-color: #a1bced;
-}
-div.callout-Extra.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
-}
-div.callout-Extra .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f48b';
   background-image: none;
 }
 </style>
@@ -459,7 +440,7 @@ window.Quarto = {
 </header>
 
 
-<div id="adae7f75" class="cell" data-execution_count="1">
+<div id="cbaec3bf" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
@@ -467,7 +448,7 @@ window.Quarto = {
 <p>This chapter introduces binomial tree models for valuing derivative securities. We begin with the fundamental concepts of arbitrage pricing in a one-period model, extend to multi-period trees, and then discuss practical implementation and parameter calibration.</p>
 <section id="one-period-binomial-model" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="one-period-binomial-model"><span class="header-section-number">4.1</span> One-Period Binomial Model</h2>
-<p>We start with the simplest possible model. A stock has price <span class="math inline">\(S\)</span> today (date 0) and will have one of two possible values at date <span class="math inline">\(t\)</span>: either <span class="math inline">\(S_u\)</span> (up state) or <span class="math inline">\(S_d\)</span> (down state), where <span class="math inline">\(S_u &gt; S_d\)</span>. There is also a risk-free asset earning a continuously compounded rate <span class="math inline">\(r\)</span>.</p>
+<p>We start with the simplest possible model. A stock has price <span class="math inline">\(S\)</span> today (date 0) and will have one of two possible values at date <span class="math inline">\(t\)</span>: either <span class="math inline">\(S_u\)</span> (up state) or <span class="math inline">\(S_d\)</span> (down state), where <span class="math inline">\(S_u &gt; S_d\)</span>. There is also a risk-free asset earning a continuously compounded rate <span class="math inline">\(r\)</span>, so the gross return of the risk-free asset between 0 and <span class="math inline">\(t\)</span> is <span class="math inline">\(\mathrm{e}^{rt}\)</span>. We assume that <span class="math inline">\(S_u/S &gt; \mathrm{e}^{rt}&gt;S_d/S_0\)</span>. This ensures that neither asset dominates the other in the sense of always having an equal or higher return. If such a dominance condition were to exist, then riskless profits could be made by going long the high return asset and short the low return asset. We call that an arbitrage. Thus, we call our assumption that <span class="math inline">\(S_u/S &gt; \mathrm{e}^{rt}&gt;S_d/S_0\)</span> a <strong>no-arbitrage</strong> assumption. It is very reasonable to assume there are no arbitrage opportunities in the market, because they would be quickly exploited by market participants, whose trades would cause prices to move so that the opportunities would vanish.</p>
 <section id="delta-hedging-and-replication" class="level4">
 <h4 class="anchored" data-anchor-id="delta-hedging-and-replication">Delta Hedging and Replication</h4>
 <p>Consider a European call option with strike <span class="math inline">\(K\)</span> and maturity <span class="math inline">\(t\)</span>. Its payoff will be <span class="math inline">\(C_u = \max(0, S_u - K)\)</span> in the up state and <span class="math inline">\(C_d = \max(0, S_d - K)\)</span> in the down state.</p>
@@ -478,7 +459,8 @@ window.Quarto = {
 <p>Subtracting the second equation from the first: <span class="math display">\[\delta(S_u - S_d) = C_u - C_d\]</span></p>
 <p>This gives us our delta formula. We can solve for the borrowing amount: <span class="math display">\[B = e^{-rt}(\delta S_u - C_u) = e^{-rt}(\delta S_d - C_d)\]</span></p>
 <p>The initial cost of this replicating portfolio is: <span class="math display">\[\text{Portfolio Cost} = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)\]</span></p>
-<p>By no-arbitrage, this must equal the option price.</p>
+<p>If the portfolio were cheaper than the call option, then there would be an arbitrage opportunity—buy the portfolio and sell the call. The reverse trade would be an arbitrage if the portfolio were more expensive than the call option. Therefore, the assumption that there are no arbitrage opportunities implies that the call option must trade for <span class="math inline">\(C\)</span> defined as</p>
+<p><span id="eq-oneperiodcall"><span class="math display">\[C = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)\,. \qquad(4.1)\]</span></span></p>
 <div class="callout callout-style-simple callout-Example callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -498,38 +480,49 @@ Example
 </div>
 </div>
 </section>
-<section id="risk-neutral-valuation" class="level4">
-<h4 class="anchored" data-anchor-id="risk-neutral-valuation">Risk-Neutral Valuation</h4>
-<p>We can rearrange the replication formula to express the option value as:</p>
-<p><span class="math display">\[C = \pi_u C_u + \pi_d C_d\]</span></p>
-<p>where the state prices are:</p>
+<section id="state-prices" class="level4">
+<h4 class="anchored" data-anchor-id="state-prices">State Prices</h4>
+<p>Define</p>
 <p><span class="math display">\[\pi_u = \frac{S - \mathrm{e}^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{\mathrm{e}^{-rt}S_u - S}{S_u - S_d}\]</span></p>
-<p>These state prices satisfy: - <span class="math inline">\(\pi_u, \pi_d &gt; 0\)</span> (under no-arbitrage condition <span class="math inline">\(S_u/S &gt; \mathrm{e}^{rt} &gt; S_d/S\)</span>) - <span class="math inline">\(\pi_u \mathrm{e}^{rt} + \pi_d \mathrm{e}^{rt} = 1\)</span></p>
-<p>This motivates defining two numbers <span class="math inline">\(p_u\)</span> and <span class="math inline">\(p_d\)</span>:</p>
-<p><span class="math display">\[p_u = \pi_u \mathrm{e}^{rt}, \quad p_d = \pi_d \mathrm{e}^{rt}\]</span></p>
-<p>Then, we have.</p>
-<p><span class="math display">\[C = \mathrm{e}^{-rt}[p_u C_u + p_d C_d]\]</span></p>
-<p>Notice that <span class="math inline">\(p_u&gt;0\)</span>, <span class="math inline">\(p_d&gt;0\)</span>, and <span class="math inline">\(p_u+p_d=1\)</span>. This makes it possible to view <span class="math inline">\(p_u\)</span> and <span class="math inline">\(p_d\)</span> as artificial probabilities. We make no claim that they represent anyone’s beliefs, but they have the mathematical properties of probabilities. They are universally called the <code>risk-neutral probabilities.'  The motivation for this terminology is that, as the previous equation shows, option values are discounted</code>expected values’ using these probabilities to compute the expectation. This is how options would be valued if investors were risk neutral. We <strong>do not</strong> assume that investors are risk neutral; nevertheless, we can compute option values <strong>as if</strong> investors were risk-neutral, with beliefs represented by the risk-neutral probabilities.</p>
-<p>Rather than first calculating the state prices, we can calculate the risk-neutral probabilities directly as <span class="math display">\[p_u = \frac{\mathrm{e}^{rt} - S_d/S}{S_u/S - S_d/S}\]</span> and <span class="math inline">\(p_d = 1-p_u\)</span>.</p>
+<p>We can rearrange <a href="#eq-oneperiodcall" class="quarto-xref">Equation&nbsp;<span>4.1</span></a> to obtain <span id="eq-oneperiodstateprices1"><span class="math display">\[C = \pi_u C_u + \pi_d C_d\,. \qquad(4.2)\]</span></span> We can also confirm by simple algebra that <span id="eq-oneperiodstateprices2"><span class="math display">\[S = \pi_u S_u + \pi_d S_d \qquad(4.3)\]</span></span> and <span id="eq-oneperiodstateprices3"><span class="math display">\[1 = \pi_u \mathrm{e}^{rt} + \pi_d \mathrm{e}^{rt}\,. \qquad(4.4)\]</span></span></p>
+<p>It is useful to envision hypothetical securities that pay $1 in a single state and 0 in the other. We can regard <span class="math inline">\(\pi_u\)</span> as the price of the up security and <span class="math inline">\(\pi_d\)</span> as the price of the down security.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We call them <strong>state prices.</strong> <a href="#eq-oneperiodstateprices1" class="quarto-xref">Equation&nbsp;<span>4.2</span></a>–<a href="#eq-oneperiodstateprices3" class="quarto-xref">Equation&nbsp;<span>4.4</span></a> show that we can value each of the actual assets—the call option, the underlying asset, and the risk-free asset—can be valued as a portfolio, breaking the asset down into a payoff in the up state and a payoff in the down state and pricing the payoffs using the state prices. Our no-arbitrage condition <span class="math inline">\(S_u/S &gt; \mathrm{e}^{rt} &gt; S_d/S\)</span> implies that the state prices are positive—it costs something today to get something in the future.</p>
+</section>
+<section id="risk-neutral-pricing" class="level4">
+<h4 class="anchored" data-anchor-id="risk-neutral-pricing">Risk-Neutral Pricing</h4>
+<p>Rather than working directly with state prices, it is conventional to make a simple transformation. Define <span class="math inline">\(p_u = \mathrm{e}^{rt}\pi_u\)</span> and <span class="math inline">\(p_d = \mathrm{e}^{rt}\pi_d\)</span>. We have <span class="math inline">\(p_u+p_d=1\)</span> and our no-arbitrage assumption implies that <span class="math inline">\(p_u&gt;0\)</span> and <span class="math inline">\(p_d&gt;0\)</span>. This makes it possible to view <span class="math inline">\(p_u\)</span> and <span class="math inline">\(p_d\)</span> as artificial probabilities. We make no claim that they represent anyone’s beliefs, but they have the mathematical properties of probabilities. They are universally called the <strong>risk-neutral probabilities</strong>. The motivation for this terminology is that <a href="#eq-oneperiodstateprices1" class="quarto-xref">Equation&nbsp;<span>4.2</span></a> and <a href="#eq-oneperiodstateprices2" class="quarto-xref">Equation&nbsp;<span>4.3</span></a> can be rewritten as</p>
+<p><span id="eq-oneperiodrnp1"><span class="math display">\[C = \mathrm{e}^{-rt}\big[p_u C_u + p_dC_d\big]\,. \qquad(4.5)\]</span></span> <span id="eq-oneperiodrnp2"><span class="math display">\[S = \mathrm{e}^{-rt}\big[p_u S_u + p_dS_d\big]\,. \qquad(4.6)\]</span></span></p>
+<p>These equations state that each risky asset can be valued as its expected value discounted at the risk-free rate, when we calculate the expected values using the risk-neutral probabilities. This is how securities would be valued if investors were risk neutral, using the investors’ actual beliefs. We <strong>do not</strong> assume that investors are risk neutral; nevertheless, we can compute option values <strong>as if</strong> investors were risk-neutral, by using the risk-neutral probabilities as their beliefs. Rather than risk neutrality, all that we are assuming is that there are no arbitrage opportunities. Thus, the absence of arbitrage opportunities allows us to do risk-neutral pricing in the form of <a href="#eq-oneperiodrnp1" class="quarto-xref">Equation&nbsp;<span>4.5</span></a> and <a href="#eq-oneperiodrnp2" class="quarto-xref">Equation&nbsp;<span>4.6</span></a>.</p>
+<p>Our rather circuitous calculation of the risk-neutral probabilities via the state prices can be streamlined. We can calculate the risk-neutral probabilities directly as <span id="eq-oneperiodrnp"><span class="math display">\[p_u = \frac{\mathrm{e}^{rt} - S_d/S}{S_u/S - S_d/S} \qquad(4.7)\]</span></span> and <span class="math inline">\(p_d = 1-p_u\)</span>. Both the numerator and denominator on the right-hand side of <a href="#eq-oneperiodrnp" class="quarto-xref">Equation&nbsp;<span>4.7</span></a> are differences of returns: the difference between the risk-free return and the underlying asset’s down return in the numerator and the difference between the up and down returns of the underlying asset in the denominator. We will use the same calculation for multiperiod trees.</p>
 </section>
 </section>
 <section id="two-period-model" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="two-period-model"><span class="header-section-number">4.2</span> Two-Period Model</h2>
 <p>Now consider a two-period model where the stock price evolves over two time steps of length <span class="math inline">\(\Delta t = t/2\)</span>. To simplify notation and ensure that the tree recombines, we parameterize the price movements using multiplicative factors <span class="math inline">\(u &gt; 1\)</span> and <span class="math inline">\(d = 1/u &lt; 1\)</span>.</p>
-<p>Starting from <span class="math inline">\(S\)</span>, after one period the stock price is either <span class="math inline">\(uS\)</span> or <span class="math inline">\(dS\)</span>. After two periods, the possible prices are: - <span class="math inline">\(u^2S\)</span> (two up moves) - <span class="math inline">\(udS = S\)</span> (one up, one down)<br>
-- <span class="math inline">\(d^2S\)</span> (two down moves)</p>
+<p>Starting from <span class="math inline">\(S\)</span>, after one period the stock price is either <span class="math inline">\(uS\)</span> or <span class="math inline">\(dS\)</span>. After two periods, the possible prices are:</p>
+<ul>
+<li><span class="math inline">\(u^2S\)</span> (two up moves)</li>
+<li><span class="math inline">\(udS = S\)</span> (one up, one down)<br>
+</li>
+<li><span class="math inline">\(d^2S\)</span> (two down moves)</li>
+</ul>
 <p>The tree recombines because <span class="math inline">\(ud = du = 1\)</span>, so the middle node has price <span class="math inline">\(S\)</span> regardless of the path taken.</p>
+<p>Define the risk-neutral probabilities as in <a href="#eq-oneperiodrnp" class="quarto-xref">Equation&nbsp;<span>4.7</span></a>, replacing <span class="math inline">\(t\)</span> with <span class="math inline">\(t/2\)</span> (because <span class="math inline">\(S_u/S\)</span> and <span class="math inline">\(S_d/S\)</span> are now returns over periods of length <span class="math inline">\(t/2\)</span>). We can write this in a form that generalizes more readily as <span id="eq-multiperiodrnp"><span class="math display">\[p_u = \frac{\mathrm{e}^{r\Delta t} - S_d/S}{S_u/S - S_d/S} \qquad(4.8)\]</span></span> and <span class="math inline">\(p_d=1-p_u\)</span>.</p>
 <section id="backward-induction-process" class="level4">
 <h4 class="anchored" data-anchor-id="backward-induction-process">Backward Induction Process</h4>
 <p>The key to valuing options in multi-period trees is <strong>backward induction</strong>. We start at maturity and work backwards to find today’s value.</p>
-<p><strong>Step 1: Final Period (t = 2)</strong> Calculate option payoffs at each terminal node: - Node (2,2): <span class="math inline">\(C_{uu} = \max(0, u^2S - K)\)</span> - Node (2,1): <span class="math inline">\(C_{ud} = \max(0, udS - K) = \max(0, S - K)\)</span> - Node (2,0): <span class="math inline">\(C_{dd} = \max(0, d^2S - K)\)</span></p>
+<p><strong>Step 1: Final Period (t = 2)</strong> Calculate option payoffs at each terminal node:</p>
+<ul>
+<li>Node (2,2): <span class="math inline">\(C_{uu} = \max(0, u^2S - K)\)</span></li>
+<li>Node (2,1): <span class="math inline">\(C_{ud} = \max(0, udS - K) = \max(0, S - K)\)</span></li>
+<li>Node (2,0): <span class="math inline">\(C_{dd} = \max(0, d^2S - K)\)</span></li>
+</ul>
 <p><strong>Step 2: Intermediate Period (t = 1)</strong> At each node, calculate the option value as the discounted risk-neutral expectation of the next period’s values.</p>
 <p>At the up node (1,1) with stock price <span class="math inline">\(uS\)</span>: <span class="math display">\[C_u = e^{-r\Delta t}[p \cdot C_{uu} + (1-p) \cdot C_{ud}]\]</span></p>
 <p>At the down node (1,0) with stock price <span class="math inline">\(dS\)</span>: <span class="math display">\[C_d = e^{-r\Delta t}[p \cdot C_{ud} + (1-p) \cdot C_{dd}]\]</span></p>
 <p><strong>Step 3: Initial Period (t = 0)</strong> Finally, calculate today’s option value: <span class="math display">\[C_0 = e^{-r\Delta t}[p \cdot C_u + (1-p) \cdot C_d]\]</span></p>
-<p><strong>For American Options:</strong> At each intermediate node, compare continuation value with immediate exercise: - Up node: <span class="math inline">\(C_u = \max(\text{continuation value}, \max(0, uS - K))\)</span> - Down node: <span class="math inline">\(C_d = \max(\text{continuation value}, \max(0, dS - K))\)</span></p>
-<p>This backward induction process automatically finds the optimal exercise strategy by comparing holding vs.&nbsp;exercising at each node.</p>
-<div id="b33b1c6d" class="cell" data-execution_count="2">
+<p><strong>For American Options:</strong> At each intermediate node, compare the continuation value with immediate exercise: - Up node: <span class="math inline">\(C_u = \max(\text{continuation value}, \max(0, uS - K))\)</span> - Down node: <span class="math inline">\(C_d = \max(\text{continuation value}, \max(0, dS - K))\)</span></p>
+<p>This backward induction process automatically finds the optimal exercise strategy by comparing holding versus exercising at each node. The following code is a somewhat inefficient implementation in which the backward induction process should be transparent. We will later accelerate it by vectorizing.</p>
+<div id="da878b6a" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -769,7 +762,7 @@ Figure&nbsp;4.2: <strong>Interactive Binomial Tree Explorer.</strong> This tool 
 <section id="backward-induction-implementation" class="level4">
 <h4 class="anchored" data-anchor-id="backward-induction-implementation">Backward Induction Implementation</h4>
 <p>For American options especially, we must use backward induction. Here’s the streamlined version for practical use:</p>
-<div id="19ed2c58" class="cell" data-execution_count="4">
+<div id="a7d199ad" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binomial_american_fast(S0, K, r, sigma, T, N, option_type<span class="op">=</span><span class="st">'put'</span>):</span>
@@ -968,6 +961,12 @@ Cox, J., S. Ross, and M. Rubinstein. 1979. <span>“Option Pricing: A Simplified
 </div>
 </div>
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>These hypothetical securities are called Arrow securities in recognition of the seminal insights of Kenneth J. Arrow.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

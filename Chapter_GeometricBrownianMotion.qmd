@@ -71,11 +71,11 @@ An important stochastic process is geometric Brownian motion given by
 $$
 S_t=S_0\mathrm{e}^{\mu t- \sigma^2 t/2 + \sigma B_t}
 $$ {#eq-exponential1}
-for constants $\mu$ and $\sigma$, where $B$ is a Brownian motion.  For each time $t$, the random variable $S_t$ in @eq-exponential1 is a lognormal random variable. Ito's formula for exponentials of Ito processes implies^[Setting $X_t = \mu t - \sigma^2 t/2 + \sigma B_t$, we have S_t = \mathrm{e}^{X_t}, so $\mathrm d S/S = \mathrm d X + \frac{1}{2}(\mathrm d X)^2 = \mu \mathrm d t - \sigma^2/2 \mathrm d t + \sigma \mathrm d B + \frac{1}{2}(\mathrm{d} X)^2 = \mu\mathrm{d}   t+\sigma\mathrm{d}   B$.]
+for constants $\mu$ and $\sigma$, where $B$ is a Brownian motion.  For each time $t$, the random variable $S_t$ in @eq-exponential1 is a lognormal random variable. Ito's formula for exponentials of Ito processes implies^[Setting $X_t = \mu t - \frac{1}{2}\sigma^2 t + \sigma B_t$, we have $S_t = \mathrm{e}^{X_t}$, so $\mathrm{d}S/S = \mathrm{d}X + \frac{1}{2}(\mathrm{d}X)^2 = \mu\,\mathrm{d}t - \frac{1}{2}\sigma^2\,\mathrm{d}t + \sigma \,\mathrm{d}B + \frac{1}{2}(\mathrm{d}X)^2 = \mu\,\mathrm{d}t+\sigma\,\mathrm{d}B$.]
 $$
 \frac{\mathrm{d}  S}{S} = \mu\mathrm{d}   t+\sigma\mathrm{d}   B\;.
 $$ {#eq-Y}
-When we see an equation of the form @eq-Y, we should recognize @eq-exponential1 as the solution. 
+When we see an equation like @eq-Y, we should recognize @eq-exponential1 as the solution. 
 
 We interpret @eq-Y as stating that $\mu\mathrm{d}   t$ is the expected percentage change of $S$ and $\sigma^2\mathrm{d}   t$ is the variance of the percentage change in an instant $\mathrm{d}  t$.  We call $\mu$ the **drift** and $\sigma$ the **volatility**.  The geometric Brownian motion grows at the average rate of $\mu$, in the sense that $\mathbb{E}[S_t] = \mathrm{e}^{\mu t}S_0$.  This can be verified with the aid of @eq-lognormal.
 
@@ -171,7 +171,7 @@ and variance $\sigma^2 \Delta t$, where we define $\Delta t = t_2-t_1$.  Given h
 Let $S$ be a geometric Brownian motion with coefficients $(\mu, \sigma)$ as in @eq-exponential1--@eq-exponential3.  We want to compute the probability, given only date-0 information, that $S_t>K$ for a given $t$ and $K$.  This will be useful for deriving option pricing formulas.  Because the natural logarithm is a monotonic function, the condition $S_t>K$ is equivalent to $\log S_t > \log K$.  From this fact and @eq-exponential2, we deduce that 
 
 $$ 
-S_t > K  \quad\Longleftrightarrow\quad \log S_0 + \left(\mu + \frac{1}{2}\sigma^2 \right) t+ \sigma B_t > \log K - \log S_0-\left(\mu - \frac{1}{2}\sigma^2 \right) t\,.
+S_t > K  \quad\Longleftrightarrow\quad \log S_0 + \left(\mu + \frac{1}{2}\sigma^2 \right) t+ \sigma B_t > \log K\,.
 $$
 
 By rearranging a bit, we obtain
@@ -194,7 +194,7 @@ $$ {#eq-tailprob3}
 :::
 
 
-The events $S_t>K$ and $S_t<K$ are complementary---their probabilities sum to one (the event $S_t=K$ having zero probability).  Therefore $\text{prob}(S_t<K) = 1-\mathrm{N}(d)$.  This is the probability that a standard normal is greater than $d$, and by virtue of the symmetry of the standard normal distribution, it equals the probability that a standard normal is less than $-d$.  Therefore, we have:
+This implies that the probability of the event $S_t<K$ is $1-\mathrm{N}(d)$.  By virtue of the symmetry of the standard normal distribution, this equals $\mathrm{N}(-d)$.  Therefore, we have:
 
 ::: Rule
 If $S$ is a geometric Brownian motion with coefficients $(\mu, \sigma)$, then, for any number $K$ and any time $t$,

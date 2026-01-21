@@ -21,7 +21,7 @@ This chapter introduces binomial tree models for valuing derivative securities. 
 
 ## One-Period Binomial Model
 
-We start with the simplest possible model. A stock has price $S$ today (date 0) and will have one of two possible values at date $t$: either $S_u$ (up state) or $S_d$ (down state), where $S_u > S_d$. There is also a risk-free asset earning a continuously compounded rate $r$.
+We start with the simplest possible model. A stock has price $S$ today (date 0) and will have one of two possible values at date $t$: either $S_u$ (up state) or $S_d$ (down state), where $S_u > S_d$. There is also a risk-free asset earning a continuously compounded rate $r$, so the gross return of the risk-free asset between 0 and $t$ is $\mathrm{e}^{rt}$.  We assume that $S_u/S > \mathrm{e}^{rt}>S_d/S_0$.  This ensures that neither asset dominates the other in the sense of always having an equal or higher return.  If such a dominance condition were to exist, then riskless profits could be made by going long the high return asset and short the low return asset.  We call that an arbitrage.  Thus, we call our assumption that $S_u/S > \mathrm{e}^{rt}>S_d/S_0$ a **no-arbitrage** assumption.  It is very reasonable to assume there are no arbitrage opportunities in the market, because they would be quickly exploited by market participants, whose trades would cause prices to move so that the opportunities would vanish.  
 
 #### Delta Hedging and Replication
 
@@ -48,7 +48,9 @@ $$B = e^{-rt}(\delta S_u - C_u) = e^{-rt}(\delta S_d - C_d)$$
 The initial cost of this replicating portfolio is:
 $$\text{Portfolio Cost} = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)$$
 
-By no-arbitrage, this must equal the option price.
+If the portfolio were cheaper than the call option, then there would be an arbitrage opportunity---buy the portfolio and sell the call.  The reverse trade would be an arbitrage if the portfolio were more expensive than the call option.  Therefore, the assumption that there are no arbitrage opportunities implies that the call option must trade for $C$ defined as 
+
+$$C = \delta S - B = \delta S - e^{-rt}(\delta S_u - C_u)\,.$$ {#eq-oneperiodcall}
 
 ::: Example
 Suppose $S = 100$, $S_u = 110$, $S_d = 90$, $K = 105$, $r = 0.05$, $t = 1$. Then:
@@ -63,44 +65,50 @@ Suppose $S = 100$, $S_u = 110$, $S_d = 90$, $K = 105$, $r = 0.05$, $t = 1$. Then
 This delta hedging shows that by holding 0.25 shares and borrowing $21.43, we can perfectly replicate the option payoff.
 :::
 
-#### Risk-Neutral Valuation
+#### State Prices
 
-We can rearrange the replication formula to express the option value as:
-
-$$C = \pi_u C_u + \pi_d C_d$$
-
-where the state prices are:
+Define
 
 $$\pi_u = \frac{S - \mathrm{e}^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{\mathrm{e}^{-rt}S_u - S}{S_u - S_d}$$
 
-These state prices satisfy:
-- $\pi_u, \pi_d > 0$ (under no-arbitrage condition $S_u/S > \mathrm{e}^{rt} > S_d/S$)
-- $\pi_u \mathrm{e}^{rt} + \pi_d \mathrm{e}^{rt} = 1$
+We can rearrange @eq-oneperiodcall to obtain 
+$$C = \pi_u C_u + \pi_d C_d\,.$$ {#eq-oneperiodstateprices1}
+We can also confirm by simple algebra that 
+$$S = \pi_u S_u + \pi_d S_d$$ {#eq-oneperiodstateprices2}
+and
+$$1 = \pi_u \mathrm{e}^{rt} + \pi_d \mathrm{e}^{rt}\,.$$ {#eq-oneperiodstateprices3}
 
-This motivates defining two numbers $p_u$ and $p_d$:
+It is useful to envision hypothetical securities that pay \$1 in a single state and 0 in the other.  We can regard $\pi_u$ as the price of the up security and $\pi_d$ as the price of the down security.^[These hypothetical securities are called Arrow securities in recognition of the seminal insights of Kenneth J. Arrow.]  We call them **state prices.** @eq-oneperiodstateprices1--@eq-oneperiodstateprices3 show that we can value each of the actual assets---the call option, the underlying asset, and the risk-free asset---can be valued as a portfolio, breaking the asset down into a payoff in the up state and a payoff in the down state and pricing the payoffs using the state prices. Our no-arbitrage condition $S_u/S > \mathrm{e}^{rt} > S_d/S$ implies that the state prices are positive---it costs something today to get something in the future.
 
-$$p_u = \pi_u \mathrm{e}^{rt}, \quad p_d = \pi_d \mathrm{e}^{rt}$$
+#### Risk-Neutral Pricing
 
-Then, we have.
+Rather than working directly with state prices, it is conventional to make a simple transformation.  Define $p_u = \mathrm{e}^{rt}\pi_u$ and $p_d = \mathrm{e}^{rt}\pi_d$.  We have $p_u+p_d=1$ and our no-arbitrage assumption implies that $p_u>0$ and $p_d>0$.  This makes it possible to view $p_u$ and $p_d$ as artificial probabilities.  We make no claim that they represent anyone's beliefs, but they have the mathematical properties of probabilities.  They are universally called the **risk-neutral probabilities**.  The motivation for this terminology is that @eq-oneperiodstateprices1 and @eq-oneperiodstateprices2 can be rewritten as
 
-$$C = \mathrm{e}^{-rt}[p_u C_u + p_d C_d]$$
+$$C = \mathrm{e}^{-rt}\big[p_u C_u + p_dC_d\big]\,.$$ {#eq-oneperiodrnp1}
+$$S = \mathrm{e}^{-rt}\big[p_u S_u + p_dS_d\big]\,.$$ {#eq-oneperiodrnp2}
 
-Notice that $p_u>0$, $p_d>0$, and $p_u+p_d=1$.  This makes it possible to view $p_u$ and $p_d$ as artificial probabilities.  We make no claim that they represent anyone's beliefs, but they have the mathematical properties of probabilities.  They are universally called the `risk-neutral probabilities.'  The motivation for this terminology is that, as the previous equation shows, option values are discounted `expected values' using these probabilities to compute the expectation.  This is how options would be valued if investors were risk neutral.  We **do not** assume that investors are risk neutral; nevertheless, we can compute option values **as if** investors were risk-neutral, with beliefs represented by the risk-neutral probabilities.
+These equations state that each risky asset can be valued as its expected value discounted at the risk-free rate, when we calculate the expected values using the risk-neutral probabilities.  This is how securities would be valued if investors were risk neutral, using the investors' actual beliefs.  We **do not** assume that investors are risk neutral; nevertheless, we can compute option values **as if** investors were risk-neutral, by using the risk-neutral probabilities as their beliefs.  Rather than risk neutrality, all that we are assuming is that there are no arbitrage opportunities.  Thus, the absence of arbitrage opportunities allows us to do risk-neutral pricing in the form of @eq-oneperiodrnp1 and @eq-oneperiodrnp2.
 
-Rather than first calculating the state prices, we can calculate the risk-neutral probabilities directly as
-$$p_u = \frac{\mathrm{e}^{rt} - S_d/S}{S_u/S - S_d/S}$$
-and $p_d = 1-p_u$.
+Our rather circuitous calculation of the risk-neutral probabilities via the state prices can be streamlined.  We can calculate the risk-neutral probabilities directly as
+$$p_u = \frac{\mathrm{e}^{rt} - S_d/S}{S_u/S - S_d/S}$$ {#eq-oneperiodrnp}
+and $p_d = 1-p_u$.  Both the numerator and denominator on the right-hand side of @eq-oneperiodrnp are differences of returns: the difference between the risk-free return and the underlying asset's down return in the numerator and the difference between the up and down returns of the underlying asset in the denominator.  We will use the same calculation for multiperiod trees.
 
 ## Two-Period Model
 
 Now consider a two-period model where the stock price evolves over two time steps of length $\Delta t = t/2$. To simplify notation and ensure that the tree recombines, we parameterize the price movements using multiplicative factors $u > 1$ and $d = 1/u < 1$.
 
 Starting from $S$, after one period the stock price is either $uS$ or $dS$. After two periods, the possible prices are:
+
 - $u^2S$ (two up moves)
 - $udS = S$ (one up, one down)  
 - $d^2S$ (two down moves)
 
 The tree recombines because $ud = du = 1$, so the middle node has price $S$ regardless of the path taken.
+
+Define the risk-neutral probabilities as in @eq-oneperiodrnp, replacing $t$ with $t/2$ (because $S_u/S$ and $S_d/S$ are now returns over periods of length $t/2$).  We can write this in a form that generalizes more readily as
+$$p_u = \frac{\mathrm{e}^{r\Delta t} - S_d/S}{S_u/S - S_d/S}$$ {#eq-multiperiodrnp}
+and $p_d=1-p_u$.
+
 
 #### Backward Induction Process
 
@@ -108,6 +116,7 @@ The key to valuing options in multi-period trees is **backward induction**. We s
 
 **Step 1: Final Period (t = 2)**
 Calculate option payoffs at each terminal node:
+
 - Node (2,2): $C_{uu} = \max(0, u^2S - K)$ 
 - Node (2,1): $C_{ud} = \max(0, udS - K) = \max(0, S - K)$
 - Node (2,0): $C_{dd} = \max(0, d^2S - K)$
@@ -126,14 +135,11 @@ Finally, calculate today's option value:
 $$C_0 = e^{-r\Delta t}[p \cdot C_u + (1-p) \cdot C_d]$$
 
 **For American Options:**
-At each intermediate node, compare continuation value with immediate exercise:
+At each intermediate node, compare the continuation value with immediate exercise:
 - Up node: $C_u = \max(\text{continuation value}, \max(0, uS - K))$
 - Down node: $C_d = \max(\text{continuation value}, \max(0, dS - K))$
 
-This backward induction process automatically finds the optimal exercise strategy by comparing holding vs. exercising at each node.
-
-
-
+This backward induction process automatically finds the optimal exercise strategy by comparing holding versus exercising at each node.  The following code is a somewhat inefficient implementation in which the backward induction process should be transparent.  We will later accelerate it by vectorizing.
 
 ```{python}
 #| echo: true
