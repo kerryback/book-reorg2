@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -82,40 +102,20 @@ ul.task-list li input[type="checkbox"] {
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-<script type="text/javascript">
-
-window.PlotlyConfig = {MathJaxConfig: 'local'};
-
-if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-
-if (typeof require !== 'undefined') {
-
-require.undef("plotly");
-
-requirejs.config({
-
-    paths: {
-
-        'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
-
-    }
-
-});
-
-require(['plotly'], function(Plotly) {
-
-    window._Plotly = Plotly;
-
-});
-
-}
-
-</script>
-
-
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
+div.callout-Principle.callout {
+  border-left-color: #eb4034;
+}
+div.callout-Principle.callout-style-default > .callout-header {
+  background-color: rgba(235, 64, 52, 0.13);
+}
+div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f06a';
+  background-image: none;
+}
 div.callout-Example.callout {
   border-left-color: #a1bced;
 }
@@ -138,18 +138,6 @@ div.callout-Extra .callout-toggle::before {  background-image: url('data:image/s
 div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f48b';
-  background-image: none;
-}
-div.callout-Principle.callout {
-  border-left-color: #eb4034;
-}
-div.callout-Principle.callout-style-default > .callout-header {
-  background-color: rgba(235, 64, 52, 0.13);
-}
-div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f06a';
   background-image: none;
 }
 div.callout-Rule.callout {
@@ -405,7 +393,15 @@ window.Quarto = {
 </header>
 
 
-<div id="29a1c955" class="cell" data-execution_count="1">
+<div id="e7d58737" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        </script>
+        <script type="module">import "https://cdn.plot.ly/plotly-3.3.1.min"</script>
+        
+</div>
 <div class="cell-output cell-output-display">
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
 </div>
@@ -415,6 +411,9 @@ window.Quarto = {
 <h2 data-number="8.1" class="anchored" data-anchor-id="linear-pricing"><span class="header-section-number">8.1</span> Linear Pricing</h2>
 <p>The fundamental concept underlying most finance theory, from Miller-Modigliani to the Black-Scholes model, is linear pricing. The concept of linear pricing is essentially the same as asking for the price of five apples and six oranges. Of course, this is the price of one apple times five plus the price of one orange times six. However, instead of pricing bundles of commodities today, we will find prices of dollars in different contingencies at times in the future.</p>
 <p>An arbitrage opportunity is a trading strategy that produces nonnegative cash flows at all times in all contingencies with a strictly positive cash flow at some time in some contingency. If such an opportunity were to exist, traders would exploit it until prices adjust to eliminate the possibility. Although simple, this has powerful implications.</p>
+</section>
+<section id="finite-states" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="finite-states"><span class="header-section-number">8.2</span> Finite States</h2>
 <p>Consider a world where there are <span class="math inline">\(J\)</span> possible states of the world at time <span class="math inline">\(t\)</span>. No arbitrage then implies the following properties:</p>
 <ol type="1">
 <li><p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are time <span class="math inline">\(t\)</span> random cash flows, the time 0 price of the random cash flow <span class="math inline">\(aX+bY\)</span> is <span class="math inline">\(a\)</span> times the time 0 price of <span class="math inline">\(X\)</span> plus <span class="math inline">\(b\)</span> times the time 0 price of <span class="math inline">\(Y\)</span>. If <span class="math inline">\(P(\cdot)\)</span> is a pricing function that gives us the price of a random cash flow today, then <span class="math inline">\(P(aX+bY)=aP(X) + bP(Y)\)</span>. In other words, the pricing operator is linear. This follows because if this fails to hold, there is an arbitrage assuming an agent can buy and sell any quantities at these prices. Because the pricing operator is linear, it must have the form <span class="math inline">\(P(X) = \sum_{j=1}^J \pi_j X_j\)</span> where <span class="math inline">\(X_j\)</span> is the random cash flow in state~<span class="math inline">\(j\)</span>. We call <span class="math inline">\(\pi_j\)</span> the price of a dollar at time <span class="math inline">\(t\)</span> in state <span class="math inline">\(j\)</span> or a state price.</p></li>
@@ -422,44 +421,7 @@ window.Quarto = {
 <li><p>The pricing operator obeys time value of money: <span class="math inline">\(1=\sum_{j=1}^J \pi_j e^{rt}\)</span>, where <span class="math inline">\(r\)</span> is the continuously compounded yield to maturity of a bond maturing at <span class="math inline">\(t\)</span>. This is the present value rule: the present value of the future value <span class="math inline">\(e^{rt}\)</span> is one or, equivalently, the present value of a dollar paid at <span class="math inline">\(t\)</span> is <span class="math inline">\(e^{-rt}\)</span>.</p></li>
 <li><p>The pricing operator must be consistent with observable prices. The price <span class="math inline">\(S_0\)</span> of a traded asset with random cash flows at time <span class="math inline">\(t\)</span> is given by <span class="math inline">\(S_0= \sum_{j=1}^J \pi_j S_j\)</span> where <span class="math inline">\(S_j\)</span> is the random cash flow in state <span class="math inline">\(j\)</span>.</p></li>
 </ol>
-<div class="callout callout-style-simple callout-Principle callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important Principle
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In the absence of arbitrage opportunities, there exist positive state prices such that the price of any security is the sum across the states of the world of its payoff multiplied by the state price.</p>
-</div>
-</div>
-<p>This conclusion generalizes to other models, including models in which the stock price takes a continuum of possible values, interpreting the sum in that case as an integral.</p>
-</section>
-<section id="state-prices-in-the-binomial-model" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="state-prices-in-the-binomial-model"><span class="header-section-number">8.2</span> State Prices in the Binomial Model</h2>
-<p>In the single-period binomial model with up and down states, we have two equations for the state prices <span class="math inline">\(\pi_u\)</span> and <span class="math inline">\(\pi_d\)</span>:</p>
-<p><span class="math display">\[ 1 = \pi_u e^{rt} + \pi_d e^{rt} \]</span> <span class="math display">\[ S = \pi_u S_u + \pi_d S_d \]</span></p>
-<p>The first equation prices the risk-free asset (invest $1 today, receive <span class="math inline">\(e^{rt}\)</span> in both states). The second prices the stock.</p>
-<p>Solving these equations gives:</p>
-<p><span class="math display">\[\pi_u  = \frac{S-e^{-rt}S_d}{S_u - S_d}, \quad \pi_d = \frac{e^{-rt}S_u-S}{S_u - S_d}\]</span></p>
-<p>Notice that the requirement <span class="math inline">\(\pi_u, \pi_d &gt; 0\)</span> is precisely the no-arbitrage condition:</p>
-<p><span class="math display">\[\frac{S_u}{S} &gt; e^{rt} &gt; \frac{S_d}{S}\]</span></p>
-<p>We can think of any security as a portfolio of Arrow securities. An Arrow security pays $1 at time <span class="math inline">\(t\)</span> if a specific state occurs and pays nothing otherwise. In our binomial model, <span class="math inline">\(\pi_u\)</span> is the price of an Arrow security paying $1 in the up state, and <span class="math inline">\(\pi_d\)</span> is the price of an Arrow security paying $1 in the down state.</p>
-<p>For any derivative with payoffs <span class="math inline">\(C_u\)</span> and <span class="math inline">\(C_d\)</span>:</p>
-<p><span class="math display">\[C = \pi_u C_u + \pi_d C_d\]</span></p>
-<section id="risk-neutral-probabilities" class="level4">
-<h4 class="anchored" data-anchor-id="risk-neutral-probabilities">Risk-Neutral Probabilities</h4>
-<p>Define <span class="math inline">\(p_u = \pi_u e^{rt}\)</span> and <span class="math inline">\(p_d = \pi_d e^{rt}\)</span>. Since <span class="math inline">\(p_u + p_d = 1\)</span> and both are positive, we can interpret them as probabilities—the risk-neutral probabilities. Then:</p>
-<p><span class="math display">\[C = e^{-rt}[p_u C_u + p_d C_d]\]</span></p>
-<p>The asset price equals its expected payoff discounted at the risk-free rate, where the expectation uses risk-neutral probabilities. Note that:</p>
-<p><span class="math display">\[p_u = \frac{e^{rt} - S_d/S}{S_u/S - S_d/S}\]</span></p>
-</section>
-</section>
-<section id="multiple-states" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="multiple-states"><span class="header-section-number">8.3</span> Multiple States</h2>
-<p>Now consider a market with <span class="math inline">\(J &gt; 2\)</span> possible states at time <span class="math inline">\(t\)</span>. We need to find <span class="math inline">\(J\)</span> state prices <span class="math inline">\(\pi_1, \ldots, \pi_J\)</span>. If we have <span class="math inline">\(J\)</span> traded assets (including the risk-free asset) with linearly independent payoffs, we can solve:</p>
+<p>We calculated state prices in the binomial model (<span class="math inline">\(J=2\)</span> and two assets) in <a href="Chapter_Trees.html" class="quarto-xref"><span>Chapter 4</span></a>. For general finite <span class="math inline">\(J\)</span>, we need to find <span class="math inline">\(J\)</span> state prices <span class="math inline">\(\pi_1, \ldots, \pi_J\)</span>. If we have <span class="math inline">\(J\)</span> traded assets (including the risk-free asset) with linearly independent payoffs, then we can solve:</p>
 <p><span class="math display">\[\begin{bmatrix}
 e^{rt} &amp; e^{rt} &amp; \cdots &amp; e^{rt} \\
 S_1^{(1)} &amp; S_2^{(1)} &amp; \cdots &amp; S_J^{(1)} \\
@@ -473,20 +435,21 @@ S_1^{(J-1)} &amp; S_2^{(J-1)} &amp; \cdots &amp; S_J^{(J-1)}
 1 \\ S^{(1)} \\ \vdots \\ S^{(J-1)}
 \end{bmatrix}\]</span></p>
 <p>where <span class="math inline">\(S^{(i)}\)</span> is the current price of asset <span class="math inline">\(i\)</span> and <span class="math inline">\(S_j^{(i)}\)</span> is its payoff in state <span class="math inline">\(j\)</span>.</p>
-<p>With state prices determined, we can value any derivative:</p>
+<p>With state prices determined, we can calculate the value <span class="math inline">\(V\)</span> of any derivative security with payoffs <span class="math inline">\(V_j\)</span> as:</p>
 <p><span class="math display">\[V = \sum_{j=1}^J \pi_j V_j\]</span></p>
-<p>The risk-neutral probabilities are <span class="math inline">\(p_j = \pi_j e^{rt}\)</span>, giving:</p>
-<p><span class="math display">\[V = e^{-rt} \sum_{j=1}^J p_j V_j = e^{-rt} \mathbb{E}^p[V_t]\]</span></p>
+<p>The risk-neutral probabilities are defined as in <a href="Chapter_Trees.html" class="quarto-xref"><span>Chapter 4</span></a>: <span class="math inline">\(p_j = \pi_j e^{rt}\)</span>, giving</p>
+<p><span class="math display">\[V = e^{-rt} \sum_{j=1}^J p_j V_j = e^{-rt} \mathbb{E}^p[V_t]\,.\]</span></p>
+<p>We call the collection of risk-neutral probabilities <span class="math inline">\((p_1, \ldots, p_J\)</span> the risk-neutral probability measure or, for brevity, the risk-neutral measure. We use the same terminology to describe the risk-neutral probability distribution when there is a continuum of states.</p>
 </section>
-<section id="martingale-pricing" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="martingale-pricing"><span class="header-section-number">8.4</span> Martingale Pricing</h2>
+<section id="martingale-pricing" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="martingale-pricing"><span class="header-section-number">8.3</span> Martingale Pricing</h2>
 <p>A martingale is a stochastic process for which the expected value of tomorrow’s value is today’s value. In our framework, discounted values of non-dividend paying trading strategies are martingales under the risk-neutral measure.</p>
 <p>If <span class="math inline">\(X(0)\)</span> is today’s value of a portfolio with random payoff <span class="math inline">\(X\)</span> at time <span class="math inline">\(t\)</span>:</p>
 <p><span class="math display">\[\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{e^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]\]</span></p>
 <p>where <span class="math inline">\(R(0) = 1\)</span> and <span class="math inline">\(R_t = e^{rt}\)</span>. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.</p>
 </section>
-<section id="continuous-time" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="continuous-time"><span class="header-section-number">8.5</span> Continuous Time</h2>
+<section id="continuous-time" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="continuous-time"><span class="header-section-number">8.4</span> Continuous Time</h2>
 <p>We now extend to continuous-time models where the stock price can take a continuum of values. The principle becomes:</p>
 <div class="callout callout-style-simple callout-Principle callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -498,7 +461,7 @@ Important Principle
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If there are no arbitrage opportunities, then there exists for each date <span class="math inline">\(t\)</span> a strictly positive random variable <span class="math inline">\(m_t\)</span>, called a stochastic discount factor, such that the date-0 value of any dividend-reinvested asset with price <span class="math inline">\(P\)</span> is:</p>
+<p>If there are no arbitrage opportunities,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> then there exists for each date <span class="math inline">\(t\)</span> a strictly positive random variable <span class="math inline">\(m_t\)</span>, called a stochastic discount factor, such that the date-0 value of any dividend-reinvested asset with price <span class="math inline">\(P\)</span> is:</p>
 <p><span class="math display">\[P_0 = \mathbb{E}[m_t P_t]\]</span></p>
 </div>
 </div>
@@ -513,8 +476,8 @@ Important Principle
 <p><span class="math display">\[P_0 = e^{-rt} \mathbb{E}^R[P_t]\]</span></p>
 </section>
 </section>
-<section id="change-of-numeraire" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="change-of-numeraire"><span class="header-section-number">8.6</span> Change of Numeraire</h2>
+<section id="change-of-numeraire" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="change-of-numeraire"><span class="header-section-number">8.5</span> Change of Numeraire</h2>
 <p>Our choice of the risk-free asset as numeraire was arbitrary. Any strictly positive non-dividend paying trading strategy can serve as a numeraire.</p>
 <p>For a dividend-reinvested asset <span class="math inline">\(Y\)</span> with strictly positive value:</p>
 <p><span class="math display">\[Y(0) = \mathbb{E}[m_t Y_t]\]</span></p>
@@ -552,8 +515,8 @@ Important Principle
 <p>Different numeraires lead to different probability measures but the same derivative prices.</p>
 </section>
 </section>
-<section id="stock-as-numeraire" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="stock-as-numeraire"><span class="header-section-number">8.7</span> Stock as Numeraire</h2>
+<section id="stock-as-numeraire" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="stock-as-numeraire"><span class="header-section-number">8.6</span> Stock as Numeraire</h2>
 <p>Using the stock as numeraire is particularly useful for certain derivatives. In the binomial model, define:</p>
 <p><span class="math display">\[\text{prob}^S_u = \frac{\pi_u S_u}{S}, \quad \text{prob}^S_d = \frac{\pi_d S_d}{S}\]</span></p>
 <p>These sum to 1 and are positive. For a call option:</p>
@@ -563,8 +526,8 @@ Important Principle
 <p><span class="math display">\[V_0 = S_0 \mathbb{E}^S\left[\frac{V_T}{S_T}\right]\]</span></p>
 <p>This formulation is often convenient for options that depend on the stock price relative to some level.</p>
 </section>
-<section id="changes-of-probability-and-girsanovs-theorem" class="level2" data-number="8.8">
-<h2 data-number="8.8" class="anchored" data-anchor-id="changes-of-probability-and-girsanovs-theorem"><span class="header-section-number">8.8</span> Changes of Probability and Girsanov’s Theorem</h2>
+<section id="changes-of-probability-and-girsanovs-theorem" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="changes-of-probability-and-girsanovs-theorem"><span class="header-section-number">8.7</span> Changes of Probability and Girsanov’s Theorem</h2>
 <p>When we change probability measures, we cannot expect a process <span class="math inline">\(B\)</span> that was a Brownian motion to remain a Brownian motion. The expected change in a Brownian motion must always be zero, but when we change probabilities, the expected change of <span class="math inline">\(B\)</span> is likely to become nonzero. However, the Brownian motion <span class="math inline">\(B\)</span> will still be an Ito process under the new probability measure.</p>
 <p>Changing probabilities only changes the drift of an Ito process—the diffusion coefficient remains unchanged. This is because the diffusion coefficient determines how much each path “jiggles,” which is unaffected by changing the probability measure.</p>
 <section id="example-risk-neutral-probability" class="level4">
@@ -576,8 +539,8 @@ Important Principle
 <p>where <span class="math inline">\(B^*\)</span> is a Brownian motion under the risk-neutral probability.</p>
 </section>
 </section>
-<section id="girsanovs-theorem-in-the-black-scholes-model" class="level2" data-number="8.9">
-<h2 data-number="8.9" class="anchored" data-anchor-id="girsanovs-theorem-in-the-black-scholes-model"><span class="header-section-number">8.9</span> Girsanov’s Theorem in the Black-Scholes Model</h2>
+<section id="girsanovs-theorem-in-the-black-scholes-model" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="girsanovs-theorem-in-the-black-scholes-model"><span class="header-section-number">8.8</span> Girsanov’s Theorem in the Black-Scholes Model</h2>
 <p>To value digital options, we need to understand changes of probability measures in continuous time. When we change probability measures, a process <span class="math inline">\(B\)</span> that was a Brownian motion cannot be expected to remain a Brownian motion under the new measure. However, Girsanov’s Theorem tells us exactly how the drift changes.</p>
 <p>In the Black-Scholes model, the dividend-reinvested stock price, denoted <span class="math inline">\(Y_t\)</span>, evolves as</p>
 <p><span class="math display">\[\mathrm{d}Y_t = \mu Y_t \,\mathrm{d}t + \sigma Y_t \,\mathrm{d}B_t\,.\]</span></p>
@@ -615,8 +578,8 @@ Important Principle
 <p>Girsanov’s Theorem will be important in the next chapter where we derive the Black-Scholes formula.</p>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="8.10">
-<h2 data-number="8.10" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.10</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.9</span> Exercises</h2>
 <section id="linear-pricing-and-state-prices" class="level4">
 <h4 class="anchored" data-anchor-id="linear-pricing-and-state-prices">Linear Pricing and State Prices</h4>
 <div id="exr-linear-pricing" class="theorem exercise">
@@ -721,8 +684,8 @@ Important Principle
 </div>
 </section>
 </section>
-<section id="summary" class="level2" data-number="8.11">
-<h2 data-number="8.11" class="anchored" data-anchor-id="summary"><span class="header-section-number">8.11</span> Summary</h2>
+<section id="summary" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="summary"><span class="header-section-number">8.10</span> Summary</h2>
 <p>We have developed a unified framework for derivative pricing based on the absence of arbitrage:</p>
 <ol type="1">
 <li><strong>Linear pricing</strong> implies the existence of state prices</li>
@@ -736,6 +699,23 @@ Important Principle
 <p>This framework extends from simple binomial models to general continuous-time models, providing the foundation for modern derivative pricing theory.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-back2010" class="csl-entry" role="listitem">
+Back, Kerry. 2010. <span>“Martingale Pricing.”</span> <em>Annual Review of Financial Economics</em> 2: 235–50.
+</div>
+<div id="ref-HestonLoewensteinWillard2007" class="csl-entry" role="listitem">
+Heston, Steven L., Mark Loewenstein, and Gregory A. Willard. 2007. <span>“Options and Bubbles.”</span> <em>Review of Financial Studies</em> 20: 359–90.
+</div>
+<div id="ref-LoewensteinWillard2000" class="csl-entry" role="listitem">
+Loewenstein, Mark, and Gregory A. Willard. 2000. <span>“Local Martingales, Arbitrage, and Viability: Free Snacks and Cheap Thrills.”</span> <em>Economic Theory</em> 16: 135–61.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The definition of ‘arbitrary opportunity’ that is required for this statement to be correct is somewhat complex. See <span class="citation" data-cites="back2010">(<a href="#ref-back2010" role="doc-biblioref">Back 2010</a>)</span> for a survey and <span class="citation" data-cites="LoewensteinWillard2000">(<a href="#ref-LoewensteinWillard2000" role="doc-biblioref">Loewenstein and Willard 2000</a>)</span> and <span class="citation" data-cites="HestonLoewensteinWillard2007">(<a href="#ref-HestonLoewensteinWillard2007" role="doc-biblioref">Heston, Loewenstein, and Willard 2007</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
