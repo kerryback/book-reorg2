@@ -71,16 +71,6 @@ This is the expectation (mean) of the random variable with values $m_jV_j$.  In 
 
 The random variable $m$ in the previous paragraph is called the **stochastic discount factor** or SDF for short.  This representation of an asset value generalizes to models with a continuum of states, even though individual states have zero probability, making the division $\pi_j/\text{prob}_j$ impossible.  In such models, the SDf is sometimes called a **state price density**, the term density having a similar meaning here as it does in the 'probability density function' of a random variable that one encounters in statistics.
 
-## Martingale Pricing
-
-A martingale is a stochastic process for which the expected value of tomorrow's value is today's value. In our framework, discounted values of non-dividend paying trading strategies are martingales under the risk-neutral measure.
-
-If $X(0)$ is today's value of a portfolio with random payoff $X$ at time $t$:
-
-$$\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{e^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]$$
-
-where $R(0) = 1$ and $R_t = e^{rt}$. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.
-
 ## Continuous Time
 
 We now extend to continuous-time models where the stock price can take a continuum of values. The principle becomes:
@@ -91,11 +81,7 @@ If there are no arbitrage opportunities,^[The definition of 'arbitrary opportuni
 $$P_0 = \mathbb{E}[m_t P_t]$$
 :::
 
-The stochastic discount factor $m_t$ generalizes state prices to continuous distributions. For a finite number of states, $m_t = \pi_j/\text{prob}_j$ in state $j$, where $\text{prob}_j$ is the actual probability.
-
-#### Connection to Risk-Neutral Probabilities
-
-The risk-free asset satisfies:
+We can construct the risk-neutral probability measure from the SDF $m$.  First, note that the pricing formula applied to the risk-free asset gives:
 
 $$1 = \mathbb{E}[m_t e^{rt}]$$
 
@@ -106,6 +92,17 @@ $$\mathbb{E}^R[Z] = \mathbb{E}[m_t e^{rt} Z]$$
 for any random variable $Z$. Under this risk-neutral measure:
 
 $$P_0 = e^{-rt} \mathbb{E}^R[P_t]$$
+
+
+## Martingale Pricing
+
+A martingale is a stochastic process for which the expected value of tomorrow's value is today's value. In our framework, discounted values of non-dividend paying trading strategies are martingales under the risk-neutral measure.
+
+If $X(0)$ is today's value of a portfolio with random payoff $X$ at time $t$:
+
+$$\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{e^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]$$
+
+where $R(0) = 1$ and $R_t = e^{rt}$. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.
 
 ## Change of Numeraire
 

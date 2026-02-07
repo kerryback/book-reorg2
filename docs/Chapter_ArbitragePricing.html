@@ -98,24 +98,9 @@ div.csl-indent {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
-div.callout-Principle.callout {
-  border-left-color: #eb4034;
-}
-div.callout-Principle.callout-style-default > .callout-header {
-  background-color: rgba(235, 64, 52, 0.13);
-}
-div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f06a';
-  background-image: none;
-}
 div.callout-Example.callout {
   border-left-color: #a1bced;
 }
@@ -126,6 +111,18 @@ div.callout-Example .callout-toggle::before {  background-image: url('data:image
 div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f185';
+  background-image: none;
+}
+div.callout-Rule.callout {
+  border-left-color: #12801f;
+}
+div.callout-Rule.callout-style-default > .callout-header {
+  background-color: rgba(18, 128, 31, 0.13);
+}
+div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f164';
   background-image: none;
 }
 div.callout-Extra.callout {
@@ -140,16 +137,16 @@ div.callout-Extra.callout-style-default .callout-icon::before, div.callout-Extra
   content: '\f48b';
   background-image: none;
 }
-div.callout-Rule.callout {
-  border-left-color: #12801f;
+div.callout-Principle.callout {
+  border-left-color: #eb4034;
 }
-div.callout-Rule.callout-style-default > .callout-header {
-  background-color: rgba(18, 128, 31, 0.13);
+div.callout-Principle.callout-style-default > .callout-header {
+  background-color: rgba(235, 64, 52, 0.13);
 }
-div.callout-Rule .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rule.callout-style-default .callout-icon::before, div.callout-Rule.callout-titled .callout-icon::before {
+div.callout-Principle .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
-  content: '\f164';
+  content: '\f06a';
   background-image: none;
 }
 </style>
@@ -393,7 +390,7 @@ window.Quarto = {
 </header>
 
 
-<div id="e7d58737" class="cell" data-execution_count="1">
+<div id="b8d2bfe5" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
         <script type="text/javascript">
         window.PlotlyConfig = {MathJaxConfig: 'local'};
@@ -439,17 +436,12 @@ S_1^{(J-1)} &amp; S_2^{(J-1)} &amp; \cdots &amp; S_J^{(J-1)}
 <p><span class="math display">\[V = \sum_{j=1}^J \pi_j V_j\]</span></p>
 <p>The risk-neutral probabilities are defined as in <a href="Chapter_Trees.html" class="quarto-xref"><span>Chapter 4</span></a>: <span class="math inline">\(p_j = \pi_j e^{rt}\)</span>, giving</p>
 <p><span class="math display">\[V = e^{-rt} \sum_{j=1}^J p_j V_j = e^{-rt} \mathbb{E}^p[V_t]\,.\]</span></p>
-<p>We call the collection of risk-neutral probabilities <span class="math inline">\((p_1, \ldots, p_J\)</span> the risk-neutral probability measure or, for brevity, the risk-neutral measure. We use the same terminology to describe the risk-neutral probability distribution when there is a continuum of states.</p>
+<p>We call the collection of risk-neutral probabilities <span class="math inline">\((p_1, \ldots, p_J)\)</span> the risk-neutral probability measure or, for brevity, the risk-neutral measure. We use the same terminology to describe the risk-neutral probability distribution when there is a continuum of states.</p>
+<p>Another useful representation of pricing is obtained by dividing each state price by the probability of the state. Set <span class="math inline">\(m_j = \pi_j/\text{prob}_j\)</span>, where <span class="math inline">\(\text{prob}_j\)</span> denotes the probability of state <span class="math inline">\(j\)</span> (the actual probability, not the risk-neutral probability). Then, <span class="math display">\[V = \sum_{j=1}^J \text{prob}_jm_jV_j\,.\]</span> This is the expectation (mean) of the random variable with values <span class="math inline">\(m_jV_j\)</span>. In general, we denote expectation by the symbol <span class="math inline">\(\mathbb{E}\)</span>.</p>
+<p>The random variable <span class="math inline">\(m\)</span> in the previous paragraph is called the <strong>stochastic discount factor</strong> or SDF for short. This representation of an asset value generalizes to models with a continuum of states, even though individual states have zero probability, making the division <span class="math inline">\(\pi_j/\text{prob}_j\)</span> impossible. In such models, the SDf is sometimes called a <strong>state price density</strong>, the term density having a similar meaning here as it does in the ‘probability density function’ of a random variable that one encounters in statistics.</p>
 </section>
-<section id="martingale-pricing" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="martingale-pricing"><span class="header-section-number">8.3</span> Martingale Pricing</h2>
-<p>A martingale is a stochastic process for which the expected value of tomorrow’s value is today’s value. In our framework, discounted values of non-dividend paying trading strategies are martingales under the risk-neutral measure.</p>
-<p>If <span class="math inline">\(X(0)\)</span> is today’s value of a portfolio with random payoff <span class="math inline">\(X\)</span> at time <span class="math inline">\(t\)</span>:</p>
-<p><span class="math display">\[\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{e^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]\]</span></p>
-<p>where <span class="math inline">\(R(0) = 1\)</span> and <span class="math inline">\(R_t = e^{rt}\)</span>. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.</p>
-</section>
-<section id="continuous-time" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="continuous-time"><span class="header-section-number">8.4</span> Continuous Time</h2>
+<section id="continuous-time" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="continuous-time"><span class="header-section-number">8.3</span> Continuous Time</h2>
 <p>We now extend to continuous-time models where the stock price can take a continuum of values. The principle becomes:</p>
 <div class="callout callout-style-simple callout-Principle callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -465,16 +457,19 @@ Important Principle
 <p><span class="math display">\[P_0 = \mathbb{E}[m_t P_t]\]</span></p>
 </div>
 </div>
-<p>The stochastic discount factor <span class="math inline">\(m_t\)</span> generalizes state prices to continuous distributions. For a finite number of states, <span class="math inline">\(m_t = \pi_j/\text{prob}_j\)</span> in state <span class="math inline">\(j\)</span>, where <span class="math inline">\(\text{prob}_j\)</span> is the actual probability.</p>
-<section id="connection-to-risk-neutral-probabilities" class="level4">
-<h4 class="anchored" data-anchor-id="connection-to-risk-neutral-probabilities">Connection to Risk-Neutral Probabilities</h4>
-<p>The risk-free asset satisfies:</p>
+<p>We can construct the risk-neutral probability measure from the SDF <span class="math inline">\(m\)</span>. First, note that the pricing formula applied to the risk-free asset gives:</p>
 <p><span class="math display">\[1 = \mathbb{E}[m_t e^{rt}]\]</span></p>
 <p>This means <span class="math inline">\(m_t e^{rt}\)</span> has expectation 1. We can define a new probability measure by:</p>
 <p><span class="math display">\[\mathbb{E}^R[Z] = \mathbb{E}[m_t e^{rt} Z]\]</span></p>
 <p>for any random variable <span class="math inline">\(Z\)</span>. Under this risk-neutral measure:</p>
 <p><span class="math display">\[P_0 = e^{-rt} \mathbb{E}^R[P_t]\]</span></p>
 </section>
+<section id="martingale-pricing" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="martingale-pricing"><span class="header-section-number">8.4</span> Martingale Pricing</h2>
+<p>A martingale is a stochastic process for which the expected value of tomorrow’s value is today’s value. In our framework, discounted values of non-dividend paying trading strategies are martingales under the risk-neutral measure.</p>
+<p>If <span class="math inline">\(X(0)\)</span> is today’s value of a portfolio with random payoff <span class="math inline">\(X\)</span> at time <span class="math inline">\(t\)</span>:</p>
+<p><span class="math display">\[\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{e^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]\]</span></p>
+<p>where <span class="math inline">\(R(0) = 1\)</span> and <span class="math inline">\(R_t = e^{rt}\)</span>. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.</p>
 </section>
 <section id="change-of-numeraire" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="change-of-numeraire"><span class="header-section-number">8.5</span> Change of Numeraire</h2>
@@ -714,7 +709,7 @@ Loewenstein, Mark, and Gregory A. Willard. 2000. <span>“Local Martingales, Arb
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>The definition of ‘arbitrary opportunity’ that is required for this statement to be correct is somewhat complex. See <span class="citation" data-cites="back2010">(<a href="#ref-back2010" role="doc-biblioref">Back 2010</a>)</span> for a survey and <span class="citation" data-cites="LoewensteinWillard2000">(<a href="#ref-LoewensteinWillard2000" role="doc-biblioref">Loewenstein and Willard 2000</a>)</span> and <span class="citation" data-cites="HestonLoewensteinWillard2007">(<a href="#ref-HestonLoewensteinWillard2007" role="doc-biblioref">Heston, Loewenstein, and Willard 2007</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>The definition of ‘arbitrary opportunity’ that is required for this statement to be correct is somewhat complex. See <span class="citation" data-cites="back2010">(<a href="#ref-back2010" role="doc-biblioref">Back 2010</a>)</span> for a survey of work on this question and <span class="citation" data-cites="LoewensteinWillard2000">(<a href="#ref-LoewensteinWillard2000" role="doc-biblioref">Loewenstein and Willard 2000</a>)</span> and <span class="citation" data-cites="HestonLoewensteinWillard2007">(<a href="#ref-HestonLoewensteinWillard2007" role="doc-biblioref">Heston, Loewenstein, and Willard 2007</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
