@@ -72,9 +72,8 @@ Another useful representation of pricing in a finite-state world is obtained by 
 $$
 V = \sum_{j=1}^J \text{prob}_jm_jV_j\,.
 $$ {#eq-arbpricing-sdf0}
-Thus, the date-0 value $V$ is the expectation (mean) of the random variable with values $m_jV_j$.  In general, we denote expectation by the symbol $\mathbb{E}$.
-
-The random variable $m$ in the previous paragraph is called the **stochastic discount factor** or SDF for short.  
+Thus, the date-0 value $V$ is the expectation (mean) of the random variable with values $m_jV_j$.  
+The random variable $m$  is called the **stochastic discount factor** or SDF for short.  
 
 ## Continuum of States
 
