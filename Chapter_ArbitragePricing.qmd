@@ -56,21 +56,23 @@ where $S^{(i)}$ is the current price of asset $i$ and $S_j^{(i)}$ is its payoff 
 
 With state prices determined, we can calculate the value $V$ of any derivative security with payoffs $V_j$ as:
 
-$$V = \sum_{j=1}^J \pi_j V_j$$
+$$
+V = \sum_{j=1}^J \pi_j V_j\,.
+$$ {#eq-arbpricing-stateprices}
 
 The risk-neutral probabilities are defined as in @sec-c:trees: $p_j = \pi_j \mathrm{e}^{rt}$, giving
 
 $$
 V = \mathrm{e}^{-rt} \sum_{j=1}^J p_j V_j = \mathrm{e}^{-rt} \mathbb{E}^p[V_t]\,.
-$$ {#arbpricing-rnp0}
+$$ {#eq-arbpricing-rnp0}
 
 We call the collection of risk-neutral probabilities $(p_1, \ldots, p_J)$ the risk-neutral probability measure or, for brevity, the risk-neutral measure.  We also use the term 'risk-neutral measure' to describe the risk-neutral probability distribution when there is a continuum of states.
 
-Another useful representation of pricing in a finite-state world is obtained by dividing each state price by the probability of the state.  Set $m_j = \pi_j/\text{prob}_j$, where $\text{prob}_j$ denotes the probability of state $j$ (the actual probability, not the risk-neutral probability).  Then,
+Another useful representation of pricing in a finite-state world is obtained by dividing each state price by the probability of the state.  Set $m_j = \pi_j/\text{prob}_j$, where $\text{prob}_j$ denotes the probability of state $j$ (the actual probability, not the risk-neutral probability).  @eq-arbpricing-stateprices can be written as 
 $$
 V = \sum_{j=1}^J \text{prob}_jm_jV_j\,.
 $$ {#eq-arbpricing-sdf0}
-This is the expectation (mean) of the random variable with values $m_jV_j$.  In general, we denote expectation by the symbol $\mathbb{E}$.
+Thus, the date-0 value $V$ is the expectation (mean) of the random variable with values $m_jV_j$.  In general, we denote expectation by the symbol $\mathbb{E}$.
 
 The random variable $m$ in the previous paragraph is called the **stochastic discount factor** or SDF for short.  
 
