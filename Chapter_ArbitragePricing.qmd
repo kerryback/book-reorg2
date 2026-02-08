@@ -33,15 +33,14 @@ Consider a world where there are $J$ possible states of the world at time $t$. N
 
 2. The price of any positive nonzero random cash flow at time $t$ is strictly positive. Again, this follows from no arbitrage (think how much of an asset paying a positive dividend you would want if it were free or even if you were paid to take the asset). This implies the state prices are strictly positive.
 
-3. The pricing operator obeys time value of money: $1=\sum_{j=1}^J \pi_j e^{rt}$, where $r$ is the continuously compounded yield to maturity of a bond maturing at $t$. This is the present value rule: the present value of the future value $e^{rt}$ is one or, equivalently, the present value of a dollar paid at $t$ is $e^{-rt}$.
+3. The pricing operator obeys time value of money: $1=\sum_{j=1}^J \pi_j \mathrm{e}^{rt}$, where $r$ is the continuously compounded yield to maturity of a bond maturing at $t$. This is the present value rule: the present value of the future value $\mathrm{e}^{rt}$ is one or, equivalently, the present value of a dollar paid at $t$ is $\mathrm{e}^{-rt}$.
 
 4. The pricing operator must be consistent with observable prices. The price $S_0$ of a traded asset with random cash flows at time $t$ is given by $S_0= \sum_{j=1}^J \pi_j S_j$ where $S_j$ is the random cash flow in state $j$.
 
-
-We calculated state prices in the binomial model ($J=2$ and two assets) in @sec-c:trees.  For general finite $J$, we need to find $J$ state prices $\pi_1, \ldots, \pi_J$. If we have $J$ traded assets (including the risk-free asset) with linearly independent payoffs, then we can solve:
+We saw these principles and  calculated state prices in the binomial model ($J=2$ and two assets) in @sec-c:trees.  To calculate state prices for general finite $J$, we need to find $J$ state prices $\pi_1, \ldots, \pi_J$. If we have $J$ traded assets (including the risk-free asset) with linearly independent payoffs, then we can solve:
 
 $$\begin{bmatrix} 
-e^{rt} & e^{rt} & \cdots & e^{rt} \\
+\mathrm{e}^{rt} & \mathrm{e}^{rt} & \cdots & \mathrm{e}^{rt} \\
 S_1^{(1)} & S_2^{(1)} & \cdots & S_J^{(1)} \\
 \vdots & \vdots & \ddots & \vdots \\
 S_1^{(J-1)} & S_2^{(J-1)} & \cdots & S_J^{(J-1)}
@@ -59,39 +58,52 @@ With state prices determined, we can calculate the value $V$ of any derivative s
 
 $$V = \sum_{j=1}^J \pi_j V_j$$
 
-The risk-neutral probabilities are defined as in @sec-c:trees: $p_j = \pi_j e^{rt}$, giving
+The risk-neutral probabilities are defined as in @sec-c:trees: $p_j = \pi_j \mathrm{e}^{rt}$, giving
 
-$$V = e^{-rt} \sum_{j=1}^J p_j V_j = e^{-rt} \mathbb{E}^p[V_t]\,.$$
+$$
+V = \mathrm{e}^{-rt} \sum_{j=1}^J p_j V_j = \mathrm{e}^{-rt} \mathbb{E}^p[V_t]\,.
+$$ {#arbpricing-rnp0}
 
-We call the collection of risk-neutral probabilities $(p_1, \ldots, p_J)$ the risk-neutral probability measure or, for brevity, the risk-neutral measure.  We use the same terminology to describe the risk-neutral probability distribution when there is a continuum of states.
+We call the collection of risk-neutral probabilities $(p_1, \ldots, p_J)$ the risk-neutral probability measure or, for brevity, the risk-neutral measure.  We also use the term 'risk-neutral measure' to describe the risk-neutral probability distribution when there is a continuum of states.
 
-Another useful representation of pricing is obtained by dividing each state price by the probability of the state.  Set $m_j = \pi_j/\text{prob}_j$, where $\text{prob}_j$ denotes the probability of state $j$ (the actual probability, not the risk-neutral probability).  Then,
-$$V = \sum_{j=1}^J \text{prob}_jm_jV_j\,.$$
+Another useful representation of pricing in a finite-state world is obtained by dividing each state price by the probability of the state.  Set $m_j = \pi_j/\text{prob}_j$, where $\text{prob}_j$ denotes the probability of state $j$ (the actual probability, not the risk-neutral probability).  Then,
+$$
+V = \sum_{j=1}^J \text{prob}_jm_jV_j\,.
+$$ {#eq-arbpricing-sdf0}
 This is the expectation (mean) of the random variable with values $m_jV_j$.  In general, we denote expectation by the symbol $\mathbb{E}$.
 
-The random variable $m$ in the previous paragraph is called the **stochastic discount factor** or SDF for short.  This representation of an asset value generalizes to models with a continuum of states, even though individual states have zero probability, making the division $\pi_j/\text{prob}_j$ impossible.  In such models, the SDf is sometimes called a **state price density**, the term density having a similar meaning here as it does in the 'probability density function' of a random variable that one encounters in statistics.
+The random variable $m$ in the previous paragraph is called the **stochastic discount factor** or SDF for short.  
 
-## Continuous Time
+## Continuum of States
 
-We now extend to continuous-time models where the stock price can take a continuum of values. The principle becomes:
+We now extend to models where the stock price can take a continuum of values. The formulas for an asset value in the finite-state model generalize to models with a continuum of states.  We begin with the formula in terms of an SDF.
+
+The SDF formula @eq-arbpricing-sdf0 generalizes to models with a continuum of states, even though individual states have zero probability, making the division $\pi_j/\text{prob}_j$ impossible.  In such models, the SDf is sometimes called a **state price density**, the term density having a similar meaning here as it does in the 'probability density function' of a random variable that one encounters in statistics.  The fundamental principle that underlies option valuation is:
 
 ::: Principle
 If there are no arbitrage opportunities,^[The definition of 'arbitrary opportunity' that is required for this statement to be correct is somewhat complex.  See [@back2010] for a survey of work on this question and [@LoewensteinWillard2000] and [@HestonLoewensteinWillard2007].] then there exists for each date $t$ a strictly positive random variable $m_t$, called a stochastic discount factor, such that the date-0 value of any dividend-reinvested asset with price $P$ is:
 
-$$P_0 = \mathbb{E}[m_t P_t]$$
+$$
+P_0 = \mathbb{E}[m_t P_t]\,.
+$$ {#eq-arbpricing-sdf1}
 :::
 
-We can construct the risk-neutral probability measure from the SDF $m$.  First, note that the pricing formula applied to the risk-free asset gives:
+From @eq-arbpricing-sdf1, we can construct a risk-neutral measure and apply 'risk-neutral pricing' as in @eq-arbpricing-rnp0.
+First, note that the pricing formula @eq-arbpricing-sdf1 applied to the risk-free asset gives:
 
-$$1 = \mathbb{E}[m_t e^{rt}]$$
+$$
+1 = \mathbb{E}[m_t \mathrm{e}^{rt}]\,.
+$$ {#eq-arbpricing-mean1}
 
-This means $m_t e^{rt}$ has expectation 1. We can define a new probability measure by:
+This means that $m_t \mathrm{e}^{rt}$ has expectation 1. We can define a new probability measure by:
 
-$$\mathbb{E}^R[Z] = \mathbb{E}[m_t e^{rt} Z]$$
+$$\mathbb{E}^R[Z] = \mathbb{E}[m_t \mathrm{e}^{rt} Z]$$
 
-for any random variable $Z$. Under this risk-neutral measure:
+for any random variable $Z$. Because $\mathbb{E}[m_t\mathrm{e}^{rt}]=1$, \mathbb{E}^R[1]=1$, which is required for a probability measure.  Under this probability measure:
 
-$$P_0 = e^{-rt} \mathbb{E}^R[P_t]$$
+$$
+P_0 = \mathrm{e}^{-rt} \mathbb{E}^R[P_t]\,.
+$$ {#eq-}
 
 
 ## Martingale Pricing
@@ -100,9 +112,9 @@ A martingale is a stochastic process for which the expected value of tomorrow's 
 
 If $X(0)$ is today's value of a portfolio with random payoff $X$ at time $t$:
 
-$$\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{e^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]$$
+$$\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{\mathrm{e}^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]$$
 
-where $R(0) = 1$ and $R_t = e^{rt}$. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.
+where $R(0) = 1$ and $R_t = \mathrm{e}^{rt}$. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.
 
 ## Change of Numeraire
 
@@ -134,7 +146,7 @@ This is the fundamental pricing formula. The value at time $s$ of asset $Y$ is t
 
 When $P$ is the risk-free asset:
 
-$$Y_s = e^{-r(t-s)} \mathbb{E}^R_s[Y_t]$$
+$$Y_s = \mathrm{e}^{-r(t-s)} \mathbb{E}^R_s[Y_t]$$
 
 #### Changing Probability Measures
 
@@ -242,7 +254,7 @@ Girsanov's Theorem will be important in the next chapter where we derive the Bla
 
 ::: {#exr-linear-pricing}
 Consider a market with 3 possible states at time $T = 1$. There are two traded assets:
-- Risk-free bond: pays $e^{0.05}$ in all states  
+- Risk-free bond: pays $\mathrm{e}^{0.05}$ in all states  
 - Risky asset: pays $(10, 15, 5)$ in states $(1, 2, 3)$ respectively, currently priced at $S_0 = 9$
 
 a) Set up the system of equations to find state prices $(\pi_1, \pi_2, \pi_3)$
@@ -263,7 +275,7 @@ d) Compare this to pricing the same payoff using risk-neutral probabilities
 ::: {#exr-no-arbitrage-conditions}
 Consider a two-period binomial model where the stock can go from $S_0 = 100$ to either $S_u = 120$ or $S_d = 80$ in the first period, with risk-free rate $r = 5\%$ per period.
 
-a) Find the no-arbitrage bounds: show that $S_d < S_0 e^r < S_u$ must hold
+a) Find the no-arbitrage bounds: show that $S_d < S_0 \mathrm{e}^r < S_u$ must hold
 b) Calculate the risk-neutral probability $p$ for the up move
 c) If the stock goes to $S_u = 120$ in the first period, it can go to $S_{uu} = 144$ or $S_{ud} = 96$ in the second period. If the stock goes to $S_d = 80$, it can go to $S_{du} = 96$ or $S_{dd} = 64$. Verify that the tree recombines ($S_{ud} = S_{du}$)
 d) Calculate the state prices for all four final states: $(\pi_{uu}, \pi_{ud}, \pi_{du}, \pi_{dd})$
@@ -273,9 +285,9 @@ d) Calculate the state prices for all four final states: $(\pi_{uu}, \pi_{ud}, \
 
 ::: {#exr-martingale-property}
 In the Black-Scholes model with constant dividend yield $q$, show that:
-a) $e^{-qt}S_t$ is a martingale under the risk-neutral measure
-b) $S_t/R_t$ is a martingale under the risk-neutral measure, where $R_t = e^{rt}$
-c) If $V_t$ is the value of any derivative, then $e^{-rt}V_t$ is a martingale under the risk-neutral measure
+a) $\mathrm{e}^{-qt}S_t$ is a martingale under the risk-neutral measure
+b) $S_t/R_t$ is a martingale under the risk-neutral measure, where $R_t = \mathrm{e}^{rt}$
+c) If $V_t$ is the value of any derivative, then $\mathrm{e}^{-rt}V_t$ is a martingale under the risk-neutral measure
 :::
 
 ::: {#exr-risk-neutral-simulation}
@@ -284,8 +296,8 @@ $$\frac{dS}{S} = (r-q) dt + \sigma dB^R$$
 
 With parameters $S_0 = 100$, $r = 5\%$, $q = 2\%$, $\sigma = 20\%$, and $T = 1$:
 
-a) Verify that $\mathbb{E}^R[S_T e^{-qT}] \approx S_0$ (martingale property)
-b) Verify that $\mathbb{E}^R[e^{-rT}S_T] \approx S_0 e^{-qT}$ (discounted expectation)
+a) Verify that $\mathbb{E}^R[S_T \mathrm{e}^{-qT}] \approx S_0$ (martingale property)
+b) Verify that $\mathbb{E}^R[\mathrm{e}^{-rT}S_T] \approx S_0 \mathrm{e}^{-qT}$ (discounted expectation)
 c) Calculate the sample variance of both expressions and comment on the simulation error
 :::
 
@@ -295,7 +307,7 @@ c) Calculate the sample variance of both expressions and comment on the simulati
 Use simulation to verify the change of numeraire for digital options. Consider a digital option that pays $1$ if $S_T \geq K$ with $S_0 = 100$, $K = 105$, $r = 5\%$, $q = 2\%$, $\sigma = 20\%$, $T = 0.5$.
 
 Price this option using two methods:
-a) Risk-neutral measure: $\mathbb{E}^R[e^{-rT} \mathbf{1}_{\{S_T \geq K\}}]$
+a) Risk-neutral measure: $\mathbb{E}^R[\mathrm{e}^{-rT} \mathbf{1}_{\{S_T \geq K\}}]$
 b) Stock numeraire: $S_0 \mathbb{E}^S[\frac{1}{S_T} \mathbf{1}_{\{S_T \geq K\}}]$
 
 Under the stock numeraire, the stock follows:
@@ -340,7 +352,7 @@ d) Use this formula to derive the Black-Scholes formula by setting $P$ as the ri
 ::: {#exr-stochastic-discount-factor}
 In a single-period model with stochastic discount factor $m$:
 a) Show that if there are no arbitrage opportunities, then $\mathbb{E}[m] > 0$ and the law of one price holds
-b) Prove that $\mathbb{E}[mR] = 1$ where $R = e^{rT}$ is the gross risk-free return
+b) Prove that $\mathbb{E}[mR] = 1$ where $R = \mathrm{e}^{rT}$ is the gross risk-free return
 c) Show that the risk-neutral probabilities are given by $p_j = \frac{m_j \cdot \text{prob}_j}{\mathbb{E}[m]}$ where $\text{prob}_j$ is the actual probability of state $j$
 d) Verify that under the risk-neutral measure, all assets have expected return equal to the risk-free rate
 :::
@@ -362,7 +374,7 @@ c) Compare this to a standard call option on the domestic value $S_t = X_t S_t^f
 ::: {#exr-multi-asset-rainbow}
 Consider a "rainbow option" that pays $\max(S_T^{(1)}, S_T^{(2)}, K)$ where $S^{(1)}$ and $S^{(2)}$ are two correlated stocks.
 
-a) Using the fundamental pricing formula, show that this can be priced as $\mathbb{E}^R[e^{-rT}\max(S_T^{(1)}, S_T^{(2)}, K)]$
+a) Using the fundamental pricing formula, show that this can be priced as $\mathbb{E}^R[\mathrm{e}^{-rT}\max(S_T^{(1)}, S_T^{(2)}, K)]$
 b) Explain why you cannot easily use a single asset as numeraire for this payoff
 c) Set up a Monte Carlo simulation to price this option with realistic parameters
 d) Compare the rainbow option price to the sum of two individual call options minus a call on the minimum of the two stocks

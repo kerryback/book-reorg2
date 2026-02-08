@@ -101,18 +101,6 @@ div.csl-indent {
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 <style>
-div.callout-Example.callout {
-  border-left-color: #a1bced;
-}
-div.callout-Example.callout-style-default > .callout-header {
-  background-color: rgba(161, 188, 237, 0.13);
-}
-div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free';
-  content: '\f185';
-  background-image: none;
-}
 div.callout-Rule.callout {
   border-left-color: #12801f;
 }
@@ -147,6 +135,18 @@ div.callout-Principle .callout-toggle::before {  background-image: url('data:ima
 div.callout-Principle.callout-style-default .callout-icon::before, div.callout-Principle.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free';
   content: '\f06a';
+  background-image: none;
+}
+div.callout-Example.callout {
+  border-left-color: #a1bced;
+}
+div.callout-Example.callout-style-default > .callout-header {
+  background-color: rgba(161, 188, 237, 0.13);
+}
+div.callout-Example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Example.callout-style-default .callout-icon::before, div.callout-Example.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free';
+  content: '\f185';
   background-image: none;
 }
 </style>
@@ -390,7 +390,7 @@ window.Quarto = {
 </header>
 
 
-<div id="b8d2bfe5" class="cell" data-execution_count="1">
+<div id="7c5fe024" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
         <script type="text/javascript">
         window.PlotlyConfig = {MathJaxConfig: 'local'};
@@ -415,12 +415,12 @@ window.Quarto = {
 <ol type="1">
 <li><p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are time <span class="math inline">\(t\)</span> random cash flows, the time 0 price of the random cash flow <span class="math inline">\(aX+bY\)</span> is <span class="math inline">\(a\)</span> times the time 0 price of <span class="math inline">\(X\)</span> plus <span class="math inline">\(b\)</span> times the time 0 price of <span class="math inline">\(Y\)</span>. If <span class="math inline">\(P(\cdot)\)</span> is a pricing function that gives us the price of a random cash flow today, then <span class="math inline">\(P(aX+bY)=aP(X) + bP(Y)\)</span>. In other words, the pricing operator is linear. This follows because if this fails to hold, there is an arbitrage assuming an agent can buy and sell any quantities at these prices. Because the pricing operator is linear, it must have the form <span class="math inline">\(P(X) = \sum_{j=1}^J \pi_j X_j\)</span> where <span class="math inline">\(X_j\)</span> is the random cash flow in state~<span class="math inline">\(j\)</span>. We call <span class="math inline">\(\pi_j\)</span> the price of a dollar at time <span class="math inline">\(t\)</span> in state <span class="math inline">\(j\)</span> or a state price.</p></li>
 <li><p>The price of any positive nonzero random cash flow at time <span class="math inline">\(t\)</span> is strictly positive. Again, this follows from no arbitrage (think how much of an asset paying a positive dividend you would want if it were free or even if you were paid to take the asset). This implies the state prices are strictly positive.</p></li>
-<li><p>The pricing operator obeys time value of money: <span class="math inline">\(1=\sum_{j=1}^J \pi_j e^{rt}\)</span>, where <span class="math inline">\(r\)</span> is the continuously compounded yield to maturity of a bond maturing at <span class="math inline">\(t\)</span>. This is the present value rule: the present value of the future value <span class="math inline">\(e^{rt}\)</span> is one or, equivalently, the present value of a dollar paid at <span class="math inline">\(t\)</span> is <span class="math inline">\(e^{-rt}\)</span>.</p></li>
+<li><p>The pricing operator obeys time value of money: <span class="math inline">\(1=\sum_{j=1}^J \pi_j \mathrm{e}^{rt}\)</span>, where <span class="math inline">\(r\)</span> is the continuously compounded yield to maturity of a bond maturing at <span class="math inline">\(t\)</span>. This is the present value rule: the present value of the future value <span class="math inline">\(\mathrm{e}^{rt}\)</span> is one or, equivalently, the present value of a dollar paid at <span class="math inline">\(t\)</span> is <span class="math inline">\(\mathrm{e}^{-rt}\)</span>.</p></li>
 <li><p>The pricing operator must be consistent with observable prices. The price <span class="math inline">\(S_0\)</span> of a traded asset with random cash flows at time <span class="math inline">\(t\)</span> is given by <span class="math inline">\(S_0= \sum_{j=1}^J \pi_j S_j\)</span> where <span class="math inline">\(S_j\)</span> is the random cash flow in state <span class="math inline">\(j\)</span>.</p></li>
 </ol>
-<p>We calculated state prices in the binomial model (<span class="math inline">\(J=2\)</span> and two assets) in <a href="Chapter_Trees.html" class="quarto-xref"><span>Chapter 4</span></a>. For general finite <span class="math inline">\(J\)</span>, we need to find <span class="math inline">\(J\)</span> state prices <span class="math inline">\(\pi_1, \ldots, \pi_J\)</span>. If we have <span class="math inline">\(J\)</span> traded assets (including the risk-free asset) with linearly independent payoffs, then we can solve:</p>
+<p>We saw these principles and calculated state prices in the binomial model (<span class="math inline">\(J=2\)</span> and two assets) in <a href="Chapter_Trees.html" class="quarto-xref"><span>Chapter 4</span></a>. To calculate state prices for general finite <span class="math inline">\(J\)</span>, we need to find <span class="math inline">\(J\)</span> state prices <span class="math inline">\(\pi_1, \ldots, \pi_J\)</span>. If we have <span class="math inline">\(J\)</span> traded assets (including the risk-free asset) with linearly independent payoffs, then we can solve:</p>
 <p><span class="math display">\[\begin{bmatrix}
-e^{rt} &amp; e^{rt} &amp; \cdots &amp; e^{rt} \\
+\mathrm{e}^{rt} &amp; \mathrm{e}^{rt} &amp; \cdots &amp; \mathrm{e}^{rt} \\
 S_1^{(1)} &amp; S_2^{(1)} &amp; \cdots &amp; S_J^{(1)} \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 S_1^{(J-1)} &amp; S_2^{(J-1)} &amp; \cdots &amp; S_J^{(J-1)}
@@ -434,15 +434,20 @@ S_1^{(J-1)} &amp; S_2^{(J-1)} &amp; \cdots &amp; S_J^{(J-1)}
 <p>where <span class="math inline">\(S^{(i)}\)</span> is the current price of asset <span class="math inline">\(i\)</span> and <span class="math inline">\(S_j^{(i)}\)</span> is its payoff in state <span class="math inline">\(j\)</span>.</p>
 <p>With state prices determined, we can calculate the value <span class="math inline">\(V\)</span> of any derivative security with payoffs <span class="math inline">\(V_j\)</span> as:</p>
 <p><span class="math display">\[V = \sum_{j=1}^J \pi_j V_j\]</span></p>
-<p>The risk-neutral probabilities are defined as in <a href="Chapter_Trees.html" class="quarto-xref"><span>Chapter 4</span></a>: <span class="math inline">\(p_j = \pi_j e^{rt}\)</span>, giving</p>
-<p><span class="math display">\[V = e^{-rt} \sum_{j=1}^J p_j V_j = e^{-rt} \mathbb{E}^p[V_t]\,.\]</span></p>
-<p>We call the collection of risk-neutral probabilities <span class="math inline">\((p_1, \ldots, p_J)\)</span> the risk-neutral probability measure or, for brevity, the risk-neutral measure. We use the same terminology to describe the risk-neutral probability distribution when there is a continuum of states.</p>
-<p>Another useful representation of pricing is obtained by dividing each state price by the probability of the state. Set <span class="math inline">\(m_j = \pi_j/\text{prob}_j\)</span>, where <span class="math inline">\(\text{prob}_j\)</span> denotes the probability of state <span class="math inline">\(j\)</span> (the actual probability, not the risk-neutral probability). Then, <span class="math display">\[V = \sum_{j=1}^J \text{prob}_jm_jV_j\,.\]</span> This is the expectation (mean) of the random variable with values <span class="math inline">\(m_jV_j\)</span>. In general, we denote expectation by the symbol <span class="math inline">\(\mathbb{E}\)</span>.</p>
-<p>The random variable <span class="math inline">\(m\)</span> in the previous paragraph is called the <strong>stochastic discount factor</strong> or SDF for short. This representation of an asset value generalizes to models with a continuum of states, even though individual states have zero probability, making the division <span class="math inline">\(\pi_j/\text{prob}_j\)</span> impossible. In such models, the SDf is sometimes called a <strong>state price density</strong>, the term density having a similar meaning here as it does in the ‘probability density function’ of a random variable that one encounters in statistics.</p>
+<p>The risk-neutral probabilities are defined as in <a href="Chapter_Trees.html" class="quarto-xref"><span>Chapter 4</span></a>: <span class="math inline">\(p_j = \pi_j \mathrm{e}^{rt}\)</span>, giving</p>
+<p><span class="math display">\[
+V = \mathrm{e}^{-rt} \sum_{j=1}^J p_j V_j = \mathrm{e}^{-rt} \mathbb{E}^p[V_t]\,.
+\]</span> {#arbpricing-rnp0}</p>
+<p>We call the collection of risk-neutral probabilities <span class="math inline">\((p_1, \ldots, p_J)\)</span> the risk-neutral probability measure or, for brevity, the risk-neutral measure. We also use the term ‘risk-neutral measure’ to describe the risk-neutral probability distribution when there is a continuum of states.</p>
+<p>Another useful representation of pricing in a finite-state world is obtained by dividing each state price by the probability of the state. Set <span class="math inline">\(m_j = \pi_j/\text{prob}_j\)</span>, where <span class="math inline">\(\text{prob}_j\)</span> denotes the probability of state <span class="math inline">\(j\)</span> (the actual probability, not the risk-neutral probability). Then, <span id="eq-arbpricing-sdf0"><span class="math display">\[
+V = \sum_{j=1}^J \text{prob}_jm_jV_j\,.
+\qquad(8.1)\]</span></span> This is the expectation (mean) of the random variable with values <span class="math inline">\(m_jV_j\)</span>. In general, we denote expectation by the symbol <span class="math inline">\(\mathbb{E}\)</span>.</p>
+<p>The random variable <span class="math inline">\(m\)</span> in the previous paragraph is called the <strong>stochastic discount factor</strong> or SDF for short.</p>
 </section>
-<section id="continuous-time" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="continuous-time"><span class="header-section-number">8.3</span> Continuous Time</h2>
-<p>We now extend to continuous-time models where the stock price can take a continuum of values. The principle becomes:</p>
+<section id="continuum-of-states" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="continuum-of-states"><span class="header-section-number">8.3</span> Continuum of States</h2>
+<p>We now extend to models where the stock price can take a continuum of values. The formulas for an asset value in the finite-state model generalize to models with a continuum of states. We begin with the formula in terms of an SDF.</p>
+<p>The SDF formula <a href="#eq-arbpricing-sdf0" class="quarto-xref">Equation&nbsp;<span>8.1</span></a> generalizes to models with a continuum of states, even though individual states have zero probability, making the division <span class="math inline">\(\pi_j/\text{prob}_j\)</span> impossible. In such models, the SDf is sometimes called a <strong>state price density</strong>, the term density having a similar meaning here as it does in the ‘probability density function’ of a random variable that one encounters in statistics. The fundamental principle that underlies option valuation is:</p>
 <div class="callout callout-style-simple callout-Principle callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -454,22 +459,28 @@ Important Principle
 </div>
 <div class="callout-body-container callout-body">
 <p>If there are no arbitrage opportunities,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> then there exists for each date <span class="math inline">\(t\)</span> a strictly positive random variable <span class="math inline">\(m_t\)</span>, called a stochastic discount factor, such that the date-0 value of any dividend-reinvested asset with price <span class="math inline">\(P\)</span> is:</p>
-<p><span class="math display">\[P_0 = \mathbb{E}[m_t P_t]\]</span></p>
+<p><span id="eq-arbpricing-sdf1"><span class="math display">\[
+P_0 = \mathbb{E}[m_t P_t]\,.
+\qquad(8.2)\]</span></span></p>
 </div>
 </div>
-<p>We can construct the risk-neutral probability measure from the SDF <span class="math inline">\(m\)</span>. First, note that the pricing formula applied to the risk-free asset gives:</p>
-<p><span class="math display">\[1 = \mathbb{E}[m_t e^{rt}]\]</span></p>
-<p>This means <span class="math inline">\(m_t e^{rt}\)</span> has expectation 1. We can define a new probability measure by:</p>
-<p><span class="math display">\[\mathbb{E}^R[Z] = \mathbb{E}[m_t e^{rt} Z]\]</span></p>
-<p>for any random variable <span class="math inline">\(Z\)</span>. Under this risk-neutral measure:</p>
-<p><span class="math display">\[P_0 = e^{-rt} \mathbb{E}^R[P_t]\]</span></p>
+<p>From <a href="#eq-arbpricing-sdf1" class="quarto-xref">Equation&nbsp;<span>8.2</span></a>, we can construct a risk-neutral measure and apply ‘risk-neutral pricing’ as in <span class="quarto-unresolved-ref">?eq-arbpricing-rnp0</span>. First, note that the pricing formula <a href="#eq-arbpricing-sdf1" class="quarto-xref">Equation&nbsp;<span>8.2</span></a> applied to the risk-free asset gives:</p>
+<p><span id="eq-arbpricing-mean1"><span class="math display">\[
+1 = \mathbb{E}[m_t \mathrm{e}^{rt}]\,.
+\qquad(8.3)\]</span></span></p>
+<p>This means that <span class="math inline">\(m_t \mathrm{e}^{rt}\)</span> has expectation 1. We can define a new probability measure by:</p>
+<p><span class="math display">\[\mathbb{E}^R[Z] = \mathbb{E}[m_t \mathrm{e}^{rt} Z]\]</span></p>
+<p>for any random variable <span class="math inline">\(Z\)</span>. Because <span class="math inline">\(\mathbb{E}[m_t\mathrm{e}^{rt}]=1\)</span>, ^R[1]=1$, which is required for a probability measure. Under this probability measure:</p>
+<p><span class="math display">\[
+P_0 = \mathrm{e}^{-rt} \mathbb{E}^R[P_t]\,.
+\]</span> {#eq-}</p>
 </section>
 <section id="martingale-pricing" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="martingale-pricing"><span class="header-section-number">8.4</span> Martingale Pricing</h2>
 <p>A martingale is a stochastic process for which the expected value of tomorrow’s value is today’s value. In our framework, discounted values of non-dividend paying trading strategies are martingales under the risk-neutral measure.</p>
 <p>If <span class="math inline">\(X(0)\)</span> is today’s value of a portfolio with random payoff <span class="math inline">\(X\)</span> at time <span class="math inline">\(t\)</span>:</p>
-<p><span class="math display">\[\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{e^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]\]</span></p>
-<p>where <span class="math inline">\(R(0) = 1\)</span> and <span class="math inline">\(R_t = e^{rt}\)</span>. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.</p>
+<p><span class="math display">\[\frac{X(0)}{R(0)} = \sum_{s=1}^S p_s \frac{X_s}{\mathrm{e}^{rt}} = \mathbb{E}^R\left[\frac{X}{R_t}\right]\]</span></p>
+<p>where <span class="math inline">\(R(0) = 1\)</span> and <span class="math inline">\(R_t = \mathrm{e}^{rt}\)</span>. The ratio of any asset price to the risk-free asset price is a martingale under the risk-neutral measure.</p>
 </section>
 <section id="change-of-numeraire" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="change-of-numeraire"><span class="header-section-number">8.5</span> Change of Numeraire</h2>
@@ -499,7 +510,7 @@ Important Principle
 </div>
 <p>This is the fundamental pricing formula. The value at time <span class="math inline">\(s\)</span> of asset <span class="math inline">\(Y\)</span> is the expectation, under the appropriate probability measure, of its value <span class="math inline">\(Y_t\)</span> at time <span class="math inline">\(t\)</span> discounted by the factor <span class="math inline">\(P_s/P_t\)</span>.</p>
 <p>When <span class="math inline">\(P\)</span> is the risk-free asset:</p>
-<p><span class="math display">\[Y_s = e^{-r(t-s)} \mathbb{E}^R_s[Y_t]\]</span></p>
+<p><span class="math display">\[Y_s = \mathrm{e}^{-r(t-s)} \mathbb{E}^R_s[Y_t]\]</span></p>
 </section>
 <section id="changing-probability-measures" class="level4">
 <h4 class="anchored" data-anchor-id="changing-probability-measures">Changing Probability Measures</h4>
@@ -578,7 +589,7 @@ Important Principle
 <section id="linear-pricing-and-state-prices" class="level4">
 <h4 class="anchored" data-anchor-id="linear-pricing-and-state-prices">Linear Pricing and State Prices</h4>
 <div id="exr-linear-pricing" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.1</strong></span> Consider a market with 3 possible states at time <span class="math inline">\(T = 1\)</span>. There are two traded assets: - Risk-free bond: pays <span class="math inline">\(e^{0.05}\)</span> in all states<br>
+<p><span class="theorem-title"><strong>Exercise 8.1</strong></span> Consider a market with 3 possible states at time <span class="math inline">\(T = 1\)</span>. There are two traded assets: - Risk-free bond: pays <span class="math inline">\(\mathrm{e}^{0.05}\)</span> in all states<br>
 - Risky asset: pays <span class="math inline">\((10, 15, 5)\)</span> in states <span class="math inline">\((1, 2, 3)\)</span> respectively, currently priced at <span class="math inline">\(S_0 = 9\)</span></p>
 <ol type="a">
 <li>Set up the system of equations to find state prices <span class="math inline">\((\pi_1, \pi_2, \pi_3)\)</span></li>
@@ -594,7 +605,7 @@ Important Principle
 <div id="exr-no-arbitrage-conditions" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.3</strong></span> Consider a two-period binomial model where the stock can go from <span class="math inline">\(S_0 = 100\)</span> to either <span class="math inline">\(S_u = 120\)</span> or <span class="math inline">\(S_d = 80\)</span> in the first period, with risk-free rate <span class="math inline">\(r = 5\%\)</span> per period.</p>
 <ol type="a">
-<li>Find the no-arbitrage bounds: show that <span class="math inline">\(S_d &lt; S_0 e^r &lt; S_u\)</span> must hold</li>
+<li>Find the no-arbitrage bounds: show that <span class="math inline">\(S_d &lt; S_0 \mathrm{e}^r &lt; S_u\)</span> must hold</li>
 <li>Calculate the risk-neutral probability <span class="math inline">\(p\)</span> for the up move</li>
 <li>If the stock goes to <span class="math inline">\(S_u = 120\)</span> in the first period, it can go to <span class="math inline">\(S_{uu} = 144\)</span> or <span class="math inline">\(S_{ud} = 96\)</span> in the second period. If the stock goes to <span class="math inline">\(S_d = 80\)</span>, it can go to <span class="math inline">\(S_{du} = 96\)</span> or <span class="math inline">\(S_{dd} = 64\)</span>. Verify that the tree recombines (<span class="math inline">\(S_{ud} = S_{du}\)</span>)</li>
 <li>Calculate the state prices for all four final states: <span class="math inline">\((\pi_{uu}, \pi_{ud}, \pi_{du}, \pi_{dd})\)</span></li>
@@ -604,14 +615,14 @@ Important Principle
 <section id="risk-neutral-measures-and-martingales" class="level4">
 <h4 class="anchored" data-anchor-id="risk-neutral-measures-and-martingales">Risk-Neutral Measures and Martingales</h4>
 <div id="exr-martingale-property" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.4</strong></span> In the Black-Scholes model with constant dividend yield <span class="math inline">\(q\)</span>, show that: a) <span class="math inline">\(e^{-qt}S_t\)</span> is a martingale under the risk-neutral measure b) <span class="math inline">\(S_t/R_t\)</span> is a martingale under the risk-neutral measure, where <span class="math inline">\(R_t = e^{rt}\)</span> c) If <span class="math inline">\(V_t\)</span> is the value of any derivative, then <span class="math inline">\(e^{-rt}V_t\)</span> is a martingale under the risk-neutral measure</p>
+<p><span class="theorem-title"><strong>Exercise 8.4</strong></span> In the Black-Scholes model with constant dividend yield <span class="math inline">\(q\)</span>, show that: a) <span class="math inline">\(\mathrm{e}^{-qt}S_t\)</span> is a martingale under the risk-neutral measure b) <span class="math inline">\(S_t/R_t\)</span> is a martingale under the risk-neutral measure, where <span class="math inline">\(R_t = \mathrm{e}^{rt}\)</span> c) If <span class="math inline">\(V_t\)</span> is the value of any derivative, then <span class="math inline">\(\mathrm{e}^{-rt}V_t\)</span> is a martingale under the risk-neutral measure</p>
 </div>
 <div id="exr-risk-neutral-simulation" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.5</strong></span> Use simulation to verify the martingale property in a simple setting. Generate 10,000 paths of geometric Brownian motion under the risk-neutral measure: <span class="math display">\[\frac{dS}{S} = (r-q) dt + \sigma dB^R\]</span></p>
 <p>With parameters <span class="math inline">\(S_0 = 100\)</span>, <span class="math inline">\(r = 5\%\)</span>, <span class="math inline">\(q = 2\%\)</span>, <span class="math inline">\(\sigma = 20\%\)</span>, and <span class="math inline">\(T = 1\)</span>:</p>
 <ol type="a">
-<li>Verify that <span class="math inline">\(\mathbb{E}^R[S_T e^{-qT}] \approx S_0\)</span> (martingale property)</li>
-<li>Verify that <span class="math inline">\(\mathbb{E}^R[e^{-rT}S_T] \approx S_0 e^{-qT}\)</span> (discounted expectation)</li>
+<li>Verify that <span class="math inline">\(\mathbb{E}^R[S_T \mathrm{e}^{-qT}] \approx S_0\)</span> (martingale property)</li>
+<li>Verify that <span class="math inline">\(\mathbb{E}^R[\mathrm{e}^{-rT}S_T] \approx S_0 \mathrm{e}^{-qT}\)</span> (discounted expectation)</li>
 <li>Calculate the sample variance of both expressions and comment on the simulation error</li>
 </ol>
 </div>
@@ -620,7 +631,7 @@ Important Principle
 <h4 class="anchored" data-anchor-id="change-of-numeraire-1">Change of Numeraire</h4>
 <div id="exr-numeraire-digital" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.6</strong></span> Use simulation to verify the change of numeraire for digital options. Consider a digital option that pays <span class="math inline">\(1\)</span> if <span class="math inline">\(S_T \geq K\)</span> with <span class="math inline">\(S_0 = 100\)</span>, <span class="math inline">\(K = 105\)</span>, <span class="math inline">\(r = 5\%\)</span>, <span class="math inline">\(q = 2\%\)</span>, <span class="math inline">\(\sigma = 20\%\)</span>, <span class="math inline">\(T = 0.5\)</span>.</p>
-<p>Price this option using two methods: a) Risk-neutral measure: <span class="math inline">\(\mathbb{E}^R[e^{-rT} \mathbf{1}_{\{S_T \geq K\}}]\)</span> b) Stock numeraire: <span class="math inline">\(S_0 \mathbb{E}^S[\frac{1}{S_T} \mathbf{1}_{\{S_T \geq K\}}]\)</span></p>
+<p>Price this option using two methods: a) Risk-neutral measure: <span class="math inline">\(\mathbb{E}^R[\mathrm{e}^{-rT} \mathbf{1}_{\{S_T \geq K\}}]\)</span> b) Stock numeraire: <span class="math inline">\(S_0 \mathbb{E}^S[\frac{1}{S_T} \mathbf{1}_{\{S_T \geq K\}}]\)</span></p>
 <p>Under the stock numeraire, the stock follows: <span class="math display">\[\frac{dS}{S} = (r-q+\sigma^2) dt + \sigma dB^S\]</span></p>
 <p>Verify that both methods give the same price up to simulation error.</p>
 </div>
@@ -653,7 +664,7 @@ Important Principle
 </ol>
 </div>
 <div id="exr-stochastic-discount-factor" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.10</strong></span> In a single-period model with stochastic discount factor <span class="math inline">\(m\)</span>: a) Show that if there are no arbitrage opportunities, then <span class="math inline">\(\mathbb{E}[m] &gt; 0\)</span> and the law of one price holds b) Prove that <span class="math inline">\(\mathbb{E}[mR] = 1\)</span> where <span class="math inline">\(R = e^{rT}\)</span> is the gross risk-free return c) Show that the risk-neutral probabilities are given by <span class="math inline">\(p_j = \frac{m_j \cdot \text{prob}_j}{\mathbb{E}[m]}\)</span> where <span class="math inline">\(\text{prob}_j\)</span> is the actual probability of state <span class="math inline">\(j\)</span> d) Verify that under the risk-neutral measure, all assets have expected return equal to the risk-free rate</p>
+<p><span class="theorem-title"><strong>Exercise 8.10</strong></span> In a single-period model with stochastic discount factor <span class="math inline">\(m\)</span>: a) Show that if there are no arbitrage opportunities, then <span class="math inline">\(\mathbb{E}[m] &gt; 0\)</span> and the law of one price holds b) Prove that <span class="math inline">\(\mathbb{E}[mR] = 1\)</span> where <span class="math inline">\(R = \mathrm{e}^{rT}\)</span> is the gross risk-free return c) Show that the risk-neutral probabilities are given by <span class="math inline">\(p_j = \frac{m_j \cdot \text{prob}_j}{\mathbb{E}[m]}\)</span> where <span class="math inline">\(\text{prob}_j\)</span> is the actual probability of state <span class="math inline">\(j\)</span> d) Verify that under the risk-neutral measure, all assets have expected return equal to the risk-free rate</p>
 </div>
 </section>
 <section id="advanced-applications" class="level4">
@@ -671,7 +682,7 @@ Important Principle
 <div id="exr-multi-asset-rainbow" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.12</strong></span> Consider a “rainbow option” that pays <span class="math inline">\(\max(S_T^{(1)}, S_T^{(2)}, K)\)</span> where <span class="math inline">\(S^{(1)}\)</span> and <span class="math inline">\(S^{(2)}\)</span> are two correlated stocks.</p>
 <ol type="a">
-<li>Using the fundamental pricing formula, show that this can be priced as <span class="math inline">\(\mathbb{E}^R[e^{-rT}\max(S_T^{(1)}, S_T^{(2)}, K)]\)</span></li>
+<li>Using the fundamental pricing formula, show that this can be priced as <span class="math inline">\(\mathbb{E}^R[\mathrm{e}^{-rT}\max(S_T^{(1)}, S_T^{(2)}, K)]\)</span></li>
 <li>Explain why you cannot easily use a single asset as numeraire for this payoff</li>
 <li>Set up a Monte Carlo simulation to price this option with realistic parameters</li>
 <li>Compare the rainbow option price to the sum of two individual call options minus a call on the minimum of the two stocks</li>
